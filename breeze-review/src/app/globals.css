@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --breeze-sky: #62cfee;
+  --breeze-cyan: #0aaced;
+  --breeze-action: #04b3f7;
+  --breeze-mid: #1ea5cf;
+  --breeze-deep: #0e688e;
+  --breeze-navy: #0d2242;
+  --breeze-navy-text: #0b4d70;
+  --breeze-footer-top: #074372;
+  --breeze-footer-bottom: #00203c;
+  --bg: #ffffff;
+  --bg-soft: #f7f9fb;
+
+  /* Exact brand gradient: progress bar and decorative use. */
+  --gradient-brand: linear-gradient(135deg, #62cfee 0%, #1ea5cf 45%, #074372 100%);
+  /* Same hues, started darker so white text on the results hero meets AA. */
+  --gradient-brand-text: linear-gradient(135deg, #0e688e 0%, #0b5a85 40%, #074372 100%);
+  /* CTA: light end of the brand gradient, paired with navy label text. */
+  --gradient-cta: linear-gradient(135deg, #62cfee 0%, #1ea5cf 100%);
+  --gradient-footer: linear-gradient(180deg, #074372 0%, #00203c 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--bg);
+  color: var(--breeze-navy);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+:focus-visible {
+  outline: 3px solid var(--breeze-deep);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-xs font-semibold uppercase text-breeze-navy-text;
+    letter-spacing: 0.2em;
+  }
+  .btn-primary {
+    @apply inline-flex min-h-[52px] items-center justify-center gap-2 rounded-pill bg-brand-gradient-cta px-7 text-base font-semibold text-breeze-navy shadow-card transition hover:brightness-95 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-pill border-2 border-breeze-deep bg-white px-6 text-base font-semibold text-breeze-deep transition hover:bg-soft;
+  }
+  .btn-ghost {
+    @apply inline-flex min-h-[44px] items-center gap-1 rounded-pill px-4 text-sm font-semibold text-breeze-navy-text hover:bg-soft;
+  }
+  .card {
+    @apply rounded-3xl bg-white p-6 shadow-card sm:p-8;
+  }
+  .input {
+    @apply w-full rounded-2xl border-2 border-slate-200 bg-white px-4 py-3.5 text-lg text-breeze-navy placeholder:text-slate-400 focus:border-breeze-deep focus:outline-none;
+  }
+  .choice {
+    @apply flex min-h-[56px] w-full items-center rounded-2xl border-2 border-slate-200 bg-white px-5 py-3 text-left text-base font-medium text-breeze-navy transition hover:border-breeze-mid;
+  }
+  .choice[aria-checked="true"] {
+    @apply border-breeze-deep bg-soft;
+  }
+}
