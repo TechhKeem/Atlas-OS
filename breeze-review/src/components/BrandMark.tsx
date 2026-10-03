@@ -13,7 +13,7 @@ export default function BrandMark() {
         </span>
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src="/brand/bfg-monogram.png" alt="" className="h-9 w-auto" onError={() => setFailed(true)} />
+        <img src="/brand/bfg-monogram.png" alt="" className="h-10 w-auto" onError={() => setFailed(true)} />
       )}
       <span className="leading-tight">
         <span className="block font-display text-base font-extrabold tracking-tight text-breeze-navy">{site.productName}</span>

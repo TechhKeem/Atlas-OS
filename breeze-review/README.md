@@ -3,7 +3,7 @@
 AI-powered life insurance policy review and lead-generation funnel for Breeze Financial Group (BFG).
 Goal of the app: a booked call with a BFG agent. Next.js (App Router) + TypeScript + Tailwind, Supabase (Postgres + private Storage), Claude API, Calendly, Netlify.
 
-> **Compliance review required before public launch.** TCPA consent language, state insurance advertising rules, privacy law (e.g. CCPA) and the Privacy Policy / Terms (currently placeholders at `/privacy` and `/terms`) must be reviewed by BFG compliance/legal. Set `NEXT_PUBLIC_SERVED_STATES` and `NEXT_PUBLIC_LICENSING_DISCLOSURE`.
+> **Compliance review required before public launch.** TCPA consent language, state insurance advertising rules, privacy law (e.g. CCPA) and the Privacy Policy / Terms (full drafts at `/privacy` and `/terms`, with [bracketed] gaps to fill) must be reviewed by BFG compliance/legal. Set `NEXT_PUBLIC_SERVED_STATES` and `NEXT_PUBLIC_LICENSING_DISCLOSURE`.
 
 ## Flow
 
@@ -26,7 +26,7 @@ npm run fixtures                # regenerate synthetic sample policy PDFs in fix
 2. **Anthropic**: set `ANTHROPIC_API_KEY`. Model defaults to `claude-sonnet-5-5` (`ANTHROPIC_MODEL`).
 3. **Calendly**: set `NEXT_PUBLIC_CALENDLY_URL` to the round-robin event type. The widget passes the lead id as `utm_content` and prefills name/email. To prefill phone, make **question 1** on the event type a phone field. Create a webhook subscription (`invitee.created`, `invitee.canceled`) pointing to `https://<site>/api/calendly-webhook` and put its signing key in `CALENDLY_WEBHOOK_SIGNING_KEY`.
 4. **Google Sheets** (optional mirror): create a service account, share the sheet with its email as Editor, set the three `GOOGLE_*` vars. Columns: created_at, name, phone, email, state, path, depth, headline, score, source, booking status at completion, lead id. Failed writes are retried by the cron route. Booking status in the sheet is a snapshot at completion; Postgres is authoritative.
-5. **Brand assets**: add `bfg-monogram.png` (and the Breeze wordmark) to `public/brand/`. A text mark shows until then.
+5. **Brand assets**: in `public/brand/`. `bfg-monogram.png` (BFG initials) is used in the header; the Breeze wordmark and on-blue versions are included for later use. The header falls back to a text mark if the file is missing.
 
 ## Deploy on Netlify
 
