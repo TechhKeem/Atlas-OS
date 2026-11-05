@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>S.M.O.O.T.H. Inc. | Strong Men Overcoming Obstacles Through Hard-work</title>
+<meta name="description" content="Strong Men Overcoming Obstacles Through Hard-work Inc. is a 501(c)(3) nonprofit offering mentoring, leadership, and life skills for young men of color since 2009, with sections at Morgan State, Coppin State, and Temple.">
+<link rel="canonical" href="https://smooth2009.org/">
+<meta name="theme-color" content="#0f2346">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="S.M.O.O.T.H. Inc.">
+<meta property="og:title" content="S.M.O.O.T.H. Inc. | Strong Men Overcoming Obstacles Through Hard-work">
+<meta property="og:description" content="Mentoring, leadership, and service for young men of color since 2009. Sections at Morgan State, Coppin State, and Temple.">
+<meta property="og:url" content="https://smooth2009.org/">
+<meta property="og:image" content="https://smooth2009.org/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="S.M.O.O.T.H. Inc.: Strong Men Overcoming Obstacles Through Hard-work. Est. 2009.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="images/logo.png">
+<meta name="claude:viewport-fit-sides" content="cover">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "@id": "https://smooth2009.org/#org",
+  "name": "Strong Men Overcoming Obstacles Through Hard-work Inc.",
+  "alternateName": ["S.M.O.O.T.H. Inc.", "SMOOTH Inc."],
+  "url": "https://smooth2009.org/",
+  "logo": "https://smooth2009.org/images/logo.png",
+  "image": "https://smooth2009.org/images/og-image.png",
+  "email": "Info@smooth2009.org",
+  "slogan": "In Every Obstacle Lies Equal Opportunity.",
+  "description": "A 501(c)(3) nonprofit that educates, develops, organizes, and empowers young men and marginalized youth of color to improve their graduation and retention rates.",
+  "foundingDate": "2009-10-28",
+  "foundingLocation": {"@type": "Place", "name": "Morgan State University, Baltimore, MD"},
+  "founder": [
+    {"@type": "Person", "name": "Dwight D. Flowers"},
+    {"@type": "Person", "name": "DaQuan M. Lawrence"},
+    {"@type": "Person", "name": "Hakeem T. Hooker"},
+    {"@type": "Person", "name": "Frederick D. Watkins Jr."}
+  ],
+  "nonprofitStatus": "Nonprofit501c3",
+  "areaServed": [
+    {"@type": "City", "name": "Baltimore, MD"},
+    {"@type": "City", "name": "Philadelphia, PA"}
+  ],
+  "subOrganization": [
+    {"@type": "Organization", "name": "S.M.O.O.T.H. Inc., Morgan State University Section", "foundingDate": "2009-10-28", "location": "Baltimore, MD"},
+    {"@type": "Organization", "name": "S.M.O.O.T.H. Inc., Temple University Section", "foundingDate": "2016-01-16", "location": "Philadelphia, PA"},
+    {"@type": "Organization", "name": "S.M.O.O.T.H. Inc., Coppin State University Section", "foundingDate": "2016-12-12", "location": "Baltimore, MD"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Palette: white + navy, one highlight (--accent / --band-accent) to swap for the brand color.
+   Layout: dark charter-band hero with the acronym spelled out, then alternating light/dark bands; a 1120px column, stacking to one column on phones. */
+:root{
+  --ground:#ffffff; --panel:#f2f4f8; --ink:#0f1d33; --muted:#526075; --line:#d9dee7;
+  --accent:#8c5f10; --on-accent:#0f1d33; --field-line:#7d889b;
+  --band:#0f2346; --band-2:#16305c; --on-band:#ffffff; --on-band-muted:#b8c3d7; --band-accent:#e0ae4e;
+  --band-hair:#ffffff14; --band-rule:#ffffff24; --band-control:#ffffff40;
+  --ok:#2f6b3a; --err:#a3242f;
+  --f-display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --f-body:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --col:1120px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0b1426; --panel:#111d34; --ink:#e9edf4; --muted:#9fabc0; --line:#24314b;
+  --accent:#e0ae4e; --on-accent:#0f1d33; --field-line:#5d6c88;
+  --band:#071021; --band-2:#0f1d36; --on-band:#ffffff; --on-band-muted:#a9b5cb; --band-accent:#e6b65a;
+  --ok:#6fbf7d; --err:#ee7f88; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0b1426; --panel:#111d34; --ink:#e9edf4; --muted:#9fabc0; --line:#24314b;
+  --accent:#e0ae4e; --on-accent:#0f1d33; --field-line:#5d6c88;
+  --band:#071021; --band-2:#0f1d36; --on-band:#ffffff; --on-band-muted:#a9b5cb; --band-accent:#e6b65a;
+  --ok:#6fbf7d; --err:#ee7f88; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--ground);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--band)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1.02;text-wrap:balance;margin:0;letter-spacing:.005em;text-transform:uppercase}
+h2{font-size:clamp(2.2rem,5vw,3.4rem)}
+h3{font-size:1.55rem}
+p{margin:0}
+.wrap{max-width:var(--col);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.band{padding-block:clamp(56px,9vw,104px)}
+.band.dark{background:var(--band);color:var(--on-band)}
+.band.alt{background:var(--panel)}
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.dark .eyebrow,.hero .eyebrow{color:var(--band-accent)}
+.lede{font-size:1.15rem;max-width:62ch;color:var(--muted)}
+.dark .lede{color:var(--on-band-muted)}
+.stack{display:grid;gap:18px}
+.head{display:grid;gap:14px;margin-bottom:44px;max-width:760px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.dark :focus-visible,.site-head :focus-visible,.hero :focus-visible,.site-foot :focus-visible{outline-color:var(--band-accent)}
+[id]{scroll-margin-top:84px}
+.skip{position:absolute;left:12px;top:-60px;z-index:30;background:var(--band-accent);color:var(--on-accent);font-weight:700;padding:10px 16px;border-radius:4px;text-decoration:none}
+.skip:focus{top:12px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--band);color:var(--on-band);border-bottom:1px solid var(--band-hair)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:34px;height:36px;object-fit:contain}
+.brand-word{font-family:var(--f-display);font-weight:900;font-size:1.45rem;letter-spacing:.06em}
+.brand-word span{color:var(--band-accent)}
+.nav{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.nav a{text-decoration:none;font-size:.88rem;font-weight:600;padding:8px 10px;border-radius:4px;color:var(--on-band-muted)}
+.nav a:hover{color:var(--on-band)}
+.nav a.cta{background:var(--band-accent);color:var(--on-accent);margin-left:6px}
+.nav a.cta:hover{filter:brightness(1.08)}
+.menu-btn{display:none;background:none;border:1px solid var(--band-control);color:var(--on-band);font:600 .85rem var(--f-body);padding:8px 12px;border-radius:4px;cursor:pointer}
+@media (max-width:880px){
+  .menu-btn{display:block}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--band);flex-direction:column;align-items:stretch;padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--band-hair)}
+  .nav.open{display:flex}
+  .nav a{padding:12px 8px}
+  .nav a.cta{margin:8px 0 0;text-align:center}
+}
+
+/* Hero */
+.hero{background:var(--band);color:var(--on-band);padding-block:clamp(48px,8vw,96px) clamp(40px,6vw,72px);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -10% -40% auto;width:60vw;height:60vw;max-width:720px;max-height:720px;border:1px solid color-mix(in srgb,var(--band-accent) 14%,transparent);border-radius:50%;pointer-events:none}
+.hero .wrap{display:grid;gap:28px;position:relative;z-index:1}
+.acro{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(2.6rem,8.4vw,6.2rem);line-height:.92;letter-spacing:.005em;margin:0}
+.acro span{display:block}
+.acro b{color:var(--band-accent);font-weight:900}
+.motto{font-family:var(--f-body);font-style:italic;font-size:clamp(1.15rem,2.4vw,1.45rem);color:var(--on-band);max-width:40ch;border-left:3px solid var(--band-accent);padding-left:16px}
+.hero-sub{color:var(--on-band-muted);max-width:58ch;font-size:1.08rem}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 .95rem var(--f-body);padding:13px 22px;border-radius:4px;text-decoration:none;border:2px solid transparent;cursor:pointer;letter-spacing:.01em}
+.btn.accent{background:var(--band-accent);color:var(--on-accent)}
+.btn.accent:hover{filter:brightness(1.08)}
+.btn.ghost{border-color:var(--band-control);color:var(--on-band);background:transparent}
+.btn.ghost:hover{border-color:var(--on-band)}
+.btn.solid{background:var(--ink);color:var(--ground)}
+.btn.solid:hover{opacity:.9}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--band-rule);margin-top:20px}
+.facts div{padding:18px 16px 4px 0;display:grid;gap:2px}
+.facts strong{font-family:var(--f-display);font-weight:800;font-size:2.4rem;color:var(--on-band);line-height:1;font-variant-numeric:tabular-nums}
+.facts span{font-size:.85rem;color:var(--on-band-muted)}
+@media (max-width:640px){.facts{grid-template-columns:repeat(2,1fr)}}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.about-grid > *{min-width:0}
+.prose{display:grid;gap:16px;max-width:64ch}
+.prose p{color:var(--ink)}
+.mv{display:grid;gap:22px}
+.mv-item{border-top:2px solid var(--ink);padding-top:14px;display:grid;gap:8px}
+.mv-item h3{font-size:1.3rem}
+.mv-item p{color:var(--muted);font-size:.98rem}
+.objectives{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.objectives li{padding-left:22px;position:relative;color:var(--muted);font-size:.98rem}
+.objectives li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:var(--accent)}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:40px}}
+
+/* Timeline */
+.timeline{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);border-top:2px solid var(--ink)}
+.timeline li{padding:18px 18px 0 0;position:relative;display:grid;gap:6px;align-content:start}
+.timeline li::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.t-date{font-family:var(--f-mono);font-size:.8rem;color:var(--accent);font-weight:500;letter-spacing:.04em}
+.t-what{font-weight:700;font-size:1rem;line-height:1.3}
+.t-note{font-size:.88rem;color:var(--muted)}
+@media (max-width:860px){.timeline{grid-template-columns:1fr;border-top:0;border-left:2px solid var(--ink);margin-left:6px}
+  .timeline li{padding:0 0 26px 24px}.timeline li::before{top:4px;left:-7px}}
+
+/* Programs */
+.programs{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--band-rule);border:1px solid var(--band-rule)}
+.program{background:var(--band);padding:32px 28px;display:grid;gap:12px;align-content:start}
+.program .tag{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--band-accent)}
+.program h3{font-size:1.75rem;color:var(--on-band)}
+.program p{color:var(--on-band-muted)}
+.initiatives{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 32px;margin-top:56px}
+.init{display:grid;gap:4px;border-top:1px solid var(--band-rule);padding-top:14px}
+.init strong{font-weight:700;color:var(--on-band)}
+.init span{color:var(--on-band-muted);font-size:.93rem}
+@media (max-width:760px){.programs{grid-template-columns:1fr}.initiatives{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.initiatives{grid-template-columns:1fr}}
+
+/* Sections (chapters) */
+.chapters{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.chapter{background:var(--ground);border:1px solid var(--line);display:grid;grid-template-rows:auto 1fr}
+.chapter figure{margin:0;aspect-ratio:4/3;background:var(--band-2);position:relative;overflow:hidden;max-width:100%}
+.chapter figure img{width:100%;height:100%;object-fit:cover;display:block}
+.chapter figure .mono{position:absolute;inset:0;display:none;place-items:center;font-family:var(--f-display);font-weight:900;font-size:4.5rem;color:var(--band-accent);letter-spacing:.04em}
+.noimg img{display:none}
+.noimg .mono{display:grid!important}
+.chapter-body{padding:22px 22px 24px;display:grid;gap:14px;align-content:start}
+.chapter-body h3{font-size:1.6rem}
+.chapter dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.92rem}
+.chapter dt{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding-top:3px}
+.chapter dd{margin:0;font-variant-numeric:tabular-nums}
+.chapter .contact-link{font-weight:600;font-size:.92rem;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;justify-self:start}
+.start-section{margin-top:32px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:24px}
+.start-section p{color:var(--muted);max-width:60ch}
+@media (max-width:860px){.chapters{grid-template-columns:1fr}.chapter{grid-template-columns:minmax(0,200px) 1fr;grid-template-rows:auto}.chapter figure{aspect-ratio:auto;min-height:100%}}
+@media (max-width:520px){.chapter{grid-template-columns:1fr}.chapter figure{aspect-ratio:16/9}}
+
+/* Founders */
+.founders{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 48px}
+.founder{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:start}
+.founder > *{min-width:0}
+.founder figure{margin:0;width:120px;aspect-ratio:1;background:var(--panel);border:1px solid var(--line);position:relative;overflow:hidden}
+.founder figure img{width:100%;height:100%;object-fit:cover;display:block}
+.founder figure .mono{position:absolute;inset:0;display:none;place-items:center;font-family:var(--f-display);font-weight:800;font-size:2.4rem;color:var(--accent)}
+.founder h3{font-size:1.45rem}
+.founder .role{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:4px 0 10px}
+.founder p{color:var(--muted);font-size:.96rem}
+@media (max-width:860px){.founders{grid-template-columns:1fr}}
+@media (max-width:440px){.founder{grid-template-columns:1fr}.founder figure{width:96px}}
+
+/* Get involved */
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:56px}
+.way{border-top:2px solid var(--ink);padding-top:16px;display:grid;gap:8px;align-content:start}
+.way h3{font-size:1.35rem}
+.way p{color:var(--muted);font-size:.96rem}
+@media (max-width:760px){.ways{grid-template-columns:1fr}}
+
+.forms{background:var(--ground);border:1px solid var(--line);display:grid;grid-template-columns:260px 1fr}
+.forms > *{min-width:0}
+.tabs{display:grid;align-content:start;border-right:1px solid var(--line);background:var(--panel)}
+.tab{all:unset;cursor:pointer;padding:18px 20px;border-bottom:1px solid var(--line);display:grid;gap:2px}
+.tab strong{font-weight:700;font-size:.98rem}
+.tab span{font-size:.82rem;color:var(--muted)}
+.tab[aria-selected="true"]{background:var(--ground);box-shadow:inset 4px 0 0 var(--accent)}
+.tab:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.panel{padding:32px clamp(18px,4vw,40px) 36px}
+.panel h3{font-size:1.7rem;margin-bottom:6px}
+.panel > p{color:var(--muted);margin-bottom:24px;max-width:60ch}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.field{display:grid;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:.85rem;font-weight:600}
+label .opt{font-weight:400;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--ground);border:1px solid var(--field-line);border-radius:4px;padding:11px 12px;width:100%;min-width:0}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:var(--accent)}
+fieldset.field{border:0;padding:0;margin:0}
+legend{font-size:.85rem;font-weight:600;padding:0;margin-bottom:6px}
+.checks{display:flex;flex-wrap:wrap;gap:10px 18px}
+.checks label{font-weight:500;display:flex;gap:8px;align-items:center}
+.checks input{width:auto}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.status{font-size:.92rem;font-weight:600}
+.status.ok{color:var(--ok)}
+.status.err{color:var(--err)}
+.fine{grid-column:1/-1;font-size:.8rem;color:var(--muted)}
+@media (max-width:760px){.forms{grid-template-columns:1fr}.tabs{grid-template-columns:1fr 1fr;border-right:0;border-bottom:1px solid var(--line)}
+  .tab{border-right:1px solid var(--line);padding:14px 14px}.tab span{display:none}
+  .tab[aria-selected="true"]{box-shadow:inset 0 -3px 0 var(--accent)}}
+@media (max-width:560px){form{grid-template-columns:1fr}}
+
+/* Donate */
+.donate{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.donate > *{min-width:0}
+.donate h2 em{font-style:normal;color:var(--band-accent)}
+.give-box{background:var(--band-2);border:1px solid var(--band-rule);padding:28px;display:grid;gap:16px}
+.give-box .fine{color:var(--on-band-muted);font-size:.82rem}
+.uses{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
+.uses li{color:var(--on-band-muted);padding-left:22px;position:relative}
+.uses li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:var(--band-accent)}
+#paypal-slot:empty{display:none}
+@media (max-width:860px){.donate{grid-template-columns:1fr}}
+
+/* Footer */
+.site-foot{background:var(--band);color:var(--on-band-muted);padding-block:48px 40px;border-top:1px solid var(--band-hair);font-size:.92rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot-grid > *{min-width:0}
+.foot-grid .foot-h{font-family:var(--f-mono);font-weight:500;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--band-accent);margin:0 0 10px}
+.foot-grid a{text-decoration:none;display:block;padding:3px 0}
+.foot-grid a:hover{color:var(--on-band)}
+.email{font-family:var(--f-mono);color:var(--on-band);user-select:all;word-break:break-all}
+.copy{background:none;border:1px solid var(--band-control);color:var(--on-band);font:600 .78rem var(--f-body);padding:5px 10px;border-radius:4px;cursor:pointer;margin-left:8px}
+.site-foot .brand-word{color:var(--on-band)}
+.site-foot .brand-word span{color:var(--band-accent)}
+.foot-blurb{margin-top:8px;max-width:38ch}
+.foot-place{margin-top:10px}
+.legal{margin-top:36px;padding-top:20px;border-top:1px solid var(--band-hair);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:.82rem}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#main" aria-label="S.M.O.O.T.H. Inc. home">
+      <img src="images/logo.png" alt="" onerror="this.remove()">
+      <span class="brand-word">S<span>.</span>M<span>.</span>O<span>.</span>O<span>.</span>T<span>.</span>H<span>.</span></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#about">Who We Are</a>
+      <a href="#programs">What We Do</a>
+      <a href="#sections">Sections</a>
+      <a href="#founders">Founders</a>
+      <a href="#involved">Get Involved</a>
+      <a href="#donate" class="cta">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-label="Introduction">
+    <div class="wrap">
+      <p class="eyebrow">Est. October 28, 2009 · Morgan State University</p>
+      <h1 class="acro">
+        <span><b>S</b>trong <b>M</b>en</span>
+        <span><b>O</b>vercoming <b>O</b>bstacles</span>
+        <span><b>T</b>hrough <b>H</b>ard-work</span>
+      </h1>
+      <p class="motto">“In Every Obstacle Lies Equal Opportunity.”</p>
+      <p class="hero-sub">Social and professional development, mentoring, and life skills training for young men of color, led by college men at Morgan State, Coppin State, and Temple University.</p>
+      <div class="btns">
+        <a class="btn accent" href="#donate">Donate</a>
+        <a class="btn ghost" href="#involved" data-open="join">Join a Section</a>
+      </div>
+      <div class="facts" aria-label="At a glance">
+        <div><strong>2009</strong><span>Founded at Morgan State</span></div>
+        <div><strong>3</strong><span>College sections</span></div>
+        <div><strong>2</strong><span>States: MD &amp; PA</span></div>
+        <div><strong>400+</strong><span>Service hours each year</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="stack">
+          <p class="eyebrow">Who we are</p>
+          <h2>Educating, developing, organizing, and empowering since 2009</h2>
+          <div class="prose">
+            <p>S.M.O.O.T.H. Inc. is a membership-based social development organization. We provide social and professional development, mentoring, life skills training, community service, and entrepreneurial skill development for young men and marginalized youth of color.</p>
+            <p>Four friends founded the organization at Morgan State University on October 28, 2009. They saw too few all-male organizations that underclassmen could join, and too few male student leaders on campus. Their answer was a space where any young man could create, develop, and carry out his ideas, built on peer mentoring, accountability partners, and group learning.</p>
+            <p>The members soon took that work into Baltimore, mentoring and tutoring middle and high school boys facing hard environments. Today S.M.O.O.T.H. connects college men, university staff, and the wider community across Baltimore and Philadelphia.</p>
+          </div>
+        </div>
+        <div class="mv">
+          <div class="mv-item">
+            <h3>Mission</h3>
+            <p>To educate, develop, organize, and empower young males and marginalized youth of color to improve their graduation and retention rates, and to build a transnational network of young men who use ethics, collective action, and social entrepreneurship to create lasting social change.</p>
+          </div>
+          <div class="mv-item">
+            <h3>Vision</h3>
+            <p>A community with a clear pipeline from primary school to college for young men of color, despite poverty, educational obstacles, or juvenile justice involvement, where they go on to create and lead their own businesses.</p>
+          </div>
+          <div class="mv-item">
+            <h3>Objectives</h3>
+            <ul class="objectives">
+              <li>Foster the development of young men of color in schools and colleges</li>
+              <li>Partner across public, private, nonprofit, and international sectors</li>
+              <li>Build character through quality mentorship</li>
+              <li>Offer educational, cultural, civic, and social programs</li>
+              <li>Build capacity to lead small and medium enterprises</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <ol class="timeline" aria-label="Our history">
+        <li><span class="t-date">Winter 2008</span><span class="t-what">The idea</span><span class="t-note">Dwight Flowers brings a retention and mentoring concept to DaQuan Lawrence.</span></li>
+        <li><span class="t-date">Oct 28, 2009</span><span class="t-what">Founded at Morgan State</span><span class="t-note">Four founders charter the first section in Baltimore.</span></li>
+        <li><span class="t-date">Aug 20, 2014</span><span class="t-what">Incorporated</span><span class="t-note">Recognized as a nonprofit, governed by The Inc.</span></li>
+        <li><span class="t-date">Jan 16, 2016</span><span class="t-what">Temple University</span><span class="t-note">First section outside Maryland, in Philadelphia.</span></li>
+        <li><span class="t-date">Dec 12, 2016</span><span class="t-what">Coppin State University</span><span class="t-note">Second Baltimore section chartered.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band dark" id="programs">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">What we do</p>
+        <h2>National programs</h2>
+        <p class="lede">Every section runs the same core programs, so a member at Temple and a member at Coppin share the same standards and the same work.</p>
+      </div>
+      <div class="programs">
+        <article class="program"><span class="tag">Members</span><h3>Service-Based Leadership Development</h3><p>College members serve one-year terms on the executive board, on committees, and in the general body, planning and running campus events, programs, and service projects.</p></article>
+        <article class="program"><span class="tag">Youth</span><h3>Jr. SMOOTH</h3><p>Each college section adopts a K–12 school in Baltimore or Philadelphia and mentors its young men throughout the year.</p></article>
+        <article class="program"><span class="tag">Symposium</span><h3>R.U.L.E.S. for Black Men</h3><p>Restoring Uplift Leadership Education and Success: an intergenerational, men-only symposium to inspire, educate, connect, and unite Black and brown men.</p></article>
+        <article class="program"><span class="tag">Every October</span><h3>SMOOTH Week</h3><p>An annual week of social events and community service marking the organization's founding on October 28.</p></article>
+      </div>
+      <div class="initiatives">
+        <div class="init"><strong>Community Service</strong><span>400+ hours a year in Baltimore and Philadelphia</span></div>
+        <div class="init"><strong>Mentorship</strong><span>Peer and youth mentoring</span></div>
+        <div class="init"><strong>Leadership Training</strong><span>Members-only meetings and training</span></div>
+        <div class="init"><strong>Professional &amp; Social Development</strong><span>Post-high school and post-college readiness</span></div>
+        <div class="init"><strong>Youth Empowerment</strong><span>Educational, social-emotional, spiritual, and civic programs</span></div>
+        <div class="init"><strong>Economic Development</strong><span>Financial literacy and entrepreneurship</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="sections">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Active sections</p>
+        <h2>Three campuses, two states</h2>
+      </div>
+      <div class="chapters">
+        <article class="chapter">
+          <figure><img src="images/section-msu.jpg" alt="Morgan State section members" onerror="this.parentNode.classList.add('noimg')"><span class="mono" aria-hidden="true">MSU</span></figure>
+          <div class="chapter-body">
+            <h3>Morgan State University</h3>
+            <dl><dt>City</dt><dd>Baltimore, MD</dd><dt>Chartered</dt><dd>Oct. 28, 2009</dd><dt>Status</dt><dd>Founding section</dd></dl>
+            <a class="contact-link" href="#involved" data-open="join" data-campus="Morgan State University">Join this section</a>
+          </div>
+        </article>
+        <article class="chapter">
+          <figure><img src="images/section-tu.jpg" alt="Temple University section members" onerror="this.parentNode.classList.add('noimg')"><span class="mono" aria-hidden="true">TU</span></figure>
+          <div class="chapter-body">
+            <h3>Temple University</h3>
+            <dl><dt>City</dt><dd>Philadelphia, PA</dd><dt>Chartered</dt><dd>Jan. 16, 2016</dd><dt>Status</dt><dd>Active</dd></dl>
+            <a class="contact-link" href="#involved" data-open="join" data-campus="Temple University">Join this section</a>
+          </div>
+        </article>
+        <article class="chapter">
+          <figure><img src="images/section-csu.jpg" alt="Coppin State section members" onerror="this.parentNode.classList.add('noimg')"><span class="mono" aria-hidden="true">CSU</span></figure>
+          <div class="chapter-body">
+            <h3>Coppin State University</h3>
+            <dl><dt>City</dt><dd>Baltimore, MD</dd><dt>Chartered</dt><dd>Dec. 12, 2016</dd><dt>Status</dt><dd>Active</dd></dl>
+            <a class="contact-link" href="#involved" data-open="join" data-campus="Coppin State University">Join this section</a>
+          </div>
+        </article>
+      </div>
+      <div class="start-section">
+        <p>Want S.M.O.O.T.H. on your campus? Students, advisors, and administrators can ask The Inc. about chartering a new section.</p>
+        <a class="btn solid" href="#involved" data-open="partner" data-reason="Start a section at my college">Ask about a new section</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="founders">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The founders</p>
+        <h2>Four Morgan men, one idea</h2>
+      </div>
+      <div class="founders">
+        <article class="founder">
+          <figure><img src="images/founder-flowers.jpg" alt="Dwight D. Flowers" onerror="this.parentNode.classList.add('noimg')"><span class="mono" aria-hidden="true">DF</span></figure>
+          <div><h3>Dwight D. Flowers</h3><p class="role">Co-founder · Brooklyn, NY</p>
+          <p>Known as DJ Flow, Dwight was raised by a single mother and started both S.M.O.O.T.H. and his DJ career at Morgan State in 2009. He was named Baltimore DJ of the Year by Fab Empire in 2013 and by the Baltimore Sun in 2019, and has performed at colleges and stadiums across the country as a member of the Core DJs coalition.</p></div>
+        </article>
+        <article class="founder">
+          <figure><img src="images/founder-lawrence.jpg" alt="DaQuan M. Lawrence" onerror="this.parentNode.classList.add('noimg')"><span class="mono" aria-hidden="true">DL</span></figure>
+          <div><h3>DaQuan M. Lawrence, MIPP</h3><p class="role">Co-founder · Harlem, NY</p>
+          <p>DaQuan is an international humanitarian, human rights advocate, and civil servant who has worked in health policy research at the Urban Institute. His work has taken him from Baltimore education policy to labor research in Indonesia, migration research in Haiti and the Dominican Republic, and Ebola response in Liberia. Born into foster care in New York City, he centers marginalized people in all of his work.</p></div>
+        </article>
+        <article class="founder">
+          <figure><img src="images/founder-hooker.jpg" alt="Hakeem T. Hooker" onerror="this.parentNode.classList.add('noimg')"><span class="mono" aria-hidden="true">HH</span></figure>
+          <div><h3>Hakeem T. Hooker</h3><p class="role">Co-founder · Philadelphia, PA</p>
+          <p>Born in Philadelphia and raised in Delaware, Hakeem studied hospitality management at Morgan State. He became a food service director at 25, managing multi-million-dollar accounts, and in 2016 founded DinnerClub Hospitality LLC, a corporate and celebrity catering company. He continues to devote his time to the growth of S.M.O.O.T.H. Inc.</p></div>
+        </article>
+        <article class="founder">
+          <figure><img src="images/founder-watkins.jpg" alt="Frederick D. Watkins Jr." onerror="this.parentNode.classList.add('noimg')"><span class="mono" aria-hidden="true">FW</span></figure>
+          <div><h3>Frederick D. Watkins Jr.</h3><p class="role">Co-founder · Baltimore, MD</p>
+          <p>Fred is a comedian, event producer, and host whose passion for service and mentorship began at Morgan State. He founded Lil' Laughs, an anti-bullying campaign that uses comedy and mentorship, and BIG Laughs Company LLC, and has appeared on Oxygen's "Last Squad Standing."</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="involved">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Get involved</p>
+        <h2>Every contribution goes a long way</h2>
+      </div>
+      <div class="ways">
+        <div class="way"><h3>Partner with us</h3><p>Invite us to visit your school, bring S.M.O.O.T.H. men to volunteer at your event, or start a section at your college.</p></div>
+        <div class="way"><h3>Volunteer your time</h3><p>Mentors, speakers, and professionals help our members and Jr. SMOOTH youth see what is possible.</p></div>
+        <div class="way"><h3>Stay connected</h3><p>Alumni and current brothers: keep your information current so The Inc. can reach you about events, mentoring, and reunions.</p></div>
+      </div>
+
+      <div class="forms">
+        <div class="tabs" role="tablist" aria-label="Forms">
+          <button class="tab" role="tab" id="tab-join" aria-controls="panel-join" aria-selected="true"><strong>Join a section</strong><span>For college men</span></button>
+          <button class="tab" role="tab" id="tab-partner" aria-controls="panel-partner" aria-selected="false" tabindex="-1"><strong>Partner or volunteer</strong><span>Schools, groups, mentors</span></button>
+          <button class="tab" role="tab" id="tab-brother" aria-controls="panel-brother" aria-selected="false" tabindex="-1"><strong>Brother update</strong><span>Members and alumni</span></button>
+          <button class="tab" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="false" tabindex="-1"><strong>Newsletter</strong><span>News and events</span></button>
+        </div>
+
+        <div class="panel" role="tabpanel" tabindex="0" id="panel-join" aria-labelledby="tab-join">
+          <h3>Join a section</h3>
+          <p>Tell us about yourself. The section leadership on your campus will follow up about the next interest meeting. Your contact details stay private to S.M.O.O.T.H. Inc.</p>
+          <form data-form="Membership Interest">
+            <div class="field"><label for="j-first">First name</label><input id="j-first" name="first_name" required autocomplete="given-name"></div>
+            <div class="field"><label for="j-last">Last name</label><input id="j-last" name="last_name" required autocomplete="family-name"></div>
+            <div class="field"><label for="j-email">Email</label><input id="j-email" name="email" type="email" required autocomplete="email"></div>
+            <div class="field"><label for="j-phone">Phone</label><input id="j-phone" name="phone" type="tel" required autocomplete="tel"></div>
+            <div class="field"><label for="j-campus">Campus</label><select id="j-campus" name="campus" required><option value="">Choose a campus</option><option>Morgan State University</option><option>Coppin State University</option><option>Temple University</option><option>Other / not listed</option></select></div>
+            <div class="field"><label for="j-year">Class year</label><select id="j-year" name="class_year" required><option value="">Choose</option><option>Freshman</option><option>Sophomore</option><option>Junior</option><option>Senior</option><option>Graduate student</option></select></div>
+            <div class="field"><label for="j-major">Major</label><input id="j-major" name="major"></div>
+            <div class="field"><label for="j-heard">How did you hear about us? <span class="opt">(optional)</span></label><input id="j-heard" name="heard_from"></div>
+            <div class="field full"><label for="j-why">Why do you want to join S.M.O.O.T.H.?</label><textarea id="j-why" name="why_join" required></textarea></div>
+            <div class="hp" aria-hidden="true"><label for="j-hp">Leave blank</label><input id="j-hp" name="website" tabindex="-1" autocomplete="off"></div>
+            <div class="form-foot"><button class="btn solid" type="submit">Submit interest</button><span class="status" role="status"></span></div>
+          </form>
+        </div>
+
+        <div class="panel" role="tabpanel" tabindex="0" id="panel-partner" aria-labelledby="tab-partner" hidden>
+          <h3>Partner or volunteer</h3>
+          <p>Schools, community groups, companies, and individual mentors are all welcome. The Inc. reads every request.</p>
+          <form data-form="Partner and Volunteer">
+            <div class="field"><label for="p-name">Your name</label><input id="p-name" name="name" required autocomplete="name"></div>
+            <div class="field"><label for="p-org">Organization or school <span class="opt">(optional)</span></label><input id="p-org" name="organization" autocomplete="organization"></div>
+            <div class="field"><label for="p-email">Email</label><input id="p-email" name="email" type="email" required autocomplete="email"></div>
+            <div class="field"><label for="p-phone">Phone <span class="opt">(optional)</span></label><input id="p-phone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="field full"><label for="p-reason">I'd like to…</label><select id="p-reason" name="request_type" required><option value="">Choose one</option><option>Have S.M.O.O.T.H. visit my school</option><option>Start a section at my college</option><option>Have members volunteer at my event</option><option>Volunteer or mentor</option><option>Sponsor or partner with the organization</option><option>Something else</option></select></div>
+            <div class="field full"><label for="p-msg">Details</label><textarea id="p-msg" name="message" required placeholder="Dates, location, and what you have in mind"></textarea></div>
+            <div class="hp" aria-hidden="true"><label for="p-hp">Leave blank</label><input id="p-hp" name="website" tabindex="-1" autocomplete="off"></div>
+            <div class="form-foot"><button class="btn solid" type="submit">Send request</button><span class="status" role="status"></span></div>
+          </form>
+        </div>
+
+        <div class="panel" role="tabpanel" tabindex="0" id="panel-brother" aria-labelledby="tab-brother" hidden>
+          <h3>Brother update</h3>
+          <p>For current members and alumni. Your details go into the private member directory, which only The Inc. can see.</p>
+          <form data-form="Member Directory Update">
+            <div class="field"><label for="b-first">First name</label><input id="b-first" name="first_name" required autocomplete="given-name"></div>
+            <div class="field"><label for="b-last">Last name</label><input id="b-last" name="last_name" required autocomplete="family-name"></div>
+            <div class="field"><label for="b-email">Email</label><input id="b-email" name="email" type="email" required autocomplete="email"></div>
+            <div class="field"><label for="b-phone">Phone</label><input id="b-phone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="b-section">Section</label><select id="b-section" name="section" required><option value="">Choose</option><option>Morgan State University</option><option>Coppin State University</option><option>Temple University</option></select></div>
+            <div class="field"><label for="b-status">Status</label><select id="b-status" name="member_status" required><option value="">Choose</option><option>Active (current student)</option><option>Alumni</option></select></div>
+            <div class="field"><label for="b-joined">Year joined</label><input id="b-joined" name="year_joined" inputmode="numeric" pattern="20[0-9]{2}" placeholder="e.g. 2014" required></div>
+            <div class="field"><label for="b-grad">Graduation year <span class="opt">(or expected)</span></label><input id="b-grad" name="grad_year" inputmode="numeric" pattern="20[0-9]{2}" placeholder="e.g. 2017"></div>
+            <div class="field"><label for="b-city">City</label><input id="b-city" name="city" autocomplete="address-level2"></div>
+            <div class="field"><label for="b-state">State</label><input id="b-state" name="state" autocomplete="address-level1" maxlength="20"></div>
+            <div class="field"><label for="b-job">Occupation and employer <span class="opt">(optional)</span></label><input id="b-job" name="occupation"></div>
+            <div class="field"><label for="b-li">LinkedIn <span class="opt">(optional)</span></label><input id="b-li" name="linkedin" type="url" pattern="https://.*" placeholder="https://" title="Start with https://"></div>
+            <fieldset class="field full"><legend>I'm willing to help with <span class="opt">(optional)</span></legend>
+              <div class="checks">
+                <label><input type="checkbox" name="help_with" value="Mentoring"> Mentoring</label>
+                <label><input type="checkbox" name="help_with" value="Speaking"> Speaking</label>
+                <label><input type="checkbox" name="help_with" value="Jobs and internships"> Jobs and internships</label>
+                <label><input type="checkbox" name="help_with" value="Events"> Events</label>
+                <label><input type="checkbox" name="help_with" value="Fundraising"> Fundraising</label>
+              </div></fieldset>
+            <div class="field full checks"><label><input type="checkbox" name="newsletter_opt_in" value="Yes"> Send me the S.M.O.O.T.H. newsletter</label></div>
+            <p class="fine">Only The Inc. can see what you enter here. Your phone number, email, and personal details are never shown on this website or shared outside the organization.</p>
+            <div class="hp" aria-hidden="true"><label for="b-hp">Leave blank</label><input id="b-hp" name="website" tabindex="-1" autocomplete="off"></div>
+            <div class="form-foot"><button class="btn solid" type="submit">Update my info</button><span class="status" role="status"></span></div>
+          </form>
+        </div>
+
+        <div class="panel" role="tabpanel" tabindex="0" id="panel-news" aria-labelledby="tab-news" hidden>
+          <h3>Newsletter</h3>
+          <p>Section news, SMOOTH Week, the R.U.L.E.S. Symposium, and ways to help. A few emails a year.</p>
+          <form data-form="Newsletter">
+            <div class="field"><label for="n-name">Name</label><input id="n-name" name="name" required autocomplete="name"></div>
+            <div class="field"><label for="n-email">Email</label><input id="n-email" name="email" type="email" required autocomplete="email"></div>
+            <div class="field full"><label for="n-rel">I am a…</label><select id="n-rel" name="relationship" required><option value="">Choose</option><option>Current member</option><option>Alumni</option><option>Parent or family</option><option>Supporter or donor</option><option>Educator or partner</option></select></div>
+            <div class="hp" aria-hidden="true"><label for="n-hp">Leave blank</label><input id="n-hp" name="website" tabindex="-1" autocomplete="off"></div>
+            <div class="form-foot"><button class="btn solid" type="submit">Subscribe</button><span class="status" role="status"></span></div>
+            <p class="fine">You can unsubscribe from any newsletter at any time.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band dark" id="donate">
+    <div class="wrap donate">
+      <div class="stack">
+        <p class="eyebrow">Donate</p>
+        <h2><span data-years>17</span> years of service. Help us reach <em>100 more.</em></h2>
+        <p class="lede">Your gift helps us keep educating, developing, organizing, and empowering young Black and brown men in Baltimore and Philadelphia.</p>
+        <ul class="uses">
+          <li>Jr. SMOOTH mentoring at partner K–12 schools</li>
+          <li>The R.U.L.E.S. for Black Men Symposium</li>
+          <li>Leadership training for college members</li>
+          <li>Financial literacy and entrepreneurship programs</li>
+        </ul>
+      </div>
+      <div class="give-box">
+        <!-- PAYPAL: paste the PayPal embed code inside #paypal-slot. Remove the fallback button below once it's in. -->
+        <div id="paypal-slot"></div>
+        <a class="btn accent" id="paypal-fallback" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=Info%40smoothmen.org&amp;item_name=Strong%20Men%20Overcoming%20Obstacles%20Through%20Hard-work%20Inc.&amp;currency_code=USD" target="_blank" rel="noopener">Donate with PayPal</a>
+        <p class="fine">S.M.O.O.T.H. Inc. is a 501(c)(3) nonprofit organization. Contributions are tax-deductible to the extent allowed by law. EIN: <span id="ein">[EIN]</span></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="brand-word">S<span>.</span>M<span>.</span>O<span>.</span>O<span>.</span>T<span>.</span>H<span>.</span> Inc.</p>
+        <p class="foot-blurb">Strong Men Overcoming Obstacles Through Hard-work Inc. In every obstacle lies equal opportunity.</p>
+      </div>
+      <div>
+        <h2 class="foot-h">Explore</h2>
+        <a href="#about">Who We Are</a><a href="#programs">What We Do</a><a href="#sections">Sections</a><a href="#founders">Founders</a><a href="#involved">Get Involved</a>
+      </div>
+      <div>
+        <h2 class="foot-h">Contact</h2>
+        <p><span class="email" id="emailAddr">Info@smooth2009.org</span><button class="copy" id="copyEmail" type="button" aria-label="Copy email address">Copy</button></p>
+        <p class="foot-place">Baltimore, MD · Philadelphia, PA</p>
+      </div>
+    </div>
+    <div class="legal"><span>© <span id="yr">2026</span> Strong Men Overcoming Obstacles Through Hard-work Inc. · A 501(c)(3) nonprofit</span><span>Founded Oct. 28, 2009 · Incorporated Aug. 20, 2014</span></div>
+  </div>
+</footer>
+
+<script>
+/* ==== SETTINGS ==== Paste your Google Apps Script web app URL here (see README). */
+const FORM_ENDPOINT = "";
+
+(function(){
+  const yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
+
+  // Mobile menu
+  const btn=document.getElementById('menuBtn'), nav=document.getElementById('nav');
+  btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+  const closeNav=()=>{nav.classList.remove('open');btn.setAttribute('aria-expanded','false')};
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeNav));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){closeNav();btn.focus()}});
+
+  // Years of service since Oct. 28, 2009
+  const now=new Date(), yrs=now.getFullYear()-2009-((now.getMonth()<9||(now.getMonth()===9&&now.getDate()<28))?1:0);
+  document.querySelectorAll('[data-years]').forEach(el=>el.textContent=yrs);
+
+  // Tabs
+  const tabs=[...document.querySelectorAll('.tab')];
+  function select(id){
+    tabs.forEach(t=>{const on=t.id==='tab-'+id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden=!on});
+  }
+  tabs.forEach((t,i)=>{
+    t.addEventListener('click',()=>select(t.id.slice(4)));
+    t.addEventListener('keydown',e=>{
+      let n=null; if(e.key==='ArrowRight'||e.key==='ArrowDown') n=tabs[(i+1)%tabs.length];
+      if(e.key==='ArrowLeft'||e.key==='ArrowUp') n=tabs[(i-1+tabs.length)%tabs.length];
+      if(e.key==='Home') n=tabs[0]; if(e.key==='End') n=tabs[tabs.length-1];
+      if(n){e.preventDefault();n.focus();n.click()}
+    });
+  });
+  // Links that open a specific form, optionally prefilled
+  document.querySelectorAll('[data-open]').forEach(a=>a.addEventListener('click',()=>{
+    select(a.dataset.open);
+    if(a.dataset.campus){const s=document.getElementById('j-campus');s.value=a.dataset.campus}
+    if(a.dataset.reason){const s=document.getElementById('p-reason');s.value=a.dataset.reason}
+  }));
+
+  // Forms -> Google Sheet via Apps Script
+  document.querySelectorAll('form[data-form]').forEach(f=>{
+    f.addEventListener('submit',async e=>{
+      e.preventDefault();
+      const status=f.querySelector('.status'), submit=f.querySelector('[type=submit]');
+      status.className='status'; status.textContent='';
+      if(!f.checkValidity()){f.reportValidity();return}
+      const fd=new FormData(f);
+      if(fd.get('website')){status.className='status ok';status.textContent='Thank you!';f.reset();return}
+      fd.delete('website');
+      const body=new URLSearchParams();
+      body.append('form',f.dataset.form);
+      body.append('submitted_at',new Date().toISOString());
+      body.append('page',location.href.split('#')[0]);
+      const multi={};
+      for(const [k,v] of fd.entries()){ if(multi[k]!==undefined){multi[k]+=', '+v} else multi[k]=v }
+      Object.entries(multi).forEach(([k,v])=>body.append(k,v));
+      if(!FORM_ENDPOINT){status.className='status err';status.textContent='Preview only: this form is not connected yet, so nothing was saved.';return}
+      submit.disabled=true; submit.textContent='Sending…';
+      try{
+        await fetch(FORM_ENDPOINT,{method:'POST',mode:'no-cors',body});
+        status.className='status ok';
+        status.textContent=f.dataset.form==='Newsletter'?'You’re subscribed. Thank you!':'Received. The Inc. will be in touch soon.';
+        f.reset();
+      }catch(err){
+        status.className='status err';
+        status.textContent='That didn’t go through. Check your connection and try again, or email Info@smooth2009.org.';
+      }finally{submit.disabled=false;submit.textContent=submit.dataset.label}
+    });
+    const s=f.querySelector('[type=submit]'); s.dataset.label=s.textContent;
+  });
+
+  // Hide PayPal fallback once the embed is pasted in
+  const slot=document.getElementById('paypal-slot');
+  if(slot && slot.children.length){const fb=document.getElementById('paypal-fallback'); if(fb) fb.remove()}
+
+  // Copy email
+  const cb=document.getElementById('copyEmail'), em=document.getElementById('emailAddr');
+  cb.addEventListener('click',()=>{
+    const done=()=>{cb.textContent='Copied';setTimeout(()=>cb.textContent='Copy',1600)};
+    try{navigator.clipboard.writeText(em.textContent).then(done,()=>sel())}catch(_){sel()}
+    function sel(){const r=document.createRange();r.selectNodeContents(em);const s=getSelection();s.removeAllRanges();s.addRange(r)}
+  });
+})();
+</script>
+
+</body>
+</html>
