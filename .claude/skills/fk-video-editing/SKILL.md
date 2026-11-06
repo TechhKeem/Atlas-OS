@@ -109,14 +109,16 @@ uses the Instagram "Deco" font, white text on a solid black background box.**
 
 ## Music
 
-- Add a low background music bed under the voice, around 10% to 20% volume.
-  The voice must always be clearly the loudest thing.
-- Choose music that matches the mood: confident and upbeat for tips and
+- Music volume is **always 10%** on every video type. Never raise it,
+  including faceless videos. The voice must always be clearly the loudest
+  thing.
+- **Talking-head videos: instrumental hip-hop or instrumental R&B only.** No
+  vocals or lyrics, and no other genres.
+- Other video types: instrumental music only (no vocals competing with the
+  voiceover), chosen to match the mood: confident and upbeat for tips and
   promos, calmer for serious topics like retirement or debt.
 - Use music licensed for Instagram (from the Edits/IG library) or royalty-free.
 - Start the music from the first frame and fade it out over the last second.
-- Faceless videos can have music a bit louder (up to about 25%), still under
-  the voiceover.
 
 ## Ending: CTA overlay
 
@@ -144,7 +146,8 @@ These are finance and insurance videos, so before export:
 - [ ] Captions on the whole video, 2 to 4 words at a time, spelling checked
 - [ ] No pauses over ~0.3s, no filler words, no retakes left in
 - [ ] Visual change every 1 to 3 seconds (cuts, zooms, B-roll, emojis)
-- [ ] Music at 10% to 20%, voice clear, music fades at the end
+- [ ] Music at exactly 10%, instrumental only (hip-hop/R&B on talking
+      heads), voice clear, music fades at the end
 - [ ] CTA overlay in the last 2 to 3 seconds
 - [ ] Finance wording flagged if needed
 
