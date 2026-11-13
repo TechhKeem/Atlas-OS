@@ -1,5 +1,6 @@
 from PIL import Image, ImageOps, ImageEnhance
-S='assets/src/'; O='images/'
+# Run from the smooth2009 folder. Originals go in assets/src/ (not in the repo; ask for them).
+S='assets/src/'; O='site/images/'
 # (src, dst, box(x0,y0,w,h) in source px, out size)
 jobs=[
  ('group-msu.jpg','section-msu.jpg',(152,0,2272,1932),(1200,1020)),

@@ -1,26 +1,37 @@
-# Smooth2009.org — launch checklist
+# smooth2009.org: website and back office for S.M.O.O.T.H. Inc.
 
-## Files
-- `index.html` — the whole website (one page). Upload this plus the `images/` folder to your host.
-- `Code.gs` — the script that saves form submissions into a Google Sheet.
-- `images/` — photos with these exact names:
-  - Included: crests (4), `founder-*.jpg` (4), `hero.jpg`, `section-*.jpg` (3), `program-*.jpg` (5), `donate.jpg`, `gallery-*.jpg` (6)
-  Any photo that's missing shows a styled placeholder instead.
+| Folder | What it is | Public? |
+|---|---|---|
+| `site/` | The website. This is the only folder the web host publishes. | Yes |
+| `site/index.html` | The whole one-page site. The one file to edit for site content. | Yes |
+| `site/images/` | Every image the site uses, each as `.jpg`/`.png` plus a smaller `.webp`. | Yes |
+| `brand-kit/` | The brand book (`README.md`) and design tokens (`tokens.json`). The source of truth. | No |
+| `apps-script/Code.gs` | Saves newsletter sign-ups into the Google Sheet. | No |
+| `docs/` | The project brief and admin guides. | No |
+| `tools/` | Image scripts and helpers (see below). | No |
 
-## 1. Connect the newsletter form to Google Sheets (10 minutes)
-1. Create a Google Sheet named "SMOOTH Website Submissions" (use The Inc.'s shared Google account).
-2. Extensions → Apps Script. Delete what's there, paste in `Code.gs`, save.
-3. Deploy → New deployment → type "Web app". Execute as: **Me**. Who has access: **Anyone**. Deploy and approve permissions.
-4. Copy the web app URL (ends in `/exec`).
-5. In `index.html`, find `const FORM_ENDPOINT = "";` and paste the URL between the quotes.
+## Adding or replacing a photo
+1. Make the new image with the matching script so it looks like the rest: `tools/headshots.py` for B&W founder and officer portraits, `tools/photos.py` for event photos, `tools/crest.py` for a crest. Originals go in `assets/src/`, which stays out of git.
+2. Save it in `site/images/` under the same file name and shape as the one it replaces.
+3. Run `python3 tools/optimize_images.py`. It compresses the image and makes the `.webp` copy the site loads first.
+4. If the image is new rather than a replacement, copy an existing `<picture>` block in `index.html` and change the names, `width`, `height`, and `alt`.
 
-Sign-ups land in a "Newsletter" tab automatically, with a `status` column for The Inc. A notification email goes to Info@smooth2009.org on every submission (change `NOTIFY_EMAIL` in `Code.gs` to turn it off).
+Photos of Jr. SMOOTH youth need written parent consent before they go up.
 
-## 2. PayPal
-Paste the PayPal embed code inside `<div id="paypal-slot"></div>` in `index.html`. The temporary "Donate with PayPal" button removes itself once the embed is there.
+## Launch checklist (Phase 1)
+- [x] Review against the brief and brand kit
+- [x] Images compressed (WebP with JPEG/PNG fallback), sizes set so nothing shifts while loading
+- [x] SEO: description, Open Graph image, sitemap.xml, robots.txt, organization data
+- [x] Accessibility check, both themes
+- [ ] PayPal: embed pasted inside `<div id="paypal-slot"></div>` and receiving account confirmed (the current fallback pays Info@smoothmen.org)
+- [ ] EIN filled in (search `[EIN]` in `site/index.html`)
+- [ ] Social links added to the footer
+- [ ] `Code.gs` deployed and its URL pasted into `FORM_ENDPOINT` (see `docs/admin-guide-newsletter.md`)
+- [ ] Newsletter form tested from the live site
+- [ ] Site deployed and smooth2009.org connected
+- [ ] Sitemap submitted in Google Search Console
+- [ ] The Inc. approves the navy national crest
 
-## 3. Put it on smooth2009.org
-Free options: Netlify, Cloudflare Pages, or GitHub Pages. Drag the folder in, then add `smooth2009.org` as a custom domain and update the DNS records at your domain registrar as the host instructs.
-
-## 4. Fill in
-- EIN in the donate box (search `[EIN]`).
+## Helpers
+- `tools/contrast.py` checks color contrast: pipe in lines of `name foreground background`.
+- `tools/make-preview.sh` writes `preview/site-body.html`, the page without its `<html>`/`<head>` wrapper, for preview tools. Never edit that file.

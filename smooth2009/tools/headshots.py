@@ -1,6 +1,7 @@
 from PIL import Image, ImageOps, ImageEnhance, ImageFilter
 import sys
-S='/home/claude/smooth2009/assets/src/'; O='/home/claude/smooth2009/images/'
+# Run from the smooth2009 folder. Originals go in assets/src/ (not in the repo; ask for them).
+S='assets/src/'; O='site/images/'
 W,H=800,1000
 # (file, face-centre x as fraction, crop top y as fraction, crop width as fraction of image width)
 jobs=[('flowers.png','founder-flowers.jpg',0.53,0.012,None),
