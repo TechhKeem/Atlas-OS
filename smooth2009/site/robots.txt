@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://smooth2009.org/sitemap.xml
