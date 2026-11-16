@@ -1,0 +1,19 @@
+# Raw footage and renders are large — keep them out of git.
+projects/**/*.mp4
+projects/**/*.mov
+projects/**/*.MOV
+projects/**/*.MP4
+projects/**/*.m4v
+projects/**/*.mkv
+projects/**/*.webm
+projects/**/*.wav
+projects/**/*.mp3
+projects/**/*.m4a
+projects/**/edit/clips_graded/
+projects/**/edit/clips_preview/
+projects/**/edit/downloads/
+projects/**/edit/verify/
+projects/**/node_modules/
+# Keep the memory + decisions so sessions can resume:
+!projects/**/edit/project.md
+!projects/**/edit/edl.json
