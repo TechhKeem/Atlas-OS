@@ -92,6 +92,26 @@ def main():
         manifest.write_text(json.dumps(data, indent=2) + "\n")
     step("Site title, description and URL set")
 
+    org = web / "app" / "(org)"
+    copy = {
+        "Sign in to Cap": "Sign in to Look",
+        "Sign up to Cap": "Sign up to Look",
+        "Welcome to Cap": "Welcome to Look",
+        "Beautiful screen recordings, owned by you.": "FinanceKeem training and walkthrough videos.",
+        '"tim@apple.com"': '"you@financekeem.com"',
+        "already has a Cap account": "already has a Look account",
+        "can't be used with Cap.": "can't be used with Look.",
+        "agree to Cap's": "agree to the",
+    }
+    for f in ["login/form.tsx", "signup/form.tsx", "verify-otp/form.tsx",
+              "onboarding/components/WelcomePage.tsx"]:
+        def swap(t):
+            for old, new in copy.items():
+                t = t.replace(old, new)
+            return t
+        edit(org / f, swap)
+    step("Sign-in, sign-up and welcome text say Look")
+
     # 4. Icons (favicons, app icons) rendered from the Look SVGs
     render_icons(web / "public")
     step("Favicons and app icons generated")
@@ -129,7 +149,7 @@ const jobs = JSON.parse(process.argv[1]);
 })();
 """
     payload = json.dumps([[s, n, str(public / o)] for s, n, o in jobs])
-    subprocess.run(["node", "-e", script, payload], check=True)
+    subprocess.run(["node", "-e", script, payload], check=True, cwd=LOOK_DIR)
     try:
         from PIL import Image
         img = Image.open(public / "android-chrome-512x512.png")
