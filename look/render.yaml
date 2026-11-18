@@ -1,5 +1,5 @@
 # Render Blueprint for Look (look.financekeem.com).
-# The branding script copies this to the root of the `look` fork.
+# Images are built by .github/workflows/look-images.yml and pulled from GHCR.
 # In Render: New → Blueprint → pick the `look` repo. Render then asks for the
 # values marked `sync: false`.
 
@@ -10,13 +10,13 @@ envVarGroups:
         generateValue: true
 
 services:
-  # The Look website and API (Next.js), built from apps/web/Dockerfile.
+  # The Look website and API (Next.js).
   # Database migrations run automatically when it starts.
   - type: web
     name: look-web
-    runtime: docker
-    dockerfilePath: ./apps/web/Dockerfile
-    dockerContext: .
+    runtime: image
+    image:
+      url: ghcr.io/techhkeem/look-web:latest
     plan: standard # 2 GB RAM. Starter (512 MB) is too small for this app.
     region: ohio
     healthCheckPath: /login
@@ -65,9 +65,9 @@ services:
   # Video processing (FFmpeg). Private: only look-web can reach it.
   - type: pserv
     name: look-media
-    runtime: docker
-    dockerfilePath: ./apps/media-server/Dockerfile.standalone
-    dockerContext: ./apps/media-server
+    runtime: image
+    image:
+      url: ghcr.io/techhkeem/look-media:latest
     plan: starter
     region: ohio
     envVars:
