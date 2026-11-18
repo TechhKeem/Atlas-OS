@@ -1,0 +1,12 @@
+/* Look brand theme. Remaps Cap's blue accent scale to Look Green.
+   Steps follow the Radix 12-step model; step 8 is the FinanceKeem sage. */
+:root, .light, .light-theme {
+	--blue-1: #fbfefc; --blue-2: #f4fbf6; --blue-3: #e6f6eb; --blue-4: #d6f1df;
+	--blue-5: #c4e8d1; --blue-6: #adddc0; --blue-7: #8eceaa; --blue-8: #5ca581;
+	--blue-9: #30a46c; --blue-10: #2b9a66; --blue-11: #218358; --blue-12: #193b2d;
+}
+.dark, .dark-theme {
+	--blue-1: #0e1512; --blue-2: #121b17; --blue-3: #132d21; --blue-4: #113b29;
+	--blue-5: #174933; --blue-6: #20573e; --blue-7: #28684a; --blue-8: #2f7c57;
+	--blue-9: #30a46c; --blue-10: #33b074; --blue-11: #3dd68c; --blue-12: #b1f1cb;
+}
