@@ -1,0 +1,98 @@
+# Render Blueprint for Look (look.financekeem.com).
+# The branding script copies this to the root of the `look` fork.
+# In Render: New → Blueprint → pick the `look` repo. Render then asks for the
+# values marked `sync: false`.
+
+envVarGroups:
+  - name: look-shared
+    envVars:
+      - key: MEDIA_SERVER_WEBHOOK_SECRET
+        generateValue: true
+
+services:
+  # The Look website and API (Next.js), built from apps/web/Dockerfile.
+  # Database migrations run automatically when it starts.
+  - type: web
+    name: look-web
+    runtime: docker
+    dockerfilePath: ./apps/web/Dockerfile
+    dockerContext: .
+    plan: standard # 2 GB RAM. Starter (512 MB) is too small for this app.
+    region: ohio
+    healthCheckPath: /login
+    domains:
+      - look.financekeem.com
+    envVars:
+      - fromGroup: look-shared
+      - key: PORT
+        value: "3000"
+      - key: WEB_URL
+        value: https://look.financekeem.com
+      - key: NEXTAUTH_URL
+        value: https://look.financekeem.com
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false # mysql://look:<MYSQL_PASSWORD>@look-mysql:3306/look
+      - key: MEDIA_SERVER_URL
+        value: http://look-media:3456
+      - key: MEDIA_SERVER_WEBHOOK_URL
+        value: https://look.financekeem.com
+      # Video storage: Cloudflare R2
+      - key: CAP_AWS_BUCKET
+        value: look-videos
+      - key: CAP_AWS_REGION
+        value: auto
+      - key: CAP_AWS_ACCESS_KEY
+        sync: false
+      - key: CAP_AWS_SECRET_KEY
+        sync: false
+      - key: S3_PUBLIC_ENDPOINT
+        sync: false # https://<cloudflare-account-id>.r2.cloudflarestorage.com
+      - key: S3_INTERNAL_ENDPOINT
+        sync: false # same value as S3_PUBLIC_ENDPOINT
+      - key: S3_PATH_STYLE
+        value: "true"
+      # Only financekeem.com email addresses can create accounts.
+      - key: CAP_ALLOWED_SIGNUP_DOMAINS
+        value: financekeem.com
+      # Sign-in emails (optional, free tier). Leave blank to start.
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RESEND_FROM_DOMAIN
+        value: financekeem.com
+
+  # Video processing (FFmpeg). Private: only look-web can reach it.
+  - type: pserv
+    name: look-media
+    runtime: docker
+    dockerfilePath: ./apps/media-server/Dockerfile.standalone
+    dockerContext: ./apps/media-server
+    plan: starter
+    region: ohio
+    envVars:
+      - fromGroup: look-shared
+      - key: PORT
+        value: "3456"
+
+  # MySQL database with a persistent disk. Private.
+  - type: pserv
+    name: look-mysql
+    runtime: image
+    image:
+      url: docker.io/library/mysql:8.0
+    plan: starter
+    region: ohio
+    disk:
+      name: mysql-data
+      mountPath: /var/lib/mysql
+      sizeGB: 10
+    envVars:
+      - key: MYSQL_DATABASE
+        value: look
+      - key: MYSQL_USER
+        value: look
+      - key: MYSQL_PASSWORD
+        sync: false
+      - key: MYSQL_ROOT_PASSWORD
+        sync: false

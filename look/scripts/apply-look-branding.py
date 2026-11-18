@@ -2,10 +2,7 @@
 """Apply Look branding to a checkout of the Cap repository (your fork).
 
 Usage:
-    python3 -I look/scripts/apply-look-branding.py /path/to/look-fork [--hobby]
-
---hobby  Trim Vercel cron jobs to once a day so the app deploys on the
-         Vercel Hobby plan (Hobby rejects crons that run more often).
+    python3 -I look/scripts/apply-look-branding.py /path/to/look-fork
 
 Safe to re-run: every step checks whether it has already been applied.
 """
@@ -34,14 +31,6 @@ NUMERIC_GREEN = {
     950: "#0E2219",
 }
 
-# Crons that matter on a self-hosted instance. The rest serve Cap's own
-# cloud (Loops email marketing, WorkOS directory sync, developer API).
-KEEP_CRONS = {
-    "/api/cron/finalize-stale-desktop-segments",
-    "/api/cron/recover-failed-video-processing",
-}
-
-
 def step(msg):
     print(f"• {msg}")
 
@@ -56,8 +45,7 @@ def edit(path: Path, fn):
 
 
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    hobby = "--hobby" in sys.argv
+    args = sys.argv[1:]
     if len(args) != 1:
         sys.exit(__doc__)
     root = Path(args[0]).resolve()
@@ -108,16 +96,9 @@ def main():
     render_icons(web / "public")
     step("Favicons and app icons generated")
 
-    # 5. Vercel config
-    vj = web / "vercel.json"
-    cfg = json.loads(vj.read_text())
-    crons = [c for c in cfg.get("crons", []) if c["path"] in KEEP_CRONS]
-    if hobby:
-        for i, c in enumerate(crons):
-            c["schedule"] = f"{10 + i * 20} 4 * * *"
-    cfg["crons"] = crons
-    vj.write_text(json.dumps(cfg, indent="\t") + "\n")
-    step(f"Vercel crons trimmed to {len(crons)} ({'Hobby: daily' if hobby else 'Pro schedule'})")
+    # 5. Render Blueprint (deploys web app, media server and MySQL)
+    shutil.copy(LOOK_DIR / "render.yaml", root / "render.yaml")
+    step("render.yaml added for Render deployment")
 
     print("\nDone. Review with `git diff`, then commit.")
 
