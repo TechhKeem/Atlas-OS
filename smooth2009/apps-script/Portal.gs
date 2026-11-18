@@ -9,7 +9,9 @@
  * Who can do what (set on the "Access" tab of the Sheet; no code changes needed):
  *   role Inc      sees and manages every section, reviews events, decides funds, builds newsletters
  *   role Officer  works only on their own section: reports events, requests funds, adds members,
- *                 confirms the semester roster
+ *                 confirms the semester roster, keeps the chapter's constitution and bylaws current
+ *   role Applicant leads a group applying to charter a new chapter: sees only the Chapter tab and
+ *                 only their own application. Approval turns them into that section's officer.
  *
  * Sign-in: people enter their email and get a 6-digit code by email. Only active emails on the
  * Access tab get a code. Sessions last 6 hours. Removing someone from Access locks them out at once.
@@ -46,7 +48,15 @@ const AMENDMENTS = {
   showRunningTotals: false
 };
 
+// The founding sections. Chapters The Inc. approves on the Chapter tab are added to this list automatically.
 const SECTIONS = { MSU: "Morgan State", CSU: "Coppin State", TU: "Temple" };
+const BASE_CHAPTERS = [
+  { code: "MSU", school: "Morgan State University", city: "Baltimore", state: "MD", charter_date: "2009-10-28" },
+  { code: "TU", school: "Temple University", city: "Philadelphia", state: "PA", charter_date: "2016-01-16" },
+  { code: "CSU", school: "Coppin State University", city: "Baltimore", state: "MD", charter_date: "2016-12-12" }
+];
+const CHAPTER_STATUSES = ["Draft", "Submitted", "Under review", "Needs changes", "Approved", "Denied"];
+const RECOGNITION = ["Recognized by the university", "Recognition in progress", "Not started yet"];
 const EVENT_TYPES = ["SMOOTH Week", "R.U.L.E.S. Symposium", "Jr. SMOOTH", "Community service", "Social",
                      "Professional development", "Fundraiser", "Other"];
 const MEMBER_STATUSES = ["Active", "Alumni", "Inactive"];
@@ -65,6 +75,12 @@ const SCHEMA = {
             "help_with", "dues_status", "last_dues_paid", "newsletter_opt_in", "review_flag", "notes",
             "source", "added_by", "last_updated"],
   Rosters: ["term", "section", "member_id", "name", "standing", "position", "confirmed_by", "confirmed_at"],
+  Chapters: ["chapter_id", "school", "code", "city", "state", "chartering_year", "charter_date",
+             "contact_name", "contact_email", "contact_phone", "advisor_name", "advisor_title", "advisor_email",
+             "recognition", "jr_smooth_school", "chartering_members", "roster_count", "constitution_file",
+             "bylaws_file", "recognition_file", "file_folder", "agreed", "status", "inc_notes",
+             "decided_by", "decided_at", "submitted_by", "submitted_at", "updated_at"],
+  CharterRoster: ["chapter_id", "first_name", "last_name", "email", "phone", "grad_year", "position"],
   Amendments: ["amendment_id", "title", "article", "current_text", "proposed_text", "rationale", "status",
                "proposed_by", "proposed_at", "vote_opens", "vote_closes", "eligible", "yes", "no", "abstain",
                "result", "decided_at"],
@@ -132,20 +148,22 @@ function signOut(token) {
 
 /** Everything the screens need after sign-in. */
 function whoami(token) {
-  return boot_(session_(token));
+  return boot_(session_(token, true));
 }
 
 function boot_(user) {
   return {
     user: { email: user.email, name: user.name, role: user.role, section: user.section,
-            sectionName: SECTIONS[user.section] || "All sections" },
+            sectionName: user.role === "Applicant" ? "Chapter applicant" : (SECTIONS[user.section] || "All sections") },
     sections: SECTIONS,
     eventTypes: EVENT_TYPES,
     memberStatuses: MEMBER_STATUSES,
     currentTerm: currentTerm_(),
     terms: knownTerms_(),
     minPhotos: PORTAL.minPhotos,
-    maxPhotos: PORTAL.maxPhotos
+    maxPhotos: PORTAL.maxPhotos,
+    chapterStatuses: CHAPTER_STATUSES,
+    recognition: RECOGNITION
   };
 }
 
@@ -202,6 +220,8 @@ function getDashboard(token, term) {
     const toReview = events.filter(function (e) { return e.status === "Submitted"; }).length;
     if (toReview) todo.push(toReview + " event report" + (toReview > 1 ? "s" : "") + " to review");
     if (total.fundsPending) todo.push(total.fundsPending + " funds request" + (total.fundsPending > 1 ? "s" : "") + " waiting for a decision");
+    const apps = rows_("Chapters").filter(function (c) { return c.status === "Submitted" || c.status === "Under review"; }).length;
+    if (apps) todo.push(apps + " chapter application" + (apps > 1 ? "s" : "") + " to review");
     const flagged = members.filter(function (m) { return m.review_flag; }).length;
     if (flagged) todo.push(flagged + " possible duplicate member" + (flagged > 1 ? "s" : "") + " to check");
   }
@@ -729,7 +749,7 @@ function withdrawAmendment(token, amendmentId) {
 }
 
 function canVote_(user) {
-  return user.role === "Inc" || AMENDMENTS.voters === "Inc and Officers";
+  return user.role === "Inc" || (user.role === "Officer" && AMENDMENTS.voters === "Inc and Officers");
 }
 
 function eligibleVoters_() {
@@ -765,6 +785,274 @@ function tallyAndClose_(a) {
   return { ok: true, status: status, result: result };
 }
 
+/* ============================== Chapters ============================== */
+
+/** Inc sees every chapter; officers see their own section's; applicants see the applications they started. */
+function listChapters(token) {
+  const user = session_(token, true);
+  ensureBaseChapters_();
+  const roster = rows_("CharterRoster");
+  return rows_("Chapters")
+    .filter(function (c) { return c.chapter_id && canSeeChapter_(user, c); })
+    .sort(function (a, b) { return String(b.chapter_id).localeCompare(String(a.chapter_id)); })
+    .map(function (c) {
+      const o = pick_(c, SCHEMA.Chapters);
+      if (user.role !== "Inc") delete o.file_folder;
+      o.roster = roster.filter(function (r) { return r.chapter_id === c.chapter_id; })
+        .map(function (r) { return pick_(r, ["first_name", "last_name", "email", "phone", "grad_year", "position"]); });
+      o.can_edit = canEditChapter_(user, c);
+      o.can_upload = canUploadChapter_(user, c);
+      return o;
+    });
+}
+
+/** Start or update an application. Files are uploaded next, then submitChapter() sends it. */
+function saveChapter(token, f) {
+  const user = session_(token, true);
+  if (user.role === "Officer") throw new Error("Section officers can update documents on their chapter. To start a new chapter, ask The Inc.");
+  f = f || {};
+  const existing = f.chapter_id ? findOne_("Chapters", "chapter_id", f.chapter_id) : null;
+  if (f.chapter_id && !existing) throw new Error("That application wasn't found.");
+  if (existing && !canEditChapter_(user, existing)) throw new Error("This application can't be edited now.");
+  const thisYear = new Date().getFullYear();
+  const code = text_(f.code, "Section abbreviation", 5, true).toUpperCase();
+  if (!/^[A-Z]{2,5}$/.test(code)) bad_("Section abbreviation must be 2 to 5 letters, like MSU.");
+  const clash = rows_("Chapters").some(function (c) { return String(c.code).toUpperCase() === code && c.chapter_id !== (existing && existing.chapter_id) && c.status !== "Denied"; });
+  if (clash || (SECTIONS[code] && !(existing && existing.status === "Approved"))) bad_("The abbreviation " + code + " is already taken. Choose another.");
+  const roster = parseRoster_(f.roster_text);
+  if (roster.errors.length) bad_("Fix the roster first: " + roster.errors.slice(0, 5).join(" ") + (roster.errors.length > 5 ? " (and " + (roster.errors.length - 5) + " more)" : ""));
+  if (!roster.rows.length) bad_("Add the chartering roster: at least one member.");
+  if (String(f.agreed) !== "true" && f.agreed !== true) bad_("Check the agreement box to continue.");
+  const rec = {
+    school: text_(f.school, "School", 120, true),
+    code: code,
+    city: text_(f.city, "City", 80, true),
+    state: text_(f.state, "State", 30, true),
+    chartering_year: int_(f.chartering_year, "Chartering year", 2009, thisYear + 1, true),
+    charter_date: dateStr_(f.charter_date, "Charter date", false),
+    contact_name: text_(f.contact_name, "Primary contact name", 120, true),
+    contact_email: normEmail_(f.contact_email) || bad_("Enter a valid email for the primary contact."),
+    contact_phone: phone_(f.contact_phone, true),
+    advisor_name: text_(f.advisor_name, "Advisor name", 120, true),
+    advisor_title: text_(f.advisor_title, "Advisor title", 120, false),
+    advisor_email: normEmail_(f.advisor_email) || bad_("Enter a valid email for the advisor."),
+    recognition: oneOf_(f.recognition, RECOGNITION, "University recognition", true),
+    jr_smooth_school: text_(f.jr_smooth_school, "Planned Jr. SMOOTH school", 160, false),
+    chartering_members: text_(f.chartering_members, "Chartering members", 4000, true),
+    roster_count: roster.rows.length,
+    agreed: "Yes",
+    updated_at: new Date()
+  };
+  const lock = lock_();
+  let id;
+  try {
+    if (existing) {
+      id = existing.chapter_id;
+      update_("Chapters", existing._row, rec);
+      replaceRoster_(id, roster.rows);
+    } else {
+      id = nextId_("Chapters", "chapter_id", "C-", 3);
+      rec.chapter_id = id;
+      rec.status = "Draft";
+      rec.submitted_by = user.email;
+      rec.file_folder = folderPath_(["Chapters", safeName_(rec.school) + " (" + id + ")"]).getUrl();
+      append_("Chapters", rec);
+      replaceRoster_(id, roster.rows);
+    }
+  } finally { lock.releaseLock(); }
+  log_(user.email, existing ? "chapter updated" : "chapter started", id + " " + rec.school);
+  return { chapter_id: id, roster_count: rec.roster_count };
+}
+
+/** kind: constitution | bylaws | recognition. A new upload replaces the file shown (older versions stay in Drive). */
+function uploadChapterFile(token, chapterId, kind, file) {
+  const user = session_(token, true);
+  const c = findOne_("Chapters", "chapter_id", chapterId);
+  if (!c || !canUploadChapter_(user, c)) throw new Error("That chapter wasn't found.");
+  kind = oneOf_(kind, ["constitution", "bylaws", "recognition"], "Document type", true);
+  const blob = blob_(file, /^(application\/pdf|application\/msword|application\/vnd\.openxmlformats-officedocument\.wordprocessingml\.document|image\/(jpeg|png|heic|heif))$/, "document (PDF, Word, or photo)");
+  const lock = lock_();
+  try {
+    const fresh = findOne_("Chapters", "chapter_id", chapterId);
+    const stamp = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "yyyy-MM-dd");
+    const name = (fresh.code || fresh.chapter_id) + " " + kind + " " + stamp + extFor_(blob.getContentType(), file.name);
+    blob.setName(name);
+    folderFromUrl_(fresh.file_folder || folderPath_(["Chapters", safeName_(fresh.school) + " (" + fresh.chapter_id + ")"]).getUrl()).createFile(blob);
+    const upd = { updated_at: new Date() };
+    upd[kind + "_file"] = name;
+    if (!fresh.file_folder) upd.file_folder = folderPath_(["Chapters", safeName_(fresh.school) + " (" + fresh.chapter_id + ")"]).getUrl();
+    update_("Chapters", fresh._row, upd);
+  } finally { lock.releaseLock(); }
+  log_(user.email, "chapter " + kind + " uploaded", chapterId);
+  return { ok: true };
+}
+
+function submitChapter(token, chapterId) {
+  const user = session_(token, true);
+  const c = findOne_("Chapters", "chapter_id", chapterId);
+  if (!c || !canEditChapter_(user, c)) throw new Error("This application can't be submitted now.");
+  if (!c.constitution_file || !c.bylaws_file) throw new Error("Upload the chapter's constitution and bylaws before submitting.");
+  update_("Chapters", c._row, { status: "Submitted", submitted_at: new Date(), updated_at: new Date() });
+  notify_(PORTAL.notify, "Chapter application: " + c.school,
+    c.school + " (" + c.city + ", " + c.state + ") applied to charter a S.M.O.O.T.H. section as " + c.code + ".\n" +
+    "Chartering year: " + c.chartering_year + "\nRoster: " + c.roster_count + " members\nAdvisor: " + c.advisor_name + " (" + c.advisor_email + ")\n" +
+    "Contact: " + c.contact_name + ", " + c.contact_email + "\n\nReview it in the portal under Chapter.");
+  log_(user.email, "chapter submitted", chapterId);
+  return { ok: true, message: "Application submitted. The Inc. will review it and email " + c.contact_email + "." };
+}
+
+/** Inc only. Approving makes the chapter a live section, loads its roster, and turns the applicant into its officer. */
+function decideChapter(token, chapterId, d) {
+  const user = incOnly_(session_(token));
+  d = d || {};
+  const c = findOne_("Chapters", "chapter_id", chapterId);
+  if (!c) throw new Error("That chapter wasn't found.");
+  const status = oneOf_(d.status, CHAPTER_STATUSES, "Approval status", true);
+  const note = text_(d.note, "Note", 1500, status === "Needs changes" || status === "Denied");
+  const code = String(c.code || "").toUpperCase();
+  let imported = 0;
+  const lock = lock_();
+  try {
+    if (status === "Approved" && c.status !== "Approved") {
+      if (SECTIONS[code] && !BASE_CHAPTERS.some(function (b) { return b.code === code; })) bad_("The abbreviation " + code + " is already a section.");
+      SECTIONS[code] = shortSchool_(c.school);
+      imported = importCharterRoster_(c, user.email);
+      rows_("Access").forEach(function (a) {
+        if (normEmail_(a.email) === normEmail_(c.submitted_by) && String(a.role).trim() === "Applicant") {
+          update_("Access", a._row, { role: "Officer", section: code, notes: "Became " + code + " officer when the chapter was approved" });
+        }
+      });
+      ACCESS_ = null;
+    }
+    update_("Chapters", c._row, { status: status, inc_notes: note, decided_by: user.email, decided_at: new Date(), updated_at: new Date() });
+  } finally { lock.releaseLock(); }
+  const to = [c.contact_email, c.submitted_by].filter(function (e, i, all) { return e && all.indexOf(e) === i; });
+  const msg = status === "Approved" ? "has been approved. Welcome to S.M.O.O.T.H. Inc. Your section is now set up in the portal as " + code + "."
+            : status === "Needs changes" ? "needs a few changes before The Inc. can decide."
+            : status === "Denied" ? "was not approved at this time."
+            : "is now marked \"" + status + "\".";
+  to.forEach(function (e) {
+    notify_(e, "Chapter application " + status.toLowerCase() + ": " + c.school,
+      "Your application to charter a S.M.O.O.T.H. section at " + c.school + " " + msg + (note ? "\n\nNote from The Inc.:\n" + note : "") +
+      "\n\nQuestions: " + PORTAL.notify);
+  });
+  log_(user.email, "chapter " + status.toLowerCase(), chapterId + (imported ? " roster " + imported : ""));
+  return { ok: true, imported: imported };
+}
+
+function canSeeChapter_(user, c) {
+  if (user.role === "Inc") return true;
+  if (user.role === "Officer") return String(c.code).toUpperCase() === user.section && c.status === "Approved";
+  return normEmail_(c.submitted_by) === user.email;
+}
+function canEditChapter_(user, c) {
+  const open = c.status === "Draft" || c.status === "Needs changes";
+  if (user.role === "Inc") return c.status !== "Approved";
+  return user.role === "Applicant" && open && normEmail_(c.submitted_by) === user.email;
+}
+function canUploadChapter_(user, c) {
+  return user.role === "Inc" || (user.role === "Officer" && canSeeChapter_(user, c)) || canEditChapter_(user, c);
+}
+
+/** Records for the founding sections, already approved, so they can keep their documents here. */
+function ensureBaseChapters_() {
+  const have = rows_("Chapters").map(function (c) { return String(c.code).toUpperCase(); });
+  BASE_CHAPTERS.forEach(function (b) {
+    if (have.indexOf(b.code) !== -1) return;
+    append_("Chapters", { chapter_id: nextId_("Chapters", "chapter_id", "C-", 3), school: b.school, code: b.code, city: b.city, state: b.state,
+      chartering_year: Number(b.charter_date.slice(0, 4)), charter_date: b.charter_date, status: "Approved", roster_count: 0,
+      inc_notes: "Founding-era section", updated_at: new Date() });
+  });
+}
+
+function replaceRoster_(chapterId, rows) {
+  const sh = tab_("CharterRoster");
+  const all = rows_("CharterRoster");
+  for (let i = all.length - 1; i >= 0; i--) if (all[i].chapter_id === chapterId) sh.deleteRow(all[i]._row);
+  delete ROWS_CACHE_.CharterRoster;
+  rows.forEach(function (r) { append_("CharterRoster", Object.assign({ chapter_id: chapterId }, r)); });
+}
+
+function importCharterRoster_(c, by) {
+  const code = String(c.code).toUpperCase();
+  const existing = rows_("Members").map(function (m) { return String(m.email).toLowerCase(); });
+  let n = 0;
+  rows_("CharterRoster").filter(function (r) { return r.chapter_id === c.chapter_id; }).forEach(function (r) {
+    if (existing.indexOf(String(r.email).toLowerCase()) !== -1) return;
+    const id = nextId_("Members", "member_id", "M-", 5);
+    append_("Members", { member_id: id, first_name: r.first_name, last_name: r.last_name, email: r.email, phone: r.phone, section: code,
+      status: "Active", position: r.position, grad_year: r.grad_year, year_joined: new Date().getFullYear(), term_joined: currentTerm_(),
+      source: "Charter roster " + c.chapter_id, added_by: by, last_updated: new Date() });
+    append_("Rosters", { term: currentTerm_(), section: code, member_id: id, name: r.first_name + " " + r.last_name, standing: "New",
+      position: r.position, confirmed_by: by, confirmed_at: new Date() });
+    existing.push(String(r.email).toLowerCase()); n++;
+  });
+  return n;
+}
+
+/**
+ * Reads a pasted or uploaded roster. Accepts a header row (first name, last name, email, phone,
+ * graduation year, position, in any order) or those columns in that order without headers.
+ * Columns can be separated by tabs (pasted from a spreadsheet) or commas (CSV).
+ */
+function parseRoster_(text) {
+  text = String(text || "").replace(/\r\n?/g, "\n").trim();
+  const out = { rows: [], errors: [] };
+  if (!text) return out;
+  const lines = text.split("\n").filter(function (l) { return l.trim(); });
+  if (lines.length > 401) { out.errors.push("A roster can have 400 people at most."); return out; }
+  const delim = lines[0].indexOf("\t") !== -1 ? "\t" : ",";
+  const cells = function (line) {
+    if (delim === "\t") return line.split("\t").map(function (x) { return x.trim(); });
+    const res = []; let cur = "", q = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (q) { if (ch === '"' && line[i + 1] === '"') { cur += '"'; i++; } else if (ch === '"') q = false; else cur += ch; }
+      else if (ch === '"') q = true; else if (ch === ",") { res.push(cur.trim()); cur = ""; } else cur += ch;
+    }
+    res.push(cur.trim()); return res;
+  };
+  const keys = { first_name: /^first/i, last_name: /^last|surname/i, email: /e-?mail/i, phone: /phone|cell|mobile/i, grad_year: /grad|class|year/i, position: /position|role|office|title/i };
+  let order = ["first_name", "last_name", "email", "phone", "grad_year", "position"];
+  const head = cells(lines[0]);
+  let start = 0;
+  // A header row is one where every filled-in cell reads like a column label.
+  const isLabel = function (h) { return Object.keys(keys).some(function (k) { return keys[k].test(h); }) || /^(name|notes?)$/i.test(h); };
+  const filled = head.filter(function (h) { return h; });
+  const looksLikeHeader = filled.length > 1 && !filled.some(function (h) { return h.indexOf("@") !== -1; }) && filled.every(isLabel);
+  if (looksLikeHeader) {
+    order = head.map(function (h) { return Object.keys(keys).filter(function (k) { return keys[k].test(h); })[0] || ""; });
+    start = 1;
+  }
+  const seen = {};
+  for (let i = start; i < lines.length; i++) {
+    const c = cells(lines[i]), r = {};
+    order.forEach(function (k, j) { if (k && c[j] !== undefined) r[k] = c[j]; });
+    const n = "Line " + (i + 1) + ":";
+    try {
+      const row = {
+        first_name: text_(r.first_name, "first name", 60, true),
+        last_name: text_(r.last_name, "last name", 60, true),
+        email: normEmail_(r.email) || bad_("email is missing or not valid."),
+        phone: r.phone ? phone_(r.phone, false) : "",
+        grad_year: r.grad_year ? int_(r.grad_year, "graduation year", 2009, new Date().getFullYear() + 8, false) : "",
+        position: text_(r.position, "position", 80, false)
+      };
+      if (seen[row.email]) bad_(row.email + " appears twice.");
+      seen[row.email] = 1;
+      out.rows.push(row);
+    } catch (e) { out.errors.push(n + " " + e.message.charAt(0).toLowerCase() + e.message.slice(1)); }
+  }
+  return out;
+}
+
+/** The roster check the form runs before saving, so applicants see problems right away. */
+function checkRoster(token, text) {
+  session_(token, true);
+  const r = parseRoster_(text);
+  return { count: r.rows.length, errors: r.errors.slice(0, 20), preview: r.rows.slice(0, 5) };
+}
+
 /* ============================== Editor-only setup ============================== */
 
 /** Run once from the editor: creates every tab, makes you an Inc admin, and creates the Drive folder. */
@@ -776,10 +1064,12 @@ function setup() {
     append_("Access", { email: owner, name: "Owner", role: "Inc", section: "", active: "Yes", notes: "Added by setup()" });
   }
   const access = tab_("Access");
-  access.getRange("C2:C").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(["Inc", "Officer"], true).build());
+  access.getRange("C2:C").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(["Inc", "Officer", "Applicant"], true).build());
   access.getRange("D2:D").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(Object.keys(SECTIONS), true).setAllowInvalid(true).build());
   access.getRange("E2:E").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(["Yes", "No"], true).build());
   tab_("Members").getRange("G2:G").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(MEMBER_STATUSES, true).build());
+  ensureBaseChapters_();
+  tab_("Chapters").getRange("W2:W").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(CHAPTER_STATUSES, true).build());
   const root = rootFolder_();
   if (typeof setupNewsletter_ === "function") setupNewsletter_();
   console.log("Portal ready. Drive folder: " + root.getUrl() + "\nShare that folder with Inc members only (not officers).");
@@ -811,26 +1101,43 @@ function rosterReminder_() {
 
 /* ============================== Helpers (not callable from the browser) ============================== */
 
-let ROWS_CACHE_ = {}, ENSURED_ = {}, ACCESS_ = null;
+let ROWS_CACHE_ = {}, ENSURED_ = {}, ACCESS_ = null, SECTIONS_LOADED_ = false;
 
-function session_(token) {
+/** Applicants can only reach the Chapter tab: every other function refuses them. */
+function session_(token, allowApplicant) {
   const email = token && CacheService.getScriptCache().get("s:" + String(token));
   if (!email) throw new Error("Your session ended. Sign in again.");
   const user = accessFor_(email);
   if (!user) throw new Error("This email no longer has portal access.");
+  if (user.role === "Applicant" && !allowApplicant) throw new Error("Chapter applicants can only use the Chapter tab.");
   return user;
 }
+
+/** Add approved chapters to SECTIONS (once per run). */
+function loadSections_() {
+  if (SECTIONS_LOADED_) return;
+  SECTIONS_LOADED_ = true;
+  rows_("Chapters").forEach(function (c) {
+    const code = String(c.code || "").toUpperCase();
+    if (c.status === "Approved" && /^[A-Z]{2,5}$/.test(code) && !SECTIONS[code]) SECTIONS[code] = shortSchool_(c.school);
+  });
+}
+
+/** "Example State University" -> "Example State" for labels. */
+function shortSchool_(school) { return String(school || "").replace(/\s+University$/i, "").trim() || String(school || ""); }
 
 function accessFor_(email) {
   email = normEmail_(email);
   if (!email) return null;
+  loadSections_();
   if (!ACCESS_) ACCESS_ = rows_("Access");
   const a = ACCESS_.filter(function (r) { return normEmail_(r.email) === email && String(r.active).trim().toLowerCase() === "yes"; })[0];
   if (!a) return null;
-  const role = String(a.role).trim() === "Inc" ? "Inc" : "Officer";
+  const r = String(a.role).trim();
+  const role = r === "Inc" ? "Inc" : r === "Applicant" ? "Applicant" : "Officer";
   const section = String(a.section || "").trim().toUpperCase();
   if (role === "Officer" && !SECTIONS[section]) return null;   // an officer must have a section
-  return { email: email, name: String(a.name || ""), role: role, section: role === "Inc" ? "" : section };
+  return { email: email, name: String(a.name || ""), role: role, section: role === "Officer" ? section : "" };
 }
 
 function incOnly_(user) {
@@ -1078,7 +1385,9 @@ function blob_(file, typeRe, what) {
   return Utilities.newBlob(bytes, type, "upload");
 }
 
-function extFor_(type) {
+function extFor_(type, name) {
   return ({ "image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp", "image/heic": ".heic",
-            "image/heif": ".heif", "image/gif": ".gif", "application/pdf": ".pdf" })[type] || "";
+            "image/heif": ".heif", "image/gif": ".gif", "application/pdf": ".pdf", "application/msword": ".doc",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document": ".docx" })[type] ||
+         (String(name || "").match(/\.[A-Za-z0-9]{2,5}$/) || [""])[0];
 }

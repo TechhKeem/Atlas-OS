@@ -185,6 +185,67 @@ assert(d.todo.some(t => /possible duplicate/.test(t)));
 assert.strictEqual(run('getDashboard', tu.token, '').sections.length, 1, 'officer sees own section');
 ok('dashboard totals by section and term');
 
+// --- chapters
+acc.push(['lead@newschool.edu', 'New Lead', 'Applicant', '', 'Yes', '']);
+const app = signIn('lead@newschool.edu');
+assert.strictEqual(app.boot.user.role, 'Applicant');
+throws('listEvents', /only use the Chapter tab/, app.token, {});
+throws('listMembers', /only use the Chapter tab/, app.token, {});
+throws('getDashboard', /only use the Chapter tab/, app.token, '');
+let ch = run('listChapters', app.token);
+assert.strictEqual(ch.length, 0, 'applicant sees nothing before applying');
+assert.strictEqual(run('listChapters', inc.token).filter(c => c.status === 'Approved').length, 3, 'founding sections exist as approved chapters');
+const tuCh = run('listChapters', tu.token);
+assert.strictEqual(tuCh.length, 1); assert.strictEqual(tuCh[0].code, 'TU'); assert.strictEqual(tuCh[0].can_upload, true); assert.strictEqual(tuCh[0].can_edit, false);
+ok('chapter visibility: applicant only own, officer only own section, Inc all; applicants locked out of everything else');
+
+const chapterForm = (over) => Object.assign({ school: 'Example State University', code: 'esu', city: 'Towson', state: 'MD', chartering_year: new Date().getFullYear(),
+  contact_name: 'New Lead', contact_email: 'lead@newschool.edu', contact_phone: '4105551234', advisor_name: 'Dr. Advisor', advisor_title: 'Dean of Students',
+  advisor_email: 'advisor@newschool.edu', recognition: 'Recognition in progress', chartering_members: 'New Lead, President\nSecond Founder, Vice President',
+  roster_text: 'First name\tLast name\tEmail\tPhone\tClass year\tPosition\nNew\tLead\tlead@newschool.edu\t410-555-1234\t2027\tPresident\nSecond\tFounder\tsecond@newschool.edu\t4105551235\t2028\tVice President\nThird\tMember\tthird@newschool.edu\t\t2029\t',
+  agreed: true }, over || {});
+throws('saveChapter', /already taken/, app.token, chapterForm({ code: 'TU' }));
+throws('saveChapter', /agreement/, app.token, chapterForm({ agreed: false }));
+throws('saveChapter', /Line 1: email/, app.token, chapterForm({ roster_text: 'Ann\tB\tnot-an-email' }));
+throws('saveChapter', /appears twice/, app.token, chapterForm({ roster_text: 'A,B,a@x.co\nC,D,a@x.co' }));
+throws('saveChapter', /Section officers can update documents/, tu.token, chapterForm());
+const chk = run('checkRoster', app.token, 'first,last,email\n"Smith, Jr.",Kai,kai.jr@x.co\nBad,Row,nope');
+assert.strictEqual(chk.count, 1); assert.strictEqual(chk.errors.length, 1); assert.strictEqual(chk.preview[0].first_name, 'Smith, Jr.');
+const saved = run('saveChapter', app.token, chapterForm());
+assert.strictEqual(saved.roster_count, 3);
+throws('submitChapter', /constitution and bylaws/, app.token, saved.chapter_id);
+const pdf = { name: 'constitution.pdf', type: 'application/pdf', data: Buffer.from('%PDF-1.4').toString('base64') };
+run('uploadChapterFile', app.token, saved.chapter_id, 'constitution', pdf);
+run('uploadChapterFile', app.token, saved.chapter_id, 'bylaws', { name: 'bylaws.docx', type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', data: Buffer.from('PK').toString('base64') });
+throws('uploadChapterFile', /isn't a supported document/, app.token, saved.chapter_id, 'bylaws', { name: 'x.exe', type: 'application/x-msdownload', data: 'AAAA' });
+const sub = run('submitChapter', app.token, saved.chapter_id);
+assert(/submitted/i.test(sub.message));
+ch = run('listChapters', app.token)[0];
+assert.strictEqual(ch.status, 'Submitted'); assert.strictEqual(ch.code, 'ESU'); assert.strictEqual(ch.can_edit, false); assert(!('file_folder' in ch));
+assert(/ESU bylaws \d{4}-\d\d-\d\d\.docx/.test(ch.bylaws_file));
+throws('saveChapter', /can't be edited/, app.token, chapterForm({ chapter_id: saved.chapter_id }));
+throws('decideChapter', /Only The Inc|only use the Chapter tab/, app.token, saved.chapter_id, { status: 'Approved' });
+assert(run('getDashboard', inc.token, '').todo.some(t => /chapter application/.test(t)));
+ok('chapter application: validation, bulk roster with headers and quotes, required documents, submit locks editing');
+
+run('decideChapter', inc.token, saved.chapter_id, { status: 'Needs changes', note: 'Add your advisor title.' });
+assert.strictEqual(run('listChapters', app.token)[0].can_edit, true);
+run('saveChapter', app.token, chapterForm({ chapter_id: saved.chapter_id, roster_text: 'New,Lead,lead@newschool.edu,4105551234,2027,President\nSecond,Founder,second@newschool.edu,,2028,' }));
+assert.strictEqual(M.sheets.CharterRoster._rows.filter(r => r[0] === saved.chapter_id).length, 2, 'edited roster replaces the old one');
+run('submitChapter', app.token, saved.chapter_id);
+const dec = run('decideChapter', inc.token, saved.chapter_id, { status: 'Approved', note: '' });
+assert.strictEqual(dec.imported, 2);
+const officer = run('whoami', app.token);
+assert.strictEqual(officer.user.role, 'Officer'); assert.strictEqual(officer.user.section, 'ESU'); assert.strictEqual(officer.sections.ESU, 'Example State');
+assert.strictEqual(run('listMembers', app.token, {}).length, 2, 'new section sees its imported roster');
+assert.strictEqual(run('getRoster', app.token, '').people.length, 2);
+assert(run('getDashboard', inc.token, '').sections.some(s => s.section === 'ESU'), 'new section on the dashboard');
+assert(M.mails.some(m => m.to === 'lead@newschool.edu' && /approved/.test(m.subject)));
+const ev2 = run('createEvent', app.token, { event_date: today, title: 'First meeting', event_type: 'Social', description: 'd', attendees: 12, newsletter_summary: 's', minors_in_photos: 'No' });
+assert(ev2.event_id); assert.strictEqual(run('listEvents', tu.token, {}).filter(e => e.title === 'First meeting').length, 0);
+const tuChapters = run('listChapters', tu.token); assert.strictEqual(tuChapters.length, 1, 'Temple still sees only its own chapter');
+ok('approval: new section goes live, roster imported, applicant becomes its officer, other sections still walled off');
+
 // --- newsletter sign-up still works in the shared project
 const sign = JSON.parse(ctx.doPost({ parameter: { form: 'Newsletter', name: 'Fan', email: 'fan@example.com', relationship: 'Alumni' } }).getContent());
 assert.strictEqual(sign.ok, true); ok('website newsletter sign-up (doPost) alongside the portal');

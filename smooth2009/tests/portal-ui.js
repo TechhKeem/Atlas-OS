@@ -66,7 +66,7 @@ const file = path.join(out, 'portal-harness.html'); fs.writeFileSync(file, html)
     const v = await p.evaluate(async () => (await axe.run(document, { runOnly: ['wcag2a', 'wcag2aa', 'wcag21aa'] })).violations.map(x => x.id + ' x' + x.nodes.length + ' ' + x.nodes.slice(0, 2).map(n => n.target.join(' ')).join(' | ')));
     v.forEach(x => problems.push(label + ' axe: ' + x));
   }
-  const tabs = ['overview', 'events', 'funds', 'members', 'amendments', 'newsletter'];
+  const tabs = ['overview', 'events', 'funds', 'members', 'amendments', 'chapter', 'newsletter'];
   for (const [email, who, scheme] of [['owner@smooth2009.org', 'inc', 'light'], ['pres.tu@example.com', 'officer', 'light'], ['owner@smooth2009.org', 'inc-dark', 'dark']]) {
     const p = await session(email, who, { width: 1200, height: 900 }, scheme);
     for (const t of tabs) {

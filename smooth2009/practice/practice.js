@@ -9,7 +9,8 @@
     inc: { email: "inc@example.com", label: "The Inc." },
     MSU: { email: "officer.msu@example.com", label: "Morgan State officer" },
     CSU: { email: "officer.csu@example.com", label: "Coppin State officer" },
-    TU:  { email: "officer.tu@example.com", label: "Temple officer" }
+    TU:  { email: "officer.tu@example.com", label: "Temple officer" },
+    applicant: { email: "applicant@example.com", label: "New chapter applicant" }
   };
   const store = {
     get(k) { try { return localStorage.getItem(k); } catch (_) { return null; } },
@@ -27,8 +28,14 @@
   __mock.users.effective = ROLES.inc.email;
   let saved = null;
   try { saved = JSON.parse(store.get(KEY) || "null"); } catch (_) {}
-  if (saved && saved.v === 1) { __mock.load(saved.state); }
+  if (saved && saved.v === 1) { __mock.load(saved.state); ensurePracticeAccess(); }
   else { seed(store.get("smoothPracticeSeed") !== "empty"); store.del("smoothPracticeSeed"); }
+
+  /** Practice data saved before a role existed gets that role's account added. */
+  function ensurePracticeAccess() {
+    const acc = __mock.sheets.Access && __mock.sheets.Access._rows; if (!acc) return;
+    if (!acc.some(r => String(r[0]).toLowerCase() === ROLES.applicant.email)) acc.push([ROLES.applicant.email, "New chapter applicant (practice)", "Applicant", "", "Yes", "Practice account"]);
+  }
 
   function seed(withExamples) {
     __mock.users.active = __mock.users.effective; fresh(); setup(); __mock.users.active = "";
@@ -36,7 +43,8 @@
     acc[1][1] = "You (practice)";
     acc.push(["officer.msu@example.com", "Morgan State officer (practice)", "Officer", "MSU", "Yes", "Practice account"],
              ["officer.csu@example.com", "Coppin State officer (practice)", "Officer", "CSU", "Yes", "Practice account"],
-             ["officer.tu@example.com", "Temple officer (practice)", "Officer", "TU", "Yes", "Practice account"]);
+             ["officer.tu@example.com", "Temple officer (practice)", "Officer", "TU", "Yes", "Practice account"],
+             ["applicant@example.com", "New chapter applicant (practice)", "Applicant", "", "Yes", "Practice account"]);
     if (withExamples) examples();   // keep the emails the examples trigger, so the outbox shows what the portal sends
     save();
   }
@@ -92,6 +100,21 @@
     const a2 = run("proposeAmendment", T.inc, { title: "Add a national treasurer", article: "Article V, Section 1",
       proposed_text: "The Inc. shall include a National Treasurer elected each spring.", rationale: "Funds requests need one clear approver." });
     run("openVote", T.inc, a2.amendment_id); run("castVote", T.MSU, a2.amendment_id, "Yes");
+
+    // An example chapter application from another school, waiting for The Inc. to review
+    __mock.sheets.Access._rows.push(["lead@example.edu", "Example applicant", "Applicant", "", "Yes", "Example"]);
+    const A = token("lead@example.edu");
+    const doc = { name: "example.pdf", type: "application/pdf", data: btoa("%PDF example") };
+    const c = run("saveChapter", A, { school: "Example State University", code: "ESU", city: "Towson", state: "MD", chartering_year: d.getFullYear(),
+      contact_name: "Example applicant", contact_email: "lead@example.edu", contact_phone: "4105550199", advisor_name: "Dr. Example Advisor",
+      advisor_title: "Assistant Dean of Students", advisor_email: "advisor@example.edu", recognition: "Recognition in progress",
+      jr_smooth_school: "Example Elementary School", chartering_members: "Example applicant, President\nSecond Founder, Vice President\nThird Founder, Treasurer",
+      roster_text: "First name\tLast name\tEmail\tPhone\tClass year\tPosition\nExample\tApplicant\tlead@example.edu\t4105550199\t2027\tPresident\n" +
+        "Second\tFounder\tsecond@example.edu\t4105550198\t2028\tVice President\nThird\tFounder\tthird@example.edu\t4105550197\t2028\tTreasurer\n" +
+        "Fourth\tMember\tfourth@example.edu\t\t2029\t\nFifth\tMember\tfifth@example.edu\t\t2029\t", agreed: true });
+    run("uploadChapterFile", A, c.chapter_id, "constitution", doc);
+    run("uploadChapterFile", A, c.chapter_id, "bylaws", doc);
+    run("submitChapter", A, c.chapter_id);
   }
 
   /* ---------- sign in as the chosen role, no password ---------- */

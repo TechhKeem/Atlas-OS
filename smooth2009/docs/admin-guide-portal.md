@@ -9,7 +9,8 @@ The portal is the private back office for The Inc. and section officers. No codi
 | Person | What they can do |
 |---|---|
 | **The Inc.** | Everything, for every section: review event reports, approve or deny funds, see and export the directory, open and close amendment votes, build newsletter drafts. |
-| **Section officers** (presidents, event coordinators) | Only their own section: report events, request funds, add new members, confirm the semester roster, propose and vote on amendments. They never see other sections' data. |
+| **Section officers** (presidents, event coordinators) | Only their own section: report events, request funds, add new members, confirm the semester roster, keep the chapter's constitution and bylaws current, propose and vote on amendments. They never see other sections' data. |
+| **Chapter applicants** (students starting a new chapter) | Only the Chapter tab, and only their own application. Nothing else. |
 
 ## Giving and removing access
 
@@ -19,7 +20,7 @@ Open the **Access** tab in the Sheet. Each row is one person.
 |---|---|
 | email | The email they'll sign in with. Any email works, Gmail or school. |
 | name | Their name, as it should appear in the portal |
-| role | **Inc** or **Officer** |
+| role | **Inc**, **Officer**, or **Applicant** |
 | section | For officers: **MSU**, **CSU**, or **TU**. Leave blank for Inc. |
 | active | **Yes** to allow sign-in. **No** locks them out right away. |
 
@@ -50,6 +51,24 @@ If an upload is interrupted, the report shows as **Incomplete** with an "Add pho
 **Start of every semester: Members > Semester roster**
 - Tick every brother who is back and update positions. New members are added separately.
 - On **September 15** and **February 1**, officers whose roster isn't in get an automatic reminder email.
+
+## Chartering a new chapter: the Chapter tab
+
+1. A student group asks to start a chapter. The Inc. adds its lead on the Access tab with role **Applicant** and the section left blank.
+2. The applicant signs in and sees only the Chapter tab. They fill in:
+   - **School:** name, section abbreviation, city, state, chartering year, charter date if known, university recognition status, planned Jr. SMOOTH school
+   - **Contacts:** primary contact, plus the faculty or staff advisor
+   - **Members:** chartering members, and the full chartering roster pasted from a spreadsheet or uploaded as a CSV. "Check roster" shows any lines to fix before saving.
+   - **Documents:** the chapter's constitution and bylaws (required), plus the university recognition letter if they have one
+   - **Agreement:** a box agreeing to the national constitution and bylaws, the national programs, and keeping the roster current
+3. They can **Save draft** and come back, or **Save and submit**. Submitting emails The Inc.
+4. The Inc. opens the documents in Drive and sets the **approval status**: Under review, Needs changes (with a note), Approved, or Denied. Only The Inc. can set it. The applicant is emailed each time.
+5. **Approved** does three things at once:
+   - The chapter becomes a live section everywhere in the portal.
+   - Its chartering roster goes into the directory and onto this semester's roster.
+   - The applicant becomes that section's officer.
+
+The founding sections (Morgan State, Temple, Coppin State) already have approved chapter records. Their officers should upload the current constitution and bylaws there, and upload a new version whenever either changes. Older versions stay in Drive.
 
 ## What The Inc. does
 

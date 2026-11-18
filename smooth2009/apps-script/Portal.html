@@ -249,16 +249,17 @@ $('#signOut').addEventListener('click', async () => { try { await call('signOut'
 /* ---------- app shell ---------- */
 const TABS = [
   ['overview', 'Overview'], ['events', 'Events'], ['funds', 'Funds'], ['members', 'Members'],
-  ['amendments', 'Amendments'], ['newsletter', 'Newsletter', true]
+  ['amendments', 'Amendments'], ['chapter', 'Chapter'], ['newsletter', 'Newsletter', true]
 ];
 let current = 'overview';
 function start(boot) {
   BOOT = boot;
   $('#signin').hidden = true; $('#app').hidden = false;
-  $('#who').textContent = (boot.user.name ? boot.user.name + ' · ' : '') + (boot.user.role === 'Inc' ? 'The Inc.' : boot.user.sectionName + ' officer');
+  $('#who').textContent = (boot.user.name ? boot.user.name + ' · ' : '') + (boot.user.role === 'Inc' ? 'The Inc.' : boot.user.role === 'Applicant' ? 'Chapter applicant' : boot.user.sectionName + ' officer');
   $('#signOut').setAttribute('aria-label', 'Sign out ' + (boot.user.name || boot.user.email)); $('#signOut').title = $('#who').textContent;
   const tabs = $('#tabs'); tabs.replaceChildren();
-  TABS.filter(t => !t[2] || isInc()).forEach(([id, label]) => tabs.append(h('button', { type: 'button', 'data-tab': id, 'aria-current': id === current ? 'page' : 'false', onclick: () => go(id), text: label })));
+  if (boot.user.role === 'Applicant') current = 'chapter';
+  TABS.filter(t => (!t[2] || isInc()) && (boot.user.role !== 'Applicant' || t[0] === 'chapter')).forEach(([id, label]) => tabs.append(h('button', { type: 'button', 'data-tab': id, 'aria-current': id === current ? 'page' : 'false', onclick: () => go(id), text: label })));
   go(current);
 }
 function go(id) {
@@ -612,6 +613,157 @@ function amendmentItem(a) {
   if (isInc() && a.status === 'Voting') tools.push(h('button', { class: 'btn quiet', type: 'button', text: 'Close the vote now', onclick: act('closeVote', 'Vote closed.') }));
   if (a.status === 'Proposed' && (isInc() || a.proposed_by === BOOT.user.email)) tools.push(h('button', { class: 'btn danger', type: 'button', text: 'Withdraw', onclick: act('withdrawAmendment', 'Withdrawn.') }));
   if (tools.length) kids.push(h('div', { class: 'row' }, tools));
+  kids.push(st);
+  return h('article', { class: 'item' }, kids);
+}
+
+/* ---------- Chapter ---------- */
+const isApplicant = () => BOOT && BOOT.user.role === 'Applicant';
+VIEWS.chapter = async function (view) {
+  const list = await api('listChapters');
+  const formCard = h('div', { class: 'card', hidden: true });
+  const openForm = existing => { formCard.replaceChildren(chapterForm(existing, () => go('chapter'))); formCard.hidden = false; formCard.scrollIntoView({ block: 'start' }); };
+  const intro = isInc() ? 'Every chapter and chapter application. Set the approval status for new chapters here.'
+    : isApplicant() ? 'Apply to charter a S.M.O.O.T.H. section at your school. You can save a draft and come back to it.'
+    : 'Your chapter\'s record. Upload the current constitution and bylaws whenever they change.';
+  const firstTime = isApplicant() && !list.length;   // the form opens straight away
+  const startBtn = !firstTime && (isInc() || (isApplicant() && !list.some(c => !['Denied'].includes(c.status))))
+    ? h('button', { class: 'btn', type: 'button', text: isInc() ? 'Start an application' : 'Start your application', onclick: () => openForm(null) }) : null;
+  view.replaceChildren(h('div', { class: 'stack' },
+    h('div', { class: 'spread' }, h('div', {}, h('h1', { text: 'Chapter' }), h('p', { class: 'muted', text: intro })), startBtn),
+    formCard,
+    list.length ? h('div', { class: 'list' }, list.map(c => chapterItem(c, openForm)))
+      : firstTime ? null : h('div', { class: 'card' }, h('p', { class: 'muted', text: 'No chapter records yet.' }))
+  ));
+  if (firstTime) openForm(null);
+};
+function rosterToText(rows) {
+  return ['First name\tLast name\tEmail\tPhone\tClass year\tPosition'].concat((rows || []).map(r => [r.first_name, r.last_name, r.email, r.phone, r.grad_year, r.position].join('\t'))).join('\n');
+}
+function chapterForm(c, done) {
+  c = c || {};
+  const v = k => c[k] === undefined || c[k] === null ? '' : String(c[k]);
+  const inp = (id, key, attrs) => keyed(h('input', Object.assign({ id, value: v(key) }, attrs || {})), key);
+  const roster = keyed(h('textarea', { id: 'ch-roster', required: true, rows: 8, style: 'font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px', placeholder: 'First name\tLast name\tEmail\tPhone\tClass year\tPosition' }), 'roster_text');
+  roster.value = c.roster && c.roster.length ? rosterToText(c.roster) : '';
+  const csv = h('input', { id: 'ch-csv', type: 'file', accept: '.csv,text/csv,.txt,.tsv' });
+  csv.addEventListener('change', () => { const f = csv.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => { roster.value = String(r.result); checkRosterNow(); }; r.readAsText(f); });
+  const rosterOut = h('div', { class: 'stack', style: 'gap:6px', 'aria-live': 'polite' });
+  async function checkRosterNow() {
+    if (!roster.value.trim()) { rosterOut.replaceChildren(); return; }
+    try {
+      const r = await api('checkRoster', roster.value);
+      rosterOut.replaceChildren(...[
+        h('p', { class: 'status ' + (r.errors.length ? 'err' : 'ok'), text: r.count + ' member' + (r.count === 1 ? '' : 's') + ' read' + (r.errors.length ? ', ' + r.errors.length + ' line' + (r.errors.length === 1 ? '' : 's') + ' to fix:' : '. Looks good.') }),
+        r.errors.length ? h('ul', { class: 'small' }, r.errors.map(e => h('li', { text: e }))) : null,
+        r.preview.length ? h('div', { class: 'table-wrap' }, h('table', {}, h('thead', {}, h('tr', {}, ['Name', 'Email', 'Phone', 'Class year', 'Position'].map(t => h('th', { text: t })))),
+          h('tbody', {}, r.preview.map(p => h('tr', {}, h('td', { class: 'nowrap', text: p.first_name + ' ' + p.last_name }), h('td', { text: p.email }), h('td', { text: p.phone }), h('td', { text: p.grad_year }), h('td', { text: p.position })))))) : null].filter(Boolean));
+    } catch (err) { rosterOut.replaceChildren(h('p', { class: 'status err', text: err.message })); }
+  }
+  roster.addEventListener('blur', checkRosterNow);
+  const doc = (id, label, have, required) => {
+    const input = h('input', { id, type: 'file', accept: '.pdf,.doc,.docx,image/*', required: required && !have });
+    return { input, field: field(label, input, { hint: have ? 'On file: ' + have + '. Choose a file only to replace it.' : 'PDF, Word, or a photo of each page. 10 MB at most.' }) };
+  };
+  const consti = doc('ch-constitution', 'Chapter constitution', c.constitution_file, true);
+  const bylaws = doc('ch-bylaws', 'Chapter bylaws', c.bylaws_file, true);
+  const recog = doc('ch-recognition', 'University recognition letter (optional)', c.recognition_file, false);
+  const agree = keyed(h('input', { id: 'ch-agree', type: 'checkbox', required: true, checked: !!c.agreed }), 'agreed');
+  const status = h('p', { class: 'status', role: 'status' });
+  const saveBtn = h('button', { class: 'btn quiet', type: 'button', text: 'Save draft' });
+  const submitBtn = h('button', { class: 'btn', type: 'submit', text: 'Save and submit' });
+  const form = h('form', {},
+    h('h3', { class: 'full', style: 'grid-column:1/-1', text: 'School' }),
+    field('School', inp('ch-school', 'school', { required: true, maxlength: 120, placeholder: 'Full name of the college or university' })),
+    field('Section abbreviation', inp('ch-code', 'code', { required: true, maxlength: 5, pattern: '[A-Za-z]{2,5}', style: 'text-transform:uppercase' }), { hint: '2 to 5 letters, like MSU. Must not already be in use.' }),
+    field('City', inp('ch-city', 'city', { required: true, maxlength: 80 })),
+    field('State', inp('ch-state', 'state', { required: true, maxlength: 30 })),
+    field('Chartering year', inp('ch-year', 'chartering_year', { type: 'number', required: true, min: 2009, max: new Date().getFullYear() + 1, inputmode: 'numeric' })),
+    field('Charter date (if set)', inp('ch-date', 'charter_date', { type: 'date' })),
+    field('University recognition', keyed(select('ch-recog', [['', 'Choose']].concat(BOOT.recognition), v('recognition'), { required: true }), 'recognition')),
+    field('Planned Jr. SMOOTH partner school (optional)', inp('ch-jr', 'jr_smooth_school', { maxlength: 160 }), { hint: 'The K–12 school the section plans to adopt.' }),
+    h('h3', { style: 'grid-column:1/-1', text: 'Contacts' }),
+    field('Primary contact name', inp('ch-cname', 'contact_name', { required: true, maxlength: 120, value: v('contact_name') || (isApplicant() ? BOOT.user.name : '') })),
+    field('Primary contact email', inp('ch-cemail', 'contact_email', { type: 'email', required: true, value: v('contact_email') || (isApplicant() ? BOOT.user.email : '') })),
+    field('Primary contact phone', inp('ch-cphone', 'contact_phone', { type: 'tel', required: true })),
+    field('Faculty or staff advisor', inp('ch-aname', 'advisor_name', { required: true, maxlength: 120 })),
+    field('Advisor title', inp('ch-atitle', 'advisor_title', { maxlength: 120, placeholder: 'For example: Assistant Dean of Students' })),
+    field('Advisor email', inp('ch-aemail', 'advisor_email', { type: 'email', required: true })),
+    h('h3', { style: 'grid-column:1/-1', text: 'Members' }),
+    field('Chartering members', keyed(h('textarea', { id: 'ch-founders', required: true, maxlength: 4000, placeholder: 'One per line: name, position' }, v('chartering_members')), 'chartering_members'), { full: true, hint: 'The founding members who sign the charter, one per line with their position.' }),
+    h('div', { class: 'field full' }, h('label', { for: 'ch-roster', text: 'Chartering roster' }), roster,
+      h('p', { class: 'hint', text: 'Paste straight from a spreadsheet, or upload a CSV file. Columns: first name, last name, email, phone, class year, position. A header row is optional.' }),
+      h('div', { class: 'row' }, h('label', { for: 'ch-csv', text: 'Upload a CSV' }), csv, h('button', { class: 'btn quiet', type: 'button', text: 'Check roster', onclick: checkRosterNow })),
+      rosterOut),
+    h('h3', { style: 'grid-column:1/-1', text: 'Documents' }),
+    consti.field, bylaws.field, recog.field,
+    h('div', { class: 'field full' }, h('label', { class: 'row', for: 'ch-agree', style: 'color:var(--ink);font-weight:500;font-size:15px' }, agree,
+      'We agree to follow the national constitution and bylaws of S.M.O.O.T.H. Inc., run the national programs, and keep our roster current in this portal.')),
+    isInc() ? null : h('p', { class: 'hint', style: 'grid-column:1/-1', text: 'Approval status is set by The Inc. You\'ll get an email when it changes.' }),
+    h('div', { class: 'form-foot' }, submitBtn, saveBtn, status));
+  async function save(submit) {
+    if (!form.reportValidity()) return;
+    submitBtn.disabled = saveBtn.disabled = true;
+    try {
+      say(status, 'Saving…', true);
+      const data = formData(form); data.agreed = agree.checked; if (c.chapter_id) data.chapter_id = c.chapter_id;
+      const r = await api('saveChapter', data);
+      const files = [['constitution', consti.input], ['bylaws', bylaws.input], ['recognition', recog.input]].filter(([, i]) => i.files.length);
+      for (const [kind, i] of files) { say(status, 'Uploading the ' + kind + '…', true); await api('uploadChapterFile', r.chapter_id, kind, await prepFile(i.files[0], 2200)); }
+      c.chapter_id = r.chapter_id;
+      if (submit) { const s2 = await api('submitChapter', r.chapter_id); say(status, s2.message, true); }
+      else say(status, 'Draft saved with ' + r.roster_count + ' members on the roster.', true);
+      setTimeout(done, 1300);
+    } catch (err) { say(status, err.message); }
+    submitBtn.disabled = saveBtn.disabled = false;
+  }
+  form.addEventListener('submit', e => { e.preventDefault(); save(true); });
+  saveBtn.addEventListener('click', () => save(false));
+  return h('div', { class: 'stack' }, h('h2', { text: c.chapter_id ? 'Edit application: ' + v('school') : 'Chapter application' }), form);
+}
+function chapterItem(c, openForm) {
+  const st = h('p', { class: 'status', role: 'status' });
+  const docLine = (label, name) => h('li', {}, h('b', { text: label + ': ' }), name ? name : h('span', { class: 'muted', text: 'Not uploaded' }));
+  const kids = [
+    h('div', { class: 'spread' }, h('h3', { text: c.school + (c.code ? ' (' + c.code + ')' : '') }), pill(c.status)),
+    h('p', { class: 'meta', text: [[c.city, c.state].filter(Boolean).join(', '), c.charter_date ? 'chartered ' + fmtDate(c.charter_date) : c.chartering_year ? 'chartering year ' + c.chartering_year : '', c.roster_count ? c.roster_count + ' on the chartering roster' : ''].filter(Boolean).join(' · ') }),
+    (c.contact_name || c.advisor_name) ? h('ul', { class: 'small', style: 'margin:0;padding-left:18px' },
+      c.contact_name ? h('li', { text: 'Contact: ' + c.contact_name + ' · ' + c.contact_email + ' · ' + c.contact_phone }) : null,
+      c.advisor_name ? h('li', { text: 'Advisor: ' + c.advisor_name + (c.advisor_title ? ', ' + c.advisor_title : '') + ' · ' + c.advisor_email }) : null,
+      c.recognition ? h('li', { text: 'University: ' + c.recognition }) : null,
+      c.jr_smooth_school ? h('li', { text: 'Jr. SMOOTH school: ' + c.jr_smooth_school }) : null) : null,
+    h('ul', { class: 'small', style: 'margin:0;padding-left:18px' }, docLine('Constitution', c.constitution_file), docLine('Bylaws', c.bylaws_file), docLine('Recognition letter', c.recognition_file)),
+    c.chartering_members ? h('details', {}, h('summary', { text: 'Chartering members' }), h('p', { class: 'body', text: c.chartering_members })) : null,
+    c.roster && c.roster.length ? h('details', {}, h('summary', { text: 'Chartering roster (' + c.roster.length + ')' }),
+      h('div', { class: 'table-wrap' }, h('table', {}, h('thead', {}, h('tr', {}, ['Name', 'Email', 'Phone', 'Class year', 'Position'].map(t => h('th', { text: t })))),
+        h('tbody', {}, c.roster.map(r => h('tr', {}, h('td', { class: 'nowrap', text: r.first_name + ' ' + r.last_name }), h('td', { text: r.email }), h('td', { text: r.phone }), h('td', { text: r.grad_year }), h('td', { text: r.position }))))))) : null,
+    c.inc_notes ? h('p', { class: 'small' }, h('b', { text: 'Note from The Inc.: ' }), c.inc_notes) : null
+  ];
+  const tools = [];
+  if (isInc() && c.file_folder) tools.push(h('a', { href: c.file_folder, target: '_blank', rel: 'noopener', text: 'Open documents in Drive' }));
+  if (c.can_edit) tools.push(h('button', { class: 'btn quiet', type: 'button', text: c.status === 'Needs changes' ? 'Edit and resubmit' : 'Edit application', onclick: () => openForm(c) }));
+  if (c.can_upload && !c.can_edit) {
+    const kind = select('up-kind-' + c.chapter_id, [['constitution', 'Constitution'], ['bylaws', 'Bylaws'], ['recognition', 'Recognition letter']], 'constitution', { 'aria-label': 'Document to upload' });
+    const file = h('input', { id: 'up-file-' + c.chapter_id, type: 'file', accept: '.pdf,.doc,.docx,image/*', 'aria-label': 'Choose the document' });
+    tools.push(kind, file, h('button', { class: 'btn', type: 'button', text: 'Upload new version', onclick: async () => {
+      if (!file.files.length) { say(st, 'Choose a file first.'); return; }
+      try { await api('uploadChapterFile', c.chapter_id, kind.value, await prepFile(file.files[0], 2200)); say(st, 'Uploaded. The previous version stays in the records.', true); setTimeout(() => go('chapter'), 1000); }
+      catch (err) { say(st, err.message); }
+    } }));
+  }
+  if (tools.length) kids.push(h('div', { class: 'row' }, tools));
+  if (isInc() && c.status !== 'Approved') {
+    const sel = select('dec-' + c.chapter_id, BOOT.chapterStatuses, c.status, { 'aria-label': 'Approval status' });
+    const note = h('input', { id: 'decn-' + c.chapter_id, placeholder: 'Note to the applicant (required for Needs changes or Denied)', maxlength: 1500 });
+    kids.push(h('div', { class: 'stack', style: 'gap:8px;border-top:1px solid var(--line);padding-top:12px' },
+      h('p', { class: 'lbl', text: 'Approval status (The Inc. only)' }),
+      h('div', { class: 'row' }, sel, h('label', { class: 'sr-only', for: note.id, text: 'Note' }), note,
+        h('button', { class: 'btn', type: 'button', text: 'Save status', onclick: async () => {
+          try { const r = await api('decideChapter', c.chapter_id, { status: sel.value, note: note.value }); say(st, sel.value === 'Approved' ? 'Approved. ' + c.code + ' is now a section' + (r.imported ? ' and ' + r.imported + ' members were added to the directory.' : '.') : 'Status saved.', true); setTimeout(() => go('chapter'), 1500); }
+          catch (err) { say(st, err.message); }
+        } })),
+      h('p', { class: 'hint', text: 'Approving makes this a live section, adds its roster to the directory, and turns the applicant into its officer.' })));
+  }
   kids.push(st);
   return h('article', { class: 'item' }, kids);
 }

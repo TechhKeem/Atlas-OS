@@ -21,7 +21,7 @@
       _rows: rows, _raw: raw, getName: () => name,
       getLastRow: () => rows.length, getLastColumn: () => width(), getMaxRows: () => 1000,
       getRange: (a, b, c, d) => typeof a === 'string' ? rangeObj(1, 1, 1, 1) : rangeObj(a, b, c || 1, d || 1),
-      appendRow: r => { raw.push(r.slice()); rows.push(r.map(shown)); }, setFrozenRows() {}
+      appendRow: r => { raw.push(r.slice()); rows.push(r.map(shown)); }, deleteRow: n => { rows.splice(n - 1, 1); }, setFrozenRows() {}
     };
   }
   const sheets = {};

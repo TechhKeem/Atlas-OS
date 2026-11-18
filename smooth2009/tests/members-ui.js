@@ -22,7 +22,7 @@ const problems = [], must = (c, m) => { if (!c) problems.push(m); };
   await p.waitForSelector('#app:not([hidden])', { timeout: 10000 });
   must(await p.isVisible('.practice-bar'), 'practice bar visible');
   must(await p.isHidden('#signin'), 'no sign-in screen');
-  const tabs = ['overview', 'events', 'funds', 'members', 'amendments', 'newsletter'];
+  const tabs = ['overview', 'events', 'funds', 'members', 'amendments', 'chapter', 'newsletter'];
   async function visit(label, list) {
     for (const t of list) {
       const btn = await p.$(`#tabs button[data-tab="${t}"]`); if (!btn) { problems.push(label + ': no tab ' + t); continue; }
@@ -74,6 +74,41 @@ const problems = [], must = (c, m) => { if (!c) problems.push(m); };
   await ph.goto(base + '/members/'); await ph.waitForSelector('#app:not([hidden])');
   await ph.screenshot({ path: `${out}/members-phone.png`, fullPage: false });
   must(!(await ph.evaluate(() => document.documentElement.scrollWidth > innerWidth)), 'no sideways scroll on phone');
+
+  // chapters: Temple officer sees only Temple's record
+  await p.click('#tabs button[data-tab="chapter"]'); await p.waitForSelector('text=Temple University (TU)');
+  must(!(await p.$('text=Example State University')), 'officer cannot see other chapters or applications');
+
+  // Inc approves the example application, and the new section shows up
+  await p.selectOption('#practiceRole', 'inc'); await p.waitForLoadState('load'); await p.waitForSelector('#app:not([hidden])');
+  await p.click('#tabs button[data-tab="chapter"]'); await p.waitForSelector('text=Example State University (ESU)');
+  await p.selectOption('[id^="dec-C-"]', 'Approved'); await p.click('text=Save status');
+  await p.waitForSelector('text=/ESU is now a section/');
+  await p.waitForTimeout(1700);
+  await p.click('#tabs button[data-tab="overview"]'); await p.waitForSelector('h2:has-text("Example State")');
+  await p.screenshot({ path: `${out}/members-inc-after-approval.png`, fullPage: true });
+
+  // a new applicant: only the Chapter tab, form opens, fills, and submits
+  await p.selectOption('#practiceRole', 'applicant'); await p.waitForLoadState('load'); await p.waitForSelector('#app:not([hidden])');
+  const tabsShown = await p.$$eval('#tabs button', b => b.map(x => x.dataset.tab));
+  must(tabsShown.join() === 'chapter', 'applicant sees only Chapter tab: ' + tabsShown.join());
+  await p.waitForSelector('#ch-school');
+  await p.fill('#ch-school', 'Practice University'); await p.fill('#ch-code', 'pu'); await p.fill('#ch-city', 'Baltimore'); await p.fill('#ch-state', 'MD');
+  await p.fill('#ch-year', String(new Date().getFullYear())); await p.selectOption('#ch-recog', { index: 2 });
+  await p.fill('#ch-cphone', '4105550111'); await p.fill('#ch-aname', 'Dr. Practice'); await p.fill('#ch-aemail', 'advisor@practice.edu');
+  await p.fill('#ch-founders', 'Practice Lead, President');
+  await p.fill('#ch-roster', 'First name\tLast name\tEmail\nPractice\tLead\tlead@practice.edu\nSecond\tPerson\tsecond@practice.edu');
+  await p.click('text=Check roster'); await p.waitForSelector('text=/2 members read/');
+  await p.setInputFiles('#ch-constitution', { name: 'constitution.pdf', mimeType: 'application/pdf', buffer: Buffer.from('%PDF-1.4 practice') });
+  await p.setInputFiles('#ch-bylaws', { name: 'bylaws.pdf', mimeType: 'application/pdf', buffer: Buffer.from('%PDF-1.4 practice') });
+  await p.check('#ch-agree');
+  await p.screenshot({ path: `${out}/members-applicant-form.png`, fullPage: true });
+  if (axePath) { await p.addScriptTag({ path: axePath }); const v = await p.evaluate(async () => (await axe.run(document, { runOnly: ['wcag2a', 'wcag2aa', 'wcag21aa'] })).violations.map(x => x.id + ' ' + x.nodes[0].target.join(' '))); v.forEach(x => problems.push('applicant form axe: ' + x)); }
+  await p.click('text=Save and submit'); await p.waitForSelector('text=/Application submitted/');
+  await p.waitForTimeout(1500);
+  must(await p.$('text=Practice University (PU)'), 'submitted application listed');
+  must(!(await p.$('text=Example State University')), 'applicant cannot see other applications');
+  await p.selectOption('#practiceRole', 'inc'); await p.waitForLoadState('load');
 
   // start empty
   await p.click('text=Start empty'); await p.click('text=Yes, do it'); await p.waitForLoadState('load'); await p.waitForSelector('#app:not([hidden])');
