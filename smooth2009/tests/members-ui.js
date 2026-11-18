@@ -82,9 +82,12 @@ const problems = [], must = (c, m) => { if (!c) problems.push(m); };
   // Inc approves the example application, and the new section shows up
   await p.selectOption('#practiceRole', 'inc'); await p.waitForLoadState('load'); await p.waitForSelector('#app:not([hidden])');
   await p.click('#tabs button[data-tab="chapter"]'); await p.waitForSelector('text=Example State University (ESU)');
-  await p.selectOption('[id^="dec-C-"]', 'Approved'); await p.click('text=Save status');
-  await p.waitForSelector('text=/ESU is now a section/');
-  await p.waitForTimeout(1700);
+  await p.click('text=Open the vote'); await p.waitForSelector('text=/Vote opened/');
+  await p.waitForTimeout(1500); await p.waitForSelector('text=Cast my vote', { state: 'attached' });
+  await p.click('[aria-label="Your vote on this chapter"] >> text=Yes'); await p.click('text=Cast my vote');
+  await p.waitForSelector('text=/Your vote is recorded/'); await p.waitForTimeout(1200);
+  await p.click('text=Close the vote now'); await p.waitForSelector('text=/ESU is now a section/');
+  await p.waitForTimeout(2300);   // the screen returns to the Chapter list after showing the result
   await p.click('#tabs button[data-tab="overview"]'); await p.waitForSelector('h2:has-text("Example State")');
   await p.screenshot({ path: `${out}/members-inc-after-approval.png`, fullPage: true });
 

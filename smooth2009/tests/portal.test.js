@@ -233,7 +233,19 @@ assert.strictEqual(run('listChapters', app.token)[0].can_edit, true);
 run('saveChapter', app.token, chapterForm({ chapter_id: saved.chapter_id, roster_text: 'New,Lead,lead@newschool.edu,4105551234,2027,President\nSecond,Founder,second@newschool.edu,,2028,' }));
 assert.strictEqual(M.sheets.CharterRoster._rows.filter(r => r[0] === saved.chapter_id).length, 2, 'edited roster replaces the old one');
 run('submitChapter', app.token, saved.chapter_id);
-const dec = run('decideChapter', inc.token, saved.chapter_id, { status: 'Approved', note: '' });
+throws('decideChapter', /takes a vote of The Inc/, inc.token, saved.chapter_id, { status: 'Approved', note: '' });
+const ov2 = run('openChapterVote', inc.token, saved.chapter_id);
+assert.strictEqual(ov2.eligible, 1, 'only Inc members vote on charters');
+assert(M.mails.some(m => m.to === 'owner@smooth2009.org' && /Vote open: charter/.test(m.subject)));
+throws('castChapterVote', /Only The Inc|only use the Chapter tab/, tu.token, saved.chapter_id, 'Yes');
+throws('decideChapter', /set by The Inc.'s vote/, inc.token, saved.chapter_id, { status: 'Denied', note: 'x' });
+let chInc = run('listChapters', inc.token).find(c => c.chapter_id === saved.chapter_id);
+assert.strictEqual(chInc.can_vote, true); assert.strictEqual(chInc.yes, '', 'totals hidden while voting');
+assert(run('getDashboard', inc.token, '').todo.some(t => /Vote needed: charter/.test(t)));
+run('castChapterVote', inc.token, saved.chapter_id, 'Yes');
+throws('castChapterVote', /already voted/, inc.token, saved.chapter_id, 'No');
+const dec = run('closeChapterVote', inc.token, saved.chapter_id);
+assert.strictEqual(dec.status, 'Approved', dec.result);
 assert.strictEqual(dec.imported, 2);
 const officer = run('whoami', app.token);
 assert.strictEqual(officer.user.role, 'Officer'); assert.strictEqual(officer.user.section, 'ESU'); assert.strictEqual(officer.sections.ESU, 'Example State');
@@ -245,6 +257,25 @@ const ev2 = run('createEvent', app.token, { event_date: today, title: 'First mee
 assert(ev2.event_id); assert.strictEqual(run('listEvents', tu.token, {}).filter(e => e.title === 'First meeting').length, 0);
 const tuChapters = run('listChapters', tu.token); assert.strictEqual(tuChapters.length, 1, 'Temple still sees only its own chapter');
 ok('approval: new section goes live, roster imported, applicant becomes its officer, other sections still walled off');
+
+// school minimum is a warning, not a block; a vote without quorum denies
+acc.push(['lead2@other.edu', 'Other Lead', 'Applicant', '', 'Yes', '']);
+const app2 = signIn('lead2@other.edu');
+const s2 = run('saveChapter', app2.token, chapterForm({ school: 'Other College', code: 'OC', contact_email: 'lead2@other.edu', school_min_members: 10, school_requirements: 'Ten members and a faculty advisor.' }));
+const c2 = run('listChapters', app2.token)[0];
+assert.strictEqual(c2.below_school_minimum, true); assert.strictEqual(c2.school_min_members, 10);
+assert(!('yes' in c2), 'applicants never see vote counts');
+run('uploadChapterFile', app2.token, s2.chapter_id, 'constitution', pdf); run('uploadChapterFile', app2.token, s2.chapter_id, 'bylaws', pdf);
+run('submitChapter', app2.token, s2.chapter_id);
+run('openChapterVote', inc.token, s2.chapter_id);
+const fail = run('closeChapterVote', inc.token, s2.chapter_id);
+assert.strictEqual(fail.status, 'Denied'); assert(/Quorum not met/.test(fail.result));
+assert.strictEqual(run('whoami', app2.token).user.role, 'Applicant', 'denied applicant stays an applicant');
+assert.strictEqual(run('listChapters', app2.token)[0].result, 'Not approved by a vote of The Inc.', 'applicant sees the outcome, not the count');
+assert(!run('whoami', inc.token).sections.OC, 'denied chapter is not a section');
+// passes_: 1/2 means more than half; 2/3 means at least two-thirds
+assert.strictEqual(ctx.passes_(1, 1, 1 / 2), false); assert.strictEqual(ctx.passes_(2, 1, 1 / 2), true); assert.strictEqual(ctx.passes_(2, 1, 2 / 3), true); assert.strictEqual(ctx.passes_(0, 0, 1 / 2), false);
+ok('charter vote: Inc only, hidden totals, quorum, school minimum shown as a warning');
 
 // --- newsletter sign-up still works in the shared project
 const sign = JSON.parse(ctx.doPost({ parameter: { form: 'Newsletter', name: 'Fan', email: 'fan@example.com', relationship: 'Alumni' } }).getContent());

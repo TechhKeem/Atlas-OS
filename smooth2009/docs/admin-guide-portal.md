@@ -57,13 +57,19 @@ If an upload is interrupted, the report shows as **Incomplete** with an "Add pho
 1. A student group asks to start a chapter. The Inc. adds its lead on the Access tab with role **Applicant** and the section left blank.
 2. The applicant signs in and sees only the Chapter tab. They fill in:
    - **School:** name, section abbreviation, city, state, chartering year, charter date if known, university recognition status, planned Jr. SMOOTH school
+   - **The university's own rules:** how many members the school requires (if any) and its other chartering requirements. S.M.O.O.T.H. has no national minimum. If the roster is below the school's number, the portal shows a warning but doesn't block the application.
    - **Contacts:** primary contact, plus the faculty or staff advisor
    - **Members:** chartering members, and the full chartering roster pasted from a spreadsheet or uploaded as a CSV. "Check roster" shows any lines to fix before saving.
    - **Documents:** the chapter's constitution and bylaws (required), plus the university recognition letter if they have one
    - **Agreement:** a box agreeing to the national constitution and bylaws, the national programs, and keeping the roster current
 3. They can **Save draft** and come back, or **Save and submit**. Submitting emails The Inc.
-4. The Inc. opens the documents in Drive and sets the **approval status**: Under review, Needs changes (with a note), Approved, or Denied. Only The Inc. can set it. The applicant is emailed each time.
-5. **Approved** does three things at once:
+4. The Inc. opens the documents in Drive. While reviewing, The Inc. can set the status to **Under review**, **Needs changes** (with a note), or **Denied**. The applicant is emailed each time.
+5. **Approval takes a vote of The Inc.** Choose **Open the vote**, and every Inc member is emailed. Each Inc member votes once: Yes, No, or Abstain. The vote closes after 7 days, or earlier with **Close the vote now**.
+   - It passes with **more than half** of the Yes and No votes, as long as **at least half** of The Inc. votes.
+   - Totals stay hidden until the vote closes.
+   - Applicants see only the outcome, never the count.
+   - If it doesn't pass, the application is marked Denied.
+6. A **passing vote** does three things at once:
    - The chapter becomes a live section everywhere in the portal.
    - Its chartering roster goes into the directory and onto this semester's roster.
    - The applicant becomes that section's officer.
@@ -125,6 +131,7 @@ You need The Inc.'s shared Google account. Ideally it's a Google Workspace for N
 The settings are at the top of `Portal.gs`:
 - `PORTAL`: notification email, photo minimum and maximum, roster reminder dates
 - `AMENDMENTS`: who votes, pass threshold, quorum, voting days, hidden totals
+- `CHARTER_VOTE`: pass threshold, quorum, voting days, and hidden totals for chartering votes. 1/2 means more than half; 2/3 means at least two-thirds.
 - `EVENT_TYPES`: the event type choices
 
 After any change, use **Deploy > Manage deployments**, edit the deployment, and choose **New version**. Don't use "New deployment": that makes a new address and the old link stops working.

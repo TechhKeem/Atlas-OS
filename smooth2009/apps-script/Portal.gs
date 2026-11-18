@@ -55,7 +55,21 @@ const BASE_CHAPTERS = [
   { code: "TU", school: "Temple University", city: "Philadelphia", state: "PA", charter_date: "2016-01-16" },
   { code: "CSU", school: "Coppin State University", city: "Baltimore", state: "MD", charter_date: "2016-12-12" }
 ];
-const CHAPTER_STATUSES = ["Draft", "Submitted", "Under review", "Needs changes", "Approved", "Denied"];
+const CHAPTER_STATUSES = ["Draft", "Submitted", "Under review", "Needs changes", "Voting", "Approved", "Denied"];
+// Statuses The Inc. can set by hand. "Voting" and "Approved" only come from a vote of The Inc.
+const CHAPTER_MANUAL_STATUSES = ["Under review", "Needs changes", "Denied"];
+
+/**
+ * Chartering a new chapter takes a vote of The Inc. Set these to match the constitution.
+ *   passShare  1/2 means MORE than half of Yes + No votes; any larger share (like 2/3) means AT LEAST that share
+ *   quorum     share of Inc members who must cast a ballot (abstaining counts as voting)
+ */
+const CHARTER_VOTE = {
+  passShare: 1 / 2,
+  quorum: 1 / 2,
+  voteDays: 7,
+  showRunningTotals: false
+};
 const RECOGNITION = ["Recognized by the university", "Recognition in progress", "Not started yet"];
 const EVENT_TYPES = ["SMOOTH Week", "R.U.L.E.S. Symposium", "Jr. SMOOTH", "Community service", "Social",
                      "Professional development", "Fundraiser", "Other"];
@@ -77,14 +91,16 @@ const SCHEMA = {
   Rosters: ["term", "section", "member_id", "name", "standing", "position", "confirmed_by", "confirmed_at"],
   Chapters: ["chapter_id", "school", "code", "city", "state", "chartering_year", "charter_date",
              "contact_name", "contact_email", "contact_phone", "advisor_name", "advisor_title", "advisor_email",
-             "recognition", "jr_smooth_school", "chartering_members", "roster_count", "constitution_file",
+             "recognition", "school_min_members", "school_requirements", "jr_smooth_school", "chartering_members",
+             "roster_count", "constitution_file",
              "bylaws_file", "recognition_file", "file_folder", "agreed", "status", "inc_notes",
-             "decided_by", "decided_at", "submitted_by", "submitted_at", "updated_at"],
+             "decided_by", "decided_at", "submitted_by", "submitted_at", "updated_at",
+             "vote_opens", "vote_closes", "eligible", "yes", "no", "abstain", "result"],
   CharterRoster: ["chapter_id", "first_name", "last_name", "email", "phone", "grad_year", "position"],
   Amendments: ["amendment_id", "title", "article", "current_text", "proposed_text", "rationale", "status",
                "proposed_by", "proposed_at", "vote_opens", "vote_closes", "eligible", "yes", "no", "abstain",
                "result", "decided_at"],
-  Ballots: ["amendment_id", "voter", "choice", "cast_at"],
+  Ballots: ["amendment_id", "voter", "choice", "cast_at"],   // amendment_id holds A-… (amendments) or C-… (chapter votes)
   Log:     ["at", "user", "action", "detail"]
 };
 
@@ -163,7 +179,8 @@ function boot_(user) {
     minPhotos: PORTAL.minPhotos,
     maxPhotos: PORTAL.maxPhotos,
     chapterStatuses: CHAPTER_STATUSES,
-    recognition: RECOGNITION
+    recognition: RECOGNITION,
+    chapterManualStatuses: CHAPTER_MANUAL_STATUSES
   };
 }
 
@@ -222,6 +239,9 @@ function getDashboard(token, term) {
     if (total.fundsPending) todo.push(total.fundsPending + " funds request" + (total.fundsPending > 1 ? "s" : "") + " waiting for a decision");
     const apps = rows_("Chapters").filter(function (c) { return c.status === "Submitted" || c.status === "Under review"; }).length;
     if (apps) todo.push(apps + " chapter application" + (apps > 1 ? "s" : "") + " to review");
+    const voted = rows_("Ballots").filter(function (b) { return normEmail_(b.voter) === user.email; }).map(function (b) { return b.amendment_id; });
+    rows_("Chapters").filter(function (c) { return c.status === "Voting" && voted.indexOf(c.chapter_id) === -1; })
+      .forEach(function (c) { todo.push("Vote needed: charter " + c.school); });
     const flagged = members.filter(function (m) { return m.review_flag; }).length;
     if (flagged) todo.push(flagged + " possible duplicate member" + (flagged > 1 ? "s" : "") + " to check");
   }
@@ -791,7 +811,9 @@ function tallyAndClose_(a) {
 function listChapters(token) {
   const user = session_(token, true);
   ensureBaseChapters_();
+  closeExpiredChapterVotes_();
   const roster = rows_("CharterRoster");
+  const ballots = rows_("Ballots");
   return rows_("Chapters")
     .filter(function (c) { return c.chapter_id && canSeeChapter_(user, c); })
     .sort(function (a, b) { return String(b.chapter_id).localeCompare(String(a.chapter_id)); })
@@ -802,6 +824,17 @@ function listChapters(token) {
         .map(function (r) { return pick_(r, ["first_name", "last_name", "email", "phone", "grad_year", "position"]); });
       o.can_edit = canEditChapter_(user, c);
       o.can_upload = canUploadChapter_(user, c);
+      o.below_school_minimum = !!(Number(c.school_min_members) && Number(c.roster_count) < Number(c.school_min_members));
+      if (user.role === "Inc") {
+        const mine = ballots.filter(function (b) { return b.amendment_id === c.chapter_id && normEmail_(b.voter) === user.email; })[0];
+        o.my_vote = mine ? mine.choice : "";
+        o.can_vote = c.status === "Voting" && !mine;
+        o.turnout = ballots.filter(function (b) { return b.amendment_id === c.chapter_id; }).length;
+      } else {
+        delete o.eligible; delete o.yes; delete o.no; delete o.abstain;   // vote counts are for The Inc. only
+        if (o.result) o.result = c.status === "Approved" ? "Approved by a vote of The Inc." : "Not approved by a vote of The Inc.";
+      }
+      if (c.status === "Voting" && !CHARTER_VOTE.showRunningTotals) { o.yes = ""; o.no = ""; o.abstain = ""; }
       return o;
     });
 }
@@ -837,6 +870,8 @@ function saveChapter(token, f) {
     advisor_title: text_(f.advisor_title, "Advisor title", 120, false),
     advisor_email: normEmail_(f.advisor_email) || bad_("Enter a valid email for the advisor."),
     recognition: oneOf_(f.recognition, RECOGNITION, "University recognition", true),
+    school_min_members: int_(f.school_min_members, "Members your university requires", 1, 1000, false),
+    school_requirements: text_(f.school_requirements, "University chartering requirements", 3000, false),
     jr_smooth_school: text_(f.jr_smooth_school, "Planned Jr. SMOOTH school", 160, false),
     chartering_members: text_(f.chartering_members, "Chartering members", 4000, true),
     roster_count: roster.rows.length,
@@ -895,7 +930,8 @@ function submitChapter(token, chapterId) {
   update_("Chapters", c._row, { status: "Submitted", submitted_at: new Date(), updated_at: new Date() });
   notify_(PORTAL.notify, "Chapter application: " + c.school,
     c.school + " (" + c.city + ", " + c.state + ") applied to charter a S.M.O.O.T.H. section as " + c.code + ".\n" +
-    "Chartering year: " + c.chartering_year + "\nRoster: " + c.roster_count + " members\nAdvisor: " + c.advisor_name + " (" + c.advisor_email + ")\n" +
+    "Chartering year: " + c.chartering_year + "\nRoster: " + c.roster_count + " members" +
+    (Number(c.school_min_members) ? " (the university requires " + c.school_min_members + ")" : "") + "\nAdvisor: " + c.advisor_name + " (" + c.advisor_email + ")\n" +
     "Contact: " + c.contact_name + ", " + c.contact_email + "\n\nReview it in the portal under Chapter.");
   log_(user.email, "chapter submitted", chapterId);
   return { ok: true, message: "Application submitted. The Inc. will review it and email " + c.contact_email + "." };
@@ -907,37 +943,127 @@ function decideChapter(token, chapterId, d) {
   d = d || {};
   const c = findOne_("Chapters", "chapter_id", chapterId);
   if (!c) throw new Error("That chapter wasn't found.");
-  const status = oneOf_(d.status, CHAPTER_STATUSES, "Approval status", true);
+  if (d.status === "Approved" || d.status === "Voting") throw new Error("Approving a chapter takes a vote of The Inc. Choose \"Open the vote\" instead.");
+  const status = oneOf_(d.status, CHAPTER_MANUAL_STATUSES, "Approval status", true);
+  if (c.status === "Approved" || c.status === "Voting") throw new Error("This chapter's status is set by The Inc.'s vote.");
   const note = text_(d.note, "Note", 1500, status === "Needs changes" || status === "Denied");
-  const code = String(c.code || "").toUpperCase();
-  let imported = 0;
+  update_("Chapters", c._row, { status: status, inc_notes: note, decided_by: user.email, decided_at: new Date(), updated_at: new Date() });
+  tellApplicant_(c, status, note);
+  log_(user.email, "chapter " + status.toLowerCase(), chapterId);
+  return { ok: true };
+}
+
+/** Inc only: open The Inc.'s vote on a submitted application. */
+function openChapterVote(token, chapterId) {
+  const user = incOnly_(session_(token));
+  const c = findOne_("Chapters", "chapter_id", chapterId);
+  if (!c) throw new Error("That chapter wasn't found.");
+  if (c.status !== "Submitted" && c.status !== "Under review") throw new Error("Only a submitted application can go to a vote.");
+  const voters = incVoters_();
+  const opens = new Date(), closes = new Date(opens.getTime() + CHARTER_VOTE.voteDays * 86400000);
+  update_("Chapters", c._row, { status: "Voting", vote_opens: opens, vote_closes: closes, eligible: voters.length, yes: "", no: "", abstain: "", result: "", updated_at: new Date() });
+  voters.forEach(function (v) {
+    notify_(v, "Vote open: charter " + c.school,
+      "The Inc. is voting on the application to charter a section at " + c.school + " (" + c.city + ", " + c.state + ") as " + c.code + ".\n" +
+      "Roster: " + c.roster_count + " members" + (Number(c.school_min_members) ? " (the university requires " + c.school_min_members + ")" : "") +
+      "\n\nReview the application and vote in the portal under Chapter. Voting closes " + longDate_(closes) + ".");
+  });
+  log_(user.email, "chapter vote opened", chapterId + " eligible " + voters.length);
+  return { ok: true, closes: ser_(closes), eligible: voters.length };
+}
+
+function castChapterVote(token, chapterId, choice) {
+  const user = incOnly_(session_(token));
+  choice = oneOf_(choice, ["Yes", "No", "Abstain"], "Your vote", true);
+  closeExpiredChapterVotes_();
   const lock = lock_();
   try {
-    if (status === "Approved" && c.status !== "Approved") {
-      if (SECTIONS[code] && !BASE_CHAPTERS.some(function (b) { return b.code === code; })) bad_("The abbreviation " + code + " is already a section.");
-      SECTIONS[code] = shortSchool_(c.school);
-      imported = importCharterRoster_(c, user.email);
-      rows_("Access").forEach(function (a) {
-        if (normEmail_(a.email) === normEmail_(c.submitted_by) && String(a.role).trim() === "Applicant") {
-          update_("Access", a._row, { role: "Officer", section: code, notes: "Became " + code + " officer when the chapter was approved" });
-        }
-      });
-      ACCESS_ = null;
-    }
-    update_("Chapters", c._row, { status: status, inc_notes: note, decided_by: user.email, decided_at: new Date(), updated_at: new Date() });
+    const c = findOne_("Chapters", "chapter_id", chapterId);
+    if (!c || c.status !== "Voting") throw new Error("Voting isn't open on this chapter.");
+    if (rows_("Ballots").some(function (b) { return b.amendment_id === c.chapter_id && normEmail_(b.voter) === user.email; })) throw new Error("You've already voted on this chapter.");
+    append_("Ballots", { amendment_id: c.chapter_id, voter: user.email, choice: choice, cast_at: new Date() });
   } finally { lock.releaseLock(); }
-  const to = [c.contact_email, c.submitted_by].filter(function (e, i, all) { return e && all.indexOf(e) === i; });
-  const msg = status === "Approved" ? "has been approved. Welcome to S.M.O.O.T.H. Inc. Your section is now set up in the portal as " + code + "."
-            : status === "Needs changes" ? "needs a few changes before The Inc. can decide."
+  log_(user.email, "chapter vote cast", chapterId);
+  return { ok: true, message: "Your vote is recorded. Votes can't be changed once cast." };
+}
+
+/** Inc only: close the vote early, for example once every Inc member has voted. */
+function closeChapterVote(token, chapterId) {
+  const user = incOnly_(session_(token));
+  const c = findOne_("Chapters", "chapter_id", chapterId);
+  if (!c || c.status !== "Voting") throw new Error("Voting isn't open on this chapter.");
+  const r = tallyChapter_(c, user.email);
+  log_(user.email, "chapter vote closed", chapterId + " " + r.status);
+  return r;
+}
+
+function incVoters_() {
+  return rows_("Access").map(function (r) { return accessFor_(r.email); })
+    .filter(function (u) { return u && u.role === "Inc"; }).map(function (u) { return u.email; })
+    .filter(function (e, i, all) { return all.indexOf(e) === i; });
+}
+
+function closeExpiredChapterVotes_() {
+  const now = new Date();
+  rows_("Chapters").forEach(function (c) {
+    if (c.status === "Voting" && c.vote_closes instanceof Date && c.vote_closes <= now) tallyChapter_(c, "vote deadline");
+  });
+}
+
+/** Count The Inc.'s ballots. Passing approves the chapter; failing denies it with the count. */
+function tallyChapter_(c, by) {
+  const b = rows_("Ballots").filter(function (x) { return x.amendment_id === c.chapter_id; });
+  const yes = b.filter(function (x) { return x.choice === "Yes"; }).length;
+  const no = b.filter(function (x) { return x.choice === "No"; }).length;
+  const abstain = b.filter(function (x) { return x.choice === "Abstain"; }).length;
+  const eligible = Number(c.eligible) || b.length;
+  const need = Math.ceil(eligible * CHARTER_VOTE.quorum);
+  const quorumMet = b.length >= need;
+  const passed = quorumMet && passes_(yes, no, CHARTER_VOTE.passShare);
+  const result = yes + " yes, " + no + " no, " + abstain + " abstain of " + eligible + " Inc members. " +
+    (quorumMet ? "" : "Quorum not met (" + need + " ballots needed). ") + (passed ? "Approved." : "Not approved.");
+  let imported = 0;
+  if (passed) imported = approveChapter_(c, by);
+  update_("Chapters", c._row, { status: passed ? "Approved" : "Denied", yes: yes, no: no, abstain: abstain, result: result,
+                                 decided_by: "Vote of The Inc.", decided_at: new Date(), updated_at: new Date() });
+  tellApplicant_(c, passed ? "Approved" : "Denied", "");   // applicants get the outcome, not the count
+  incVoters_().forEach(function (v) { notify_(v, "Chapter vote " + (passed ? "passed" : "failed") + ": " + c.school, "The Inc.'s vote on chartering " + c.school + " has closed.\n\n" + result); });
+  return { ok: true, status: passed ? "Approved" : "Denied", result: result, imported: imported };
+}
+
+/** 1/2 means more than half; any larger share means at least that share. */
+function passes_(yes, no, share) {
+  if (yes + no === 0) return false;
+  const r = yes / (yes + no);
+  return share <= 0.5 ? r > share : r >= share - 1e-9;
+}
+
+/** Make the chapter a live section, load its roster, and turn the applicant into its officer. */
+function approveChapter_(c, by) {
+  const code = String(c.code || "").toUpperCase();
+  if (SECTIONS[code] && !BASE_CHAPTERS.some(function (b) { return b.code === code; })) bad_("The abbreviation " + code + " is already a section.");
+  SECTIONS[code] = shortSchool_(c.school);
+  const imported = importCharterRoster_(c, by);
+  rows_("Access").forEach(function (a) {
+    if (normEmail_(a.email) === normEmail_(c.submitted_by) && String(a.role).trim() === "Applicant") {
+      update_("Access", a._row, { role: "Officer", section: code, notes: "Became " + code + " officer when the chapter was approved" });
+    }
+  });
+  ACCESS_ = null;
+  return imported;
+}
+
+function tellApplicant_(c, status, note) {
+  const code = String(c.code || "").toUpperCase();
+  const msg = status === "Approved" ? "has been approved by a vote of The Inc. Welcome to S.M.O.O.T.H. Inc. Your section is now set up in the portal as " + code + "."
+            : status === "Needs changes" ? "needs a few changes before The Inc. can vote on it."
             : status === "Denied" ? "was not approved at this time."
             : "is now marked \"" + status + "\".";
-  to.forEach(function (e) {
+  [c.contact_email, c.submitted_by].filter(function (e, i, all) { return e && all.indexOf(e) === i; }).forEach(function (e) {
     notify_(e, "Chapter application " + status.toLowerCase() + ": " + c.school,
       "Your application to charter a S.M.O.O.T.H. section at " + c.school + " " + msg + (note ? "\n\nNote from The Inc.:\n" + note : "") +
       "\n\nQuestions: " + PORTAL.notify);
   });
-  log_(user.email, "chapter " + status.toLowerCase(), chapterId + (imported ? " roster " + imported : ""));
-  return { ok: true, imported: imported };
 }
 
 function canSeeChapter_(user, c) {
@@ -947,7 +1073,7 @@ function canSeeChapter_(user, c) {
 }
 function canEditChapter_(user, c) {
   const open = c.status === "Draft" || c.status === "Needs changes";
-  if (user.role === "Inc") return c.status !== "Approved";
+  if (user.role === "Inc") return c.status !== "Approved" && c.status !== "Voting";
   return user.role === "Applicant" && open && normEmail_(c.submitted_by) === user.email;
 }
 function canUploadChapter_(user, c) {
@@ -1069,7 +1195,8 @@ function setup() {
   access.getRange("E2:E").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(["Yes", "No"], true).build());
   tab_("Members").getRange("G2:G").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(MEMBER_STATUSES, true).build());
   ensureBaseChapters_();
-  tab_("Chapters").getRange("W2:W").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(CHAPTER_STATUSES, true).build());
+  const chTab = tab_("Chapters"), statusCol = headers_(chTab).indexOf("status") + 1;
+  chTab.getRange(2, statusCol, chTab.getMaxRows() - 1, 1).setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(CHAPTER_STATUSES, true).build());
   const root = rootFolder_();
   if (typeof setupNewsletter_ === "function") setupNewsletter_();
   console.log("Portal ready. Drive folder: " + root.getUrl() + "\nShare that folder with Inc members only (not officers).");
