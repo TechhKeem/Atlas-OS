@@ -7,6 +7,8 @@
 | `site/images/` | Every image the site uses, each as `.jpg`/`.png` plus a smaller `.webp`. | Yes |
 | `brand-kit/` | The brand book (`README.md`) and design tokens (`tokens.json`). The source of truth. | No |
 | `apps-script/` | The back office, in Google Apps Script: `Newsletter.gs` saves website sign-ups; `Portal.gs` and `Portal.html` are the private member portal. | No |
+| `site/members/` | The members section of the website. Built from `apps-script/` and `practice/` by `tools/build_members.py`; never edit it by hand. | Yes (no search indexing) |
+| `practice/` | Practice mode for the members section: stand-ins for Google's services and the no-password practice bar. | No |
 | `tests/` | Automated tests for the back office (see below). | No |
 | `docs/` | The project brief and admin guides. | No |
 | `tools/` | Image scripts and helpers (see below). | No |
@@ -38,7 +40,13 @@ Photos of Jr. SMOOTH youth need written parent consent before they go up.
 - `tools/make-preview.sh` writes `preview/site-body.html`, the page without its `<html>`/`<head>` wrapper, for preview tools. Never edit that file.
 
 ## Member portal
-The private back office for The Inc. and section officers: event reports with photos, funds requests, new members, semester rosters, constitutional amendments with voting, and newsletter drafts built from each section's event summaries. See `docs/admin-guide-portal.md`.
+The members section lives at **smooth2009.org/members** (linked from the site's menu and footer).
+
+**Right now it runs in practice mode:** no password, and entries are saved only in the visitor's own browser, so nothing private is on a public page. A bar at the top lets you view it as The Inc. or as any section's officer, see the emails it would send, start empty, or reset the example entries. After changing anything in `apps-script/` or `practice/`, run `python3 tools/build_members.py` to rebuild the page.
+
+**When the back office is deployed** on The Inc.'s Google account (see `docs/admin-guide-portal.md`), the members link will point to the live portal, where people sign in with an emailed code.
+
+It's the private back office for The Inc. and section officers: event reports with photos, funds requests, new members, semester rosters, constitutional amendments with voting, and newsletter drafts built from each section's event summaries. See `docs/admin-guide-portal.md`.
 
 ## Tests
-`node tests/portal.test.js` runs the back office (portal and newsletter) against stand-ins for Google's services. `node tests/portal-ui.js <folder>` also loads the portal screens in a browser and saves screenshots; it needs Playwright.
+`node tests/portal.test.js` runs the back office (portal and newsletter) against stand-ins for Google's services. `node tests/portal-ui.js <folder>` loads the portal screens in a browser and saves screenshots, and `node tests/members-ui.js <folder>` does the same for the practice-mode members page. Both need Playwright.

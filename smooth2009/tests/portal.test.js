@@ -4,7 +4,7 @@ const fs = require('fs'), vm = require('vm'), path = require('path'), assert = r
 const ctx = { console, Date, Math, JSON, Object, Array, String, Number, Error, RegExp, isFinite, parseInt, isNaN, Buffer };
 vm.createContext(ctx);
 const dir = path.join(__dirname, '..', 'apps-script');
-vm.runInContext(fs.readFileSync(path.join(__dirname, 'gas-mock.js'), 'utf8'), ctx);
+vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'practice', 'gas-mock.js'), 'utf8'), ctx);
 vm.runInContext(fs.readFileSync(path.join(dir, 'Newsletter.gs'), 'utf8'), ctx, { filename: 'Newsletter.gs' });
 vm.runInContext(fs.readFileSync(path.join(dir, 'Portal.gs'), 'utf8'), ctx, { filename: 'Portal.gs' });
 const M = ctx.__mock;

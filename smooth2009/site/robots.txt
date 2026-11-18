@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /members/
 
 Sitemap: https://smooth2009.org/sitemap.xml

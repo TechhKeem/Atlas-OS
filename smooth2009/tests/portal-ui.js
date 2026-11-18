@@ -6,7 +6,7 @@ const out = process.argv[2] || '.', axePath = process.argv[3];
 const A = path.join(__dirname, '..', 'apps-script');
 const portal = fs.readFileSync(path.join(A, 'Portal.html'), 'utf8');
 const shim = `
-<script>${fs.readFileSync(path.join(__dirname, 'gas-mock.js'), 'utf8')}</script>
+<script>${fs.readFileSync(path.join(__dirname, '..', 'practice', 'gas-mock.js'), 'utf8')}</script>
 <script>${fs.readFileSync(path.join(A, 'Newsletter.gs'), 'utf8')}</script>
 <script>${fs.readFileSync(path.join(A, 'Portal.gs'), 'utf8')}</script>
 <script>

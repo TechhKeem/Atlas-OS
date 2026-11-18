@@ -1,0 +1,2262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Members | S.M.O.O.T.H. Inc.</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../images/crest-national.png">
+<style>
+/* Brand kit tokens (brand-kit/tokens.json). Neutral surfaces, navy as the one S.M.O.O.T.H. color. */
+:root{
+  --bg:#ffffff; --bg-2:#f5f5f7; --ink:#1d1d1f; --muted:#6e6e73; --line:#d2d2d7; --field-line:#86868b;
+  --navy:#0b2a5b; --on-navy:#ffffff; --link:#0b4fb3; --ok:#1f7a38; --err:#c0262f; --warn:#8a5a00;
+  --ok-bg:#e7f4ea; --err-bg:#fbe9ea; --warn-bg:#fdf3dc; --info-bg:#e8eefb;
+  --f:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Segoe UI",Roboto,Arial,sans-serif;
+  --r-field:12px; --r-card:22px;
+  color-scheme:light; /* always light, like the website */
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-2);color:var(--ink);font:17px/1.47 var(--f);letter-spacing:-.011em;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;letter-spacing:-.02em;line-height:1.15;text-wrap:balance}
+h1{font-size:28px}h2{font-size:22px}h3{font-size:18px}
+p{margin:0}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--link);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.stack{display:grid;gap:16px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.spread{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+[hidden]{display:none!important}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Header */
+header{background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.brand img{height:34px;width:auto}
+.who{font-size:13px;color:var(--muted);text-align:right}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-bottom:8px}
+nav.tabs button{all:unset;cursor:pointer;padding:8px 14px;border-radius:999px;font-size:15px;font-weight:500;color:var(--ink);white-space:nowrap}
+nav.tabs button[aria-current="page"]{background:var(--navy);color:var(--on-navy)}
+nav.tabs button:focus-visible{outline:3px solid var(--link)}
+main{padding-block:28px 64px}
+
+/* Surfaces */
+.card{background:var(--bg);border-radius:var(--r-card);padding:24px;display:grid;gap:14px;min-width:0}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.tiles{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.tile{background:var(--bg-2);border-radius:16px;padding:14px 16px;display:grid;gap:2px}
+.tile b{font-size:28px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.tile span{font-size:13px;color:var(--muted);font-weight:600}
+.list{display:grid;gap:12px}
+.item{background:var(--bg);border-radius:18px;padding:18px 20px;display:grid;gap:8px;min-width:0}
+.item .meta{font-size:14px;color:var(--muted)}
+.item .body{white-space:pre-wrap;overflow-wrap:anywhere}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--bg-2);color:var(--ink)}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.err{background:var(--err-bg);color:var(--err)}
+.pill.warn{background:var(--warn-bg);color:var(--warn)}.pill.info{background:var(--info-bg);color:var(--link)}
+.todo{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.todo li{background:var(--warn-bg);color:var(--ink);border-radius:12px;padding:10px 14px;font-size:15px}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap}
+td.n,th.n{text-align:right}
+.bar{height:8px;border-radius:4px;background:var(--navy);min-width:2px}
+blockquote{margin:0;padding:12px 14px;background:var(--bg-2);border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+
+/* Forms */
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.field{display:grid;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+label,.lbl{font-size:13px;font-weight:600;color:var(--muted)}
+.hint{font-size:13px;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg-2);border:1px solid var(--field-line);border-radius:var(--r-field);padding:12px 14px;width:100%;min-width:0}
+textarea{min-height:110px;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--link);outline-offset:1px;background:var(--bg)}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:500 15px var(--f);padding:10px 18px;border-radius:999px;border:0;cursor:pointer;background:var(--navy);color:var(--on-navy);text-decoration:none}
+.btn.quiet{background:var(--bg-2);color:var(--ink)}
+.btn.danger{background:var(--err-bg);color:var(--err)}
+.btn:disabled{opacity:.5;cursor:default}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.status{font-size:15px;font-weight:500}
+.status.ok{color:var(--ok)}.status.err{color:var(--err)}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px}
+.thumbs img{width:72px;height:72px;object-fit:cover;border-radius:10px;background:var(--bg-2)}
+table input:not([type=checkbox]),table select{min-width:150px;padding:8px 10px}
+td.nowrap{white-space:nowrap}
+.brand{white-space:nowrap}
+@media (max-width:640px){form{grid-template-columns:1fr}.card{padding:18px}.who{display:none}}
+
+/* Sign-in */
+.signin{min-height:100vh;display:grid;place-items:center;padding:24px 16px}
+.signin .card{width:100%;max-width:420px;text-align:center;justify-items:center}
+.signin form{grid-template-columns:1fr;width:100%;text-align:left}
+.signin img{height:72px;width:auto}
+
+/* Practice mode bar and viewer */
+.practice-bar{background:var(--info-bg);color:var(--ink);border-bottom:1px solid var(--line);font-size:14px}
+.practice-bar .pinner{max-width:1080px;margin:0 auto;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:8px}
+.practice-bar .prow{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.practice-bar label{color:var(--ink);font-size:14px}
+.practice-bar select{width:auto;padding:6px 10px;font-size:14px;background:var(--bg)}
+.pbtn{font:500 14px var(--f);padding:6px 12px;border-radius:999px;border:1px solid var(--field-line);background:var(--bg);color:var(--ink);cursor:pointer}
+.pbtn.strong{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.plink{font-size:14px}
+.pnote{color:var(--err);font-weight:500}
+.pdialog{border:0;border-radius:22px;padding:0;width:min(720px,calc(100vw - 32px));max-height:min(80vh,900px);background:var(--bg);color:var(--ink)}
+.pdialog::backdrop{background:rgba(0,0,0,.45)}
+.pdhead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg)}
+.pdbody{padding:18px 22px 24px;display:grid;gap:14px;overflow-wrap:anywhere}
+.pmuted{color:var(--muted);font-size:14px}
+.pmail{display:grid;gap:4px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.pdialog pre{white-space:pre-wrap;font:14px/1.5 var(--f);margin:0;background:var(--bg-2);padding:12px;border-radius:12px}
+.pdialog pre.pcsv{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;overflow-x:auto;white-space:pre}
+.pdoc{display:grid;gap:10px}
+.pphoto{background:var(--bg-2);border-radius:12px;padding:40px;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- Sign-in -->
+<section class="signin" id="signin">
+  <div class="card">
+    <img src="data:image/webp;base64,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" alt="S.M.O.O.T.H. crest">
+    <h1>S.M.O.O.T.H. Portal</h1>
+    <p class="muted">For The Inc. and section officers.</p>
+    <form id="emailForm">
+      <div class="field"><label for="si-email">Your email</label><input id="si-email" type="email" autocomplete="email" required></div>
+      <div class="form-foot"><button class="btn" type="submit">Email me a code</button></div>
+    </form>
+    <form id="codeForm" hidden>
+      <p class="hint" id="codeHint"></p>
+      <div class="field"><label for="si-code">6-digit code</label><input id="si-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="\d{6}" required></div>
+      <div class="form-foot"><button class="btn" type="submit">Sign in</button><button class="btn quiet" type="button" id="useOther">Use a different email</button></div>
+    </form>
+    <p class="status" id="signinStatus" role="status"></p>
+  </div>
+</section>
+
+<!-- App -->
+<div id="app" hidden>
+  <header>
+    <div class="wrap">
+      <div class="top">
+        <div class="brand"><img src="data:image/webp;base64,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" alt="">S.M.O.O.T.H. Portal</div>
+        <div class="row"><div class="who" id="who"></div></div>
+      </div>
+      <nav class="tabs" id="tabs" aria-label="Portal sections"></nav>
+    </div>
+  </header>
+  <main class="wrap" id="view" tabindex="-1"></main>
+</div>
+
+<script>/* gas-mock.js */
+/* In-memory stand-ins for the Google Apps Script services the back office uses.
+   Runs in Node (vm context) and in a browser page. Only what Newsletter.gs and Portal.gs call.
+   Used by the tests and by practice mode on smooth2009.org/members (via __mock.dump/__mock.load). */
+(function (G) {
+  const mails = [], cache = {}, props = {};
+  let uuidN = 0, idN = 0;
+  const drive = {};          // id -> folder/file
+  const TZ = 'America/New_York';
+
+  function sheetObj(name) {
+    const rows = [], raw = [];   // rows: what Sheets shows; raw: exactly what the script wrote
+    const shown = x => (typeof x === 'string' && x[0] === "'") ? x.slice(1) : x;  // a leading ' marks text in Sheets
+    const width = () => rows.reduce((m, r) => Math.max(m, r.length), 0);
+    const rangeObj = (r, c, nr, nc) => ({
+      getValues: () => { const out = []; for (let i = 0; i < nr; i++) { const row = rows[r - 1 + i] || []; out.push(Array.from({ length: nc }, (_, j) => row[c - 1 + j] === undefined ? '' : row[c - 1 + j])); } return out; },
+      setValues: v => { v.forEach((vr, i) => { rows[r - 1 + i] = rows[r - 1 + i] || []; vr.forEach((x, j) => { rows[r - 1 + i][c - 1 + j] = x; }); }); return rangeObj(r, c, nr, nc); },
+      setValue: x => { rows[r - 1] = rows[r - 1] || []; rows[r - 1][c - 1] = shown(x); return rangeObj(r, c, nr, nc); },
+      setFontWeight() { return this; }, setDataValidation() { return this; }
+    });
+    return {
+      _rows: rows, _raw: raw, getName: () => name,
+      getLastRow: () => rows.length, getLastColumn: () => width(), getMaxRows: () => 1000,
+      getRange: (a, b, c, d) => typeof a === 'string' ? rangeObj(1, 1, 1, 1) : rangeObj(a, b, c || 1, d || 1),
+      appendRow: r => { raw.push(r.slice()); rows.push(r.map(shown)); }, setFrozenRows() {}
+    };
+  }
+  const sheets = {};
+  const spreadsheet = { getSheetByName: n => sheets[n] || null, insertSheet: n => (sheets[n] = sheetObj(n)) };
+
+  function folder(name, parent, fixedId) {
+    const id = fixedId || 'F' + (++idN);
+    const f = { id, name, parent, folders: [], files: [],
+      getId: () => id, getName: () => name, getUrl: () => 'https://drive.google.com/drive/folders/' + id,
+      createFolder: n => { const c = folder(n, f); f.folders.push(c); return c; },
+      getFoldersByName: n => iter(f.folders.filter(x => x.name === n)),
+      getFiles: () => iter(f.files),
+      createFile: (a, content, mime) => { const fl = file(typeof a === 'string' ? { name: a, content, type: mime } : a, f); f.files.push(fl); return fl; }
+    };
+    drive[id] = f; return f;
+  }
+  function file(blob, parent, fixedId) {
+    const id = fixedId || 'D' + (++idN);
+    const fl = { id, blob, parent, getId: () => id, getName: () => blob.name || (blob.getName && blob.getName()), getUrl: () => 'https://drive.google.com/file/d/' + id,
+      getBlob: () => blob, moveTo: f => { fl.parent = f; f.files.push(fl); } };
+    drive[id] = fl; return fl;
+  }
+  function iter(list) { let i = 0; return { hasNext: () => i < list.length, next: () => list[i++] }; }
+
+  function pad(n, w) { return String(n).padStart(w || 2, '0'); }
+  function fmt(d, tz, f) {
+    return f.replace('yyyy', d.getFullYear()).replace('MM', pad(d.getMonth() + 1)).replace('dd', pad(d.getDate()))
+            .replace('HH', pad(d.getHours())).replace('mm', pad(d.getMinutes()));
+  }
+  function b64decode(s) {
+    if (typeof Buffer !== 'undefined') return Array.from(Buffer.from(s, 'base64'));
+    const bin = atob(s); return Array.from(bin, ch => ch.charCodeAt(0));
+  }
+  function digest(s) { // stand-in for SHA-256; deterministic, 32 bytes
+    const out = []; let h = 2166136261;
+    for (let k = 0; k < 32; k++) { for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i) + k; h = Math.imul(h, 16777619); } out.push((h & 255) - 128); }
+    return out;
+  }
+  const docs = [];
+  function para(text) { const p = { text, heading: null, italic: false, setHeading(x) { p.heading = x; return p; }, setItalic(x) { p.italic = x; return p; } }; return p; }
+
+  // Save and restore everything except file contents (photos are not kept) and sign-in sessions.
+  const enc = v => v instanceof Date ? { $d: v.toISOString() } : v;
+  const dec = v => (v && typeof v === 'object' && '$d' in v) ? new Date(v.$d) : v;
+  function dump() {
+    return {
+      idN, props: Object.assign({}, props), mails: mails.slice(-200),
+      sheets: Object.keys(sheets).map(n => ({ name: n, rows: sheets[n]._rows.map(r => r.map(enc)) })),
+      drive: Object.values(drive).map(x => x.folders
+        ? { id: x.id, kind: 'folder', name: x.name, parent: x.parent ? x.parent.id : null }
+        : { id: x.id, kind: 'file', name: x.getName(), parent: x.parent ? x.parent.id : null, type: x.blob.type || '',
+            content: typeof x.blob.content === 'string' && x.blob.content.length < 60000 ? x.blob.content : undefined, docId: x.blob.docId }),
+      docs: docs.map(d => ({ id: d.getId(), title: d.title, paras: d.paras.map(p => ({ text: p.text, heading: p.heading || null, italic: !!p.italic })), images: d.images.map(i => ({ w: i.w, h: i.h })) }))
+    };
+  }
+  function load(st) {
+    idN = st.idN || 0; Object.assign(props, st.props || {}); mails.push(...(st.mails || []));
+    (st.sheets || []).forEach(sh => { const o = spreadsheet.insertSheet(sh.name); sh.rows.forEach(r => { const row = r.map(dec); o._rows.push(row); o._raw.push(row.slice()); }); });
+    const byId = {};
+    (st.drive || []).filter(x => x.kind === 'folder').forEach(x => { byId[x.id] = folder(x.name, null, x.id); });
+    (st.drive || []).filter(x => x.kind === 'folder' && x.parent).forEach(x => { const f = byId[x.id], p = byId[x.parent]; if (p) { f.parent = p; p.folders.push(f); } });
+    (st.docs || []).forEach(d => G.DocumentApp.create(d.title, d.id, d));
+    (st.drive || []).filter(x => x.kind === 'file' && !x.docId).forEach(x => { const p = byId[x.parent] || null; const fl = file({ name: x.name, type: x.type, content: x.content, getName() { return x.name; } }, p, x.id); if (p) p.files.push(fl); });
+  }
+
+  Object.assign(G, {
+    __mock: { mails, cache, sheets, drive, docs, users: { active: '', effective: 'owner@smooth2009.org' }, dump, load },
+    SpreadsheetApp: {
+      getActiveSpreadsheet: () => spreadsheet,
+      newDataValidation: () => { const b = { requireValueInList: () => b, setAllowInvalid: () => b, build: () => ({}) }; return b; }
+    },
+    CacheService: { getScriptCache: () => ({ get: k => (k in cache ? cache[k] : null), put: (k, v) => { cache[k] = String(v); }, remove: k => { delete cache[k]; } }) },
+    LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
+    MailApp: { sendEmail: o => mails.push(o) },
+    PropertiesService: { getScriptProperties: () => ({ getProperty: k => (k in props ? props[k] : null), setProperty: (k, v) => { props[k] = v; } }) },
+    Session: {
+      getScriptTimeZone: () => TZ,
+      getActiveUser: () => ({ getEmail: () => G.__mock.users.active }),
+      getEffectiveUser: () => ({ getEmail: () => G.__mock.users.effective })
+    },
+    Utilities: {
+      getUuid: () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => ((Math.random() * 16) | 0).toString(16)),
+      formatDate: fmt,
+      computeDigest: (alg, s) => digest(String(s)),
+      DigestAlgorithm: { SHA_256: 'sha256' }, Charset: { UTF_8: 'utf8' },
+      base64Decode: b64decode,
+      newBlob: (bytes, type, name) => { const b = { bytes, type, name, setName: n => { b.name = n; return b; }, getName: () => b.name, getContentType: () => type }; return b; }
+    },
+    DriveApp: {
+      createFolder: n => folder(n, null),
+      getFolderById: id => { if (!drive[id]) throw new Error('No folder ' + id); return drive[id]; },
+      getFileById: id => drive[id]
+    },
+    DocumentApp: {
+      ParagraphHeading: { TITLE: 'TITLE', SUBTITLE: 'SUBTITLE', HEADING2: 'HEADING2' },
+      create: (title, fixedId, saved) => {
+        const id = fixedId || 'DOC' + (++idN), paras = (saved && saved.paras) || [], images = (saved && saved.images) || [];
+        const body = { appendParagraph: t => { const p = para(t); paras.push(p); return p; },
+                       appendImage: blob => { const im = { w: 1600, h: 1200, getWidth: () => im.w, getHeight: () => im.h, setWidth(w) { im.w = w; return im; }, setHeight(h) { im.h = h; return im; } }; images.push(im); paras.push({ text: '[image]' }); return im; } };
+        const doc = { title, paras, images, getBody: () => body, saveAndClose() {}, getId: () => id, getUrl: () => 'https://docs.google.com/document/d/' + id };
+        drive[id] = file({ name: title, docId: id }, null, id); drive[id].moveTo = () => {};
+        docs.push(doc); return doc;
+      }
+    },
+    MimeType: { CSV: 'text/csv' },
+    ContentService: { MimeType: { JSON: 'json' }, createTextOutput: t => ({ setMimeType() { return { getContent: () => t }; } }) },
+    HtmlService: { createHtmlOutputFromFile: () => ({ setTitle() { return this; }, addMetaTag() { return this; } }) },
+    ScriptApp: { getProjectTriggers: () => [], newTrigger: () => ({ timeBased: () => ({ everyDays: () => ({ atHour: () => ({ create() {} }) }) }) }) }
+  });
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+
+</script>
+<script>/* Newsletter.gs */
+/**
+ * S.M.O.O.T.H. Inc. — newsletter sign-up receiver
+ *
+ * One of three files in the Apps Script project on the "SMOOTH Back Office" Google Sheet
+ * (Newsletter.gs, Portal.gs, Portal.html). Website sign-ups land in the "Newsletter" tab.
+ *
+ * The server checks every sign-up itself and does not trust the browser:
+ *   - only the fields listed in FIELDS are saved; anything else is thrown away
+ *   - name, email, and relationship are required; email must look like an email
+ *   - relationship must be one of the dropdown choices
+ *   - a hidden "website" field catches bots (honeypot)
+ *   - the same email can't sign up twice within REPEAT_WINDOW_SECONDS
+ *   - cells that would run as a spreadsheet formula are neutralized
+ *
+ * setup() in Portal.gs creates this tab. Run testSignup() from the editor to add one test row.
+ */
+
+// Email The Inc. whenever someone signs up. Leave "" to turn off.
+// Consumer Gmail accounts can send about 100 of these a day; Google Workspace accounts can send more.
+const NOTIFY_EMAIL = "Info@smooth2009.org";
+
+// Seconds before the same email address can sign up again (stops double clicks and floods).
+const REPEAT_WINDOW_SECONDS = 60;
+
+const ALLOWED_FORMS = ["Newsletter"];
+const TAB = "Newsletter";
+
+const RELATIONSHIPS = ["Current member", "Alumni", "Parent or family", "Supporter or donor", "Educator or partner"];
+
+// Order here is the column order in the sheet. `member_id` is filled in by The Inc. later
+// (Phase 2) to link a sign-up to someone in the member directory.
+const FIELDS = {
+  name:         { req: true, max: 120 },
+  email:        { req: true, max: 200, type: "email" },
+  relationship: { req: true, oneOf: RELATIONSHIPS }
+};
+const COLUMNS = ["submitted_at", "status"].concat(Object.keys(FIELDS), ["page", "member_id"]);
+
+function doPost(e) {
+  const p = (e && e.parameter) || {};
+  if (ALLOWED_FORMS.indexOf(String(p.form || "")) === -1) return out_({ ok: false, error: "unknown form" });
+  if (p.website) return out_({ ok: true }); // honeypot: bots fill this hidden field; pretend success
+
+  const checked = validate_(p);
+  if (checked.errors.length) return out_({ ok: false, error: checked.errors.join("; ") });
+  const data = checked.data;
+
+  const cache = CacheService.getScriptCache();
+  const key = "n:" + data.email.toLowerCase();
+  if (cache.get(key)) return out_({ ok: true, duplicate: true });
+  cache.put(key, "1", REPEAT_WINDOW_SECONDS);
+
+  const lock = LockService.getScriptLock();
+  lock.waitLock(20000);
+  try {
+    const sheet = sheet_();
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    data.submitted_at = new Date();
+    data.status = "New";
+    data.page = cleanPage_(p.page);
+    sheet.appendRow(headers.map(function (h) {
+      const v = data[h];
+      if (v === undefined || v === null) return "";
+      return v instanceof Date ? v : safeCell_(String(v));
+    }));
+  } catch (err) {
+    console.error(err);
+    return out_({ ok: false, error: "could not save" });
+  } finally {
+    lock.releaseLock();
+  }
+
+  if (NOTIFY_EMAIL) {
+    try {
+      MailApp.sendEmail({
+        to: NOTIFY_EMAIL,
+        subject: "New newsletter sign-up",
+        body: "Name: " + data.name + "\nEmail: " + data.email + "\nRelationship: " + data.relationship +
+              "\n\nOpen the \"Newsletter\" tab in the SMOOTH Website Submissions sheet to follow up.",
+        replyTo: data.email
+      });
+    } catch (err) {
+      console.error("notify failed: " + err); // the row is already saved
+    }
+  }
+  return out_({ ok: true });
+}
+
+// doGet lives in Portal.gs: the same web app address serves the member portal.
+
+/** Check one sign-up against FIELDS. Returns { data, errors }. */
+function validate_(p) {
+  const data = {}, errors = [];
+  Object.keys(FIELDS).forEach(function (k) {
+    const r = FIELDS[k];
+    const v = p[k] === undefined ? "" : String(p[k]).replace(/[\u0000-\u001F\u007F]/g, " ").trim();
+    if (!v) { if (r.req) errors.push(k + " is required"); return; }
+    if (v.length > (r.max || 200)) { errors.push(k + " is too long"); return; }
+    if (r.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { errors.push("email is not valid"); return; }
+    if (r.oneOf && r.oneOf.indexOf(v) === -1) { errors.push(k + " has an unexpected answer"); return; }
+    data[k] = v;
+  });
+  return { data: data, errors: errors };
+}
+
+/** Get (or create) the Newsletter tab and make sure every expected column exists. */
+function sheet_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(TAB) || ss.insertSheet(TAB);
+  let headers = sheet.getLastColumn() > 0 ? sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0] : [];
+  if (headers.join("") === "") headers = [];
+  COLUMNS.forEach(function (h) { if (headers.indexOf(h) === -1) headers.push(h); });
+  sheet.getRange(1, 1, 1, headers.length).setValues([headers]).setFontWeight("bold");
+  sheet.setFrozenRows(1);
+  return sheet;
+}
+
+/** Stop a cell from being read as a formula. */
+function safeCell_(v) {
+  return /^[=+\-@\t\r]/.test(v) ? "'" + v : v;
+}
+
+/** Keep the page address only if it is on our own site. */
+function cleanPage_(v) {
+  v = String(v || "").slice(0, 300);
+  return /^https:\/\/(www\.)?smooth2009\.org(\/|$)/i.test(v) ? v : "";
+}
+
+function out_(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
+}
+
+/* ---------- Run these from the Apps Script editor ---------- */
+
+/** Creates the Newsletter tab with headers and a status dropdown. Portal.gs setup() calls this. */
+function setupNewsletter_() {
+  const sheet = sheet_();
+  const rule = SpreadsheetApp.newDataValidation()
+    .requireValueInList(["New", "Added to email list", "Unsubscribed", "Spam"], true)
+    .setAllowInvalid(false)
+    .build();
+  sheet.getRange(2, COLUMNS.indexOf("status") + 1, sheet.getMaxRows() - 1, 1).setDataValidation(rule);
+}
+
+/** Sends one fake sign-up through doPost. Delete the test row afterwards. */
+function testSignup() {
+  editorOnly_();
+  const res = doPost({ parameter: {
+    form: "Newsletter", name: "Test Subscriber", email: "test@example.com",
+    relationship: "Supporter or donor", page: "https://smooth2009.org/"
+  } }).getContent();
+  console.log(res);
+}
+
+</script>
+<script>/* Portal.gs */
+/**
+ * S.M.O.O.T.H. Portal — private back office for The Inc. and section officers.
+ *
+ * One of three files in the Apps Script project on the "SMOOTH Back Office" Google Sheet:
+ *   Newsletter.gs  website newsletter sign-ups (doPost)
+ *   Portal.gs      this file: sign-in, events, funds, members, rosters, newsletter drafts (doGet)
+ *   Portal.html    the portal screens
+ *
+ * Who can do what (set on the "Access" tab of the Sheet; no code changes needed):
+ *   role Inc      sees and manages every section, reviews events, decides funds, builds newsletters
+ *   role Officer  works only on their own section: reports events, requests funds, adds members,
+ *                 confirms the semester roster
+ *
+ * Sign-in: people enter their email and get a 6-digit code by email. Only active emails on the
+ * Access tab get a code. Sessions last 6 hours. Removing someone from Access locks them out at once.
+ *
+ * Everything a visitor's browser sends is checked here. Functions whose names end in "_" can't be
+ * called from the browser. setup() and installReminders() run only from the Apps Script editor.
+ */
+
+const PORTAL = {
+  name: "S.M.O.O.T.H. Portal",
+  notify: "Info@smooth2009.org",          // gets new event reports and funds requests
+  rootFolderName: "SMOOTH Portal Files",  // Drive folder for photos, receipts, drafts, exports
+  sessionSeconds: 6 * 60 * 60,            // CacheService allows 6 hours at most
+  codeSeconds: 10 * 60,
+  minPhotos: 5,
+  maxPhotos: 20,
+  maxUploadBytes: 10 * 1024 * 1024,
+  rosterReminders: ["09-15", "02-01"]     // MM-DD each year; officers are reminded if their roster isn't in
+};
+
+/**
+ * Constitutional amendments. Set these to match the amendment article of the constitution.
+ *   voters      "Inc" = only The Inc. votes; "Inc and Officers" = The Inc. plus every active section officer
+ *   passShare   share of Yes among Yes + No votes needed to pass (2/3 = two-thirds)
+ *   quorum      share of eligible voters who must cast a ballot (abstaining counts as voting)
+ *   voteDays    how long a vote stays open once The Inc. opens it
+ *   showRunningTotals  false keeps the count hidden until the vote closes
+ */
+const AMENDMENTS = {
+  voters: "Inc and Officers",
+  passShare: 2 / 3,
+  quorum: 1 / 2,
+  voteDays: 14,
+  showRunningTotals: false
+};
+
+const SECTIONS = { MSU: "Morgan State", CSU: "Coppin State", TU: "Temple" };
+const EVENT_TYPES = ["SMOOTH Week", "R.U.L.E.S. Symposium", "Jr. SMOOTH", "Community service", "Social",
+                     "Professional development", "Fundraiser", "Other"];
+const MEMBER_STATUSES = ["Active", "Alumni", "Inactive"];
+
+const SCHEMA = {
+  Access:  ["email", "name", "role", "section", "active", "notes"],
+  Events:  ["event_id", "section", "term", "event_date", "title", "event_type", "location", "description",
+            "attendees", "service_hours", "newsletter_summary", "minors_in_photos", "parent_consent",
+            "photo_count", "photo_folder", "status", "inc_notes", "newsletter_issue",
+            "submitted_by", "submitted_at", "updated_at"],
+  Funds:   ["request_id", "section", "term", "purpose", "event_name", "amount", "needed_by", "payee",
+            "breakdown", "file_count", "file_folder", "status", "approved_amount", "inc_notes",
+            "decided_by", "decided_at", "paid_date", "submitted_by", "submitted_at"],
+  Members: ["member_id", "first_name", "last_name", "email", "phone", "section", "status", "position",
+            "year_joined", "term_joined", "grad_year", "city", "state", "occupation", "linkedin",
+            "help_with", "dues_status", "last_dues_paid", "newsletter_opt_in", "review_flag", "notes",
+            "source", "added_by", "last_updated"],
+  Rosters: ["term", "section", "member_id", "name", "standing", "position", "confirmed_by", "confirmed_at"],
+  Amendments: ["amendment_id", "title", "article", "current_text", "proposed_text", "rationale", "status",
+               "proposed_by", "proposed_at", "vote_opens", "vote_closes", "eligible", "yes", "no", "abstain",
+               "result", "decided_at"],
+  Ballots: ["amendment_id", "voter", "choice", "cast_at"],
+  Log:     ["at", "user", "action", "detail"]
+};
+
+/* ============================== Web app ============================== */
+
+function doGet() {
+  return HtmlService.createHtmlOutputFromFile("Portal")
+    .setTitle(PORTAL.name)
+    .addMetaTag("viewport", "width=device-width, initial-scale=1");
+}
+
+/* ============================== Sign-in ============================== */
+
+function requestCode(email) {
+  email = normEmail_(email);
+  if (!email) throw new Error("Enter a valid email address.");
+  const generic = { ok: true, message: "If that email is on The Inc.'s access list, a 6-digit code is on its way. It works for 10 minutes." };
+  const cache = CacheService.getScriptCache();
+  if (cache.get("cd:" + email)) return generic;          // one code a minute per email
+  cache.put("cd:" + email, "1", 60);
+  const user = accessFor_(email);
+  if (!user) { log_(email, "sign-in refused", "not on Access list"); return generic; }
+  const code = randomCode_();
+  cache.put("code:" + email, JSON.stringify({ h: hash_(code), tries: 0 }), PORTAL.codeSeconds);
+  MailApp.sendEmail({
+    to: email,
+    subject: "Your " + PORTAL.name + " code: " + code,
+    body: "Your sign-in code is " + code + ". It works for 10 minutes.\n\n" +
+          "If you didn't ask for this, you can ignore this email.\n\n" +
+          "Strong Men Overcoming Obstacles Through Hard-work Inc."
+  });
+  return generic;
+}
+
+function verifyCode(email, code) {
+  email = normEmail_(email);
+  code = String(code || "").replace(/\D/g, "");
+  const cache = CacheService.getScriptCache();
+  const raw = email && cache.get("code:" + email);
+  if (!raw) throw new Error("That code has expired. Request a new one.");
+  const rec = JSON.parse(raw);
+  if (rec.h !== hash_(code)) {
+    rec.tries++;
+    if (rec.tries >= 5) { cache.remove("code:" + email); throw new Error("Too many tries. Request a new code."); }
+    cache.put("code:" + email, JSON.stringify(rec), PORTAL.codeSeconds);
+    throw new Error("That code doesn't match. Check the email and try again.");
+  }
+  cache.remove("code:" + email);
+  const user = accessFor_(email);
+  if (!user) throw new Error("This email no longer has portal access.");
+  const token = Utilities.getUuid() + Utilities.getUuid();
+  cache.put("s:" + token, email, PORTAL.sessionSeconds);
+  log_(email, "signed in", "");
+  return { token: token, boot: boot_(user) };
+}
+
+function signOut(token) {
+  CacheService.getScriptCache().remove("s:" + String(token || ""));
+  return { ok: true };
+}
+
+/** Everything the screens need after sign-in. */
+function whoami(token) {
+  return boot_(session_(token));
+}
+
+function boot_(user) {
+  return {
+    user: { email: user.email, name: user.name, role: user.role, section: user.section,
+            sectionName: SECTIONS[user.section] || "All sections" },
+    sections: SECTIONS,
+    eventTypes: EVENT_TYPES,
+    memberStatuses: MEMBER_STATUSES,
+    currentTerm: currentTerm_(),
+    terms: knownTerms_(),
+    minPhotos: PORTAL.minPhotos,
+    maxPhotos: PORTAL.maxPhotos
+  };
+}
+
+/* ============================== Dashboard ============================== */
+
+function getDashboard(token, term) {
+  const user = session_(token);
+  term = validTerm_(term) || currentTerm_();
+  const secs = user.role === "Inc" ? Object.keys(SECTIONS) : [user.section];
+  const events = rows_("Events").filter(function (e) { return e.status === "Submitted" || e.status === "Reviewed"; });
+  const funds = rows_("Funds").filter(function (f) { return f.status && f.status !== "Draft"; });
+  const rosters = rows_("Rosters");
+  const members = rows_("Members");
+
+  function stats(sec, t) {
+    const ev = events.filter(function (e) { return e.section === sec && (!t || e.term === t); });
+    const fu = funds.filter(function (f) { return f.section === sec && (!t || f.term === t); });
+    const ro = rosters.filter(function (r) { return r.section === sec && (!t || r.term === t); });
+    return {
+      section: sec, name: SECTIONS[sec],
+      roster: ro.length,
+      newMembers: ro.filter(function (r) { return r.standing === "New"; }).length,
+      events: ev.length,
+      attendees: sum_(ev, "attendees"),
+      serviceHours: sum_(ev, "service_hours"),
+      fundsRequested: sum_(fu, "amount"),
+      fundsApproved: sum_(fu.filter(function (f) { return f.status === "Approved" || f.status === "Paid"; }), "approved_amount"),
+      fundsPaid: sum_(fu.filter(function (f) { return f.status === "Paid"; }), "approved_amount"),
+      fundsPending: fu.filter(function (f) { return f.status === "Pending"; }).length,
+      activeMembers: members.filter(function (m) { return m.section === sec && m.status === "Active"; }).length,
+      alumni: members.filter(function (m) { return m.section === sec && m.status === "Alumni"; }).length
+    };
+  }
+  const bySection = secs.map(function (s) { return stats(s, term); });
+  const total = {};
+  ["roster", "newMembers", "events", "attendees", "serviceHours", "fundsRequested", "fundsApproved",
+   "fundsPaid", "fundsPending", "activeMembers", "alumni"].forEach(function (k) {
+    total[k] = bySection.reduce(function (a, s) { return a + s[k]; }, 0);
+  });
+
+  // Attendance and roster size over time, oldest term first
+  const terms = knownTerms_().slice().reverse();
+  const trend = terms.map(function (t) {
+    const row = { term: t };
+    secs.forEach(function (s) {
+      row[s] = sum_(events.filter(function (e) { return e.section === s && e.term === t; }), "attendees");
+      row[s + "_roster"] = rosters.filter(function (r) { return r.section === s && r.term === t; }).length;
+    });
+    return row;
+  });
+
+  const todo = [];
+  if (user.role === "Inc") {
+    const toReview = events.filter(function (e) { return e.status === "Submitted"; }).length;
+    if (toReview) todo.push(toReview + " event report" + (toReview > 1 ? "s" : "") + " to review");
+    if (total.fundsPending) todo.push(total.fundsPending + " funds request" + (total.fundsPending > 1 ? "s" : "") + " waiting for a decision");
+    const flagged = members.filter(function (m) { return m.review_flag; }).length;
+    if (flagged) todo.push(flagged + " possible duplicate member" + (flagged > 1 ? "s" : "") + " to check");
+  }
+  secs.forEach(function (s) {
+    if (!rosters.some(function (r) { return r.section === s && r.term === currentTerm_() && r.standing === "Returning"; })) {
+      todo.push(SECTIONS[s] + ": " + currentTerm_() + " roster not confirmed yet");
+    }
+  });
+  return { term: term, sections: bySection, total: total, trend: trend, todo: todo };
+}
+
+/* ============================== Event reports ============================== */
+
+function listEvents(token, filter) {
+  const user = session_(token);
+  filter = filter || {};
+  return rows_("Events")
+    .filter(function (e) { return canSee_(user, e.section) && (!filter.term || e.term === filter.term) &&
+                                  (!filter.section || e.section === filter.section) && e.event_id; })
+    .sort(function (a, b) { return String(b.event_date).localeCompare(String(a.event_date)); })
+    .map(function (e) {
+      const o = pick_(e, SCHEMA.Events);
+      if (user.role !== "Inc") delete o.photo_folder; // officers don't get Drive links
+      o.mine = e.submitted_by === user.email;
+      return o;
+    });
+}
+
+function createEvent(token, f) {
+  const user = session_(token);
+  f = f || {};
+  const section = sectionFor_(user, f.section);
+  const date = dateStr_(f.event_date, "Event date", true);
+  if (date > today_()) throw new Error("The event date can't be in the future. Report events after they happen.");
+  const ev = {
+    section: section,
+    term: termOf_(date),
+    event_date: date,
+    title: text_(f.title, "Title", 120, true),
+    event_type: oneOf_(f.event_type, EVENT_TYPES, "Event type", true),
+    location: text_(f.location, "Location", 160, false),
+    description: text_(f.description, "Description", 4000, true),
+    attendees: int_(f.attendees, "Number of attendees", 0, 100000, true),
+    service_hours: num_(f.service_hours, "Service hours", 0, 100000, false),
+    newsletter_summary: text_(f.newsletter_summary, "Newsletter summary", 800, true),
+    minors_in_photos: oneOf_(f.minors_in_photos, ["Yes", "No"], "Are there minors in the photos", true),
+    parent_consent: oneOf_(f.parent_consent, ["Yes", "No", ""], "Parent consent", false),
+    photo_count: 0,
+    status: "Uploading",
+    submitted_by: user.email,
+    submitted_at: new Date(),
+    updated_at: new Date()
+  };
+  if (ev.minors_in_photos === "Yes" && ev.parent_consent !== "Yes") {
+    throw new Error("Photos of minors need written parent consent on file. Leave those photos out, or get consent first.");
+  }
+  const lock = lock_();
+  try {
+    ev.event_id = nextId_("Events", "event_id", "E-", 4);
+    const folder = folderPath_(["Events", SECTIONS[section], ev.term, ev.event_date + " " + safeName_(ev.title) + " (" + ev.event_id + ")"]);
+    ev.photo_folder = folder.getUrl();
+    append_("Events", ev);
+  } finally { lock.releaseLock(); }
+  log_(user.email, "event started", ev.event_id + " " + ev.title);
+  return { event_id: ev.event_id };
+}
+
+function uploadEventPhoto(token, eventId, file) {
+  const user = session_(token);
+  const ev = findOne_("Events", "event_id", eventId);
+  if (!ev || !canSee_(user, ev.section)) throw new Error("That event report wasn't found.");
+  if (["Uploading", "Incomplete", "Needs changes"].indexOf(ev.status) === -1) throw new Error("This report is already submitted.");
+  if (Number(ev.photo_count) >= PORTAL.maxPhotos) throw new Error("That's the most photos one report can hold (" + PORTAL.maxPhotos + ").");
+  const blob = blob_(file, /^image\/(jpeg|png|webp|heic|heif|gif)$/, "photo");
+  const lock = lock_();
+  try {
+    const fresh = findOne_("Events", "event_id", eventId);
+    const n = Number(fresh.photo_count || 0) + 1;
+    blob.setName(eventId + "-" + ("0" + n).slice(-2) + extFor_(blob.getContentType()));
+    folderFromUrl_(fresh.photo_folder).createFile(blob);
+    update_("Events", fresh._row, { photo_count: n, updated_at: new Date() });
+    return { photo_count: n };
+  } finally { lock.releaseLock(); }
+}
+
+function finishEvent(token, eventId) {
+  const user = session_(token);
+  const ev = findOne_("Events", "event_id", eventId);
+  if (!ev || !canSee_(user, ev.section)) throw new Error("That event report wasn't found.");
+  const n = Number(ev.photo_count || 0);
+  if (n < PORTAL.minPhotos) {
+    update_("Events", ev._row, { status: "Incomplete", updated_at: new Date() });
+    return { ok: false, status: "Incomplete", message: "Saved, but it has " + n + " of the " + PORTAL.minPhotos + " photos needed. Add more photos to finish it." };
+  }
+  update_("Events", ev._row, { status: "Submitted", updated_at: new Date() });
+  notify_(PORTAL.notify, "Event report: " + SECTIONS[ev.section] + ", " + ev.title,
+    SECTIONS[ev.section] + " reported \"" + ev.title + "\" on " + longDate_(ev.event_date) + ".\n" +
+    "Attendees: " + ev.attendees + "\nPhotos: " + n + "\n\nSummary for the newsletter:\n" + ev.newsletter_summary +
+    "\n\nReview it in the portal under Events.");
+  log_(user.email, "event submitted", ev.event_id);
+  return { ok: true, status: "Submitted", message: "Event report submitted. The Inc. will review it." };
+}
+
+function reviewEvent(token, eventId, status, note) {
+  const user = incOnly_(session_(token));
+  const ev = findOne_("Events", "event_id", eventId);
+  if (!ev) throw new Error("That event report wasn't found.");
+  status = oneOf_(status, ["Reviewed", "Needs changes"], "Review result", true);
+  note = text_(note, "Note", 1000, status === "Needs changes");
+  update_("Events", ev._row, { status: status, inc_notes: note, updated_at: new Date() });
+  if (status === "Needs changes") {
+    notify_(ev.submitted_by, "Changes needed: " + ev.title,
+      "The Inc. reviewed your report for \"" + ev.title + "\" and asked for changes:\n\n" + note +
+      "\n\nSign in to the portal to add photos, or reply to The Inc. at " + PORTAL.notify + ".");
+  }
+  log_(user.email, "event " + status.toLowerCase(), ev.event_id);
+  return { ok: true };
+}
+
+/* ============================== Funds requests ============================== */
+
+function listFunds(token, filter) {
+  const user = session_(token);
+  filter = filter || {};
+  return rows_("Funds")
+    .filter(function (r) { return r.request_id && r.status !== "Draft" && canSee_(user, r.section) &&
+                                  (!filter.term || r.term === filter.term) && (!filter.section || r.section === filter.section); })
+    .sort(function (a, b) { return String(b.submitted_at).localeCompare(String(a.submitted_at)); })
+    .map(function (r) {
+      const o = pick_(r, SCHEMA.Funds);
+      if (user.role !== "Inc") delete o.file_folder;
+      return o;
+    });
+}
+
+function createFundsRequest(token, f) {
+  const user = session_(token);
+  f = f || {};
+  const section = sectionFor_(user, f.section);
+  const needed = dateStr_(f.needed_by, "Date needed", true);
+  const req = {
+    section: section,
+    term: termOf_(today_()),
+    purpose: text_(f.purpose, "What the money is for", 160, true),
+    event_name: text_(f.event_name, "Event", 160, false),
+    amount: money_(f.amount, "Amount", true),
+    needed_by: needed,
+    payee: text_(f.payee, "Who gets paid", 160, true),
+    breakdown: text_(f.breakdown, "Cost breakdown", 3000, true),
+    file_count: 0,
+    status: "Draft",
+    submitted_by: user.email,
+    submitted_at: new Date()
+  };
+  const lock = lock_();
+  try {
+    req.request_id = nextId_("Funds", "request_id", "F-", 4);
+    req.file_folder = folderPath_(["Funds", SECTIONS[section], req.term, req.request_id + " " + safeName_(req.purpose)]).getUrl();
+    append_("Funds", req);
+  } finally { lock.releaseLock(); }
+  return { request_id: req.request_id };
+}
+
+function uploadFundsFile(token, requestId, file) {
+  const user = session_(token);
+  const r = findOne_("Funds", "request_id", requestId);
+  if (!r || !canSee_(user, r.section)) throw new Error("That funds request wasn't found.");
+  if (r.status !== "Draft") throw new Error("Files can only be added before the request is sent.");
+  if (Number(r.file_count) >= 10) throw new Error("A request can hold 10 files at most.");
+  const blob = blob_(file, /^(image\/(jpeg|png|webp|heic|heif)|application\/pdf)$/, "quote or receipt");
+  const lock = lock_();
+  try {
+    const fresh = findOne_("Funds", "request_id", requestId);
+    const n = Number(fresh.file_count || 0) + 1;
+    blob.setName(requestId + "-" + n + extFor_(blob.getContentType()));
+    folderFromUrl_(fresh.file_folder).createFile(blob);
+    update_("Funds", fresh._row, { file_count: n });
+    return { file_count: n };
+  } finally { lock.releaseLock(); }
+}
+
+function submitFundsRequest(token, requestId) {
+  const user = session_(token);
+  const r = findOne_("Funds", "request_id", requestId);
+  if (!r || !canSee_(user, r.section)) throw new Error("That funds request wasn't found.");
+  if (r.status !== "Draft") return { ok: true };
+  update_("Funds", r._row, { status: "Pending", submitted_at: new Date() });
+  notify_(PORTAL.notify, "Funds request: " + SECTIONS[r.section] + ", " + money_fmt_(r.amount),
+    SECTIONS[r.section] + " requested " + money_fmt_(r.amount) + " for " + r.purpose + ".\n" +
+    "Needed by: " + longDate_(r.needed_by) + "\nPay to: " + r.payee + "\n\nBreakdown:\n" + r.breakdown +
+    "\n\nApprove or deny it in the portal under Funds.");
+  log_(user.email, "funds requested", r.request_id + " " + r.amount);
+  return { ok: true };
+}
+
+function decideFunds(token, requestId, d) {
+  const user = incOnly_(session_(token));
+  d = d || {};
+  const r = findOne_("Funds", "request_id", requestId);
+  if (!r) throw new Error("That funds request wasn't found.");
+  const status = oneOf_(d.status, ["Approved", "Denied", "Paid"], "Decision", true);
+  const upd = { status: status, decided_by: user.email, decided_at: new Date(), inc_notes: text_(d.note, "Note", 1000, status === "Denied") };
+  if (status === "Approved") upd.approved_amount = money_(d.approved_amount === undefined || d.approved_amount === "" ? r.amount : d.approved_amount, "Approved amount", true);
+  if (status === "Paid") {
+    if (r.status !== "Approved" && r.status !== "Paid") throw new Error("Approve the request before marking it paid.");
+    upd.paid_date = dateStr_(d.paid_date || today_(), "Date paid", true);
+    upd.approved_amount = r.approved_amount;
+  }
+  if (status === "Denied") upd.approved_amount = 0;
+  update_("Funds", r._row, upd);
+  const msg = status === "Approved" ? "was approved for " + money_fmt_(upd.approved_amount) + "."
+            : status === "Paid" ? "has been paid (" + money_fmt_(upd.approved_amount) + ")."
+            : "was not approved.";
+  notify_(r.submitted_by, "Funds request " + status.toLowerCase() + ": " + r.purpose,
+    "Your request for " + r.purpose + " (" + money_fmt_(r.amount) + ") " + msg +
+    (upd.inc_notes ? "\n\nNote from The Inc.:\n" + upd.inc_notes : "") + "\n\nQuestions: " + PORTAL.notify);
+  log_(user.email, "funds " + status.toLowerCase(), r.request_id);
+  return { ok: true };
+}
+
+/* ============================== Members and rosters ============================== */
+
+function listMembers(token, filter) {
+  const user = session_(token);
+  filter = filter || {};
+  const q = String(filter.q || "").toLowerCase().trim();
+  const onTerm = filter.term ? rows_("Rosters").filter(function (r) { return r.term === filter.term; })
+                                 .map(function (r) { return r.member_id; }) : null;
+  return rows_("Members")
+    .filter(function (m) {
+      if (!m.member_id || !canSee_(user, m.section)) return false;
+      if (filter.section && m.section !== filter.section) return false;
+      if (filter.status && m.status !== filter.status) return false;
+      if (onTerm && onTerm.indexOf(m.member_id) === -1) return false;
+      if (q && (m.first_name + " " + m.last_name + " " + m.email + " " + m.position).toLowerCase().indexOf(q) === -1) return false;
+      return true;
+    })
+    .sort(function (a, b) { return (a.last_name + a.first_name).localeCompare(b.last_name + b.first_name); })
+    .map(function (m) { return pick_(m, SCHEMA.Members); });
+}
+
+function addMember(token, m) {
+  const user = session_(token);
+  m = m || {};
+  const section = sectionFor_(user, m.section);
+  const rec = {
+    first_name: text_(m.first_name, "First name", 60, true),
+    last_name: text_(m.last_name, "Last name", 60, true),
+    email: normEmail_(m.email) || bad_("Enter a valid email address."),
+    phone: phone_(m.phone, true),
+    section: section,
+    status: "Active",
+    position: text_(m.position, "Position", 80, false),
+    grad_year: int_(m.grad_year, "Expected graduation year", 2009, new Date().getFullYear() + 8, false),
+    year_joined: new Date().getFullYear(),
+    term_joined: currentTerm_(),
+    source: "Portal",
+    added_by: user.email,
+    last_updated: new Date()
+  };
+  const lock = lock_();
+  try {
+    const all = rows_("Members");
+    const byEmail = all.filter(function (x) { return String(x.email).toLowerCase() === rec.email; })[0];
+    if (byEmail) {
+      throw new Error(rec.email + " is already in the directory as " + byEmail.first_name + " " + byEmail.last_name +
+        " (" + (SECTIONS[byEmail.section] || byEmail.section) + "). If he's joining your section, ask The Inc. to move him.");
+    }
+    const digits = rec.phone.replace(/\D/g, "").slice(-10);
+    const similar = all.filter(function (x) {
+      return (digits && String(x.phone).replace(/\D/g, "").slice(-10) === digits) ||
+             (String(x.first_name).toLowerCase() === rec.first_name.toLowerCase() &&
+              String(x.last_name).toLowerCase() === rec.last_name.toLowerCase());
+    });
+    if (similar.length) rec.review_flag = "Possible duplicate of " + similar.map(function (x) { return x.member_id; }).join(", ");
+    rec.member_id = nextId_("Members", "member_id", "M-", 5);
+    append_("Members", rec);
+    append_("Rosters", { term: rec.term_joined, section: section, member_id: rec.member_id,
+                         name: rec.first_name + " " + rec.last_name, standing: "New", position: rec.position,
+                         confirmed_by: user.email, confirmed_at: new Date() });
+  } finally { lock.releaseLock(); }
+  log_(user.email, "member added", rec.member_id + " " + rec.first_name + " " + rec.last_name);
+  return { member_id: rec.member_id, flagged: !!rec.review_flag,
+           message: rec.first_name + " " + rec.last_name + " was added to " + SECTIONS[section] + "'s " + rec.term_joined + " roster." +
+                    (rec.review_flag ? " The Inc. will double-check him: someone with the same name or phone is already in the directory." : "") };
+}
+
+/** Inc only: change a member's details. */
+function updateMember(token, memberId, f) {
+  const user = incOnly_(session_(token));
+  f = f || {};
+  const m = findOne_("Members", "member_id", memberId);
+  if (!m) throw new Error("That member wasn't found.");
+  const upd = { last_updated: new Date() };
+  if ("first_name" in f) upd.first_name = text_(f.first_name, "First name", 60, true);
+  if ("last_name" in f) upd.last_name = text_(f.last_name, "Last name", 60, true);
+  if ("email" in f) upd.email = normEmail_(f.email) || bad_("Enter a valid email address.");
+  if ("phone" in f) upd.phone = phone_(f.phone, false);
+  if ("section" in f) upd.section = oneOf_(f.section, Object.keys(SECTIONS), "Section", true);
+  if ("status" in f) upd.status = oneOf_(f.status, MEMBER_STATUSES, "Status", true);
+  if ("position" in f) upd.position = text_(f.position, "Position", 80, false);
+  if ("grad_year" in f) upd.grad_year = int_(f.grad_year, "Graduation year", 2009, new Date().getFullYear() + 8, false);
+  if ("notes" in f) upd.notes = text_(f.notes, "Notes", 2000, false);
+  if ("review_flag" in f) upd.review_flag = text_(f.review_flag, "Review flag", 200, false);
+  update_("Members", m._row, upd);
+  log_(user.email, "member updated", memberId + " " + Object.keys(upd).join(","));
+  return { ok: true };
+}
+
+/** The roster screen: active brothers in a section and whether each is on this term's roster. */
+function getRoster(token, section, term) {
+  const user = session_(token);
+  section = sectionFor_(user, section);
+  term = validTerm_(term) || currentTerm_();
+  const roster = rows_("Rosters").filter(function (r) { return r.section === section; });
+  const thisTerm = {};
+  roster.filter(function (r) { return r.term === term; }).forEach(function (r) { thisTerm[r.member_id] = r; });
+  const people = rows_("Members")
+    .filter(function (m) { return m.section === section && m.member_id && (m.status === "Active" || thisTerm[m.member_id]); })
+    .sort(function (a, b) { return (a.last_name + a.first_name).localeCompare(b.last_name + b.first_name); })
+    .map(function (m) {
+      const r = thisTerm[m.member_id];
+      return { member_id: m.member_id, name: m.first_name + " " + m.last_name, email: m.email, phone: m.phone,
+               position: (r && r.position) || m.position || "", standing: r ? r.standing : "", grad_year: m.grad_year };
+    });
+  return { section: section, term: term, people: people,
+           confirmed: roster.some(function (r) { return r.term === term && r.standing === "Returning"; }) };
+}
+
+/** Officers tick who is back this semester. New members are added with addMember instead. */
+function confirmRoster(token, section, term, entries) {
+  const user = session_(token);
+  section = sectionFor_(user, section);
+  term = validTerm_(term) || currentTerm_();
+  if (!Array.isArray(entries)) throw new Error("Nothing to save.");
+  const lock = lock_();
+  let added = 0, updated = 0;
+  try {
+    const members = {};
+    rows_("Members").forEach(function (m) { if (m.section === section) members[m.member_id] = m; });
+    const existing = {};
+    rows_("Rosters").forEach(function (r) { if (r.term === term && r.section === section) existing[r.member_id] = r; });
+    entries.slice(0, 500).forEach(function (e) {
+      const m = members[String(e.member_id)];
+      if (!m) return;
+      const pos = text_(e.position, "Position", 80, false);
+      const r = existing[m.member_id];
+      if (e.returning && !r) {
+        append_("Rosters", { term: term, section: section, member_id: m.member_id, name: m.first_name + " " + m.last_name,
+                             standing: "Returning", position: pos, confirmed_by: user.email, confirmed_at: new Date() });
+        added++;
+      } else if (r && pos !== String(r.position || "")) {
+        update_("Rosters", r._row, { position: pos, confirmed_by: user.email, confirmed_at: new Date() }); updated++;
+      }
+      if (pos !== String(m.position || "")) update_("Members", m._row, { position: pos, last_updated: new Date() });
+    });
+  } finally { lock.releaseLock(); }
+  log_(user.email, "roster confirmed", section + " " + term + " +" + added);
+  return { ok: true, message: SECTIONS[section] + " " + term + " roster saved: " + added + " returning brother" + (added === 1 ? "" : "s") + " added" + (updated ? ", " + updated + " position" + (updated === 1 ? "" : "s") + " updated" : "") + "." };
+}
+
+/** Inc only: write the filtered member list to a CSV file in Drive and return its link. */
+function exportMembers(token, filter) {
+  const user = incOnly_(session_(token));
+  const list = listMembers(token, filter);
+  const cols = SCHEMA.Members;
+  const esc = function (v) { v = String(v === undefined || v === null ? "" : v); v = /^[=+\-@\t\r]/.test(v) ? "'" + v : v; return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+  const csv = [cols.join(",")].concat(list.map(function (m) { return cols.map(function (c) { return esc(m[c]); }).join(","); })).join("\n");
+  const name = "Members " + Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "yyyy-MM-dd HHmm") + ".csv";
+  const file = folderPath_(["Exports"]).createFile(name, csv, MimeType.CSV);
+  log_(user.email, "members exported", list.length + " rows");
+  return { url: file.getUrl(), name: name, rows: list.length };
+}
+
+/* ============================== Newsletter ============================== */
+
+/** Inc only: reviewed event reports with a newsletter summary, newest first. */
+function newsletterCandidates(token, term) {
+  incOnly_(session_(token));
+  return rows_("Events")
+    .filter(function (e) { return e.status === "Reviewed" && e.newsletter_summary && (!term || e.term === term); })
+    .sort(function (a, b) { return String(b.event_date).localeCompare(String(a.event_date)); })
+    .map(function (e) { return pick_(e, ["event_id", "section", "term", "event_date", "title", "event_type", "attendees", "newsletter_summary", "newsletter_issue", "photo_count"]); });
+}
+
+/** Inc only: build a Google Doc draft from chosen event summaries, one photo each. */
+function createNewsletterDraft(token, issueTitle, eventIds) {
+  const user = incOnly_(session_(token));
+  issueTitle = text_(issueTitle, "Issue title", 100, true);
+  if (!Array.isArray(eventIds) || !eventIds.length) throw new Error("Choose at least one event.");
+  const events = rows_("Events").filter(function (e) { return eventIds.indexOf(e.event_id) !== -1 && e.status === "Reviewed"; })
+    .sort(function (a, b) { return String(a.event_date).localeCompare(String(b.event_date)); });
+  if (!events.length) throw new Error("None of those events are reviewed yet.");
+
+  const doc = DocumentApp.create("Newsletter draft: " + issueTitle);
+  const body = doc.getBody();
+  body.appendParagraph("S.M.O.O.T.H. Inc.").setHeading(DocumentApp.ParagraphHeading.SUBTITLE);
+  body.appendParagraph(issueTitle).setHeading(DocumentApp.ParagraphHeading.TITLE);
+  body.appendParagraph("In every obstacle lies equal opportunity.").setItalic(true);
+  events.forEach(function (e) {
+    body.appendParagraph(e.title).setHeading(DocumentApp.ParagraphHeading.HEADING2);
+    body.appendParagraph(SECTIONS[e.section] + " · " + longDate_(e.event_date) + " · " + e.attendees + " attendees").setItalic(true);
+    try {
+      const files = folderFromUrl_(e.photo_folder).getFiles();
+      if (files.hasNext()) {
+        const img = body.appendImage(files.next().getBlob());
+        const w = img.getWidth(), h = img.getHeight(), target = 460;
+        if (w > target) img.setWidth(target).setHeight(Math.round(h * target / w));
+      }
+    } catch (err) { console.warn("photo skipped for " + e.event_id + ": " + err); }
+    body.appendParagraph(String(e.newsletter_summary));
+  });
+  body.appendParagraph("Strong Men Overcoming Obstacles Through Hard-work Inc. · A 501(c)(3) nonprofit · smooth2009.org").setItalic(true);
+  doc.saveAndClose();
+  const file = DriveApp.getFileById(doc.getId());
+  file.moveTo(folderPath_(["Newsletter drafts"]));
+  events.forEach(function (e) { update_("Events", e._row, { newsletter_issue: issueTitle }); });
+  log_(user.email, "newsletter draft", issueTitle + " (" + events.length + " events)");
+  return { url: doc.getUrl(), count: events.length };
+}
+
+/* ============================== Constitutional amendments ============================== */
+
+/** Everyone signed in can see amendments. Totals show once a vote closes (or live, if configured). */
+function listAmendments(token) {
+  const user = session_(token);
+  closeExpiredVotes_();
+  const ballots = rows_("Ballots");
+  return rows_("Amendments").filter(function (a) { return a.amendment_id; })
+    .sort(function (a, b) { return String(b.amendment_id).localeCompare(String(a.amendment_id)); })
+    .map(function (a) {
+      const o = pick_(a, SCHEMA.Amendments);
+      const mine = ballots.filter(function (b) { return b.amendment_id === a.amendment_id && normEmail_(b.voter) === user.email; })[0];
+      o.my_vote = mine ? mine.choice : "";
+      o.can_vote = a.status === "Voting" && !mine && canVote_(user);
+      const cast = ballots.filter(function (b) { return b.amendment_id === a.amendment_id; }).length;
+      o.turnout = cast;
+      if (a.status === "Voting" && !AMENDMENTS.showRunningTotals) { o.yes = ""; o.no = ""; o.abstain = ""; }
+      return o;
+    });
+}
+
+function proposeAmendment(token, f) {
+  const user = session_(token);
+  f = f || {};
+  const a = {
+    title: text_(f.title, "Title", 140, true),
+    article: text_(f.article, "Article and section", 120, true),
+    current_text: text_(f.current_text, "Current wording", 6000, false),
+    proposed_text: text_(f.proposed_text, "Proposed wording", 6000, true),
+    rationale: text_(f.rationale, "Reason for the change", 3000, true),
+    status: "Proposed",
+    proposed_by: user.email,
+    proposed_at: new Date()
+  };
+  const lock = lock_();
+  try {
+    a.amendment_id = nextId_("Amendments", "amendment_id", "A-", 3);
+    append_("Amendments", a);
+  } finally { lock.releaseLock(); }
+  notify_(PORTAL.notify, "Amendment proposed: " + a.title,
+    (user.name || user.email) + " proposed an amendment to " + a.article + ".\n\nProposed wording:\n" + a.proposed_text +
+    "\n\nReason:\n" + a.rationale + "\n\nOpen the vote from the portal under Amendments when it's ready.");
+  log_(user.email, "amendment proposed", a.amendment_id + " " + a.title);
+  return { amendment_id: a.amendment_id };
+}
+
+/** Inc only: open voting. Eligible voters are counted now, so later Access changes don't move the quorum. */
+function openVote(token, amendmentId) {
+  const user = incOnly_(session_(token));
+  const a = findOne_("Amendments", "amendment_id", amendmentId);
+  if (!a) throw new Error("That amendment wasn't found.");
+  if (a.status !== "Proposed") throw new Error("Only a proposed amendment can be opened for a vote.");
+  const voters = eligibleVoters_();
+  if (!voters.length) throw new Error("No one is eligible to vote. Check the Access tab.");
+  const opens = new Date(), closes = new Date(opens.getTime() + AMENDMENTS.voteDays * 86400000);
+  update_("Amendments", a._row, { status: "Voting", vote_opens: opens, vote_closes: closes, eligible: voters.length });
+  voters.forEach(function (v) {
+    notify_(v, "Vote open: " + a.title,
+      "The Inc. opened a vote on a proposed amendment to " + a.article + ".\n\nProposed wording:\n" + a.proposed_text +
+      "\n\nReason:\n" + a.rationale + "\n\nSign in to the portal under Amendments to vote. Voting closes " + longDate_(closes) + ".");
+  });
+  log_(user.email, "vote opened", a.amendment_id + " eligible " + voters.length);
+  return { ok: true, closes: ser_(closes), eligible: voters.length };
+}
+
+function castVote(token, amendmentId, choice) {
+  const user = session_(token);
+  choice = oneOf_(choice, ["Yes", "No", "Abstain"], "Your vote", true);
+  closeExpiredVotes_();
+  const lock = lock_();
+  try {
+    const a = findOne_("Amendments", "amendment_id", amendmentId);
+    if (!a || a.status !== "Voting") throw new Error("Voting isn't open on this amendment.");
+    if (!canVote_(user)) throw new Error("You aren't eligible to vote on amendments.");
+    if (rows_("Ballots").some(function (b) { return b.amendment_id === a.amendment_id && normEmail_(b.voter) === user.email; })) {
+      throw new Error("You've already voted on this amendment.");
+    }
+    append_("Ballots", { amendment_id: a.amendment_id, voter: user.email, choice: choice, cast_at: new Date() });
+  } finally { lock.releaseLock(); }
+  log_(user.email, "voted", amendmentId);
+  return { ok: true, message: "Your vote is recorded. Votes can't be changed once cast." };
+}
+
+/** Inc only: close a vote early (for example, after everyone has voted). */
+function closeVote(token, amendmentId) {
+  const user = incOnly_(session_(token));
+  const a = findOne_("Amendments", "amendment_id", amendmentId);
+  if (!a || a.status !== "Voting") throw new Error("Voting isn't open on this amendment.");
+  const r = tallyAndClose_(a);
+  log_(user.email, "vote closed", amendmentId + " " + r.status);
+  return r;
+}
+
+/** Inc, or the person who proposed it, can withdraw an amendment before voting opens. */
+function withdrawAmendment(token, amendmentId) {
+  const user = session_(token);
+  const a = findOne_("Amendments", "amendment_id", amendmentId);
+  if (!a) throw new Error("That amendment wasn't found.");
+  if (user.role !== "Inc" && normEmail_(a.proposed_by) !== user.email) throw new Error("Only The Inc. or the person who proposed it can withdraw it.");
+  if (a.status !== "Proposed") throw new Error("An amendment can only be withdrawn before voting opens.");
+  update_("Amendments", a._row, { status: "Withdrawn", decided_at: new Date() });
+  log_(user.email, "amendment withdrawn", amendmentId);
+  return { ok: true };
+}
+
+function canVote_(user) {
+  return user.role === "Inc" || AMENDMENTS.voters === "Inc and Officers";
+}
+
+function eligibleVoters_() {
+  return rows_("Access").map(function (r) { return accessFor_(r.email); })
+    .filter(function (u) { return u && canVote_(u); })
+    .map(function (u) { return u.email; })
+    .filter(function (e, i, all) { return all.indexOf(e) === i; });
+}
+
+function closeExpiredVotes_() {
+  const now = new Date();
+  rows_("Amendments").forEach(function (a) {
+    if (a.status === "Voting" && a.vote_closes instanceof Date && a.vote_closes <= now) tallyAndClose_(a);
+  });
+}
+
+function tallyAndClose_(a) {
+  const b = rows_("Ballots").filter(function (x) { return x.amendment_id === a.amendment_id; });
+  const yes = b.filter(function (x) { return x.choice === "Yes"; }).length;
+  const no = b.filter(function (x) { return x.choice === "No"; }).length;
+  const abstain = b.filter(function (x) { return x.choice === "Abstain"; }).length;
+  const eligible = Number(a.eligible) || b.length;
+  const quorumMet = b.length >= Math.ceil(eligible * AMENDMENTS.quorum);
+  const passed = quorumMet && (yes + no) > 0 && yes / (yes + no) >= AMENDMENTS.passShare - 1e-9;
+  const status = passed ? "Passed" : "Failed";
+  const result = yes + " yes, " + no + " no, " + abstain + " abstain of " + eligible + " eligible. " +
+    (quorumMet ? "" : "Quorum not met (" + Math.ceil(eligible * AMENDMENTS.quorum) + " ballots needed). ") +
+    (passed ? "Passed." : "Did not pass.");
+  update_("Amendments", a._row, { status: status, yes: yes, no: no, abstain: abstain, result: result, decided_at: new Date() });
+  eligibleVoters_().concat([PORTAL.notify]).forEach(function (v) {
+    notify_(v, "Amendment " + status.toLowerCase() + ": " + a.title, "The vote on the amendment to " + a.article + " has closed.\n\n" + result);
+  });
+  return { ok: true, status: status, result: result };
+}
+
+/* ============================== Editor-only setup ============================== */
+
+/** Run once from the editor: creates every tab, makes you an Inc admin, and creates the Drive folder. */
+function setup() {
+  editorOnly_();
+  Object.keys(SCHEMA).forEach(function (name) { tab_(name); });
+  const owner = Session.getEffectiveUser().getEmail();
+  if (!rows_("Access").some(function (a) { return normEmail_(a.email) === normEmail_(owner); })) {
+    append_("Access", { email: owner, name: "Owner", role: "Inc", section: "", active: "Yes", notes: "Added by setup()" });
+  }
+  const access = tab_("Access");
+  access.getRange("C2:C").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(["Inc", "Officer"], true).build());
+  access.getRange("D2:D").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(Object.keys(SECTIONS), true).setAllowInvalid(true).build());
+  access.getRange("E2:E").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(["Yes", "No"], true).build());
+  tab_("Members").getRange("G2:G").setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(MEMBER_STATUSES, true).build());
+  const root = rootFolder_();
+  if (typeof setupNewsletter_ === "function") setupNewsletter_();
+  console.log("Portal ready. Drive folder: " + root.getUrl() + "\nShare that folder with Inc members only (not officers).");
+}
+
+/** Run once from the editor: emails officers on the roster reminder dates if their roster isn't confirmed. */
+function installReminders() {
+  editorOnly_();
+  ScriptApp.getProjectTriggers().forEach(function (t) { if (t.getHandlerFunction() === "rosterReminder_") ScriptApp.deleteTrigger(t); });
+  ScriptApp.newTrigger("rosterReminder_").timeBased().everyDays(1).atHour(9).create();
+  console.log("Daily roster check installed. Reminder dates: " + PORTAL.rosterReminders.join(", "));
+}
+
+function rosterReminder_() {
+  const md = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "MM-dd");
+  if (PORTAL.rosterReminders.indexOf(md) === -1) return;
+  const term = currentTerm_();
+  const rosters = rows_("Rosters");
+  Object.keys(SECTIONS).forEach(function (s) {
+    if (rosters.some(function (r) { return r.section === s && r.term === term && r.standing === "Returning"; })) return;
+    rows_("Access").filter(function (a) { return a.role === "Officer" && a.section === s && String(a.active) === "Yes"; })
+      .forEach(function (a) {
+        notify_(a.email, SECTIONS[s] + ": confirm your " + term + " roster",
+          "It's the start of " + term + ". Please sign in to the " + PORTAL.name + " and confirm who is back this semester " +
+          "under Members > Semester roster, and add any new members.\n\nThank you,\nThe Inc.");
+      });
+  });
+}
+
+/* ============================== Helpers (not callable from the browser) ============================== */
+
+let ROWS_CACHE_ = {}, ENSURED_ = {}, ACCESS_ = null;
+
+function session_(token) {
+  const email = token && CacheService.getScriptCache().get("s:" + String(token));
+  if (!email) throw new Error("Your session ended. Sign in again.");
+  const user = accessFor_(email);
+  if (!user) throw new Error("This email no longer has portal access.");
+  return user;
+}
+
+function accessFor_(email) {
+  email = normEmail_(email);
+  if (!email) return null;
+  if (!ACCESS_) ACCESS_ = rows_("Access");
+  const a = ACCESS_.filter(function (r) { return normEmail_(r.email) === email && String(r.active).trim().toLowerCase() === "yes"; })[0];
+  if (!a) return null;
+  const role = String(a.role).trim() === "Inc" ? "Inc" : "Officer";
+  const section = String(a.section || "").trim().toUpperCase();
+  if (role === "Officer" && !SECTIONS[section]) return null;   // an officer must have a section
+  return { email: email, name: String(a.name || ""), role: role, section: role === "Inc" ? "" : section };
+}
+
+function incOnly_(user) {
+  if (user.role !== "Inc") throw new Error("Only The Inc. can do that.");
+  return user;
+}
+
+function canSee_(user, section) { return user.role === "Inc" || user.section === section; }
+
+/** Officers always work on their own section; Inc members choose one. */
+function sectionFor_(user, requested) {
+  if (user.role !== "Inc") return user.section;
+  const s = String(requested || "").toUpperCase();
+  if (!SECTIONS[s]) throw new Error("Choose a section.");
+  return s;
+}
+
+function editorOnly_() {
+  const active = Session.getActiveUser().getEmail(), effective = Session.getEffectiveUser().getEmail();
+  if (!active || active !== effective) throw new Error("Run this from the Apps Script editor.");
+}
+
+function tab_(name) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sh = ss.getSheetByName(name) || ss.insertSheet(name);
+  if (ENSURED_[name]) return sh;
+  const want = SCHEMA[name];
+  let h = sh.getLastColumn() > 0 ? sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0] : [];
+  if (h.join("") === "") h = [];
+  const before = h.length;
+  want.forEach(function (k) { if (h.indexOf(k) === -1) h.push(k); });
+  if (h.length !== before) {
+    sh.getRange(1, 1, 1, h.length).setValues([h]).setFontWeight("bold");
+    sh.setFrozenRows(1);
+  }
+  ENSURED_[name] = true;
+  return sh;
+}
+
+function headers_(sh) { return sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0]; }
+
+function rows_(name) {
+  if (ROWS_CACHE_[name]) return ROWS_CACHE_[name];
+  const sh = tab_(name);
+  const last = sh.getLastRow();
+  if (last < 2) return (ROWS_CACHE_[name] = []);
+  const vals = sh.getRange(1, 1, last, sh.getLastColumn()).getValues();
+  const h = vals[0];
+  return (ROWS_CACHE_[name] = vals.slice(1).map(function (r, i) {
+    const o = { _row: i + 2 };
+    h.forEach(function (k, j) { o[k] = r[j] instanceof Date ? r[j] : (typeof r[j] === "string" ? r[j].trim() : r[j]); });
+    return o;
+  }));
+}
+
+function append_(name, obj) {
+  const sh = tab_(name);
+  sh.appendRow(headers_(sh).map(function (k) { return cell_(obj[k]); }));
+  delete ROWS_CACHE_[name];
+  if (name === "Access") ACCESS_ = null;
+}
+
+function update_(name, row, obj) {
+  const sh = tab_(name);
+  const h = headers_(sh);
+  Object.keys(obj).forEach(function (k) {
+    const c = h.indexOf(k);
+    if (c > -1) sh.getRange(row, c + 1).setValue(cell_(obj[k]));
+  });
+  delete ROWS_CACHE_[name];
+}
+
+function findOne_(name, key, value) {
+  value = String(value || "");
+  return value ? rows_(name).filter(function (r) { return String(r[key]) === value; })[0] : null;
+}
+
+function nextId_(name, key, prefix, width) {
+  const max = rows_(name).reduce(function (m, r) {
+    const n = parseInt(String(r[key] || "").replace(prefix, ""), 10);
+    return isNaN(n) ? m : Math.max(m, n);
+  }, 0);
+  return prefix + String(max + 1).padStart(width, "0");
+}
+
+function cell_(v) {
+  if (v === undefined || v === null) return "";
+  if (v instanceof Date || typeof v === "number" || typeof v === "boolean") return v;
+  return safeCell_(String(v));
+}
+
+/** Values the browser can receive: no Date objects. */
+function pick_(row, keys) {
+  const o = {};
+  keys.forEach(function (k) { o[k] = ser_(row[k]); });
+  return o;
+}
+
+function ser_(v) {
+  if (v instanceof Date) {
+    const tz = Session.getScriptTimeZone();
+    const hasTime = v.getHours() || v.getMinutes();
+    return Utilities.formatDate(v, tz, hasTime ? "yyyy-MM-dd HH:mm" : "yyyy-MM-dd");
+  }
+  return v === undefined || v === null ? "" : v;
+}
+
+function lock_() { const l = LockService.getScriptLock(); l.waitLock(20000); return l; }
+
+function log_(user, action, detail) {
+  try { append_("Log", { at: new Date(), user: user, action: action, detail: String(detail || "").slice(0, 300) }); }
+  catch (e) { console.warn("log failed: " + e); }
+}
+
+function notify_(to, subject, body) {
+  if (!to) return;
+  try { MailApp.sendEmail({ to: to, subject: subject, body: body + "\n\n" + PORTAL.name }); }
+  catch (e) { console.warn("email failed: " + e); }
+}
+
+/* ----- terms ----- */
+
+function today_() { return Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "yyyy-MM-dd"); }
+
+/** Jan–Jun is Spring, Jul–Dec is Fall. */
+function termOf_(dateStr) {
+  const y = Number(String(dateStr).slice(0, 4)), m = Number(String(dateStr).slice(5, 7));
+  return (m <= 6 ? "Spring " : "Fall ") + y;
+}
+function currentTerm_() { return termOf_(today_()); }
+function termKey_(t) { const p = String(t).split(" "); return Number(p[1]) * 10 + (p[0] === "Fall" ? 2 : 1); }
+function validTerm_(t) { t = String(t || ""); return /^(Spring|Fall) 20\d\d$/.test(t) ? t : ""; }
+
+/** Every term that has data, plus the current one, newest first. */
+function knownTerms_() {
+  const set = {};
+  set[currentTerm_()] = 1;
+  ["Events", "Funds", "Rosters"].forEach(function (n) { rows_(n).forEach(function (r) { if (validTerm_(r.term)) set[r.term] = 1; }); });
+  return Object.keys(set).sort(function (a, b) { return termKey_(b) - termKey_(a); });
+}
+
+/* ----- validation ----- */
+
+function bad_(msg) { throw new Error(msg); }
+
+function text_(v, label, max, req) {
+  v = v === undefined || v === null ? "" : String(v).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "").trim();
+  if (!v && req) bad_(label + " is required.");
+  if (v.length > max) bad_(label + " is too long (" + max + " characters at most).");
+  return v;
+}
+function oneOf_(v, list, label, req) {
+  v = v === undefined || v === null ? "" : String(v).trim();
+  if (!v) { if (req) bad_(label + " is required."); return ""; }
+  if (list.indexOf(v) === -1) bad_(label + " has an unexpected answer.");
+  return v;
+}
+function num_(v, label, min, max, req) {
+  if (v === undefined || v === null || String(v).trim() === "") { if (req) bad_(label + " is required."); return ""; }
+  const n = Number(String(v).replace(/,/g, ""));
+  if (!isFinite(n) || n < min || n > max) bad_(label + " must be a number from " + min + " to " + max + ".");
+  return n;
+}
+function int_(v, label, min, max, req) {
+  const n = num_(v, label, min, max, req);
+  if (n !== "" && Math.floor(n) !== n) bad_(label + " must be a whole number.");
+  return n;
+}
+function money_(v, label, req) {
+  const n = num_(String(v === undefined ? "" : v).replace(/[$\s]/g, ""), label, 0.01, 1000000, req);
+  return n === "" ? "" : Math.round(n * 100) / 100;
+}
+/** "2026-11-06" or a Date -> "Nov 6, 2026" for emails and documents. */
+function longDate_(v) {
+  const t = ser_(v), m = String(t).match(/^(\d{4})-(\d{2})-(\d{2})/);
+  return m ? ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+m[2] - 1] + " " + (+m[3]) + ", " + m[1] : t;
+}
+function money_fmt_(n) { return "$" + Number(n || 0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+function dateStr_(v, label, req) {
+  v = String(v || "").trim();
+  if (!v) { if (req) bad_(label + " is required."); return ""; }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(v) || isNaN(new Date(v + "T12:00:00").getTime())) bad_(label + " isn't a valid date.");
+  if (v < "2009-01-01") bad_(label + " is too far in the past.");
+  return v;
+}
+function phone_(v, req) {
+  v = text_(v, "Phone", 30, req);
+  if (v && v.replace(/\D/g, "").length < 10) bad_("Phone needs at least 10 digits.");
+  return v;
+}
+function normEmail_(v) {
+  v = String(v || "").trim().toLowerCase();
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) && v.length <= 200 ? v : "";
+}
+function sum_(list, key) { return list.reduce(function (a, r) { const n = Number(r[key]); return a + (isFinite(n) ? n : 0); }, 0); }
+
+function randomCode_() {
+  const hex = Utilities.getUuid().replace(/-/g, "") + Utilities.getUuid().replace(/-/g, "");
+  const n = parseInt(hex.slice(0, 12), 16);
+  if (!isFinite(n)) throw new Error("Could not make a sign-in code. Try again.");
+  return String(n % 1000000).padStart(6, "0");
+}
+function hash_(s) {
+  return Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, String(s), Utilities.Charset.UTF_8)
+    .map(function (b) { return ("0" + (b & 255).toString(16)).slice(-2); }).join("");
+}
+
+/* ----- Drive ----- */
+
+function rootFolder_() {
+  const props = PropertiesService.getScriptProperties();
+  const id = props.getProperty("ROOT_FOLDER_ID");
+  if (id) { try { return DriveApp.getFolderById(id); } catch (e) { /* recreated below */ } }
+  const f = DriveApp.createFolder(PORTAL.rootFolderName);
+  props.setProperty("ROOT_FOLDER_ID", f.getId());
+  return f;
+}
+
+function folderPath_(parts) {
+  let f = rootFolder_();
+  parts.forEach(function (p) {
+    const it = f.getFoldersByName(p);
+    f = it.hasNext() ? it.next() : f.createFolder(p);
+  });
+  return f;
+}
+
+function folderFromUrl_(url) {
+  const m = String(url || "").match(/folders\/([A-Za-z0-9_-]+)/);
+  if (!m) throw new Error("This report's Drive folder is missing. Ask The Inc. to check it.");
+  return DriveApp.getFolderById(m[1]);
+}
+
+function safeName_(s) { return String(s).replace(/[\\/:*?"<>|#%]/g, " ").replace(/\s+/g, " ").trim().slice(0, 60); }
+
+function blob_(file, typeRe, what) {
+  file = file || {};
+  const type = String(file.type || "").toLowerCase();
+  if (!typeRe.test(type)) bad_("That file isn't a supported " + what + " (" + (type || "unknown type") + ").");
+  const data = String(file.data || "").replace(/^data:[^,]*,/, "");
+  if (!data) bad_("The file was empty.");
+  if (data.length * 0.75 > PORTAL.maxUploadBytes) bad_("That file is over 10 MB.");
+  const bytes = Utilities.base64Decode(data);
+  if (bytes.length > PORTAL.maxUploadBytes) bad_("That file is over 10 MB.");
+  return Utilities.newBlob(bytes, type, "upload");
+}
+
+function extFor_(type) {
+  return ({ "image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp", "image/heic": ".heic",
+            "image/heif": ".heif", "image/gif": ".gif", "application/pdf": ".pdf" })[type] || "";
+}
+
+</script>
+<script>/* practice.js */
+/* Practice mode for smooth2009.org/members.
+   Runs the real portal code (Portal.gs, Newsletter.gs) in the browser on gas-mock.js, with no password.
+   Everything is saved in this browser only (localStorage). Nothing is sent anywhere.
+   Built into site/members/index.html by tools/build_members.py. */
+(function () {
+  "use strict";
+  const KEY = "smoothPracticeV1", ROLE_KEY = "smoothPracticeRole";
+  const ROLES = {
+    inc: { email: "inc@example.com", label: "The Inc." },
+    MSU: { email: "officer.msu@example.com", label: "Morgan State officer" },
+    CSU: { email: "officer.csu@example.com", label: "Coppin State officer" },
+    TU:  { email: "officer.tu@example.com", label: "Temple officer" }
+  };
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch (_) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); return true; } catch (_) { return false; } },
+    del(k) { try { localStorage.removeItem(k); } catch (_) {} }
+  };
+  const fresh = () => { ROWS_CACHE_ = {}; ENSURED_ = {}; ACCESS_ = null; };
+  let saveFailed = false;
+  function save() {
+    const ok = store.set(KEY, JSON.stringify({ v: 1, state: __mock.dump() }));
+    if (!ok && !saveFailed) { saveFailed = true; setTimeout(() => note("This browser can't save practice entries (private window or storage blocked). Changes will be lost when you leave."), 0); }
+  }
+
+  /* ---------- data: restore or seed ---------- */
+  __mock.users.effective = ROLES.inc.email;
+  let saved = null;
+  try { saved = JSON.parse(store.get(KEY) || "null"); } catch (_) {}
+  if (saved && saved.v === 1) { __mock.load(saved.state); }
+  else { seed(store.get("smoothPracticeSeed") !== "empty"); store.del("smoothPracticeSeed"); }
+
+  function seed(withExamples) {
+    __mock.users.active = __mock.users.effective; fresh(); setup(); __mock.users.active = "";
+    const acc = __mock.sheets.Access._rows;
+    acc[1][1] = "You (practice)";
+    acc.push(["officer.msu@example.com", "Morgan State officer (practice)", "Officer", "MSU", "Yes", "Practice account"],
+             ["officer.csu@example.com", "Coppin State officer (practice)", "Officer", "CSU", "Yes", "Practice account"],
+             ["officer.tu@example.com", "Temple officer (practice)", "Officer", "TU", "Yes", "Practice account"]);
+    if (withExamples) examples();   // keep the emails the examples trigger, so the outbox shows what the portal sends
+    save();
+  }
+
+  function token(email) {
+    fresh(); delete __mock.cache["cd:" + email];
+    const before = __mock.mails.length;
+    requestCode(email);
+    const mail = __mock.mails.slice(before).filter(m => m.to === email).pop();
+    __mock.mails.splice(before);                        // sign-in codes don't belong in the outbox
+    fresh();
+    return verifyCode(email, mail.subject.slice(-6)).token;
+  }
+
+  function examples() {
+    const T = { inc: token(ROLES.inc.email), MSU: token(ROLES.MSU.email), CSU: token(ROLES.CSU.email), TU: token(ROLES.TU.email) };
+    const day = 86400000, d = new Date();
+    const iso = x => x.getFullYear() + "-" + String(x.getMonth() + 1).padStart(2, "0") + "-" + String(x.getDate()).padStart(2, "0");
+    const ago = n => iso(new Date(d.getTime() - n * day)), ahead = n => iso(new Date(d.getTime() + n * day));
+    const photo = { name: "example.jpg", type: "image/jpeg", data: btoa("example photo") };
+    const run = (fn, ...a) => { fresh(); return window[fn](...a); };
+    function ev(t, f, n) { const e = run("createEvent", t, f); for (let i = 0; i < n; i++) run("uploadEventPhoto", t, e.event_id, photo); run("finishEvent", t, e.event_id); return e.event_id; }
+
+    const e1 = ev(T.TU, { event_date: ago(4), title: "Park cleanup", event_type: "Community service", location: "Fairmount Park, Philadelphia",
+      description: "Brothers and neighborhood volunteers cleared litter from two blocks of the park and the playground.", attendees: 24, service_hours: 48,
+      newsletter_summary: "Temple brothers and neighbors cleared two blocks of Fairmount Park on Saturday morning, 48 service hours in all.", minors_in_photos: "No" }, 5);
+    const e2 = ev(T.MSU, { event_date: ago(12), title: "SMOOTH Week opening night", event_type: "SMOOTH Week", location: "Student Center ballroom",
+      description: "Opening night of SMOOTH Week with three alumni speakers on life after graduation.", attendees: 85,
+      newsletter_summary: "SMOOTH Week opened with three alumni speakers and a full ballroom at Morgan State.", minors_in_photos: "No" }, 6);
+    ev(T.CSU, { event_date: ago(20), title: "Jr. SMOOTH reading day", event_type: "Jr. SMOOTH", location: "Partner elementary school",
+      description: "Brothers read with third and fourth graders at our adopted school.", attendees: 32, service_hours: 24,
+      newsletter_summary: "Coppin State brothers spent the morning reading with third and fourth graders at their adopted school.", minors_in_photos: "Yes", parent_consent: "Yes" }, 5);
+    ev(T.MSU, { event_date: ago(2), title: "Study hall", event_type: "Professional development", description: "Weekly study hall in the library.", attendees: 14,
+      newsletter_summary: "Weekly study hall continues every Tuesday night.", minors_in_photos: "No" }, 2);
+    run("reviewEvent", T.inc, e2, "Reviewed", "");
+
+    const f1 = run("createFundsRequest", T.MSU, { purpose: "SMOOTH Week venue", event_name: "SMOOTH Week opening night", amount: 650, needed_by: ahead(20),
+      payee: "Student Center events office", breakdown: "Ballroom rental: $500\nSound system: $150" }); run("submitFundsRequest", T.MSU, f1.request_id);
+    const f2 = run("createFundsRequest", T.TU, { purpose: "Cleanup supplies", event_name: "Park cleanup", amount: 120, needed_by: ahead(5),
+      payee: "Reimburse the section treasurer", breakdown: "Gloves: $40\nTrash bags: $30\nWater: $50" }); run("submitFundsRequest", T.TU, f2.request_id);
+    run("decideFunds", T.inc, f2.request_id, { status: "Approved", approved_amount: 120 });
+
+    [["Jordan", "Reed", "MSU", "President", 2027], ["Marcus", "Hill", "MSU", "Vice President", 2027], ["Andre", "Banks", "MSU", "", 2029],
+     ["Isaiah", "Grant", "CSU", "President", 2026], ["Malik", "Price", "CSU", "Treasurer", 2028],
+     ["Darius", "Cole", "TU", "President", 2027], ["Elijah", "Ward", "TU", "Secretary", 2028], ["Caleb", "Brooks", "TU", "", 2029]]
+      .forEach(([a, b, s, pos, g], i) => run("addMember", T[s], { first_name: a, last_name: b, email: (a + "." + b + "@example.com").toLowerCase(),
+        phone: "410555" + String(1000 + i).slice(-4), position: pos, grad_year: g }));
+
+    run("proposeAmendment", T.TU, { title: "Allow virtual section meetings", article: "Article IV, Section 2",
+      current_text: "Sections shall meet in person at least twice a month.",
+      proposed_text: "Sections shall meet at least twice a month, in person or online.",
+      rationale: "Exams and weather cancel meetings every semester. Online meetings keep sections on schedule." });
+    const a2 = run("proposeAmendment", T.inc, { title: "Add a national treasurer", article: "Article V, Section 1",
+      proposed_text: "The Inc. shall include a National Treasurer elected each spring.", rationale: "Funds requests need one clear approver." });
+    run("openVote", T.inc, a2.amendment_id); run("castVote", T.MSU, a2.amendment_id, "Yes");
+  }
+
+  /* ---------- sign in as the chosen role, no password ---------- */
+  let role = store.get(ROLE_KEY); if (!ROLES[role]) role = "inc";
+  window.__PRACTICE = true;
+  window.__PRACTICE_TOKEN = token(ROLES[role].email);
+  save();
+
+  /* ---------- google.script.run, answered in this page ---------- */
+  function noDates(v) { if (v instanceof Date) throw new Error("Date returned to browser"); if (v && typeof v === "object") Object.values(v).forEach(noDates); }
+  function runner(ok, bad) {
+    return new Proxy({}, { get(_, p) {
+      if (p === "withSuccessHandler") return h => runner(h, bad);
+      if (p === "withFailureHandler") return h => runner(ok, h);
+      return (...a) => setTimeout(() => {
+        try {
+          fresh();
+          const r = window[p](...JSON.parse(JSON.stringify(a)));
+          noDates(r); save(); refreshOutbox();
+          ok && ok(JSON.parse(JSON.stringify(r === undefined ? null : r)));
+        } catch (e) { save(); bad && bad({ message: e.message }); }
+      }, 30);
+    } });
+  }
+  window.google = { script: { run: runner() } };
+
+  /* ---------- practice bar ---------- */
+  function el(tag, attrs, ...kids) {
+    const n = document.createElement(tag);
+    Object.entries(attrs || {}).forEach(([k, v]) => { if (k === "text") n.textContent = v; else if (k.startsWith("on")) n.addEventListener(k.slice(2), v); else if (v !== false && v != null) n.setAttribute(k, v); });
+    kids.flat(Infinity).forEach(c => c != null && n.append(c.nodeType ? c : document.createTextNode(String(c))));
+    return n;
+  }
+  let outboxBtn, noteEl;
+  function refreshOutbox() { if (outboxBtn) outboxBtn.textContent = "Emails sent (" + __mock.mails.length + ")"; }
+  function note(msg) { if (noteEl) noteEl.textContent = msg; }
+
+  function buildBar() {
+    const sel = el("select", { id: "practiceRole", "aria-label": "View the portal as" },
+      Object.entries(ROLES).map(([k, r]) => el("option", { value: k, text: r.label, selected: k === role ? "" : false })));
+    sel.addEventListener("change", () => { store.set(ROLE_KEY, sel.value); location.reload(); });
+    outboxBtn = el("button", { type: "button", class: "pbtn", onclick: showOutbox });
+    refreshOutbox();
+    const confirmRow = el("span", { class: "pconfirm", hidden: "" });
+    const ask = (label, action) => () => {
+      confirmRow.replaceChildren(el("span", { text: label + " " }),
+        el("button", { type: "button", class: "pbtn strong", text: "Yes, do it", onclick: action }),
+        el("button", { type: "button", class: "pbtn", text: "Cancel", onclick: () => { confirmRow.hidden = true; } }));
+      confirmRow.hidden = false;
+    };
+    const wipe = withExamples => () => { store.del(KEY); for (const k of Object.keys(__mock.sheets)) delete __mock.sheets[k]; store.set("smoothPracticeSeed", withExamples ? "examples" : "empty"); location.reload(); };
+    noteEl = el("span", { class: "pnote", role: "status" });
+    const bar = el("div", { class: "practice-bar", role: "region", "aria-label": "Practice mode" },
+      el("div", { class: "pinner" },
+        el("p", {}, el("b", { text: "Practice mode. " }),
+          "No password yet. Entries are saved in this browser only and aren't shared with anyone. Photos aren't kept."),
+        el("div", { class: "prow" },
+          el("label", { for: "practiceRole", text: "View as" }), sel, outboxBtn,
+          el("button", { type: "button", class: "pbtn", text: "Start empty", onclick: ask("Remove everything, including the examples?", wipe(false)) }),
+          el("button", { type: "button", class: "pbtn", text: "Reset examples", onclick: ask("Replace your entries with the example entries?", wipe(true)) }),
+          el("a", { href: "../", class: "plink", text: "Back to smooth2009.org" })),
+        confirmRow, noteEl));
+    document.body.prepend(bar);
+  }
+
+  /* ---------- viewer for the emails, Drive folders, and Google Docs the portal creates ---------- */
+  let dlg;
+  function dialog(title, ...content) {
+    if (!dlg) { dlg = el("dialog", { class: "pdialog", "aria-labelledby": "pdTitle" }); document.body.append(dlg); }
+    dlg.replaceChildren(el("div", { class: "pdhead" }, el("h2", { id: "pdTitle", text: title }), el("button", { type: "button", class: "pbtn", text: "Close", onclick: () => dlg.close() })),
+      el("div", { class: "pdbody" }, content));
+    dlg.showModal();
+  }
+  function showOutbox() {
+    const mails = __mock.mails.slice().reverse();
+    dialog("Emails the portal sent",
+      el("p", { class: "pmuted", text: "In practice mode nothing is actually emailed. These are the messages the live portal would send." }),
+      mails.length ? mails.map(m => el("article", { class: "pmail" },
+        el("p", {}, el("b", { text: m.subject })), el("p", { class: "pmuted", text: "To: " + m.to + (m.replyTo ? " · Reply to: " + m.replyTo : "") }),
+        el("pre", { text: m.body || "" }))) : el("p", { text: "No emails yet." }));
+  }
+  function showFolder(id) {
+    const f = __mock.drive[id]; if (!f || !f.folders) return dialog("Drive folder", el("p", { text: "This folder isn't in practice storage." }));
+    const files = f.files.map(x => x.getName());
+    dialog("Drive folder: " + f.name,
+      el("p", { class: "pmuted", text: "The live portal keeps these files in Google Drive. Practice mode keeps only their names." }),
+      files.length ? el("ul", {}, files.map(n => el("li", { text: n }))) : el("p", { text: "No files yet." }));
+  }
+  function showDoc(id) {
+    const d = __mock.docs.find(x => x.getId() === id);
+    if (!d) return dialog("Google Doc", el("p", { text: "This document isn't in practice storage." }));
+    dialog(d.title, el("p", { class: "pmuted", text: "The live portal creates this as a Google Doc you can edit. Photos appear as placeholders here." }),
+      el("div", { class: "pdoc" }, d.paras.map(p => p.text === "[image]" ? el("div", { class: "pphoto", text: "Event photo" })
+        : el(p.heading === "TITLE" ? "h2" : p.heading === "HEADING2" ? "h3" : "p", { class: p.italic ? "pmuted" : "", text: p.text }))));
+  }
+  function showFile(id) {
+    const f = __mock.drive[id];
+    if (!f) return dialog("File", el("p", { text: "This file isn't in practice storage." }));
+    dialog(f.getName(), f.blob && typeof f.blob.content === "string" ? el("pre", { class: "pcsv", text: f.blob.content }) : el("p", { text: "Practice mode keeps only this file's name." }));
+  }
+  document.addEventListener("click", e => {
+    const a = e.target.closest && e.target.closest("a[href]"); if (!a) return;
+    let m;
+    if ((m = a.href.match(/drive\.google\.com\/drive\/folders\/([A-Za-z0-9]+)/))) { e.preventDefault(); showFolder(m[1]); }
+    else if ((m = a.href.match(/docs\.google\.com\/document\/d\/([A-Za-z0-9]+)/))) { e.preventDefault(); showDoc(m[1]); }
+    else if ((m = a.href.match(/drive\.google\.com\/file\/d\/([A-Za-z0-9]+)/))) { e.preventDefault(); showFile(m[1]); }
+  });
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", buildBar); else buildBar();
+})();
+
+</script>
+<script>
+"use strict";
+const CREST = document.querySelector('#signin img').src;
+let TOKEN = null, BOOT = null;
+TOKEN = window.__PRACTICE_TOKEN || null;
+
+/* ---------- small helpers ---------- */
+const $ = s => document.querySelector(s);
+function h(tag, attrs, ...kids) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (v === null || v === undefined || v === false) continue;
+    if (k === 'class') el.className = v;
+    else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else if (k === 'text') el.textContent = v;
+    else el.setAttribute(k, v === true ? '' : v);
+  }
+  for (const kid of kids.flat()) if (kid !== null && kid !== undefined && kid !== false) el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+  return el;
+}
+function call(fn, ...args) {
+  return new Promise((resolve, reject) => {
+    google.script.run.withSuccessHandler(resolve).withFailureHandler(err => {
+      const msg = (err && err.message) || String(err);
+      if (/session ended|no longer has portal access/i.test(msg)) { setToken(null); showSignin(msg); }
+      reject(new Error(msg));
+    })[fn](...args);
+  });
+}
+const api = (fn, ...args) => call(fn, TOKEN, ...args);
+function setToken(t) { TOKEN = t; try { t ? sessionStorage.setItem('smoothToken', t) : sessionStorage.removeItem('smoothToken'); } catch (_) {} }
+function say(el, msg, ok) { el.className = 'status ' + (ok ? 'ok' : 'err'); el.textContent = msg; }
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function fmtDate(s) { const m = String(s || '').match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? MONTHS[+m[2] - 1] + ' ' + (+m[3]) + ', ' + m[1] : (s || ''); }
+const money = n => '$' + Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const num = n => Number(n || 0).toLocaleString('en-US');
+const isInc = () => BOOT && BOOT.user.role === 'Inc';
+const secName = s => (BOOT.sections[s] || s || '');
+const today = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+function pill(status) {
+  const kind = { Submitted: 'info', Reviewed: 'ok', 'Needs changes': 'err', Incomplete: 'warn', Uploading: 'warn',
+                 Pending: 'info', Approved: 'ok', Paid: 'ok', Denied: 'err', Proposed: 'info', Voting: 'warn',
+                 Passed: 'ok', Failed: 'err', Withdrawn: '', Active: 'ok', Alumni: '', Inactive: '' }[status] || '';
+  return h('span', { class: 'pill ' + kind, text: status || 'Draft' });
+}
+function field(label, input, opts) {
+  opts = opts || {};
+  return h('div', { class: 'field' + (opts.full ? ' full' : '') }, h('label', { for: input.id, text: label }), input, opts.hint ? h('p', { class: 'hint', text: opts.hint }) : null);
+}
+function select(id, options, value, extra) {
+  return h('select', Object.assign({ id: id }, extra || {}), options.map(o => {
+    const [v, t] = Array.isArray(o) ? o : [o, o];
+    return h('option', { value: v, selected: v === value, text: t });
+  }));
+}
+function sectionSelect(id, withAll) {
+  const opts = Object.entries(BOOT.sections).map(([k, v]) => [k, v]);
+  return select(id, withAll ? [['', 'All sections']].concat(opts) : [['', 'Choose a section']].concat(opts), '', withAll ? {} : { required: true });
+}
+function termSelect(id, value, withAll) {
+  const opts = BOOT.terms.map(t => [t, t]);
+  return select(id, withAll ? [['', 'All terms']].concat(opts) : opts, value === undefined ? BOOT.currentTerm : value);
+}
+function formData(form) {
+  const o = {};
+  form.querySelectorAll('input,select,textarea').forEach(el => { if (el.dataset.key) o[el.dataset.key] = el.type === 'checkbox' ? el.checked : el.value; });
+  return o;
+}
+function keyed(el, key) { el.dataset.key = key; return el; }
+
+/* Shrink photos in the browser before upload, so phone pictures go up quickly. */
+async function prepFile(file, maxSide) {
+  if (/^image\//.test(file.type) && file.type !== 'image/gif') {
+    try {
+      const bmp = await createImageBitmap(file, { imageOrientation: 'from-image' });
+      const s = Math.min(1, maxSide / Math.max(bmp.width, bmp.height));
+      const c = document.createElement('canvas'); c.width = Math.round(bmp.width * s); c.height = Math.round(bmp.height * s);
+      c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+      return { name: file.name, type: 'image/jpeg', data: c.toDataURL('image/jpeg', 0.85) };
+    } catch (_) { /* the browser can't decode it (for example HEIC on Chrome); send the original */ }
+  }
+  if (file.size > 10 * 1024 * 1024) throw new Error(file.name + ' is over 10 MB.');
+  const data = await new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = () => rej(new Error('Could not read ' + file.name)); r.readAsDataURL(file); });
+  return { name: file.name, type: file.type || 'application/octet-stream', data };
+}
+
+/* ---------- sign-in ---------- */
+let pendingEmail = '';
+function showSignin(msg) {
+  $('#app').hidden = true; $('#signin').hidden = false;
+  $('#emailForm').hidden = false; $('#codeForm').hidden = true;
+  const st = $('#signinStatus'); st.textContent = msg || ''; st.className = 'status' + (msg ? ' err' : '');
+}
+$('#emailForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button'); btn.disabled = true;
+  pendingEmail = $('#si-email').value.trim();
+  try {
+    const r = await call('requestCode', pendingEmail);
+    $('#emailForm').hidden = true; $('#codeForm').hidden = false; $('#signinStatus').textContent = '';
+    $('#codeHint').textContent = r.message; $('#si-code').value = ''; $('#si-code').focus();
+  } catch (err) { say($('#signinStatus'), err.message); }
+  btn.disabled = false;
+});
+$('#codeForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button'); btn.disabled = true;
+  try { const r = await call('verifyCode', pendingEmail, $('#si-code').value); setToken(r.token); start(r.boot); }
+  catch (err) { say($('#signinStatus'), err.message); }
+  btn.disabled = false;
+});
+$('#useOther').addEventListener('click', () => showSignin(''));
+$('#signOut') && $('#signOut').addEventListener('click', async () => { try { await call('signOut', TOKEN); } catch (_) {} setToken(null); showSignin('You signed out.'); });
+
+/* ---------- app shell ---------- */
+const TABS = [
+  ['overview', 'Overview'], ['events', 'Events'], ['funds', 'Funds'], ['members', 'Members'],
+  ['amendments', 'Amendments'], ['newsletter', 'Newsletter', true]
+];
+let current = 'overview';
+function start(boot) {
+  BOOT = boot;
+  $('#signin').hidden = true; $('#app').hidden = false;
+  $('#who').textContent = (boot.user.name ? boot.user.name + ' · ' : '') + (boot.user.role === 'Inc' ? 'The Inc.' : boot.user.sectionName + ' officer');
+  
+  const tabs = $('#tabs'); tabs.replaceChildren();
+  TABS.filter(t => !t[2] || isInc()).forEach(([id, label]) => tabs.append(h('button', { type: 'button', 'data-tab': id, 'aria-current': id === current ? 'page' : 'false', onclick: () => go(id), text: label })));
+  go(current);
+}
+function go(id) {
+  current = id;
+  document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-current', b.dataset.tab === id ? 'page' : 'false'));
+  const view = $('#view'); view.replaceChildren(h('p', { class: 'muted', text: 'Loading…' }));
+  VIEWS[id](view).catch(err => view.replaceChildren(h('div', { class: 'card' }, h('p', { class: 'status err', text: err.message }))));
+}
+
+/* ---------- Overview ---------- */
+const VIEWS = {};
+VIEWS.overview = async function (view, term) {
+  const d = await api('getDashboard', term || BOOT.currentTerm);
+  const ts = termSelect('ov-term', d.term); ts.addEventListener('change', () => VIEWS.overview(view, ts.value));
+  const statKeys = [['roster', 'On the roster'], ['newMembers', 'New members'], ['events', 'Events reported'], ['attendees', 'Attendees'],
+                    ['serviceHours', 'Service hours'], ['fundsRequested', 'Funds requested', money], ['fundsApproved', 'Funds approved', money], ['fundsPaid', 'Funds paid', money]];
+  const tiles = src => h('div', { class: 'tiles' }, statKeys.map(([k, label, f]) => h('div', { class: 'tile' }, h('b', { text: (f || num)(src[k]) }), h('span', { text: label }))));
+  const maxAtt = Math.max(1, ...d.trend.flatMap(r => d.sections.map(s => r[s.section] || 0)));
+  view.replaceChildren(h('div', { class: 'stack' },
+    h('div', { class: 'spread' }, h('h1', { text: 'Overview' }), h('div', { class: 'row' }, h('label', { for: 'ov-term', text: 'Term' }), ts)),
+    d.todo.length ? h('div', { class: 'card' }, h('h2', { text: 'Needs attention' }), h('ul', { class: 'todo' }, d.todo.map(t => h('li', { text: t })))) : null,
+    d.sections.length > 1 ? h('div', { class: 'card' }, h('h2', { text: 'All sections, ' + d.term }), tiles(d.total)) : null,
+    ...d.sections.map(s => h('div', { class: 'card' }, h('div', { class: 'spread' }, h('h2', { text: s.name }), h('span', { class: 'muted small', text: num(s.activeMembers) + ' active · ' + num(s.alumni) + ' alumni in the directory' })), tiles(s))),
+    h('div', { class: 'card' }, h('h2', { text: 'Attendance and roster size by term' }),
+      h('div', { class: 'table-wrap' }, h('table', {},
+        h('thead', {}, h('tr', {}, h('th', { text: 'Term' }), d.sections.flatMap(s => [h('th', { class: 'n', text: s.name + ' attendees' }), h('th', { text: '' }), h('th', { class: 'n', text: 'Roster' })]))),
+        h('tbody', {}, d.trend.map(r => h('tr', {}, h('td', { text: r.term }),
+          d.sections.flatMap(s => [h('td', { class: 'n', text: num(r[s.section]) }),
+                                   h('td', { style: 'width:120px' }, h('div', { class: 'bar', style: 'width:' + Math.round(100 * (r[s.section] || 0) / maxAtt) + '%' })),
+                                   h('td', { class: 'n', text: num(r[s.section + '_roster']) })])))))))
+  ));
+};
+
+/* ---------- Events ---------- */
+VIEWS.events = async function (view) {
+  const list = await api('listEvents', {});
+  const formCard = h('div', { class: 'card', hidden: true });
+  const toggle = h('button', { class: 'btn', type: 'button', text: 'Report an event', onclick: () => { formCard.hidden = !formCard.hidden; if (!formCard.hidden) formCard.querySelector('input,select').focus(); } });
+  formCard.append(eventForm(() => go('events')));
+  view.replaceChildren(h('div', { class: 'stack' },
+    h('div', { class: 'spread' }, h('div', {}, h('h1', { text: 'Events' }), h('p', { class: 'muted', text: 'Report each event after it happens: details, attendance, a summary for the newsletter, and at least ' + BOOT.minPhotos + ' photos.' })), toggle),
+    formCard,
+    list.length ? h('div', { class: 'list' }, list.map(eventItem)) : h('div', { class: 'card' }, h('p', { class: 'muted', text: 'No event reports yet. Use "Report an event" after your next event.' }))
+  ));
+};
+function eventForm(done) {
+  const photos = h('input', { id: 'ev-photos', type: 'file', accept: 'image/*', multiple: true, required: true });
+  const thumbs = h('div', { class: 'thumbs', 'aria-live': 'polite' });
+  const count = h('p', { class: 'hint', text: 'Choose at least ' + BOOT.minPhotos + ' photos (up to ' + BOOT.maxPhotos + ').' });
+  photos.addEventListener('change', () => {
+    thumbs.replaceChildren(...[...photos.files].slice(0, BOOT.maxPhotos).map(f => h('img', { src: URL.createObjectURL(f), alt: '' })));
+    const n = photos.files.length;
+    count.textContent = n + ' photo' + (n === 1 ? '' : 's') + ' chosen' + (n < BOOT.minPhotos ? ', ' + (BOOT.minPhotos - n) + ' more needed.' : n > BOOT.maxPhotos ? '. Only the first ' + BOOT.maxPhotos + ' will upload.' : '.');
+  });
+  const minors = keyed(select('ev-minors', [['', 'Choose'], ['No', 'No'], ['Yes', 'Yes']], '', { required: true }), 'minors_in_photos');
+  const consent = keyed(select('ev-consent', [['', 'Choose'], ['Yes', 'Yes, written consent is on file'], ['No', 'No']], ''), 'parent_consent');
+  const consentField = field('Parent consent for every minor shown', consent); consentField.hidden = true;
+  minors.addEventListener('change', () => { consentField.hidden = minors.value !== 'Yes'; consent.required = minors.value === 'Yes'; });
+  const status = h('p', { class: 'status', role: 'status' });
+  const submit = h('button', { class: 'btn', type: 'submit', text: 'Submit report' });
+  const form = h('form', {},
+    isInc() ? field('Section', keyed(sectionSelect('ev-section'), 'section')) : null,
+    field('Date of event', keyed(h('input', { id: 'ev-date', type: 'date', required: true, max: today() }), 'event_date')),
+    field('Title of event', keyed(h('input', { id: 'ev-title', required: true, maxlength: 120 }), 'title')),
+    field('Event type', keyed(select('ev-type', [['', 'Choose']].concat(BOOT.eventTypes), '', { required: true }), 'event_type')),
+    field('Location', keyed(h('input', { id: 'ev-loc', maxlength: 160 }), 'location')),
+    field('Number of attendees', keyed(h('input', { id: 'ev-att', type: 'number', min: 0, step: 1, required: true, inputmode: 'numeric' }), 'attendees')),
+    field('Service hours (optional)', keyed(h('input', { id: 'ev-hours', type: 'number', min: 0, step: 0.5 }), 'service_hours'), { hint: 'Total hours for community service events.' }),
+    field('Description', keyed(h('textarea', { id: 'ev-desc', required: true, maxlength: 4000 }), 'description'), { full: true, hint: 'What happened, who it served, and how it went.' }),
+    field('Summary for the newsletter', keyed(h('textarea', { id: 'ev-news', required: true, maxlength: 800 }), 'newsletter_summary'), { full: true, hint: 'Two to four sentences The Inc. can publish as written.' }),
+    h('div', { class: 'field full' }, h('label', { for: 'ev-photos', text: 'Photos' }), photos, count, thumbs),
+    field('Do any photos show minors (Jr. SMOOTH youth)?', minors),
+    consentField,
+    h('div', { class: 'form-foot' }, submit, status)
+  );
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const files = [...photos.files].slice(0, BOOT.maxPhotos);
+    if (files.length < BOOT.minPhotos) { say(status, 'Add at least ' + BOOT.minPhotos + ' photos.'); photos.focus(); return; }
+    submit.disabled = true;
+    try {
+      say(status, 'Saving the report…', true);
+      const { event_id } = await api('createEvent', formData(form));
+      await uploadAll(files, f => api('uploadEventPhoto', event_id, f), (i, n) => say(status, 'Uploading photo ' + i + ' of ' + n + '…', true), 1600);
+      const r = await api('finishEvent', event_id);
+      say(status, r.message, r.ok);
+      if (r.ok) setTimeout(done, 1200);
+    } catch (err) { say(status, err.message); }
+    submit.disabled = false;
+  });
+  return h('div', { class: 'stack' }, h('h2', { text: 'Report an event' }), form);
+}
+async function uploadAll(files, send, progress, maxSide) {
+  for (let i = 0; i < files.length; i++) {
+    progress(i + 1, files.length);
+    await send(await prepFile(files[i], maxSide));
+  }
+}
+function eventItem(e) {
+  const kids = [
+    h('div', { class: 'spread' }, h('h3', { text: e.title }), pill(e.status)),
+    h('p', { class: 'meta', text: [secName(e.section), fmtDate(e.event_date), e.event_type, num(e.attendees) + ' attendees', e.service_hours ? e.service_hours + ' service hours' : '', e.photo_count + ' photos'].filter(Boolean).join(' · ') }),
+    h('p', { class: 'body', text: e.description }),
+    h('details', {}, h('summary', { text: 'Newsletter summary' }), h('blockquote', { text: e.newsletter_summary })),
+    e.inc_notes ? h('p', { class: 'small' }, h('b', { text: 'Note from The Inc.: ' }), e.inc_notes) : null,
+    e.newsletter_issue ? h('p', { class: 'small muted', text: 'In newsletter: ' + e.newsletter_issue }) : null
+  ];
+  if (['Incomplete', 'Needs changes', 'Uploading'].includes(e.status) && (e.mine || isInc())) kids.push(addPhotos(e));
+  if (isInc()) {
+    const note = h('input', { id: 'note-' + e.event_id, placeholder: 'Note to the section (required for "Needs changes")', maxlength: 1000 });
+    const st = h('p', { class: 'status', role: 'status' });
+    const act = s => async () => { try { await api('reviewEvent', e.event_id, s, note.value); go('events'); } catch (err) { say(st, err.message); } };
+    kids.push(h('div', { class: 'row' },
+      e.photo_folder ? h('a', { href: e.photo_folder, target: '_blank', rel: 'noopener', text: 'Open photos in Drive' }) : null,
+      e.status === 'Submitted' || e.status === 'Needs changes' ? [
+        h('label', { class: 'sr-only', for: note.id, text: 'Review note' }), note,
+        h('button', { class: 'btn', type: 'button', onclick: act('Reviewed'), text: 'Mark reviewed' }),
+        h('button', { class: 'btn quiet', type: 'button', onclick: act('Needs changes'), text: 'Needs changes' })] : null), st);
+  }
+  return h('article', { class: 'item' }, kids);
+}
+function addPhotos(e) {
+  const input = h('input', { id: 'add-' + e.event_id, type: 'file', accept: 'image/*', multiple: true });
+  const st = h('p', { class: 'status', role: 'status' });
+  const btn = h('button', { class: 'btn', type: 'button', text: 'Upload and finish', onclick: async () => {
+    if (!input.files.length) { say(st, 'Choose photos first.'); return; }
+    btn.disabled = true;
+    try {
+      await uploadAll([...input.files], f => api('uploadEventPhoto', e.event_id, f), (i, n) => say(st, 'Uploading photo ' + i + ' of ' + n + '…', true), 1600);
+      const r = await api('finishEvent', e.event_id); say(st, r.message, r.ok); if (r.ok) setTimeout(() => go('events'), 1200);
+    } catch (err) { say(st, err.message); }
+    btn.disabled = false;
+  } });
+  return h('div', { class: 'row' }, h('label', { for: input.id, text: 'Add photos (' + e.photo_count + ' of ' + BOOT.minPhotos + ' so far)' }), input, btn, st);
+}
+
+/* ---------- Funds ---------- */
+VIEWS.funds = async function (view) {
+  const list = await api('listFunds', {});
+  const formCard = h('div', { class: 'card', hidden: true }, fundsForm(() => go('funds')));
+  view.replaceChildren(h('div', { class: 'stack' },
+    h('div', { class: 'spread' }, h('div', {}, h('h1', { text: 'Funds' }), h('p', { class: 'muted', text: 'Request money from The Inc. for section events and programs. Attach quotes or receipts if you have them.' })),
+      h('button', { class: 'btn', type: 'button', text: 'Request funds', onclick: () => { formCard.hidden = !formCard.hidden; } })),
+    formCard,
+    list.length ? h('div', { class: 'list' }, list.map(fundsItem)) : h('div', { class: 'card' }, h('p', { class: 'muted', text: 'No funds requests yet.' }))
+  ));
+};
+function fundsForm(done) {
+  const files = h('input', { id: 'fu-files', type: 'file', accept: 'image/*,application/pdf', multiple: true });
+  const status = h('p', { class: 'status', role: 'status' });
+  const submit = h('button', { class: 'btn', type: 'submit', text: 'Send request' });
+  const form = h('form', {},
+    isInc() ? field('Section', keyed(sectionSelect('fu-section'), 'section')) : null,
+    field('What the money is for', keyed(h('input', { id: 'fu-purpose', required: true, maxlength: 160 }), 'purpose')),
+    field('Event (if any)', keyed(h('input', { id: 'fu-event', maxlength: 160 }), 'event_name')),
+    field('Amount requested (USD)', keyed(h('input', { id: 'fu-amount', type: 'number', min: 0.01, step: 0.01, required: true, inputmode: 'decimal' }), 'amount')),
+    field('Date needed by', keyed(h('input', { id: 'fu-needed', type: 'date', required: true, min: today() }), 'needed_by')),
+    field('Who gets paid', keyed(h('input', { id: 'fu-payee', required: true, maxlength: 160 }), 'payee'), { hint: 'A vendor, venue, or the person to reimburse.' }),
+    field('Cost breakdown', keyed(h('textarea', { id: 'fu-breakdown', required: true, maxlength: 3000 }), 'breakdown'), { full: true, hint: 'One line per item with its cost.' }),
+    field('Quotes or receipts (optional)', files, { full: true, hint: 'Photos or PDFs, 10 MB each at most.' }),
+    h('div', { class: 'form-foot' }, submit, status)
+  );
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); submit.disabled = true;
+    try {
+      say(status, 'Saving…', true);
+      const { request_id } = await api('createFundsRequest', formData(form));
+      await uploadAll([...files.files].slice(0, 10), f => api('uploadFundsFile', request_id, f), (i, n) => say(status, 'Uploading file ' + i + ' of ' + n + '…', true), 2000);
+      await api('submitFundsRequest', request_id);
+      say(status, 'Request sent. The Inc. will email you when it decides.', true); setTimeout(done, 1200);
+    } catch (err) { say(status, err.message); }
+    submit.disabled = false;
+  });
+  return h('div', { class: 'stack' }, h('h2', { text: 'Request funds' }), form);
+}
+function fundsItem(r) {
+  const kids = [
+    h('div', { class: 'spread' }, h('h3', { text: r.purpose + ' · ' + money(r.amount) }), pill(r.status)),
+    h('p', { class: 'meta', text: [secName(r.section), r.event_name, 'needed by ' + fmtDate(r.needed_by), 'pay ' + r.payee, r.file_count + ' file' + (r.file_count == 1 ? '' : 's')].filter(Boolean).join(' · ') }),
+    h('p', { class: 'body', text: r.breakdown }),
+    (r.status === 'Approved' || r.status === 'Paid') ? h('p', { class: 'small', text: 'Approved: ' + money(r.approved_amount) + (r.paid_date ? ' · paid ' + fmtDate(r.paid_date) : '') }) : null,
+    r.inc_notes ? h('p', { class: 'small' }, h('b', { text: 'Note from The Inc.: ' }), r.inc_notes) : null
+  ];
+  if (isInc() && r.status !== 'Denied' && r.status !== 'Paid') {
+    const st = h('p', { class: 'status', role: 'status' });
+    const amt = h('input', { id: 'amt-' + r.request_id, type: 'number', min: 0.01, step: 0.01, value: r.approved_amount || r.amount, style: 'max-width:140px' });
+    const note = h('input', { id: 'fnote-' + r.request_id, placeholder: 'Note (required to deny)', maxlength: 1000 });
+    const paid = h('input', { id: 'paid-' + r.request_id, type: 'date', value: today(), style: 'max-width:170px' });
+    const act = (status, extra) => async () => { try { await api('decideFunds', r.request_id, Object.assign({ status, note: note.value }, extra || {})); go('funds'); } catch (err) { say(st, err.message); } };
+    kids.push(h('div', { class: 'row' },
+      r.file_folder ? h('a', { href: r.file_folder, target: '_blank', rel: 'noopener', text: 'Open files in Drive' }) : null,
+      h('label', { class: 'sr-only', for: note.id, text: 'Decision note' }), note,
+      r.status === 'Pending' ? [h('label', { for: amt.id, text: 'Approve' }), amt,
+        h('button', { class: 'btn', type: 'button', text: 'Approve', onclick: () => act('Approved', { approved_amount: amt.value })() }),
+        h('button', { class: 'btn danger', type: 'button', text: 'Deny', onclick: act('Denied') })] : null,
+      r.status === 'Approved' ? [h('label', { for: paid.id, text: 'Paid on' }), paid, h('button', { class: 'btn', type: 'button', text: 'Mark paid', onclick: () => act('Paid', { paid_date: paid.value })() })] : null
+    ), st);
+  }
+  return h('article', { class: 'item' }, kids);
+}
+
+/* ---------- Members ---------- */
+VIEWS.members = async function (view) {
+  const sub = h('div', { class: 'stack' });
+  const pick = h('nav', { class: 'tabs', 'aria-label': 'Member tools' });
+  const subs = [['directory', 'Directory'], ['add', 'Add a new member'], ['roster', 'Semester roster']];
+  const show = id => { pick.querySelectorAll('button').forEach(b => b.setAttribute('aria-current', b.dataset.sub === id ? 'page' : 'false')); MEMBER_VIEWS[id](sub).catch(err => sub.replaceChildren(h('p', { class: 'status err', text: err.message }))); };
+  subs.forEach(([id, label]) => pick.append(h('button', { type: 'button', 'data-sub': id, onclick: () => show(id), text: label })));
+  view.replaceChildren(h('div', { class: 'stack' }, h('h1', { text: 'Members' }), pick, sub));
+  show('directory');
+};
+const MEMBER_VIEWS = {};
+MEMBER_VIEWS.directory = async function (box, f) {
+  f = f || {};
+  const rows = await api('listMembers', f);
+  const sec = sectionSelect('md-section', true); sec.value = f.section || '';
+  const st = select('md-status', [['', 'Any status']].concat(BOOT.memberStatuses), f.status || '');
+  const term = termSelect('md-term', f.term || '', true);
+  const q = h('input', { id: 'md-q', type: 'search', placeholder: 'Name, email, or position', value: f.q || '' });
+  const apply = () => MEMBER_VIEWS.directory(box, { section: isInc() ? sec.value : '', status: st.value, term: term.value, q: q.value });
+  [sec, st, term].forEach(el => el.addEventListener('change', apply));
+  q.addEventListener('keydown', e => { if (e.key === 'Enter') apply(); });
+  const out = h('p', { class: 'status', role: 'status' });
+  const exportBtn = isInc() ? h('button', { class: 'btn quiet', type: 'button', text: 'Export CSV', onclick: async () => {
+    try { const r = await api('exportMembers', { section: sec.value, status: st.value, term: term.value, q: q.value }); out.replaceChildren('Saved ' + r.rows + ' rows to ', h('a', { href: r.url, target: '_blank', rel: 'noopener', text: r.name })); out.className = 'status ok'; }
+    catch (err) { say(out, err.message); } } }) : null;
+  const counts = {}; rows.forEach(m => { counts[m.section] = (counts[m.section] || 0) + 1; });
+  box.replaceChildren(h('div', { class: 'card' },
+    h('div', { class: 'row' }, isInc() ? field('Section', sec) : null, field('Status', st), field('On the roster in', term), field('Search', q)),
+    h('div', { class: 'spread' }, h('p', { class: 'muted', text: rows.length + ' member' + (rows.length === 1 ? '' : 's') + (Object.keys(counts).length > 1 ? ' · ' + Object.entries(counts).map(([k, n]) => secName(k) + ' ' + n).join(' · ') : '') }), exportBtn), out,
+    h('div', { class: 'table-wrap' }, h('table', {},
+      h('thead', {}, h('tr', {}, ['Name', 'Section', 'Position', 'Email', 'Phone', 'Joined', 'Grad', 'Status'].map(t => h('th', { text: t })), isInc() ? h('th', { text: 'Check' }) : null)),
+      h('tbody', {}, rows.map(m => h('tr', {},
+        h('td', { class: 'nowrap', text: m.first_name + ' ' + m.last_name }), h('td', { text: secName(m.section) }), h('td', { text: m.position }),
+        h('td', { text: m.email }), h('td', { text: m.phone }), h('td', { text: m.term_joined || m.year_joined }), h('td', { text: m.grad_year }),
+        h('td', {}, isInc() ? memberStatus(m) : pill(m.status)),
+        isInc() ? h('td', {}, m.review_flag ? h('button', { class: 'btn quiet', type: 'button', title: m.review_flag, text: 'Clear flag', onclick: async () => { await api('updateMember', m.member_id, { review_flag: '' }); apply(); } }) : '') : null))))))
+  );
+};
+function memberStatus(m) {
+  const s = select('ms-' + m.member_id, BOOT.memberStatuses, m.status, { 'aria-label': 'Status for ' + m.first_name + ' ' + m.last_name });
+  s.addEventListener('change', async () => { try { await api('updateMember', m.member_id, { status: s.value }); } catch (err) { alertInline(s, err.message); } });
+  return s;
+}
+function alertInline(el, msg) { el.after(h('span', { class: 'status err small', text: ' ' + msg })); }
+MEMBER_VIEWS.add = async function (box) {
+  const status = h('p', { class: 'status', role: 'status' });
+  const submit = h('button', { class: 'btn', type: 'submit', text: 'Add member' });
+  const form = h('form', {},
+    isInc() ? field('Section', keyed(sectionSelect('nm-section'), 'section')) : null,
+    field('First name', keyed(h('input', { id: 'nm-first', required: true, autocomplete: 'off', maxlength: 60 }), 'first_name')),
+    field('Last name', keyed(h('input', { id: 'nm-last', required: true, autocomplete: 'off', maxlength: 60 }), 'last_name')),
+    field('Email', keyed(h('input', { id: 'nm-email', type: 'email', required: true, autocomplete: 'off' }), 'email'), { hint: 'A personal email he will keep after graduation, if he has one.' }),
+    field('Phone', keyed(h('input', { id: 'nm-phone', type: 'tel', required: true, autocomplete: 'off' }), 'phone')),
+    field('Position (optional)', keyed(h('input', { id: 'nm-pos', maxlength: 80 }), 'position')),
+    field('Expected graduation year', keyed(h('input', { id: 'nm-grad', type: 'number', min: 2009, max: new Date().getFullYear() + 8, inputmode: 'numeric' }), 'grad_year')),
+    h('p', { class: 'hint full', style: 'grid-column:1/-1', text: 'New members go straight into the directory and onto the ' + BOOT.currentTerm + ' roster as new. Only The Inc. and your section officers can see their contact details.' }),
+    h('div', { class: 'form-foot' }, submit, status));
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); submit.disabled = true;
+    try { const r = await api('addMember', formData(form)); say(status, r.message, true); form.reset(); form.querySelector('input').focus(); }
+    catch (err) { say(status, err.message); }
+    submit.disabled = false;
+  });
+  box.replaceChildren(h('div', { class: 'card' }, h('h2', { text: 'Add a new member' }), form));
+};
+MEMBER_VIEWS.roster = async function (box, section, term) {
+  section = isInc() ? (section || Object.keys(BOOT.sections)[0]) : BOOT.user.section;
+  const r = await api('getRoster', section, term || BOOT.currentTerm);
+  const sec = sectionSelect('ro-section'); sec.value = section; sec.required = false;
+  const ts = termSelect('ro-term', r.term);
+  const reload = () => MEMBER_VIEWS.roster(box, sec.value, ts.value);
+  sec.addEventListener('change', reload); ts.addEventListener('change', reload);
+  const status = h('p', { class: 'status', role: 'status' });
+  const rows = r.people.map(p => {
+    const back = h('input', { type: 'checkbox', id: 'rb-' + p.member_id, checked: !!p.standing, disabled: !!p.standing });
+    const pos = h('input', { id: 'rp-' + p.member_id, value: p.position, maxlength: 80, 'aria-label': 'Position for ' + p.name });
+    return { p, back, pos, tr: h('tr', {}, h('td', {}, back), h('td', { class: 'nowrap' }, h('label', { for: back.id, text: p.name })), h('td', {}, p.standing ? pill(p.standing) : h('span', { class: 'muted small', text: 'Not yet' })), h('td', {}, pos), h('td', { text: p.email }), h('td', { text: p.phone })) };
+  });
+  const save = h('button', { class: 'btn', type: 'button', text: 'Save roster', onclick: async () => {
+    save.disabled = true;
+    try { const res = await api('confirmRoster', section, r.term, rows.map(x => ({ member_id: x.p.member_id, returning: x.back.checked, position: x.pos.value }))); say(status, res.message, true); setTimeout(reload, 1000); }
+    catch (err) { say(status, err.message); }
+    save.disabled = false;
+  } });
+  box.replaceChildren(h('div', { class: 'card' },
+    h('div', { class: 'spread' }, h('h2', { text: secName(section) + ' roster, ' + r.term }), h('div', { class: 'row' }, isInc() ? sec : null, ts)),
+    h('p', { class: 'muted', text: 'At the start of each semester, tick every brother who is back and update positions. Add new members under "Add a new member". ' + (r.confirmed ? 'This roster has been confirmed; you can still add people.' : '') }),
+    r.people.length ? h('div', { class: 'table-wrap' }, h('table', {}, h('thead', {}, h('tr', {}, ['Back', 'Name', 'This term', 'Position', 'Email', 'Phone'].map(t => h('th', { text: t })))), h('tbody', {}, rows.map(x => x.tr))))
+                    : h('p', { class: 'muted', text: 'No active members in the directory for this section yet.' }),
+    h('div', { class: 'row' }, save, status)));
+};
+
+/* ---------- Amendments ---------- */
+VIEWS.amendments = async function (view) {
+  const list = await api('listAmendments');
+  const formCard = h('div', { class: 'card', hidden: true }, amendmentForm(() => go('amendments')));
+  view.replaceChildren(h('div', { class: 'stack' },
+    h('div', { class: 'spread' }, h('div', {}, h('h1', { text: 'Amendments' }), h('p', { class: 'muted', text: 'Propose changes to the constitution and vote on them. The Inc. opens each vote.' })),
+      h('button', { class: 'btn', type: 'button', text: 'Propose an amendment', onclick: () => { formCard.hidden = !formCard.hidden; } })),
+    formCard,
+    list.length ? h('div', { class: 'list' }, list.map(amendmentItem)) : h('div', { class: 'card' }, h('p', { class: 'muted', text: 'No amendments have been proposed.' }))
+  ));
+};
+function amendmentForm(done) {
+  const status = h('p', { class: 'status', role: 'status' });
+  const submit = h('button', { class: 'btn', type: 'submit', text: 'Submit proposal' });
+  const form = h('form', {},
+    field('Title', keyed(h('input', { id: 'am-title', required: true, maxlength: 140 }), 'title'), { hint: 'For example: "Allow virtual section meetings".' }),
+    field('Article and section', keyed(h('input', { id: 'am-article', required: true, maxlength: 120 }), 'article'), { hint: 'For example: "Article IV, Section 2".' }),
+    field('Current wording (if changing existing text)', keyed(h('textarea', { id: 'am-current', maxlength: 6000 }), 'current_text'), { full: true }),
+    field('Proposed wording', keyed(h('textarea', { id: 'am-proposed', required: true, maxlength: 6000 }), 'proposed_text'), { full: true }),
+    field('Reason for the change', keyed(h('textarea', { id: 'am-why', required: true, maxlength: 3000 }), 'rationale'), { full: true }),
+    h('div', { class: 'form-foot' }, submit, status));
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); submit.disabled = true;
+    try { await api('proposeAmendment', formData(form)); say(status, 'Proposal submitted. The Inc. will open the vote.', true); setTimeout(done, 1200); }
+    catch (err) { say(status, err.message); }
+    submit.disabled = false;
+  });
+  return h('div', { class: 'stack' }, h('h2', { text: 'Propose an amendment' }), form);
+}
+function amendmentItem(a) {
+  const st = h('p', { class: 'status', role: 'status' });
+  const kids = [
+    h('div', { class: 'spread' }, h('h3', { text: a.amendment_id + ': ' + a.title }), pill(a.status)),
+    h('p', { class: 'meta', text: a.article + ' · proposed ' + fmtDate(a.proposed_at) + (a.vote_closes ? ' · voting ' + (a.status === 'Voting' ? 'closes ' : 'closed ') + fmtDate(a.vote_closes) : '') }),
+    a.current_text ? h('div', { class: 'stack', style: 'gap:6px' }, h('p', { class: 'lbl', text: 'Current wording' }), h('blockquote', { text: a.current_text })) : null,
+    h('div', { class: 'stack', style: 'gap:6px' }, h('p', { class: 'lbl', text: 'Proposed wording' }), h('blockquote', { text: a.proposed_text })),
+    h('details', {}, h('summary', { text: 'Reason for the change' }), h('p', { class: 'body', text: a.rationale })),
+    a.status === 'Voting' ? h('p', { class: 'small muted', text: a.turnout + ' of ' + a.eligible + ' eligible voters have voted.' + (a.yes !== '' ? ' Yes ' + a.yes + ', No ' + a.no + ', Abstain ' + a.abstain + '.' : ' Results show when voting closes.') }) : null,
+    a.result ? h('p', { class: 'small' }, h('b', { text: 'Result: ' }), a.result) : null,
+    a.my_vote ? h('p', { class: 'small', text: 'You voted: ' + a.my_vote }) : null
+  ];
+  if (a.can_vote) {
+    const choice = h('div', { class: 'row', role: 'group', 'aria-label': 'Your vote' });
+    const confirmRow = h('div', { class: 'row', hidden: true });
+    let picked = '';
+    ['Yes', 'No', 'Abstain'].forEach(c => choice.append(h('button', { class: 'btn quiet', type: 'button', text: c, onclick: () => {
+      picked = c; confirmRow.hidden = false;
+      confirmRow.querySelector('span').textContent = 'Vote "' + c + '"? You can\'t change it afterwards.';
+    } })));
+    confirmRow.append(h('span', { class: 'small' }), h('button', { class: 'btn', type: 'button', text: 'Cast my vote', onclick: async () => {
+      try { const r = await api('castVote', a.amendment_id, picked); say(st, r.message, true); setTimeout(() => go('amendments'), 1000); } catch (err) { say(st, err.message); }
+    } }), h('button', { class: 'btn quiet', type: 'button', text: 'Cancel', onclick: () => { confirmRow.hidden = true; } }));
+    kids.push(h('p', { class: 'lbl', text: 'Your vote' }), choice, confirmRow);
+  }
+  const act = (fn, msg) => async () => { try { await api(fn, a.amendment_id); say(st, msg, true); setTimeout(() => go('amendments'), 900); } catch (err) { say(st, err.message); } };
+  const tools = [];
+  if (isInc() && a.status === 'Proposed') tools.push(h('button', { class: 'btn', type: 'button', text: 'Open the vote', onclick: act('openVote', 'Vote opened. Eligible voters were emailed.') }));
+  if (isInc() && a.status === 'Voting') tools.push(h('button', { class: 'btn quiet', type: 'button', text: 'Close the vote now', onclick: act('closeVote', 'Vote closed.') }));
+  if (a.status === 'Proposed' && (isInc() || a.proposed_by === BOOT.user.email)) tools.push(h('button', { class: 'btn danger', type: 'button', text: 'Withdraw', onclick: act('withdrawAmendment', 'Withdrawn.') }));
+  if (tools.length) kids.push(h('div', { class: 'row' }, tools));
+  kids.push(st);
+  return h('article', { class: 'item' }, kids);
+}
+
+/* ---------- Newsletter (Inc) ---------- */
+VIEWS.newsletter = async function (view, term) {
+  term = term === undefined ? BOOT.currentTerm : term;
+  const list = await api('newsletterCandidates', term);
+  const ts = termSelect('nl-term', term, true); ts.addEventListener('change', () => VIEWS.newsletter(view, ts.value));
+  const title = h('input', { id: 'nl-title', value: (term || BOOT.currentTerm) + ' newsletter', maxlength: 100 });
+  const status = h('p', { class: 'status', role: 'status' });
+  const boxes = list.map(e => ({ e, cb: h('input', { type: 'checkbox', id: 'nl-' + e.event_id, checked: !e.newsletter_issue }) }));
+  const make = h('button', { class: 'btn', type: 'button', text: 'Create newsletter draft', onclick: async () => {
+    const ids = boxes.filter(b => b.cb.checked).map(b => b.e.event_id);
+    if (!ids.length) { say(status, 'Choose at least one event.'); return; }
+    make.disabled = true; say(status, 'Building the draft…', true);
+    try { const r = await api('createNewsletterDraft', title.value, ids); status.className = 'status ok'; status.replaceChildren('Draft ready with ' + r.count + ' events: ', h('a', { href: r.url, target: '_blank', rel: 'noopener', text: 'open it in Google Docs' })); }
+    catch (err) { say(status, err.message); }
+    make.disabled = false;
+  } });
+  view.replaceChildren(h('div', { class: 'stack' },
+    h('div', {}, h('h1', { text: 'Newsletter' }), h('p', { class: 'muted', text: 'Each section\'s reviewed event reports, with their newsletter summaries. Pick the ones to include and create a Google Doc draft with one photo per event.' })),
+    h('div', { class: 'card' },
+      h('div', { class: 'row' }, field('Term', ts), field('Issue title', title)),
+      list.length ? h('div', { class: 'list' }, boxes.map(({ e, cb }) => h('div', { class: 'item' },
+        h('div', { class: 'row' }, cb, h('label', { for: cb.id }, h('b', { text: e.title }), ' · ' + secName(e.section) + ' · ' + fmtDate(e.event_date) + ' · ' + num(e.attendees) + ' attendees')),
+        h('blockquote', { text: e.newsletter_summary }),
+        e.newsletter_issue ? h('p', { class: 'small muted', text: 'Already used in: ' + e.newsletter_issue }) : null)))
+        : h('p', { class: 'muted', text: 'No reviewed event reports for this term yet. Review reports under Events first.' }),
+      h('div', { class: 'row' }, make, status))
+  ));
+};
+
+/* ---------- boot ---------- */
+if (TOKEN) { call('whoami', TOKEN).then(start).catch(() => showSignin('')); } else { showSignin(''); }
+</script>
+</body>
+</html>

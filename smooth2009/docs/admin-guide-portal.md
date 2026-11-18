@@ -1,5 +1,7 @@
 # Admin guide: the S.M.O.O.T.H. Portal
 
+> **Practice mode first.** Until this setup is done, smooth2009.org/members runs the same portal in practice mode: no password, and entries stay in your browser. Use it to try every screen. Practice entries don't carry over to the live portal.
+
 The portal is the private back office for The Inc. and section officers. No coding is needed after the one-time setup. Everything it saves lands in the Google Sheet **SMOOTH Back Office** and in a Google Drive folder called **SMOOTH Portal Files**.
 
 ## Who uses it

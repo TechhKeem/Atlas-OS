@@ -1,5 +1,6 @@
 /* In-memory stand-ins for the Google Apps Script services the back office uses.
-   Runs in Node (vm context) and in a browser page. Only what Newsletter.gs and Portal.gs call. */
+   Runs in Node (vm context) and in a browser page. Only what Newsletter.gs and Portal.gs call.
+   Used by the tests and by practice mode on smooth2009.org/members (via __mock.dump/__mock.load). */
 (function (G) {
   const mails = [], cache = {}, props = {};
   let uuidN = 0, idN = 0;
@@ -26,8 +27,8 @@
   const sheets = {};
   const spreadsheet = { getSheetByName: n => sheets[n] || null, insertSheet: n => (sheets[n] = sheetObj(n)) };
 
-  function folder(name, parent) {
-    const id = 'F' + (++idN);
+  function folder(name, parent, fixedId) {
+    const id = fixedId || 'F' + (++idN);
     const f = { id, name, parent, folders: [], files: [],
       getId: () => id, getName: () => name, getUrl: () => 'https://drive.google.com/drive/folders/' + id,
       createFolder: n => { const c = folder(n, f); f.folders.push(c); return c; },
@@ -37,8 +38,8 @@
     };
     drive[id] = f; return f;
   }
-  function file(blob, parent) {
-    const id = 'D' + (++idN);
+  function file(blob, parent, fixedId) {
+    const id = fixedId || 'D' + (++idN);
     const fl = { id, blob, parent, getId: () => id, getName: () => blob.name || (blob.getName && blob.getName()), getUrl: () => 'https://drive.google.com/file/d/' + id,
       getBlob: () => blob, moveTo: f => { fl.parent = f; f.files.push(fl); } };
     drive[id] = fl; return fl;
@@ -62,8 +63,32 @@
   const docs = [];
   function para(text) { const p = { text, heading: null, italic: false, setHeading(x) { p.heading = x; return p; }, setItalic(x) { p.italic = x; return p; } }; return p; }
 
+  // Save and restore everything except file contents (photos are not kept) and sign-in sessions.
+  const enc = v => v instanceof Date ? { $d: v.toISOString() } : v;
+  const dec = v => (v && typeof v === 'object' && '$d' in v) ? new Date(v.$d) : v;
+  function dump() {
+    return {
+      idN, props: Object.assign({}, props), mails: mails.slice(-200),
+      sheets: Object.keys(sheets).map(n => ({ name: n, rows: sheets[n]._rows.map(r => r.map(enc)) })),
+      drive: Object.values(drive).map(x => x.folders
+        ? { id: x.id, kind: 'folder', name: x.name, parent: x.parent ? x.parent.id : null }
+        : { id: x.id, kind: 'file', name: x.getName(), parent: x.parent ? x.parent.id : null, type: x.blob.type || '',
+            content: typeof x.blob.content === 'string' && x.blob.content.length < 60000 ? x.blob.content : undefined, docId: x.blob.docId }),
+      docs: docs.map(d => ({ id: d.getId(), title: d.title, paras: d.paras.map(p => ({ text: p.text, heading: p.heading || null, italic: !!p.italic })), images: d.images.map(i => ({ w: i.w, h: i.h })) }))
+    };
+  }
+  function load(st) {
+    idN = st.idN || 0; Object.assign(props, st.props || {}); mails.push(...(st.mails || []));
+    (st.sheets || []).forEach(sh => { const o = spreadsheet.insertSheet(sh.name); sh.rows.forEach(r => { const row = r.map(dec); o._rows.push(row); o._raw.push(row.slice()); }); });
+    const byId = {};
+    (st.drive || []).filter(x => x.kind === 'folder').forEach(x => { byId[x.id] = folder(x.name, null, x.id); });
+    (st.drive || []).filter(x => x.kind === 'folder' && x.parent).forEach(x => { const f = byId[x.id], p = byId[x.parent]; if (p) { f.parent = p; p.folders.push(f); } });
+    (st.docs || []).forEach(d => G.DocumentApp.create(d.title, d.id, d));
+    (st.drive || []).filter(x => x.kind === 'file' && !x.docId).forEach(x => { const p = byId[x.parent] || null; const fl = file({ name: x.name, type: x.type, content: x.content, getName() { return x.name; } }, p, x.id); if (p) p.files.push(fl); });
+  }
+
   Object.assign(G, {
-    __mock: { mails, cache, sheets, drive, docs, users: { active: '', effective: 'owner@smooth2009.org' } },
+    __mock: { mails, cache, sheets, drive, docs, users: { active: '', effective: 'owner@smooth2009.org' }, dump, load },
     SpreadsheetApp: {
       getActiveSpreadsheet: () => spreadsheet,
       newDataValidation: () => { const b = { requireValueInList: () => b, setAllowInvalid: () => b, build: () => ({}) }; return b; }
@@ -92,12 +117,12 @@
     },
     DocumentApp: {
       ParagraphHeading: { TITLE: 'TITLE', SUBTITLE: 'SUBTITLE', HEADING2: 'HEADING2' },
-      create: title => {
-        const id = 'DOC' + (++idN), paras = [], images = [];
+      create: (title, fixedId, saved) => {
+        const id = fixedId || 'DOC' + (++idN), paras = (saved && saved.paras) || [], images = (saved && saved.images) || [];
         const body = { appendParagraph: t => { const p = para(t); paras.push(p); return p; },
                        appendImage: blob => { const im = { w: 1600, h: 1200, getWidth: () => im.w, getHeight: () => im.h, setWidth(w) { im.w = w; return im; }, setHeight(h) { im.h = h; return im; } }; images.push(im); paras.push({ text: '[image]' }); return im; } };
         const doc = { title, paras, images, getBody: () => body, saveAndClose() {}, getId: () => id, getUrl: () => 'https://docs.google.com/document/d/' + id };
-        drive[id] = file({ name: title }, null); drive[id].moveTo = () => {};
+        drive[id] = file({ name: title, docId: id }, null, id); drive[id].moveTo = () => {};
         docs.push(doc); return doc;
       }
     },

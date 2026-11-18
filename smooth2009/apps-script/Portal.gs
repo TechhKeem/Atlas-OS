@@ -298,7 +298,7 @@ function finishEvent(token, eventId) {
   }
   update_("Events", ev._row, { status: "Submitted", updated_at: new Date() });
   notify_(PORTAL.notify, "Event report: " + SECTIONS[ev.section] + ", " + ev.title,
-    SECTIONS[ev.section] + " reported \"" + ev.title + "\" on " + ser_(ev.event_date) + ".\n" +
+    SECTIONS[ev.section] + " reported \"" + ev.title + "\" on " + longDate_(ev.event_date) + ".\n" +
     "Attendees: " + ev.attendees + "\nPhotos: " + n + "\n\nSummary for the newsletter:\n" + ev.newsletter_summary +
     "\n\nReview it in the portal under Events.");
   log_(user.email, "event submitted", ev.event_id);
@@ -391,7 +391,7 @@ function submitFundsRequest(token, requestId) {
   update_("Funds", r._row, { status: "Pending", submitted_at: new Date() });
   notify_(PORTAL.notify, "Funds request: " + SECTIONS[r.section] + ", " + money_fmt_(r.amount),
     SECTIONS[r.section] + " requested " + money_fmt_(r.amount) + " for " + r.purpose + ".\n" +
-    "Needed by: " + ser_(r.needed_by) + "\nPay to: " + r.payee + "\n\nBreakdown:\n" + r.breakdown +
+    "Needed by: " + longDate_(r.needed_by) + "\nPay to: " + r.payee + "\n\nBreakdown:\n" + r.breakdown +
     "\n\nApprove or deny it in the portal under Funds.");
   log_(user.email, "funds requested", r.request_id + " " + r.amount);
   return { ok: true };
@@ -603,7 +603,7 @@ function createNewsletterDraft(token, issueTitle, eventIds) {
   body.appendParagraph("In every obstacle lies equal opportunity.").setItalic(true);
   events.forEach(function (e) {
     body.appendParagraph(e.title).setHeading(DocumentApp.ParagraphHeading.HEADING2);
-    body.appendParagraph(SECTIONS[e.section] + " · " + ser_(e.event_date) + " · " + e.attendees + " attendees").setItalic(true);
+    body.appendParagraph(SECTIONS[e.section] + " · " + longDate_(e.event_date) + " · " + e.attendees + " attendees").setItalic(true);
     try {
       const files = folderFromUrl_(e.photo_folder).getFiles();
       if (files.hasNext()) {
@@ -682,7 +682,7 @@ function openVote(token, amendmentId) {
   voters.forEach(function (v) {
     notify_(v, "Vote open: " + a.title,
       "The Inc. opened a vote on a proposed amendment to " + a.article + ".\n\nProposed wording:\n" + a.proposed_text +
-      "\n\nReason:\n" + a.rationale + "\n\nSign in to the portal under Amendments to vote. Voting closes " + ser_(closes) + ".");
+      "\n\nReason:\n" + a.rationale + "\n\nSign in to the portal under Amendments to vote. Voting closes " + longDate_(closes) + ".");
   });
   log_(user.email, "vote opened", a.amendment_id + " eligible " + voters.length);
   return { ok: true, closes: ser_(closes), eligible: voters.length };
@@ -1002,6 +1002,11 @@ function int_(v, label, min, max, req) {
 function money_(v, label, req) {
   const n = num_(String(v === undefined ? "" : v).replace(/[$\s]/g, ""), label, 0.01, 1000000, req);
   return n === "" ? "" : Math.round(n * 100) / 100;
+}
+/** "2026-11-06" or a Date -> "Nov 6, 2026" for emails and documents. */
+function longDate_(v) {
+  const t = ser_(v), m = String(t).match(/^(\d{4})-(\d{2})-(\d{2})/);
+  return m ? ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+m[2] - 1] + " " + (+m[3]) + ", " + m[1] : t;
 }
 function money_fmt_(n) { return "$" + Number(n || 0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
 function dateStr_(v, label, req) {
