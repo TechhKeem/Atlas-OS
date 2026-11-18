@@ -65,14 +65,14 @@ fail to process, move `look-media` up to Standard as well (+$18).
 
 ### Steps
 
-1. **Fork** `CapSoftware/Cap` on GitHub into your account and name it `look`.
+1. **Fork** `CapSoftware/Cap` on GitHub (done: `TechhKeem/Cap`).
 2. **Apply branding** to the fork, then commit and push. This also adds `render.yaml`:
    ```bash
    python3 -I look/scripts/apply-look-branding.py /path/to/look
    ```
 3. **Cloudflare R2:** create a bucket named `look-videos` and an R2 API token with read/write access
    to it. Add a CORS rule that allows `https://look.financekeem.com` (GET, PUT, POST, HEAD).
-4. **Render:** New → Blueprint → choose the `look` repo. Render asks for:
+4. **Render:** New → Blueprint → choose the `TechhKeem/Cap` repo. Render asks for:
    - `MYSQL_PASSWORD` and `MYSQL_ROOT_PASSWORD`: make up two long passwords.
    - `DATABASE_URL`: `mysql://look:<MYSQL_PASSWORD>@look-mysql:3306/look`
    - `CAP_AWS_ACCESS_KEY`, `CAP_AWS_SECRET_KEY`: from the R2 token.

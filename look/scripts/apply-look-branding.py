@@ -66,7 +66,7 @@ def main():
     # 2. Colors: Radix blue scale -> Look Green (appended so it wins over the imports)
     theme = (REBRAND / "look-theme.css").read_text()
     edit(web / "app/globals.css",
-         lambda t: t if "Look brand theme" in t else t.rstrip() + "\n\n" + theme)
+         lambda t: t if "--blue-8: #5ca581" in t else t.rstrip() + "\n\n" + theme)
     numeric = ", ".join(f'{k}: "{v}"' for k, v in NUMERIC_GREEN.items())
     edit(ui / "style/tailwind.config.js",
          lambda t: t.replace('blue: getColorScale("blue"),',

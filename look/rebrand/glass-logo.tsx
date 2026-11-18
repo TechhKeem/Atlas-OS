@@ -1,5 +1,3 @@
-// Look branding: replaces Cap's glass logo. Keeps the same exports so
-// Logo.tsx and LogoBadge.tsx work unchanged.
 import { useId } from "react";
 
 export type GlassLogoIds = {
@@ -19,7 +17,6 @@ const LOOK_GREEN = "#30A46C";
 const EYE_PATH =
 	"M7 20C10.5 13.5 15 10.5 20 10.5S29.5 13.5 33 20C29.5 26.5 25 29.5 20 29.5S10.5 26.5 7 20Z";
 
-// The eye: "look" + a green record dot for a pupil.
 export const GlassMark = (_props: { ids: GlassLogoIds }) => (
 	<>
 		<rect width="40" height="40" rx="10" fill="#20242D" />
