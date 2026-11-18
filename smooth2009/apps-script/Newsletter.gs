@@ -1,8 +1,8 @@
 /**
  * S.M.O.O.T.H. Inc. — newsletter sign-up receiver
  *
- * Paste this into Extensions > Apps Script on the Google Sheet "SMOOTH Website Submissions".
- * Sign-ups land in the "Newsletter" tab.
+ * One of three files in the Apps Script project on the "SMOOTH Back Office" Google Sheet
+ * (Newsletter.gs, Portal.gs, Portal.html). Website sign-ups land in the "Newsletter" tab.
  *
  * The server checks every sign-up itself and does not trust the browser:
  *   - only the fields listed in FIELDS are saved; anything else is thrown away
@@ -12,7 +12,7 @@
  *   - the same email can't sign up twice within REPEAT_WINDOW_SECONDS
  *   - cells that would run as a spreadsheet formula are neutralized
  *
- * Run setup() once from the editor to create the tab. Run testSignup() to add one test row.
+ * setup() in Portal.gs creates this tab. Run testSignup() from the editor to add one test row.
  */
 
 // Email The Inc. whenever someone signs up. Leave "" to turn off.
@@ -86,9 +86,7 @@ function doPost(e) {
   return out_({ ok: true });
 }
 
-function doGet() {
-  return out_({ ok: true, service: "SMOOTH newsletter" });
-}
+// doGet lives in Portal.gs: the same web app address serves the member portal.
 
 /** Check one sign-up against FIELDS. Returns { data, errors }. */
 function validate_(p) {
@@ -134,8 +132,8 @@ function out_(obj) {
 
 /* ---------- Run these from the Apps Script editor ---------- */
 
-/** Creates the Newsletter tab with headers and a status dropdown. Safe to run more than once. */
-function setup() {
+/** Creates the Newsletter tab with headers and a status dropdown. Portal.gs setup() calls this. */
+function setupNewsletter_() {
   const sheet = sheet_();
   const rule = SpreadsheetApp.newDataValidation()
     .requireValueInList(["New", "Added to email list", "Unsubscribed", "Spam"], true)
@@ -146,6 +144,7 @@ function setup() {
 
 /** Sends one fake sign-up through doPost. Delete the test row afterwards. */
 function testSignup() {
+  editorOnly_();
   const res = doPost({ parameter: {
     form: "Newsletter", name: "Test Subscriber", email: "test@example.com",
     relationship: "Supporter or donor", page: "https://smooth2009.org/"

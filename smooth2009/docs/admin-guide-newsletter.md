@@ -3,7 +3,7 @@
 For The Inc. No coding needed after the one-time setup.
 
 ## Where sign-ups go
-Every sign-up on smooth2009.org adds a row to the **Newsletter** tab of the Google Sheet **SMOOTH Website Submissions**.
+Every sign-up on smooth2009.org adds a row to the **Newsletter** tab of the Google Sheet **SMOOTH Back Office**, the same Sheet the member portal uses.
 
 | Column | Meaning |
 |---|---|
@@ -21,14 +21,9 @@ An email goes to Info@smooth2009.org for each sign-up. Replying to it reaches th
 The sheet holds people's emails. Share it only with Inc. members, never with "Anyone with the link." When someone leaves The Inc., remove their access.
 
 ## One-time setup
-1. Using The Inc.'s shared Google account, create a Google Sheet named **SMOOTH Website Submissions**.
-2. Open **Extensions > Apps Script**. Delete what's there, paste in all of `apps-script/Code.gs`, and click **Save**.
-3. In the function menu at the top, choose **setup** and click **Run**. Approve the permissions. This creates the Newsletter tab.
-4. Choose **testSignup** and click **Run**. A test row should appear and Info@smooth2009.org should get an email. Delete the test row.
-5. Click **Deploy > New deployment**. Choose the type **Web app**. Execute as: **Me**. Who has access: **Anyone**. Click **Deploy**.
-6. Copy the Web app URL (it ends in `/exec`) and paste it between the quotes in `const FORM_ENDPOINT = "";` in `site/index.html`.
+The newsletter is set up together with the member portal. Follow "One-time setup" in `docs/admin-guide-portal.md`. Step 6 there gives you the address to paste into `FORM_ENDPOINT` in `site/index.html`.
 
-"Anyone" lets the public website add rows. It does not let anyone read the sheet.
+To test the sign-up on its own, choose **testSignup** in the Apps Script function menu and click **Run**. A test row should appear on the Newsletter tab and Info@smooth2009.org should get an email. Delete the test row.
 
 ## Changing the script later
 Use **Deploy > Manage deployments**, edit the existing deployment, and choose **New version**. Don't use "New deployment": that makes a new URL and the website would stop saving.

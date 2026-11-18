@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<title>S.M.O.O.T.H. Portal</title>
+<style>
+/* Brand kit tokens (brand-kit/tokens.json). Neutral surfaces, navy as the one S.M.O.O.T.H. color. */
+:root{
+  --bg:#ffffff; --bg-2:#f5f5f7; --ink:#1d1d1f; --muted:#6e6e73; --line:#d2d2d7; --field-line:#86868b;
+  --navy:#0b2a5b; --on-navy:#ffffff; --link:#0b4fb3; --ok:#1f7a38; --err:#c0262f; --warn:#8a5a00;
+  --ok-bg:#e7f4ea; --err-bg:#fbe9ea; --warn-bg:#fdf3dc; --info-bg:#e8eefb;
+  --f:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Segoe UI",Roboto,Arial,sans-serif;
+  --r-field:12px; --r-card:22px;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#000000; --bg-2:#111113; --ink:#f5f5f7; --muted:#a1a1a6; --line:#2c2c2e; --field-line:#6e6e73;
+  --navy:#2f6fdc; --link:#6aa6ff; --ok:#5cc878; --err:#ff6b72; --warn:#f0c060;
+  --ok-bg:#12301b; --err-bg:#3a1416; --warn-bg:#352a0e; --info-bg:#14223d; color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-2);color:var(--ink);font:17px/1.47 var(--f);letter-spacing:-.011em;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;letter-spacing:-.02em;line-height:1.15;text-wrap:balance}
+h1{font-size:28px}h2{font-size:22px}h3{font-size:18px}
+p{margin:0}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--link);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.stack{display:grid;gap:16px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.spread{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+[hidden]{display:none!important}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Header */
+header{background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.brand img{height:34px;width:auto}
+.who{font-size:13px;color:var(--muted);text-align:right}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-bottom:8px}
+nav.tabs button{all:unset;cursor:pointer;padding:8px 14px;border-radius:999px;font-size:15px;font-weight:500;color:var(--ink);white-space:nowrap}
+nav.tabs button[aria-current="page"]{background:var(--navy);color:var(--on-navy)}
+nav.tabs button:focus-visible{outline:3px solid var(--link)}
+main{padding-block:28px 64px}
+
+/* Surfaces */
+.card{background:var(--bg);border-radius:var(--r-card);padding:24px;display:grid;gap:14px;min-width:0}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.tiles{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.tile{background:var(--bg-2);border-radius:16px;padding:14px 16px;display:grid;gap:2px}
+.tile b{font-size:28px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.tile span{font-size:13px;color:var(--muted);font-weight:600}
+.list{display:grid;gap:12px}
+.item{background:var(--bg);border-radius:18px;padding:18px 20px;display:grid;gap:8px;min-width:0}
+.item .meta{font-size:14px;color:var(--muted)}
+.item .body{white-space:pre-wrap;overflow-wrap:anywhere}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--bg-2);color:var(--ink)}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.err{background:var(--err-bg);color:var(--err)}
+.pill.warn{background:var(--warn-bg);color:var(--warn)}.pill.info{background:var(--info-bg);color:var(--link)}
+.todo{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.todo li{background:var(--warn-bg);color:var(--ink);border-radius:12px;padding:10px 14px;font-size:15px}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap}
+td.n,th.n{text-align:right}
+.bar{height:8px;border-radius:4px;background:var(--navy);min-width:2px}
+blockquote{margin:0;padding:12px 14px;background:var(--bg-2);border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+
+/* Forms */
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.field{display:grid;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+label,.lbl{font-size:13px;font-weight:600;color:var(--muted)}
+.hint{font-size:13px;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg-2);border:1px solid var(--field-line);border-radius:var(--r-field);padding:12px 14px;width:100%;min-width:0}
+textarea{min-height:110px;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--link);outline-offset:1px;background:var(--bg)}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:500 15px var(--f);padding:10px 18px;border-radius:999px;border:0;cursor:pointer;background:var(--navy);color:var(--on-navy);text-decoration:none}
+.btn.quiet{background:var(--bg-2);color:var(--ink)}
+.btn.danger{background:var(--err-bg);color:var(--err)}
+.btn:disabled{opacity:.5;cursor:default}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.status{font-size:15px;font-weight:500}
+.status.ok{color:var(--ok)}.status.err{color:var(--err)}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px}
+.thumbs img{width:72px;height:72px;object-fit:cover;border-radius:10px;background:var(--bg-2)}
+table input:not([type=checkbox]),table select{min-width:150px;padding:8px 10px}
+td.nowrap{white-space:nowrap}
+.brand{white-space:nowrap}
+@media (max-width:640px){form{grid-template-columns:1fr}.card{padding:18px}.who{display:none}}
+
+/* Sign-in */
+.signin{min-height:100vh;display:grid;place-items:center;padding:24px 16px}
+.signin .card{width:100%;max-width:420px;text-align:center;justify-items:center}
+.signin form{grid-template-columns:1fr;width:100%;text-align:left}
+.signin img{height:72px;width:auto}
+</style>
+</head>
+<body>
+
+<!-- Sign-in -->
+<section class="signin" id="signin">
+  <div class="card">
+    <img src="data:image/webp;base64,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" alt="S.M.O.O.T.H. crest">
+    <h1>S.M.O.O.T.H. Portal</h1>
+    <p class="muted">For The Inc. and section officers.</p>
+    <form id="emailForm">
+      <div class="field"><label for="si-email">Your email</label><input id="si-email" type="email" autocomplete="email" required></div>
+      <div class="form-foot"><button class="btn" type="submit">Email me a code</button></div>
+    </form>
+    <form id="codeForm" hidden>
+      <p class="hint" id="codeHint"></p>
+      <div class="field"><label for="si-code">6-digit code</label><input id="si-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="\d{6}" required></div>
+      <div class="form-foot"><button class="btn" type="submit">Sign in</button><button class="btn quiet" type="button" id="useOther">Use a different email</button></div>
+    </form>
+    <p class="status" id="signinStatus" role="status"></p>
+  </div>
+</section>
+
+<!-- App -->
+<div id="app" hidden>
+  <header>
+    <div class="wrap">
+      <div class="top">
+        <div class="brand"><img src="data:image/webp;base64,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" alt="">S.M.O.O.T.H. Portal</div>
+        <div class="row"><div class="who" id="who"></div><button class="btn quiet" id="signOut" type="button">Sign out</button></div>
+      </div>
+      <nav class="tabs" id="tabs" aria-label="Portal sections"></nav>
+    </div>
+  </header>
+  <main class="wrap" id="view" tabindex="-1"></main>
+</div>
+
+<script>
+"use strict";
+const CREST = document.querySelector('#signin img').src;
+let TOKEN = null, BOOT = null;
+try { TOKEN = sessionStorage.getItem('smoothToken'); } catch (_) {}
+
+/* ---------- small helpers ---------- */
+const $ = s => document.querySelector(s);
+function h(tag, attrs, ...kids) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (v === null || v === undefined || v === false) continue;
+    if (k === 'class') el.className = v;
+    else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else if (k === 'text') el.textContent = v;
+    else el.setAttribute(k, v === true ? '' : v);
+  }
+  for (const kid of kids.flat()) if (kid !== null && kid !== undefined && kid !== false) el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+  return el;
+}
+function call(fn, ...args) {
+  return new Promise((resolve, reject) => {
+    google.script.run.withSuccessHandler(resolve).withFailureHandler(err => {
+      const msg = (err && err.message) || String(err);
+      if (/session ended|no longer has portal access/i.test(msg)) { setToken(null); showSignin(msg); }
+      reject(new Error(msg));
+    })[fn](...args);
+  });
+}
+const api = (fn, ...args) => call(fn, TOKEN, ...args);
+function setToken(t) { TOKEN = t; try { t ? sessionStorage.setItem('smoothToken', t) : sessionStorage.removeItem('smoothToken'); } catch (_) {} }
+function say(el, msg, ok) { el.className = 'status ' + (ok ? 'ok' : 'err'); el.textContent = msg; }
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function fmtDate(s) { const m = String(s || '').match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? MONTHS[+m[2] - 1] + ' ' + (+m[3]) + ', ' + m[1] : (s || ''); }
+const money = n => '$' + Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const num = n => Number(n || 0).toLocaleString('en-US');
+const isInc = () => BOOT && BOOT.user.role === 'Inc';
+const secName = s => (BOOT.sections[s] || s || '');
+const today = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+function pill(status) {
+  const kind = { Submitted: 'info', Reviewed: 'ok', 'Needs changes': 'err', Incomplete: 'warn', Uploading: 'warn',
+                 Pending: 'info', Approved: 'ok', Paid: 'ok', Denied: 'err', Proposed: 'info', Voting: 'warn',
+                 Passed: 'ok', Failed: 'err', Withdrawn: '', Active: 'ok', Alumni: '', Inactive: '' }[status] || '';
+  return h('span', { class: 'pill ' + kind, text: status || 'Draft' });
+}
+function field(label, input, opts) {
+  opts = opts || {};
+  return h('div', { class: 'field' + (opts.full ? ' full' : '') }, h('label', { for: input.id, text: label }), input, opts.hint ? h('p', { class: 'hint', text: opts.hint }) : null);
+}
+function select(id, options, value, extra) {
+  return h('select', Object.assign({ id: id }, extra || {}), options.map(o => {
+    const [v, t] = Array.isArray(o) ? o : [o, o];
+    return h('option', { value: v, selected: v === value, text: t });
+  }));
+}
+function sectionSelect(id, withAll) {
+  const opts = Object.entries(BOOT.sections).map(([k, v]) => [k, v]);
+  return select(id, withAll ? [['', 'All sections']].concat(opts) : [['', 'Choose a section']].concat(opts), '', withAll ? {} : { required: true });
+}
+function termSelect(id, value, withAll) {
+  const opts = BOOT.terms.map(t => [t, t]);
+  return select(id, withAll ? [['', 'All terms']].concat(opts) : opts, value === undefined ? BOOT.currentTerm : value);
+}
+function formData(form) {
+  const o = {};
+  form.querySelectorAll('input,select,textarea').forEach(el => { if (el.dataset.key) o[el.dataset.key] = el.type === 'checkbox' ? el.checked : el.value; });
+  return o;
+}
+function keyed(el, key) { el.dataset.key = key; return el; }
+
+/* Shrink photos in the browser before upload, so phone pictures go up quickly. */
+async function prepFile(file, maxSide) {
+  if (/^image\//.test(file.type) && file.type !== 'image/gif') {
+    try {
+      const bmp = await createImageBitmap(file, { imageOrientation: 'from-image' });
+      const s = Math.min(1, maxSide / Math.max(bmp.width, bmp.height));
+      const c = document.createElement('canvas'); c.width = Math.round(bmp.width * s); c.height = Math.round(bmp.height * s);
+      c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+      return { name: file.name, type: 'image/jpeg', data: c.toDataURL('image/jpeg', 0.85) };
+    } catch (_) { /* the browser can't decode it (for example HEIC on Chrome); send the original */ }
+  }
+  if (file.size > 10 * 1024 * 1024) throw new Error(file.name + ' is over 10 MB.');
+  const data = await new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = () => rej(new Error('Could not read ' + file.name)); r.readAsDataURL(file); });
+  return { name: file.name, type: file.type || 'application/octet-stream', data };
+}
+
+/* ---------- sign-in ---------- */
+let pendingEmail = '';
+function showSignin(msg) {
+  $('#app').hidden = true; $('#signin').hidden = false;
+  $('#emailForm').hidden = false; $('#codeForm').hidden = true;
+  const st = $('#signinStatus'); st.textContent = msg || ''; st.className = 'status' + (msg ? ' err' : '');
+}
+$('#emailForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button'); btn.disabled = true;
+  pendingEmail = $('#si-email').value.trim();
+  try {
+    const r = await call('requestCode', pendingEmail);
+    $('#emailForm').hidden = true; $('#codeForm').hidden = false; $('#signinStatus').textContent = '';
+    $('#codeHint').textContent = r.message; $('#si-code').value = ''; $('#si-code').focus();
+  } catch (err) { say($('#signinStatus'), err.message); }
+  btn.disabled = false;
+});
+$('#codeForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button'); btn.disabled = true;
+  try { const r = await call('verifyCode', pendingEmail, $('#si-code').value); setToken(r.token); start(r.boot); }
+  catch (err) { say($('#signinStatus'), err.message); }
+  btn.disabled = false;
+});
+$('#useOther').addEventListener('click', () => showSignin(''));
+$('#signOut').addEventListener('click', async () => { try { await call('signOut', TOKEN); } catch (_) {} setToken(null); showSignin('You signed out.'); });
+
+/* ---------- app shell ---------- */
+const TABS = [
+  ['overview', 'Overview'], ['events', 'Events'], ['funds', 'Funds'], ['members', 'Members'],
+  ['amendments', 'Amendments'], ['newsletter', 'Newsletter', true]
+];
+let current = 'overview';
+function start(boot) {
+  BOOT = boot;
+  $('#signin').hidden = true; $('#app').hidden = false;
+  $('#who').textContent = (boot.user.name ? boot.user.name + ' · ' : '') + (boot.user.role === 'Inc' ? 'The Inc.' : boot.user.sectionName + ' officer');
+  $('#signOut').setAttribute('aria-label', 'Sign out ' + (boot.user.name || boot.user.email)); $('#signOut').title = $('#who').textContent;
+  const tabs = $('#tabs'); tabs.replaceChildren();
+  TABS.filter(t => !t[2] || isInc()).forEach(([id, label]) => tabs.append(h('button', { type: 'button', 'data-tab': id, 'aria-current': id === current ? 'page' : 'false', onclick: () => go(id), text: label })));
+  go(current);
+}
+function go(id) {
+  current = id;
+  document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-current', b.dataset.tab === id ? 'page' : 'false'));
+  const view = $('#view'); view.replaceChildren(h('p', { class: 'muted', text: 'Loading…' }));
+  VIEWS[id](view).catch(err => view.replaceChildren(h('div', { class: 'card' }, h('p', { class: 'status err', text: err.message }))));
+}
+
+/* ---------- Overview ---------- */
+const VIEWS = {};
+VIEWS.overview = async function (view, term) {
+  const d = await api('getDashboard', term || BOOT.currentTerm);
+  const ts = termSelect('ov-term', d.term); ts.addEventListener('change', () => VIEWS.overview(view, ts.value));
+  const statKeys = [['roster', 'On the roster'], ['newMembers', 'New members'], ['events', 'Events reported'], ['attendees', 'Attendees'],
+                    ['serviceHours', 'Service hours'], ['fundsRequested', 'Funds requested', money], ['fundsApproved', 'Funds approved', money], ['fundsPaid', 'Funds paid', money]];
+  const tiles = src => h('div', { class: 'tiles' }, statKeys.map(([k, label, f]) => h('div', { class: 'tile' }, h('b', { text: (f || num)(src[k]) }), h('span', { text: label }))));
+  const maxAtt = Math.max(1, ...d.trend.flatMap(r => d.sections.map(s => r[s.section] || 0)));
+  view.replaceChildren(h('div', { class: 'stack' },
+    h('div', { class: 'spread' }, h('h1', { text: 'Overview' }), h('div', { class: 'row' }, h('label', { for: 'ov-term', text: 'Term' }), ts)),
+    d.todo.length ? h('div', { class: 'card' }, h('h2', { text: 'Needs attention' }), h('ul', { class: 'todo' }, d.todo.map(t => h('li', { text: t })))) : null,
+    d.sections.length > 1 ? h('div', { class: 'card' }, h('h2', { text: 'All sections, ' + d.term }), tiles(d.total)) : null,
+    ...d.sections.map(s => h('div', { class: 'card' }, h('div', { class: 'spread' }, h('h2', { text: s.name }), h('span', { class: 'muted small', text: num(s.activeMembers) + ' active · ' + num(s.alumni) + ' alumni in the directory' })), tiles(s))),
+    h('div', { class: 'card' }, h('h2', { text: 'Attendance and roster size by term' }),
+      h('div', { class: 'table-wrap' }, h('table', {},
+        h('thead', {}, h('tr', {}, h('th', { text: 'Term' }), d.sections.flatMap(s => [h('th', { class: 'n', text: s.name + ' attendees' }), h('th', { text: '' }), h('th', { class: 'n', text: 'Roster' })]))),
+        h('tbody', {}, d.trend.map(r => h('tr', {}, h('td', { text: r.term }),
+          d.sections.flatMap(s => [h('td', { class: 'n', text: num(r[s.section]) }),
+                                   h('td', { style: 'width:120px' }, h('div', { class: 'bar', style: 'width:' + Math.round(100 * (r[s.section] || 0) / maxAtt) + '%' })),
+                                   h('td', { class: 'n', text: num(r[s.section + '_roster']) })])))))))
+  ));
+};
+
+/* ---------- Events ---------- */
+VIEWS.events = async function (view) {
+  const list = await api('listEvents', {});
+  const formCard = h('div', { class: 'card', hidden: true });
+  const toggle = h('button', { class: 'btn', type: 'button', text: 'Report an event', onclick: () => { formCard.hidden = !formCard.hidden; if (!formCard.hidden) formCard.querySelector('input,select').focus(); } });
+  formCard.append(eventForm(() => go('events')));
+  view.replaceChildren(h('div', { class: 'stack' },
+    h('div', { class: 'spread' }, h('div', {}, h('h1', { text: 'Events' }), h('p', { class: 'muted', text: 'Report each event after it happens: details, attendance, a summary for the newsletter, and at least ' + BOOT.minPhotos + ' photos.' })), toggle),
+    formCard,
+    list.length ? h('div', { class: 'list' }, list.map(eventItem)) : h('div', { class: 'card' }, h('p', { class: 'muted', text: 'No event reports yet. Use "Report an event" after your next event.' }))
+  ));
+};
+function eventForm(done) {
+  const photos = h('input', { id: 'ev-photos', type: 'file', accept: 'image/*', multiple: true, required: true });
+  const thumbs = h('div', { class: 'thumbs', 'aria-live': 'polite' });
+  const count = h('p', { class: 'hint', text: 'Choose at least ' + BOOT.minPhotos + ' photos (up to ' + BOOT.maxPhotos + ').' });
+  photos.addEventListener('change', () => {
+    thumbs.replaceChildren(...[...photos.files].slice(0, BOOT.maxPhotos).map(f => h('img', { src: URL.createObjectURL(f), alt: '' })));
+    const n = photos.files.length;
+    count.textContent = n + ' photo' + (n === 1 ? '' : 's') + ' chosen' + (n < BOOT.minPhotos ? ', ' + (BOOT.minPhotos - n) + ' more needed.' : n > BOOT.maxPhotos ? '. Only the first ' + BOOT.maxPhotos + ' will upload.' : '.');
+  });
+  const minors = keyed(select('ev-minors', [['', 'Choose'], ['No', 'No'], ['Yes', 'Yes']], '', { required: true }), 'minors_in_photos');
+  const consent = keyed(select('ev-consent', [['', 'Choose'], ['Yes', 'Yes, written consent is on file'], ['No', 'No']], ''), 'parent_consent');
+  const consentField = field('Parent consent for every minor shown', consent); consentField.hidden = true;
+  minors.addEventListener('change', () => { consentField.hidden = minors.value !== 'Yes'; consent.required = minors.value === 'Yes'; });
+  const status = h('p', { class: 'status', role: 'status' });
+  const submit = h('button', { class: 'btn', type: 'submit', text: 'Submit report' });
+  const form = h('form', {},
+    isInc() ? field('Section', keyed(sectionSelect('ev-section'), 'section')) : null,
+    field('Date of event', keyed(h('input', { id: 'ev-date', type: 'date', required: true, max: today() }), 'event_date')),
+    field('Title of event', keyed(h('input', { id: 'ev-title', required: true, maxlength: 120 }), 'title')),
+    field('Event type', keyed(select('ev-type', [['', 'Choose']].concat(BOOT.eventTypes), '', { required: true }), 'event_type')),
+    field('Location', keyed(h('input', { id: 'ev-loc', maxlength: 160 }), 'location')),
+    field('Number of attendees', keyed(h('input', { id: 'ev-att', type: 'number', min: 0, step: 1, required: true, inputmode: 'numeric' }), 'attendees')),
+    field('Service hours (optional)', keyed(h('input', { id: 'ev-hours', type: 'number', min: 0, step: 0.5 }), 'service_hours'), { hint: 'Total hours for community service events.' }),
+    field('Description', keyed(h('textarea', { id: 'ev-desc', required: true, maxlength: 4000 }), 'description'), { full: true, hint: 'What happened, who it served, and how it went.' }),
+    field('Summary for the newsletter', keyed(h('textarea', { id: 'ev-news', required: true, maxlength: 800 }), 'newsletter_summary'), { full: true, hint: 'Two to four sentences The Inc. can publish as written.' }),
+    h('div', { class: 'field full' }, h('label', { for: 'ev-photos', text: 'Photos' }), photos, count, thumbs),
+    field('Do any photos show minors (Jr. SMOOTH youth)?', minors),
+    consentField,
+    h('div', { class: 'form-foot' }, submit, status)
+  );
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const files = [...photos.files].slice(0, BOOT.maxPhotos);
+    if (files.length < BOOT.minPhotos) { say(status, 'Add at least ' + BOOT.minPhotos + ' photos.'); photos.focus(); return; }
+    submit.disabled = true;
+    try {
+      say(status, 'Saving the report…', true);
+      const { event_id } = await api('createEvent', formData(form));
+      await uploadAll(files, f => api('uploadEventPhoto', event_id, f), (i, n) => say(status, 'Uploading photo ' + i + ' of ' + n + '…', true), 1600);
+      const r = await api('finishEvent', event_id);
+      say(status, r.message, r.ok);
+      if (r.ok) setTimeout(done, 1200);
+    } catch (err) { say(status, err.message); }
+    submit.disabled = false;
+  });
+  return h('div', { class: 'stack' }, h('h2', { text: 'Report an event' }), form);
+}
+async function uploadAll(files, send, progress, maxSide) {
+  for (let i = 0; i < files.length; i++) {
+    progress(i + 1, files.length);
+    await send(await prepFile(files[i], maxSide));
+  }
+}
+function eventItem(e) {
+  const kids = [
+    h('div', { class: 'spread' }, h('h3', { text: e.title }), pill(e.status)),
+    h('p', { class: 'meta', text: [secName(e.section), fmtDate(e.event_date), e.event_type, num(e.attendees) + ' attendees', e.service_hours ? e.service_hours + ' service hours' : '', e.photo_count + ' photos'].filter(Boolean).join(' · ') }),
+    h('p', { class: 'body', text: e.description }),
+    h('details', {}, h('summary', { text: 'Newsletter summary' }), h('blockquote', { text: e.newsletter_summary })),
+    e.inc_notes ? h('p', { class: 'small' }, h('b', { text: 'Note from The Inc.: ' }), e.inc_notes) : null,
+    e.newsletter_issue ? h('p', { class: 'small muted', text: 'In newsletter: ' + e.newsletter_issue }) : null
+  ];
+  if (['Incomplete', 'Needs changes', 'Uploading'].includes(e.status) && (e.mine || isInc())) kids.push(addPhotos(e));
+  if (isInc()) {
+    const note = h('input', { id: 'note-' + e.event_id, placeholder: 'Note to the section (required for "Needs changes")', maxlength: 1000 });
+    const st = h('p', { class: 'status', role: 'status' });
+    const act = s => async () => { try { await api('reviewEvent', e.event_id, s, note.value); go('events'); } catch (err) { say(st, err.message); } };
+    kids.push(h('div', { class: 'row' },
+      e.photo_folder ? h('a', { href: e.photo_folder, target: '_blank', rel: 'noopener', text: 'Open photos in Drive' }) : null,
+      e.status === 'Submitted' || e.status === 'Needs changes' ? [
+        h('label', { class: 'sr-only', for: note.id, text: 'Review note' }), note,
+        h('button', { class: 'btn', type: 'button', onclick: act('Reviewed'), text: 'Mark reviewed' }),
+        h('button', { class: 'btn quiet', type: 'button', onclick: act('Needs changes'), text: 'Needs changes' })] : null), st);
+  }
+  return h('article', { class: 'item' }, kids);
+}
+function addPhotos(e) {
+  const input = h('input', { id: 'add-' + e.event_id, type: 'file', accept: 'image/*', multiple: true });
+  const st = h('p', { class: 'status', role: 'status' });
+  const btn = h('button', { class: 'btn', type: 'button', text: 'Upload and finish', onclick: async () => {
+    if (!input.files.length) { say(st, 'Choose photos first.'); return; }
+    btn.disabled = true;
+    try {
+      await uploadAll([...input.files], f => api('uploadEventPhoto', e.event_id, f), (i, n) => say(st, 'Uploading photo ' + i + ' of ' + n + '…', true), 1600);
+      const r = await api('finishEvent', e.event_id); say(st, r.message, r.ok); if (r.ok) setTimeout(() => go('events'), 1200);
+    } catch (err) { say(st, err.message); }
+    btn.disabled = false;
+  } });
+  return h('div', { class: 'row' }, h('label', { for: input.id, text: 'Add photos (' + e.photo_count + ' of ' + BOOT.minPhotos + ' so far)' }), input, btn, st);
+}
+
+/* ---------- Funds ---------- */
+VIEWS.funds = async function (view) {
+  const list = await api('listFunds', {});
+  const formCard = h('div', { class: 'card', hidden: true }, fundsForm(() => go('funds')));
+  view.replaceChildren(h('div', { class: 'stack' },
+    h('div', { class: 'spread' }, h('div', {}, h('h1', { text: 'Funds' }), h('p', { class: 'muted', text: 'Request money from The Inc. for section events and programs. Attach quotes or receipts if you have them.' })),
+      h('button', { class: 'btn', type: 'button', text: 'Request funds', onclick: () => { formCard.hidden = !formCard.hidden; } })),
+    formCard,
+    list.length ? h('div', { class: 'list' }, list.map(fundsItem)) : h('div', { class: 'card' }, h('p', { class: 'muted', text: 'No funds requests yet.' }))
+  ));
+};
+function fundsForm(done) {
+  const files = h('input', { id: 'fu-files', type: 'file', accept: 'image/*,application/pdf', multiple: true });
+  const status = h('p', { class: 'status', role: 'status' });
+  const submit = h('button', { class: 'btn', type: 'submit', text: 'Send request' });
+  const form = h('form', {},
+    isInc() ? field('Section', keyed(sectionSelect('fu-section'), 'section')) : null,
+    field('What the money is for', keyed(h('input', { id: 'fu-purpose', required: true, maxlength: 160 }), 'purpose')),
+    field('Event (if any)', keyed(h('input', { id: 'fu-event', maxlength: 160 }), 'event_name')),
+    field('Amount requested (USD)', keyed(h('input', { id: 'fu-amount', type: 'number', min: 0.01, step: 0.01, required: true, inputmode: 'decimal' }), 'amount')),
+    field('Date needed by', keyed(h('input', { id: 'fu-needed', type: 'date', required: true, min: today() }), 'needed_by')),
+    field('Who gets paid', keyed(h('input', { id: 'fu-payee', required: true, maxlength: 160 }), 'payee'), { hint: 'A vendor, venue, or the person to reimburse.' }),
+    field('Cost breakdown', keyed(h('textarea', { id: 'fu-breakdown', required: true, maxlength: 3000 }), 'breakdown'), { full: true, hint: 'One line per item with its cost.' }),
+    field('Quotes or receipts (optional)', files, { full: true, hint: 'Photos or PDFs, 10 MB each at most.' }),
+    h('div', { class: 'form-foot' }, submit, status)
+  );
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); submit.disabled = true;
+    try {
+      say(status, 'Saving…', true);
+      const { request_id } = await api('createFundsRequest', formData(form));
+      await uploadAll([...files.files].slice(0, 10), f => api('uploadFundsFile', request_id, f), (i, n) => say(status, 'Uploading file ' + i + ' of ' + n + '…', true), 2000);
+      await api('submitFundsRequest', request_id);
+      say(status, 'Request sent. The Inc. will email you when it decides.', true); setTimeout(done, 1200);
+    } catch (err) { say(status, err.message); }
+    submit.disabled = false;
+  });
+  return h('div', { class: 'stack' }, h('h2', { text: 'Request funds' }), form);
+}
+function fundsItem(r) {
+  const kids = [
+    h('div', { class: 'spread' }, h('h3', { text: r.purpose + ' · ' + money(r.amount) }), pill(r.status)),
+    h('p', { class: 'meta', text: [secName(r.section), r.event_name, 'needed by ' + fmtDate(r.needed_by), 'pay ' + r.payee, r.file_count + ' file' + (r.file_count == 1 ? '' : 's')].filter(Boolean).join(' · ') }),
+    h('p', { class: 'body', text: r.breakdown }),
+    (r.status === 'Approved' || r.status === 'Paid') ? h('p', { class: 'small', text: 'Approved: ' + money(r.approved_amount) + (r.paid_date ? ' · paid ' + fmtDate(r.paid_date) : '') }) : null,
+    r.inc_notes ? h('p', { class: 'small' }, h('b', { text: 'Note from The Inc.: ' }), r.inc_notes) : null
+  ];
+  if (isInc() && r.status !== 'Denied' && r.status !== 'Paid') {
+    const st = h('p', { class: 'status', role: 'status' });
+    const amt = h('input', { id: 'amt-' + r.request_id, type: 'number', min: 0.01, step: 0.01, value: r.approved_amount || r.amount, style: 'max-width:140px' });
+    const note = h('input', { id: 'fnote-' + r.request_id, placeholder: 'Note (required to deny)', maxlength: 1000 });
+    const paid = h('input', { id: 'paid-' + r.request_id, type: 'date', value: today(), style: 'max-width:170px' });
+    const act = (status, extra) => async () => { try { await api('decideFunds', r.request_id, Object.assign({ status, note: note.value }, extra || {})); go('funds'); } catch (err) { say(st, err.message); } };
+    kids.push(h('div', { class: 'row' },
+      r.file_folder ? h('a', { href: r.file_folder, target: '_blank', rel: 'noopener', text: 'Open files in Drive' }) : null,
+      h('label', { class: 'sr-only', for: note.id, text: 'Decision note' }), note,
+      r.status === 'Pending' ? [h('label', { for: amt.id, text: 'Approve' }), amt,
+        h('button', { class: 'btn', type: 'button', text: 'Approve', onclick: () => act('Approved', { approved_amount: amt.value })() }),
+        h('button', { class: 'btn danger', type: 'button', text: 'Deny', onclick: act('Denied') })] : null,
+      r.status === 'Approved' ? [h('label', { for: paid.id, text: 'Paid on' }), paid, h('button', { class: 'btn', type: 'button', text: 'Mark paid', onclick: () => act('Paid', { paid_date: paid.value })() })] : null
+    ), st);
+  }
+  return h('article', { class: 'item' }, kids);
+}
+
+/* ---------- Members ---------- */
+VIEWS.members = async function (view) {
+  const sub = h('div', { class: 'stack' });
+  const pick = h('nav', { class: 'tabs', 'aria-label': 'Member tools' });
+  const subs = [['directory', 'Directory'], ['add', 'Add a new member'], ['roster', 'Semester roster']];
+  const show = id => { pick.querySelectorAll('button').forEach(b => b.setAttribute('aria-current', b.dataset.sub === id ? 'page' : 'false')); MEMBER_VIEWS[id](sub).catch(err => sub.replaceChildren(h('p', { class: 'status err', text: err.message }))); };
+  subs.forEach(([id, label]) => pick.append(h('button', { type: 'button', 'data-sub': id, onclick: () => show(id), text: label })));
+  view.replaceChildren(h('div', { class: 'stack' }, h('h1', { text: 'Members' }), pick, sub));
+  show('directory');
+};
+const MEMBER_VIEWS = {};
+MEMBER_VIEWS.directory = async function (box, f) {
+  f = f || {};
+  const rows = await api('listMembers', f);
+  const sec = sectionSelect('md-section', true); sec.value = f.section || '';
+  const st = select('md-status', [['', 'Any status']].concat(BOOT.memberStatuses), f.status || '');
+  const term = termSelect('md-term', f.term || '', true);
+  const q = h('input', { id: 'md-q', type: 'search', placeholder: 'Name, email, or position', value: f.q || '' });
+  const apply = () => MEMBER_VIEWS.directory(box, { section: isInc() ? sec.value : '', status: st.value, term: term.value, q: q.value });
+  [sec, st, term].forEach(el => el.addEventListener('change', apply));
+  q.addEventListener('keydown', e => { if (e.key === 'Enter') apply(); });
+  const out = h('p', { class: 'status', role: 'status' });
+  const exportBtn = isInc() ? h('button', { class: 'btn quiet', type: 'button', text: 'Export CSV', onclick: async () => {
+    try { const r = await api('exportMembers', { section: sec.value, status: st.value, term: term.value, q: q.value }); out.replaceChildren('Saved ' + r.rows + ' rows to ', h('a', { href: r.url, target: '_blank', rel: 'noopener', text: r.name })); out.className = 'status ok'; }
+    catch (err) { say(out, err.message); } } }) : null;
+  const counts = {}; rows.forEach(m => { counts[m.section] = (counts[m.section] || 0) + 1; });
+  box.replaceChildren(h('div', { class: 'card' },
+    h('div', { class: 'row' }, isInc() ? field('Section', sec) : null, field('Status', st), field('On the roster in', term), field('Search', q)),
+    h('div', { class: 'spread' }, h('p', { class: 'muted', text: rows.length + ' member' + (rows.length === 1 ? '' : 's') + (Object.keys(counts).length > 1 ? ' · ' + Object.entries(counts).map(([k, n]) => secName(k) + ' ' + n).join(' · ') : '') }), exportBtn), out,
+    h('div', { class: 'table-wrap' }, h('table', {},
+      h('thead', {}, h('tr', {}, ['Name', 'Section', 'Position', 'Email', 'Phone', 'Joined', 'Grad', 'Status'].map(t => h('th', { text: t })), isInc() ? h('th', { text: 'Check' }) : null)),
+      h('tbody', {}, rows.map(m => h('tr', {},
+        h('td', { class: 'nowrap', text: m.first_name + ' ' + m.last_name }), h('td', { text: secName(m.section) }), h('td', { text: m.position }),
+        h('td', { text: m.email }), h('td', { text: m.phone }), h('td', { text: m.term_joined || m.year_joined }), h('td', { text: m.grad_year }),
+        h('td', {}, isInc() ? memberStatus(m) : pill(m.status)),
+        isInc() ? h('td', {}, m.review_flag ? h('button', { class: 'btn quiet', type: 'button', title: m.review_flag, text: 'Clear flag', onclick: async () => { await api('updateMember', m.member_id, { review_flag: '' }); apply(); } }) : '') : null))))))
+  );
+};
+function memberStatus(m) {
+  const s = select('ms-' + m.member_id, BOOT.memberStatuses, m.status, { 'aria-label': 'Status for ' + m.first_name + ' ' + m.last_name });
+  s.addEventListener('change', async () => { try { await api('updateMember', m.member_id, { status: s.value }); } catch (err) { alertInline(s, err.message); } });
+  return s;
+}
+function alertInline(el, msg) { el.after(h('span', { class: 'status err small', text: ' ' + msg })); }
+MEMBER_VIEWS.add = async function (box) {
+  const status = h('p', { class: 'status', role: 'status' });
+  const submit = h('button', { class: 'btn', type: 'submit', text: 'Add member' });
+  const form = h('form', {},
+    isInc() ? field('Section', keyed(sectionSelect('nm-section'), 'section')) : null,
+    field('First name', keyed(h('input', { id: 'nm-first', required: true, autocomplete: 'off', maxlength: 60 }), 'first_name')),
+    field('Last name', keyed(h('input', { id: 'nm-last', required: true, autocomplete: 'off', maxlength: 60 }), 'last_name')),
+    field('Email', keyed(h('input', { id: 'nm-email', type: 'email', required: true, autocomplete: 'off' }), 'email'), { hint: 'A personal email he will keep after graduation, if he has one.' }),
+    field('Phone', keyed(h('input', { id: 'nm-phone', type: 'tel', required: true, autocomplete: 'off' }), 'phone')),
+    field('Position (optional)', keyed(h('input', { id: 'nm-pos', maxlength: 80 }), 'position')),
+    field('Expected graduation year', keyed(h('input', { id: 'nm-grad', type: 'number', min: 2009, max: new Date().getFullYear() + 8, inputmode: 'numeric' }), 'grad_year')),
+    h('p', { class: 'hint full', style: 'grid-column:1/-1', text: 'New members go straight into the directory and onto the ' + BOOT.currentTerm + ' roster as new. Only The Inc. and your section officers can see their contact details.' }),
+    h('div', { class: 'form-foot' }, submit, status));
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); submit.disabled = true;
+    try { const r = await api('addMember', formData(form)); say(status, r.message, true); form.reset(); form.querySelector('input').focus(); }
+    catch (err) { say(status, err.message); }
+    submit.disabled = false;
+  });
+  box.replaceChildren(h('div', { class: 'card' }, h('h2', { text: 'Add a new member' }), form));
+};
+MEMBER_VIEWS.roster = async function (box, section, term) {
+  section = isInc() ? (section || Object.keys(BOOT.sections)[0]) : BOOT.user.section;
+  const r = await api('getRoster', section, term || BOOT.currentTerm);
+  const sec = sectionSelect('ro-section'); sec.value = section; sec.required = false;
+  const ts = termSelect('ro-term', r.term);
+  const reload = () => MEMBER_VIEWS.roster(box, sec.value, ts.value);
+  sec.addEventListener('change', reload); ts.addEventListener('change', reload);
+  const status = h('p', { class: 'status', role: 'status' });
+  const rows = r.people.map(p => {
+    const back = h('input', { type: 'checkbox', id: 'rb-' + p.member_id, checked: !!p.standing, disabled: !!p.standing });
+    const pos = h('input', { id: 'rp-' + p.member_id, value: p.position, maxlength: 80, 'aria-label': 'Position for ' + p.name });
+    return { p, back, pos, tr: h('tr', {}, h('td', {}, back), h('td', { class: 'nowrap' }, h('label', { for: back.id, text: p.name })), h('td', {}, p.standing ? pill(p.standing) : h('span', { class: 'muted small', text: 'Not yet' })), h('td', {}, pos), h('td', { text: p.email }), h('td', { text: p.phone })) };
+  });
+  const save = h('button', { class: 'btn', type: 'button', text: 'Save roster', onclick: async () => {
+    save.disabled = true;
+    try { const res = await api('confirmRoster', section, r.term, rows.map(x => ({ member_id: x.p.member_id, returning: x.back.checked, position: x.pos.value }))); say(status, res.message, true); setTimeout(reload, 1000); }
+    catch (err) { say(status, err.message); }
+    save.disabled = false;
+  } });
+  box.replaceChildren(h('div', { class: 'card' },
+    h('div', { class: 'spread' }, h('h2', { text: secName(section) + ' roster, ' + r.term }), h('div', { class: 'row' }, isInc() ? sec : null, ts)),
+    h('p', { class: 'muted', text: 'At the start of each semester, tick every brother who is back and update positions. Add new members under "Add a new member". ' + (r.confirmed ? 'This roster has been confirmed; you can still add people.' : '') }),
+    r.people.length ? h('div', { class: 'table-wrap' }, h('table', {}, h('thead', {}, h('tr', {}, ['Back', 'Name', 'This term', 'Position', 'Email', 'Phone'].map(t => h('th', { text: t })))), h('tbody', {}, rows.map(x => x.tr))))
+                    : h('p', { class: 'muted', text: 'No active members in the directory for this section yet.' }),
+    h('div', { class: 'row' }, save, status)));
+};
+
+/* ---------- Amendments ---------- */
+VIEWS.amendments = async function (view) {
+  const list = await api('listAmendments');
+  const formCard = h('div', { class: 'card', hidden: true }, amendmentForm(() => go('amendments')));
+  view.replaceChildren(h('div', { class: 'stack' },
+    h('div', { class: 'spread' }, h('div', {}, h('h1', { text: 'Amendments' }), h('p', { class: 'muted', text: 'Propose changes to the constitution and vote on them. The Inc. opens each vote.' })),
+      h('button', { class: 'btn', type: 'button', text: 'Propose an amendment', onclick: () => { formCard.hidden = !formCard.hidden; } })),
+    formCard,
+    list.length ? h('div', { class: 'list' }, list.map(amendmentItem)) : h('div', { class: 'card' }, h('p', { class: 'muted', text: 'No amendments have been proposed.' }))
+  ));
+};
+function amendmentForm(done) {
+  const status = h('p', { class: 'status', role: 'status' });
+  const submit = h('button', { class: 'btn', type: 'submit', text: 'Submit proposal' });
+  const form = h('form', {},
+    field('Title', keyed(h('input', { id: 'am-title', required: true, maxlength: 140 }), 'title'), { hint: 'For example: "Allow virtual section meetings".' }),
+    field('Article and section', keyed(h('input', { id: 'am-article', required: true, maxlength: 120 }), 'article'), { hint: 'For example: "Article IV, Section 2".' }),
+    field('Current wording (if changing existing text)', keyed(h('textarea', { id: 'am-current', maxlength: 6000 }), 'current_text'), { full: true }),
+    field('Proposed wording', keyed(h('textarea', { id: 'am-proposed', required: true, maxlength: 6000 }), 'proposed_text'), { full: true }),
+    field('Reason for the change', keyed(h('textarea', { id: 'am-why', required: true, maxlength: 3000 }), 'rationale'), { full: true }),
+    h('div', { class: 'form-foot' }, submit, status));
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); submit.disabled = true;
+    try { await api('proposeAmendment', formData(form)); say(status, 'Proposal submitted. The Inc. will open the vote.', true); setTimeout(done, 1200); }
+    catch (err) { say(status, err.message); }
+    submit.disabled = false;
+  });
+  return h('div', { class: 'stack' }, h('h2', { text: 'Propose an amendment' }), form);
+}
+function amendmentItem(a) {
+  const st = h('p', { class: 'status', role: 'status' });
+  const kids = [
+    h('div', { class: 'spread' }, h('h3', { text: a.amendment_id + ': ' + a.title }), pill(a.status)),
+    h('p', { class: 'meta', text: a.article + ' · proposed ' + fmtDate(a.proposed_at) + (a.vote_closes ? ' · voting ' + (a.status === 'Voting' ? 'closes ' : 'closed ') + fmtDate(a.vote_closes) : '') }),
+    a.current_text ? h('div', { class: 'stack', style: 'gap:6px' }, h('p', { class: 'lbl', text: 'Current wording' }), h('blockquote', { text: a.current_text })) : null,
+    h('div', { class: 'stack', style: 'gap:6px' }, h('p', { class: 'lbl', text: 'Proposed wording' }), h('blockquote', { text: a.proposed_text })),
+    h('details', {}, h('summary', { text: 'Reason for the change' }), h('p', { class: 'body', text: a.rationale })),
+    a.status === 'Voting' ? h('p', { class: 'small muted', text: a.turnout + ' of ' + a.eligible + ' eligible voters have voted.' + (a.yes !== '' ? ' Yes ' + a.yes + ', No ' + a.no + ', Abstain ' + a.abstain + '.' : ' Results show when voting closes.') }) : null,
+    a.result ? h('p', { class: 'small' }, h('b', { text: 'Result: ' }), a.result) : null,
+    a.my_vote ? h('p', { class: 'small', text: 'You voted: ' + a.my_vote }) : null
+  ];
+  if (a.can_vote) {
+    const choice = h('div', { class: 'row', role: 'group', 'aria-label': 'Your vote' });
+    const confirmRow = h('div', { class: 'row', hidden: true });
+    let picked = '';
+    ['Yes', 'No', 'Abstain'].forEach(c => choice.append(h('button', { class: 'btn quiet', type: 'button', text: c, onclick: () => {
+      picked = c; confirmRow.hidden = false;
+      confirmRow.querySelector('span').textContent = 'Vote "' + c + '"? You can\'t change it afterwards.';
+    } })));
+    confirmRow.append(h('span', { class: 'small' }), h('button', { class: 'btn', type: 'button', text: 'Cast my vote', onclick: async () => {
+      try { const r = await api('castVote', a.amendment_id, picked); say(st, r.message, true); setTimeout(() => go('amendments'), 1000); } catch (err) { say(st, err.message); }
+    } }), h('button', { class: 'btn quiet', type: 'button', text: 'Cancel', onclick: () => { confirmRow.hidden = true; } }));
+    kids.push(h('p', { class: 'lbl', text: 'Your vote' }), choice, confirmRow);
+  }
+  const act = (fn, msg) => async () => { try { await api(fn, a.amendment_id); say(st, msg, true); setTimeout(() => go('amendments'), 900); } catch (err) { say(st, err.message); } };
+  const tools = [];
+  if (isInc() && a.status === 'Proposed') tools.push(h('button', { class: 'btn', type: 'button', text: 'Open the vote', onclick: act('openVote', 'Vote opened. Eligible voters were emailed.') }));
+  if (isInc() && a.status === 'Voting') tools.push(h('button', { class: 'btn quiet', type: 'button', text: 'Close the vote now', onclick: act('closeVote', 'Vote closed.') }));
+  if (a.status === 'Proposed' && (isInc() || a.proposed_by === BOOT.user.email)) tools.push(h('button', { class: 'btn danger', type: 'button', text: 'Withdraw', onclick: act('withdrawAmendment', 'Withdrawn.') }));
+  if (tools.length) kids.push(h('div', { class: 'row' }, tools));
+  kids.push(st);
+  return h('article', { class: 'item' }, kids);
+}
+
+/* ---------- Newsletter (Inc) ---------- */
+VIEWS.newsletter = async function (view, term) {
+  term = term === undefined ? BOOT.currentTerm : term;
+  const list = await api('newsletterCandidates', term);
+  const ts = termSelect('nl-term', term, true); ts.addEventListener('change', () => VIEWS.newsletter(view, ts.value));
+  const title = h('input', { id: 'nl-title', value: (term || BOOT.currentTerm) + ' newsletter', maxlength: 100 });
+  const status = h('p', { class: 'status', role: 'status' });
+  const boxes = list.map(e => ({ e, cb: h('input', { type: 'checkbox', id: 'nl-' + e.event_id, checked: !e.newsletter_issue }) }));
+  const make = h('button', { class: 'btn', type: 'button', text: 'Create newsletter draft', onclick: async () => {
+    const ids = boxes.filter(b => b.cb.checked).map(b => b.e.event_id);
+    if (!ids.length) { say(status, 'Choose at least one event.'); return; }
+    make.disabled = true; say(status, 'Building the draft…', true);
+    try { const r = await api('createNewsletterDraft', title.value, ids); status.className = 'status ok'; status.replaceChildren('Draft ready with ' + r.count + ' events: ', h('a', { href: r.url, target: '_blank', rel: 'noopener', text: 'open it in Google Docs' })); }
+    catch (err) { say(status, err.message); }
+    make.disabled = false;
+  } });
+  view.replaceChildren(h('div', { class: 'stack' },
+    h('div', {}, h('h1', { text: 'Newsletter' }), h('p', { class: 'muted', text: 'Each section\'s reviewed event reports, with their newsletter summaries. Pick the ones to include and create a Google Doc draft with one photo per event.' })),
+    h('div', { class: 'card' },
+      h('div', { class: 'row' }, field('Term', ts), field('Issue title', title)),
+      list.length ? h('div', { class: 'list' }, boxes.map(({ e, cb }) => h('div', { class: 'item' },
+        h('div', { class: 'row' }, cb, h('label', { for: cb.id }, h('b', { text: e.title }), ' · ' + secName(e.section) + ' · ' + fmtDate(e.event_date) + ' · ' + num(e.attendees) + ' attendees')),
+        h('blockquote', { text: e.newsletter_summary }),
+        e.newsletter_issue ? h('p', { class: 'small muted', text: 'Already used in: ' + e.newsletter_issue }) : null)))
+        : h('p', { class: 'muted', text: 'No reviewed event reports for this term yet. Review reports under Events first.' }),
+      h('div', { class: 'row' }, make, status))
+  ));
+};
+
+/* ---------- boot ---------- */
+if (TOKEN) { call('whoami', TOKEN).then(start).catch(() => showSignin('')); } else { showSignin(''); }
+</script>
+</body>
+</html>
