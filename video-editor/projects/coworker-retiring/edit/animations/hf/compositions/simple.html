@@ -1,0 +1,29 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: transparent; font-family: 'Inter', sans-serif; }
+    .scrim { display: none; }
+    .glass { position: absolute; left: 96px; right: 120px; top: 410px; border-radius: 36px; padding: 30px 36px;
+              background: linear-gradient(160deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.05) 40%, rgba(22,25,32,0.55) 100%), rgba(22,25,32,0.52);
+              border: 1.5px solid rgba(255,255,255,0.22); box-shadow: 0 24px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.35);
+              backdrop-filter: blur(26px) saturate(150%); -webkit-backdrop-filter: blur(26px) saturate(150%); color: #fff; }
+    .kicker { font-weight: 700; font-size: 28px; letter-spacing: 0.14em; text-transform: uppercase; color: #86D1A8; }
+    .title { font-weight: 700; font-size: 50px; letter-spacing: -0.025em; line-height: 1.12; margin-top: 10px; }
+    .sub { font-weight: 400; font-size: 34px; color: rgba(255,255,255,0.82); margin-top: 10px; line-height: 1.25; }
+    .note { font-weight: 400; font-size: 28px; color: rgba(255,255,255,0.62); margin-top: 16px; letter-spacing: 0.02em; }
+    .tile { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); border-radius: 26px; }
+    .glass { text-align: center; padding: 34px 30px; } .big { font-weight: 700; font-size: 58px; letter-spacing: -0.03em; } .big b { color: #86D1A8; }
+  </style>
+  <div id="root" data-composition-id="simple" data-width="1080" data-height="1920">
+    <div class="scrim"></div>
+    <div class="glass"><div class="big" id="sb">It&rsquo;s really <b>that simple.</b></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(".scrim", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 0);
+    tl.fromTo(".glass", { opacity: 0, y: 48, scale: 0.97, filter: "blur(8px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, 0.02);
+    tl.to(".glass", { opacity: 0, y: 26, filter: "blur(6px)", duration: 0.28, ease: "power2.in" }, 2.130);
+    tl.to(".scrim", { opacity: 0, duration: 0.3, ease: "power2.in" }, 2.150);
+    tl.fromTo("#sb", { opacity: 0, x: 0, y: 10, filter: "blur(6px)" }, { opacity: 1, x: 0, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power4.out" }, 0.150);
+    window.__timelines["simple"] = tl;
+  </script>
+</template>

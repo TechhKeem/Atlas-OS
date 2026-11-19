@@ -1,0 +1,10 @@
+/workspace/Atlas-OS/video-editor/projects/coworker-retiring/edit/animations/hf/.hyperframes/artifacts/snapshots/b9cff24c-080f-46bc-99f7-0d1dd952726e/frame-00-at-2.5s.png
+/workspace/Atlas-OS/video-editor/projects/coworker-retiring/edit/animations/hf/.hyperframes/artifacts/snapshots/b9cff24c-080f-46bc-99f7-0d1dd952726e/frame-01-at-8.4s.png
+/workspace/Atlas-OS/video-editor/projects/coworker-retiring/edit/animations/hf/.hyperframes/artifacts/snapshots/b9cff24c-080f-46bc-99f7-0d1dd952726e/frame-02-at-17.5s.png
+/workspace/Atlas-OS/video-editor/projects/coworker-retiring/edit/animations/hf/.hyperframes/artifacts/snapshots/b9cff24c-080f-46bc-99f7-0d1dd952726e/frame-03-at-23.9s.png
+/workspace/Atlas-OS/video-editor/projects/coworker-retiring/edit/animations/hf/.hyperframes/artifacts/snapshots/b9cff24c-080f-46bc-99f7-0d1dd952726e/frame-04-at-26.2s.png
+/workspace/Atlas-OS/video-editor/projects/coworker-retiring/edit/animations/hf/.hyperframes/artifacts/snapshots/b9cff24c-080f-46bc-99f7-0d1dd952726e/frame-05-at-29.5s.png
+/workspace/Atlas-OS/video-editor/projects/coworker-retiring/edit/animations/hf/.hyperframes/artifacts/snapshots/b9cff24c-080f-46bc-99f7-0d1dd952726e/frame-06-at-33s.png
+/workspace/Atlas-OS/video-editor/projects/coworker-retiring/edit/animations/hf/.hyperframes/artifacts/snapshots/b9cff24c-080f-46bc-99f7-0d1dd952726e/frame-07-at-38.5s.png
+/workspace/Atlas-OS/video-editor/projects/coworker-retiring/edit/animations/hf/.hyperframes/artifacts/snapshots/b9cff24c-080f-46bc-99f7-0d1dd952726e/frame-08-at-44.5s.png
+/workspace/Atlas-OS/video-editor/projects/coworker-retiring/edit/animations/hf/.hyperframes/artifacts/snapshots/b9cff24c-080f-46bc-99f7-0d1dd952726e/frame-09-at-46.5s.png

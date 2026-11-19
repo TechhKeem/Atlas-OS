@@ -1,0 +1,30 @@
+{
+ "version": 1,
+ "sources": {
+  "A": "/workspace/Atlas-OS/video-editor/projects/coworker-retiring/coworker_retiring.mp4"
+ },
+ "ranges": [
+  {
+   "source": "A",
+   "start": 0,
+   "end": 3.36
+  },
+  {
+   "source": "A",
+   "start": 3.66,
+   "end": 41.42
+  },
+  {
+   "source": "A",
+   "start": 42.02,
+   "end": 43.82
+  },
+  {
+   "source": "A",
+   "start": 44.4,
+   "end": 47.0
+  }
+ ],
+ "grade": "eq=contrast=1.06:brightness=0.015:saturation=1.06,colorbalance=rs=0.02:bs=-0.02:rm=0.015:bm=-0.015",
+ "total_duration_s": 45.52
+}
