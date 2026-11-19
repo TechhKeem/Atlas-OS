@@ -100,6 +100,10 @@ URLs as the repo secrets `RENDER_DEPLOY_HOOK_WEB` / `RENDER_DEPLOY_HOOK_MEDIA` t
 
 ### Troubleshooting
 
+- **Recording made but "Unsupported Format" / upload never finishes:** the R2 bucket's CORS policy is
+  missing or wrong. It must be *only* the Look rule (allow `https://look.financekeem.com`, methods GET/PUT/POST/HEAD,
+  headers `*`, expose `ETag`). Delete any default `localhost` rule. Videos recorded before the fix can't be recovered.
+- **Sign-in code accepted but "An error occurred":** you're on `look-web.onrender.com`. Always use `https://look.financekeem.com`.
 - **502 page plus `Access denied for user 'look'` in the look-web logs:** the password in `DATABASE_URL`
   doesn't match the database. MySQL keeps the password from its very first start, so changing
   `MYSQL_PASSWORD` later has no effect. Fix it from look-mysql → Shell:
