@@ -90,6 +90,21 @@ fail to process, move `look-media` up to Standard as well (+$18).
 Without Resend, sign-in links are only written to the look-web logs in Render. That's workable while
 you're the only user, but set up Resend (free) before inviting anyone.
 
+### How Look is built and deployed
+
+GitHub Actions (`.github/workflows/look-images.yml` in `TechhKeem/Cap`) builds `look-web` and
+`look-media` on every push to `main` and publishes them to `ghcr.io/techhkeem/`. Render pulls those
+images. Render doesn't build them itself, because the web build needs more than Render's 8 GB build limit.
+After a new GitHub build, redeploy in Render (look-web → Manual Deploy), or save Render deploy hook
+URLs as the repo secrets `RENDER_DEPLOY_HOOK_WEB` / `RENDER_DEPLOY_HOOK_MEDIA` to make it automatic.
+
+### Troubleshooting
+
+- **502 page plus `Access denied for user 'look'` in the look-web logs:** the password in `DATABASE_URL`
+  doesn't match the database. MySQL keeps the password from its very first start, so changing
+  `MYSQL_PASSWORD` later has no effect. Fix it from look-mysql → Shell:
+  `mysql -uroot -p"$MYSQL_ROOT_PASSWORD" -e "ALTER USER 'look'@'%' IDENTIFIED BY '$MYSQL_PASSWORD'; FLUSH PRIVILEGES;"`
+
 ## License
 
 Look is built on Cap, and most of Cap is AGPLv3. Keep the `look` fork **public** on GitHub. Because
