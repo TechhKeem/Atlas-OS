@@ -1,0 +1,26 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: transparent; font-family: 'Inter', sans-serif; }
+    .wrap { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .en { font-weight: 700; font-size: 92px; letter-spacing: -0.035em; color: #20242D; }
+    .er { font-weight: 400; font-size: 34px; color: #6B7079; margin-top: 14px; }
+    .ebar { width: 88px; height: 5px; border-radius: 3px; background: #5CA581; margin: 44px 0 40px; }
+    .ecta { font-weight: 700; font-size: 36px; color: #5CA581; letter-spacing: -0.01em; }
+    .ar { display: inline-block; margin-left: 8px; }
+  </style>
+  <div id="root" data-composition-id="endcard" data-width="1080" data-height="1440">
+    <div class="stage" id="endstage" style="position:absolute;inset:0;background:#F6F7F9"></div>
+    <div class="wrap"><div class="en" id="en">Hakeem Hooker</div><div class="er" id="er">Licensed Fiduciary · FK Management</div><div class="ebar" id="ebar"></div><div class="ecta" id="ecta">Save my contact below <span class="ar" id="ear">↓</span></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#endstage", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.inOut" }, 0);
+    tl.fromTo("#en", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.35);
+    tl.fromTo("#er", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.6);
+    tl.fromTo("#ebar", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "expo.out" }, 0.8);
+    tl.fromTo("#ecta", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.1);
+    tl.fromTo("#ear", { y: -6 }, { y: 4, duration: 0.5, ease: "power2.inOut" }, 1.4);
+    tl.to("#ear", { y: 0, duration: 0.4, ease: "power2.out" }, 1.9);
+    window.__timelines["endcard"] = tl;
+  </script>
+</template>

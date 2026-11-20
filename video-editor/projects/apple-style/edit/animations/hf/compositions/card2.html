@@ -1,0 +1,23 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: transparent; font-family: 'Inter', sans-serif; }
+    .stage { position: absolute; inset: 0; background: #F6F7F9; }
+    .lines { position: absolute; left: 0; right: 0; top: 0; bottom: 0; display: flex; flex-direction: column;
+             align-items: center; justify-content: center; gap: 6px; }
+    .line { font-weight: 700; font-size: 104px; letter-spacing: -0.035em; color: #20242D; line-height: 1.08; text-align: center; }
+    .w { display: inline-block; }
+    .accent { color: #5CA581; }
+  </style>
+  <div id="root" data-composition-id="card2" data-width="1080" data-height="1440">
+    <div class="stage"></div>
+    <div class="lines"><div class="line" id="c2line">Life <span class="accent">happens.</span></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(".stage", { opacity: 0 }, { opacity: 1, duration: 0.16, ease: "power2.out" }, 0);
+    tl.to(".lines", { opacity: 0, filter: "blur(8px)", duration: 0.16, ease: "power2.in" }, 1.090);
+    tl.to(".stage", { opacity: 0, duration: 0.18, ease: "power2.in" }, 1.250);
+    tl.fromTo("#c2line", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.08);
+    window.__timelines["card2"] = tl;
+  </script>
+</template>

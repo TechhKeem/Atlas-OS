@@ -1,0 +1,1656 @@
+{
+ "language_code": "en",
+ "text": "So I had a conversation with an old employee of mine, and guess what? He's about to retire soon. Or at least he thinks. It's my job to figure out and help him see if he's gonna retire. So what did I do? We took the money in his old 401k that he left sitting at his old job, and we're gonna roll that into a private pension that's gonna produce a certain amount of money for him. And then we're gonna add up his social security, we're gonna take that total, and subtract it by the monthly expenses. And guess what? If there's a positive number, he can retire today. If there's a negative number, we have to work on a solution to fix that balance. It's really that simple. This is my job, this is what I do for people every single day. If you're looking to retire or want to know if you can retire within the next 5 to 10 years, or if you're on track, DM me below, comment, and I will make sure that I can get you taken care of.",
+ "words": [
+  {
+   "type": "word",
+   "text": "So",
+   "start": 0.0,
+   "end": 0.06,
+   "speaker_id": "speaker_0",
+   "p": 0.25
+  },
+  {
+   "type": "word",
+   "text": "I",
+   "start": 0.06,
+   "end": 0.06,
+   "speaker_id": "speaker_0",
+   "p": 0.7
+  },
+  {
+   "type": "word",
+   "text": "had",
+   "start": 0.06,
+   "end": 0.16,
+   "speaker_id": "speaker_0",
+   "p": 0.96
+  },
+  {
+   "type": "word",
+   "text": "a",
+   "start": 0.16,
+   "end": 0.28,
+   "speaker_id": "speaker_0",
+   "p": 0.97
+  },
+  {
+   "type": "word",
+   "text": "conversation",
+   "start": 0.28,
+   "end": 0.54,
+   "speaker_id": "speaker_0",
+   "p": 0.92
+  },
+  {
+   "type": "word",
+   "text": "with",
+   "start": 0.54,
+   "end": 0.84,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "an",
+   "start": 0.84,
+   "end": 0.96,
+   "speaker_id": "speaker_0",
+   "p": 0.73
+  },
+  {
+   "type": "word",
+   "text": "old",
+   "start": 0.96,
+   "end": 1.14,
+   "speaker_id": "speaker_0",
+   "p": 0.95
+  },
+  {
+   "type": "word",
+   "text": "employee",
+   "start": 1.14,
+   "end": 1.6,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "of",
+   "start": 1.6,
+   "end": 1.82,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "mine,",
+   "start": 1.82,
+   "end": 2.12,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 2.12,
+   "end": 2.58,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "and",
+   "start": 2.58,
+   "end": 2.78,
+   "speaker_id": "speaker_0",
+   "p": 0.93
+  },
+  {
+   "type": "word",
+   "text": "guess",
+   "start": 2.78,
+   "end": 2.92,
+   "speaker_id": "speaker_0",
+   "p": 0.96
+  },
+  {
+   "type": "word",
+   "text": "what?",
+   "start": 2.92,
+   "end": 3.26,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 3.26,
+   "end": 3.76,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "He's",
+   "start": 3.76,
+   "end": 4.0,
+   "speaker_id": "speaker_0",
+   "p": 0.95
+  },
+  {
+   "type": "word",
+   "text": "about",
+   "start": 4.0,
+   "end": 4.16,
+   "speaker_id": "speaker_0",
+   "p": 0.94
+  },
+  {
+   "type": "word",
+   "text": "to",
+   "start": 4.16,
+   "end": 4.3,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "retire",
+   "start": 4.3,
+   "end": 4.66,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "soon.",
+   "start": 4.66,
+   "end": 5.06,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 5.06,
+   "end": 5.54,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "Or",
+   "start": 5.54,
+   "end": 5.64,
+   "speaker_id": "speaker_0",
+   "p": 0.92
+  },
+  {
+   "type": "word",
+   "text": "at",
+   "start": 5.64,
+   "end": 5.74,
+   "speaker_id": "speaker_0",
+   "p": 0.96
+  },
+  {
+   "type": "word",
+   "text": "least",
+   "start": 5.74,
+   "end": 5.84,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "he",
+   "start": 5.84,
+   "end": 6.02,
+   "speaker_id": "speaker_0",
+   "p": 0.95
+  },
+  {
+   "type": "word",
+   "text": "thinks.",
+   "start": 6.02,
+   "end": 6.26,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 6.26,
+   "end": 6.4,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "It's",
+   "start": 6.4,
+   "end": 6.5,
+   "speaker_id": "speaker_0",
+   "p": 0.93
+  },
+  {
+   "type": "word",
+   "text": "my",
+   "start": 6.5,
+   "end": 6.66,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "job",
+   "start": 6.66,
+   "end": 6.86,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "to",
+   "start": 6.86,
+   "end": 7.04,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "figure",
+   "start": 7.04,
+   "end": 7.16,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "out",
+   "start": 7.16,
+   "end": 7.42,
+   "speaker_id": "speaker_0",
+   "p": 0.95
+  },
+  {
+   "type": "word",
+   "text": "and",
+   "start": 7.42,
+   "end": 7.54,
+   "speaker_id": "speaker_0",
+   "p": 0.91
+  },
+  {
+   "type": "word",
+   "text": "help",
+   "start": 7.54,
+   "end": 7.76,
+   "speaker_id": "speaker_0",
+   "p": 0.7
+  },
+  {
+   "type": "word",
+   "text": "him",
+   "start": 7.76,
+   "end": 7.98,
+   "speaker_id": "speaker_0",
+   "p": 0.97
+  },
+  {
+   "type": "word",
+   "text": "see",
+   "start": 7.98,
+   "end": 8.24,
+   "speaker_id": "speaker_0",
+   "p": 0.96
+  },
+  {
+   "type": "word",
+   "text": "if",
+   "start": 8.24,
+   "end": 8.42,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "he's",
+   "start": 8.42,
+   "end": 8.64,
+   "speaker_id": "speaker_0",
+   "p": 0.82
+  },
+  {
+   "type": "word",
+   "text": "gonna",
+   "start": 8.64,
+   "end": 8.68,
+   "speaker_id": "speaker_0",
+   "p": 0.31
+  },
+  {
+   "type": "word",
+   "text": "retire.",
+   "start": 8.68,
+   "end": 9.08,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 9.08,
+   "end": 9.22,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "So",
+   "start": 9.22,
+   "end": 9.32,
+   "speaker_id": "speaker_0",
+   "p": 0.95
+  },
+  {
+   "type": "word",
+   "text": "what",
+   "start": 9.32,
+   "end": 9.44,
+   "speaker_id": "speaker_0",
+   "p": 0.93
+  },
+  {
+   "type": "word",
+   "text": "did",
+   "start": 9.44,
+   "end": 9.56,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "I",
+   "start": 9.56,
+   "end": 9.66,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "do?",
+   "start": 9.66,
+   "end": 9.84,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 9.84,
+   "end": 9.98,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "We",
+   "start": 9.98,
+   "end": 10.04,
+   "speaker_id": "speaker_0",
+   "p": 0.7
+  },
+  {
+   "type": "word",
+   "text": "took",
+   "start": 10.04,
+   "end": 10.14,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "the",
+   "start": 10.14,
+   "end": 10.32,
+   "speaker_id": "speaker_0",
+   "p": 0.97
+  },
+  {
+   "type": "word",
+   "text": "money",
+   "start": 10.32,
+   "end": 10.44,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "in",
+   "start": 10.44,
+   "end": 10.64,
+   "speaker_id": "speaker_0",
+   "p": 0.91
+  },
+  {
+   "type": "word",
+   "text": "his",
+   "start": 10.64,
+   "end": 10.8,
+   "speaker_id": "speaker_0",
+   "p": 0.87
+  },
+  {
+   "type": "word",
+   "text": "old",
+   "start": 10.8,
+   "end": 11.16,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "401k",
+   "start": 11.16,
+   "end": 11.88,
+   "speaker_id": "speaker_0",
+   "p": 0.73
+  },
+  {
+   "type": "word",
+   "text": "that",
+   "start": 11.88,
+   "end": 12.06,
+   "speaker_id": "speaker_0",
+   "p": 0.89
+  },
+  {
+   "type": "word",
+   "text": "he",
+   "start": 12.06,
+   "end": 12.16,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "left",
+   "start": 12.16,
+   "end": 12.32,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "sitting",
+   "start": 12.32,
+   "end": 12.66,
+   "speaker_id": "speaker_0",
+   "p": 0.91
+  },
+  {
+   "type": "word",
+   "text": "at",
+   "start": 12.66,
+   "end": 12.8,
+   "speaker_id": "speaker_0",
+   "p": 0.97
+  },
+  {
+   "type": "word",
+   "text": "his",
+   "start": 12.8,
+   "end": 12.94,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "old",
+   "start": 12.94,
+   "end": 13.16,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "job,",
+   "start": 13.16,
+   "end": 13.5,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 13.5,
+   "end": 13.64,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "and",
+   "start": 13.64,
+   "end": 13.74,
+   "speaker_id": "speaker_0",
+   "p": 0.96
+  },
+  {
+   "type": "word",
+   "text": "we're",
+   "start": 13.74,
+   "end": 13.94,
+   "speaker_id": "speaker_0",
+   "p": 0.73
+  },
+  {
+   "type": "word",
+   "text": "gonna",
+   "start": 13.94,
+   "end": 13.94,
+   "speaker_id": "speaker_0",
+   "p": 0.9
+  },
+  {
+   "type": "word",
+   "text": "roll",
+   "start": 13.94,
+   "end": 14.18,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "that",
+   "start": 14.18,
+   "end": 14.42,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "into",
+   "start": 14.42,
+   "end": 14.66,
+   "speaker_id": "speaker_0",
+   "p": 0.97
+  },
+  {
+   "type": "word",
+   "text": "a",
+   "start": 14.66,
+   "end": 14.86,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "private",
+   "start": 14.86,
+   "end": 15.06,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "pension",
+   "start": 15.06,
+   "end": 15.46,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "that's",
+   "start": 15.46,
+   "end": 16.04,
+   "speaker_id": "speaker_0",
+   "p": 0.91
+  },
+  {
+   "type": "word",
+   "text": "gonna",
+   "start": 16.04,
+   "end": 16.12,
+   "speaker_id": "speaker_0",
+   "p": 0.91
+  },
+  {
+   "type": "word",
+   "text": "produce",
+   "start": 16.12,
+   "end": 16.56,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "a",
+   "start": 16.56,
+   "end": 17.06,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "certain",
+   "start": 17.06,
+   "end": 17.22,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "amount",
+   "start": 17.22,
+   "end": 17.46,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "of",
+   "start": 17.46,
+   "end": 17.62,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "money",
+   "start": 17.62,
+   "end": 17.72,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "for",
+   "start": 17.72,
+   "end": 17.96,
+   "speaker_id": "speaker_0",
+   "p": 0.96
+  },
+  {
+   "type": "word",
+   "text": "him.",
+   "start": 17.96,
+   "end": 18.16,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 18.16,
+   "end": 18.28,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "And",
+   "start": 18.28,
+   "end": 18.4,
+   "speaker_id": "speaker_0",
+   "p": 0.9
+  },
+  {
+   "type": "word",
+   "text": "then",
+   "start": 18.4,
+   "end": 18.52,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "we're",
+   "start": 18.52,
+   "end": 18.64,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "gonna",
+   "start": 18.64,
+   "end": 18.76,
+   "speaker_id": "speaker_0",
+   "p": 0.96
+  },
+  {
+   "type": "word",
+   "text": "add",
+   "start": 18.76,
+   "end": 18.92,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "up",
+   "start": 18.92,
+   "end": 19.06,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "his",
+   "start": 19.06,
+   "end": 19.22,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "social",
+   "start": 19.22,
+   "end": 19.38,
+   "speaker_id": "speaker_0",
+   "p": 0.6
+  },
+  {
+   "type": "word",
+   "text": "security,",
+   "start": 19.38,
+   "end": 19.94,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 19.94,
+   "end": 20.14,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "we're",
+   "start": 20.14,
+   "end": 20.22,
+   "speaker_id": "speaker_0",
+   "p": 0.96
+  },
+  {
+   "type": "word",
+   "text": "gonna",
+   "start": 20.22,
+   "end": 20.34,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "take",
+   "start": 20.34,
+   "end": 20.5,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "that",
+   "start": 20.5,
+   "end": 20.72,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "total,",
+   "start": 20.72,
+   "end": 21.02,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 21.02,
+   "end": 21.24,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "and",
+   "start": 21.24,
+   "end": 21.4,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "subtract",
+   "start": 21.4,
+   "end": 21.74,
+   "speaker_id": "speaker_0",
+   "p": 0.95
+  },
+  {
+   "type": "word",
+   "text": "it",
+   "start": 21.74,
+   "end": 21.96,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "by",
+   "start": 21.96,
+   "end": 22.22,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "the",
+   "start": 22.22,
+   "end": 22.48,
+   "speaker_id": "speaker_0",
+   "p": 0.96
+  },
+  {
+   "type": "word",
+   "text": "monthly",
+   "start": 22.48,
+   "end": 22.74,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "expenses.",
+   "start": 22.74,
+   "end": 23.16,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 23.16,
+   "end": 23.58,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "And",
+   "start": 23.58,
+   "end": 23.7,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "guess",
+   "start": 23.7,
+   "end": 23.86,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "what?",
+   "start": 23.86,
+   "end": 24.14,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 24.14,
+   "end": 24.38,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "If",
+   "start": 24.38,
+   "end": 24.62,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "there's",
+   "start": 24.62,
+   "end": 24.92,
+   "speaker_id": "speaker_0",
+   "p": 0.95
+  },
+  {
+   "type": "word",
+   "text": "a",
+   "start": 24.92,
+   "end": 25.06,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "positive",
+   "start": 25.06,
+   "end": 25.44,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "number,",
+   "start": 25.44,
+   "end": 25.82,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 25.82,
+   "end": 26.12,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "he",
+   "start": 26.12,
+   "end": 26.42,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "can",
+   "start": 26.42,
+   "end": 26.54,
+   "speaker_id": "speaker_0",
+   "p": 0.93
+  },
+  {
+   "type": "word",
+   "text": "retire",
+   "start": 26.54,
+   "end": 26.84,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "today.",
+   "start": 26.84,
+   "end": 27.18,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "If",
+   "start": 27.18,
+   "end": 27.52,
+   "speaker_id": "speaker_0",
+   "p": 0.74
+  },
+  {
+   "type": "word",
+   "text": "there's",
+   "start": 27.52,
+   "end": 27.76,
+   "speaker_id": "speaker_0",
+   "p": 0.94
+  },
+  {
+   "type": "word",
+   "text": "a",
+   "start": 27.76,
+   "end": 27.88,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "negative",
+   "start": 27.88,
+   "end": 28.1,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "number,",
+   "start": 28.1,
+   "end": 28.48,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 28.48,
+   "end": 28.86,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "we",
+   "start": 28.86,
+   "end": 29.18,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "have",
+   "start": 29.18,
+   "end": 29.3,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "to",
+   "start": 29.3,
+   "end": 29.42,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "work",
+   "start": 29.42,
+   "end": 29.58,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "on",
+   "start": 29.58,
+   "end": 29.72,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "a",
+   "start": 29.72,
+   "end": 29.86,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "solution",
+   "start": 29.86,
+   "end": 30.12,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "to",
+   "start": 30.12,
+   "end": 30.46,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "fix",
+   "start": 30.46,
+   "end": 30.7,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "that",
+   "start": 30.7,
+   "end": 31.0,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "balance.",
+   "start": 31.0,
+   "end": 31.38,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 31.38,
+   "end": 31.86,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "It's",
+   "start": 31.86,
+   "end": 31.94,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "really",
+   "start": 31.94,
+   "end": 32.12,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "that",
+   "start": 32.12,
+   "end": 32.32,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "simple.",
+   "start": 32.32,
+   "end": 32.66,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 32.66,
+   "end": 32.86,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "This",
+   "start": 32.86,
+   "end": 32.92,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "is",
+   "start": 32.92,
+   "end": 33.04,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "my",
+   "start": 33.04,
+   "end": 33.2,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "job,",
+   "start": 33.2,
+   "end": 33.4,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 33.4,
+   "end": 33.48,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "this",
+   "start": 33.48,
+   "end": 33.58,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "is",
+   "start": 33.58,
+   "end": 33.68,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "what",
+   "start": 33.68,
+   "end": 33.76,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "I",
+   "start": 33.76,
+   "end": 33.88,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "do",
+   "start": 33.88,
+   "end": 34.0,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "for",
+   "start": 34.0,
+   "end": 34.16,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "people",
+   "start": 34.16,
+   "end": 34.4,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "every",
+   "start": 34.4,
+   "end": 34.86,
+   "speaker_id": "speaker_0",
+   "p": 0.91
+  },
+  {
+   "type": "word",
+   "text": "single",
+   "start": 34.86,
+   "end": 35.2,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "day.",
+   "start": 35.2,
+   "end": 35.54,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 35.54,
+   "end": 35.98,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "If",
+   "start": 35.98,
+   "end": 36.08,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "you're",
+   "start": 36.08,
+   "end": 36.22,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "looking",
+   "start": 36.22,
+   "end": 36.34,
+   "speaker_id": "speaker_0",
+   "p": 0.95
+  },
+  {
+   "type": "word",
+   "text": "to",
+   "start": 36.34,
+   "end": 36.48,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "retire",
+   "start": 36.48,
+   "end": 36.82,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "or",
+   "start": 36.82,
+   "end": 37.08,
+   "speaker_id": "speaker_0",
+   "p": 0.8
+  },
+  {
+   "type": "word",
+   "text": "want",
+   "start": 37.08,
+   "end": 37.22,
+   "speaker_id": "speaker_0",
+   "p": 0.74
+  },
+  {
+   "type": "word",
+   "text": "to",
+   "start": 37.22,
+   "end": 37.34,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "know",
+   "start": 37.34,
+   "end": 37.46,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "if",
+   "start": 37.46,
+   "end": 37.6,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "you",
+   "start": 37.6,
+   "end": 37.7,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "can",
+   "start": 37.7,
+   "end": 37.82,
+   "speaker_id": "speaker_0",
+   "p": 0.98
+  },
+  {
+   "type": "word",
+   "text": "retire",
+   "start": 37.82,
+   "end": 38.18,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "within",
+   "start": 38.18,
+   "end": 38.44,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "the",
+   "start": 38.44,
+   "end": 38.62,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "next",
+   "start": 38.62,
+   "end": 38.84,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "5",
+   "start": 38.84,
+   "end": 39.5,
+   "speaker_id": "speaker_0",
+   "p": 0.33
+  },
+  {
+   "type": "word",
+   "text": "to",
+   "start": 39.5,
+   "end": 39.7,
+   "speaker_id": "speaker_0",
+   "p": 0.64
+  },
+  {
+   "type": "word",
+   "text": "10",
+   "start": 39.7,
+   "end": 39.98,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "years,",
+   "start": 39.98,
+   "end": 40.26,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 40.26,
+   "end": 40.6,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "or",
+   "start": 40.6,
+   "end": 40.62,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "if",
+   "start": 40.62,
+   "end": 40.76,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "you're",
+   "start": 40.76,
+   "end": 40.9,
+   "speaker_id": "speaker_0",
+   "p": 0.96
+  },
+  {
+   "type": "word",
+   "text": "on",
+   "start": 40.9,
+   "end": 40.98,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "track,",
+   "start": 40.98,
+   "end": 41.3,
+   "speaker_id": "speaker_0",
+   "p": 0.86
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 41.3,
+   "end": 42.14,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "DM",
+   "start": 42.14,
+   "end": 42.28,
+   "speaker_id": "speaker_0",
+   "p": 0.95
+  },
+  {
+   "type": "word",
+   "text": "me",
+   "start": 42.28,
+   "end": 42.52,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "below,",
+   "start": 42.52,
+   "end": 42.88,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 42.88,
+   "end": 43.36,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "comment,",
+   "start": 43.36,
+   "end": 43.7,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "spacing",
+   "text": " ",
+   "start": 43.7,
+   "end": 44.52,
+   "speaker_id": "speaker_0"
+  },
+  {
+   "type": "word",
+   "text": "and",
+   "start": 44.52,
+   "end": 44.58,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "I",
+   "start": 44.58,
+   "end": 44.74,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "will",
+   "start": 44.74,
+   "end": 44.9,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "make",
+   "start": 44.9,
+   "end": 45.1,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "sure",
+   "start": 45.1,
+   "end": 45.32,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "that",
+   "start": 45.32,
+   "end": 45.52,
+   "speaker_id": "speaker_0",
+   "p": 0.97
+  },
+  {
+   "type": "word",
+   "text": "I",
+   "start": 45.52,
+   "end": 45.66,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "can",
+   "start": 45.66,
+   "end": 45.8,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "get",
+   "start": 45.8,
+   "end": 45.98,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "you",
+   "start": 45.98,
+   "end": 46.16,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "taken",
+   "start": 46.16,
+   "end": 46.38,
+   "speaker_id": "speaker_0",
+   "p": 0.99
+  },
+  {
+   "type": "word",
+   "text": "care",
+   "start": 46.38,
+   "end": 46.64,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  },
+  {
+   "type": "word",
+   "text": "of.",
+   "start": 46.64,
+   "end": 46.88,
+   "speaker_id": "speaker_0",
+   "p": 1.0
+  }
+ ]
+}
