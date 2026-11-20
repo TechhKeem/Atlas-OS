@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: 'Limelight'; src: url('fonts/limelight-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Poiret One'; src: url('fonts/poiret-one-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 400; src: url('fonts/inter-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 600; src: url('fonts/inter-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 700; src: url('fonts/inter-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 800; src: url('fonts/inter-latin-800-normal.woff2') format('woff2'); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1350px; overflow: hidden; background: #20242D; font-family: 'Inter', sans-serif; color: #F6F7F9; }
+.photo { position: absolute; inset: 0; background-size: cover; background-repeat: no-repeat; }
+.scrim { position: absolute; left: 0; right: 0; bottom: 0; height: 58%;
+          background: linear-gradient(to bottom, rgba(20,23,29,0) 0%, rgba(20,23,29,0.45) 55%, rgba(20,23,29,0.78) 100%); }
+.scrim.top { top: 0; bottom: auto; height: 48%; background: linear-gradient(to top, rgba(20,23,29,0) 0%, rgba(20,23,29,0.5) 70%, rgba(20,23,29,0.7) 100%); }
+.glass { position: absolute; border-radius: 40px; padding: 44px 48px;
+          background: linear-gradient(140deg, rgba(92,165,129,0.46) 0%, rgba(44,62,58,0.55) 38%, rgba(32,36,45,0.70) 100%);
+          border: 1.5px solid rgba(255,255,255,0.30);
+          box-shadow: 0 30px 70px rgba(0,0,0,0.40), inset 0 1.5px 0 rgba(255,255,255,0.40), inset 0 -1px 0 rgba(255,255,255,0.06);
+          backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%); }
+.glass::before { content: ''; position: absolute; inset: 0; border-radius: 40px; pointer-events: none;
+                  background: radial-gradient(120% 60% at 0% 0%, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0) 55%); }
+.kicker { font-weight: 700; font-size: 26px; letter-spacing: 0.22em; text-transform: uppercase; color: #8FD6AE; position: relative; }
+.num { font-family: 'Limelight', serif; font-size: 120px; line-height: 0.9; position: relative;
+        background: linear-gradient(180deg, #FFFFFF 0%, #8FD6AE 55%, #5CA581 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.deco { font-family: 'Limelight', serif; font-size: 76px; line-height: 1.02; letter-spacing: 0.01em; text-transform: uppercase; position: relative; color: #fff; }
+.rule { position: relative; height: 3px; width: 120px; margin: 22px 0 20px; background: linear-gradient(90deg, #8FD6AE, rgba(143,214,174,0)); }
+.rule::after { content: ''; position: absolute; left: 130px; top: -4px; width: 10px; height: 10px; transform: rotate(45deg); background: #8FD6AE; }
+.desc { position: relative; font-weight: 400; font-size: 35px; line-height: 1.32; color: rgba(255,255,255,0.92); }
+.desc b { font-weight: 700; color: #fff; }
+.brand { position: absolute; left: 56px; top: 52px; font-family: 'Poiret One', sans-serif; font-weight: 400; font-size: 34px; letter-spacing: 0.18em; color: #fff;
+          text-shadow: 0 2px 12px rgba(0,0,0,0.5); }
+.brand b { font-family: 'Limelight', serif; font-weight: 400; color: #8FD6AE; letter-spacing: 0.06em; }
+.count { position: absolute; right: 56px; top: 48px; padding: 10px 22px; border-radius: 30px; font-weight: 600; font-size: 26px; letter-spacing: 0.08em;
+          background: rgba(32,36,45,0.55); border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(12px); }
+.swipe { display: inline-flex; align-items: center; gap: 14px; margin-top: 28px; padding: 16px 30px; border-radius: 40px; position: relative;
+          background: #F6F7F9; color: #20242D; font-weight: 800; font-size: 30px; letter-spacing: 0.04em; }
+.chips { position: relative; display: flex; align-items: center; gap: 12px; margin-top: 24px; flex-wrap: nowrap; }
+.chip { padding: 12px 18px; border-radius: 18px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); font-weight: 700; font-size: 28px; white-space: nowrap; }
+.op { font-weight: 800; font-size: 32px; color: #8FD6AE; }
+.chip.res { background: #5CA581; border-color: #5CA581; }
+.small { position: relative; font-size: 22px; color: rgba(255,255,255,0.62); margin-top: 14px; letter-spacing: 0.02em; }
+.cta { position: relative; display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 30px; height: 96px; border-radius: 48px;
+        background: #3B7F5E; font-weight: 800; font-size: 34px; box-shadow: 0 14px 36px rgba(59,127,94,0.5); }
+.sig { position: relative; margin-top: 22px; font-size: 26px; color: rgba(255,255,255,0.78); text-align: center; letter-spacing: 0.02em; }
+</style></head><body>
+<div class="photo" style="background-image:url('photos/1_stage_peace.jpg'); background-position: 50% 22%;"></div>
+<div class="scrim"></div>
+<div class="brand"><b>FK</b> MANAGEMENT</div>
+<div class="count">1 / 5</div>
+
+<div class="glass" style="left:56px; right:56px; bottom:64px;">
+  <div class="kicker">The retirement check</div>
+  <div class="deco" style="font-size:96px; margin-top:16px;">Can you<br>retire?</div>
+  <div class="rule"></div>
+  <div class="desc">The <b>3 simple steps</b> I walk every client through to find out.</div>
+  <div class="swipe">Swipe <svg width="34" height="22" viewBox="0 0 34 22"><path d="M2 11h27M21 3l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+</div>
+</body></html>

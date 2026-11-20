@@ -20,3 +20,4 @@ projects/**/node_modules/
 projects/**/.hyperframes/
 projects/**/edit/clips_graded/
 projects/**/edit/music/*.png
+projects/**/photos/
