@@ -11,6 +11,7 @@ This folder holds what we add on top of Cap:
 | `rebrand/` | Replacement logo component and color theme that go into Cap's code |
 | `scripts/apply-look-branding.py` | Applies all of the above to a Cap checkout in one step |
 | `render.yaml` | Render setup file: website, video processor and database |
+| `scripts/rename-cap-text.cjs` | Changes the on-screen word "Cap" to "Look" in a Cap checkout (text only, never code). Run with `node look/scripts/rename-cap-text.cjs <repo> <files…>` |
 
 ## Brand
 
