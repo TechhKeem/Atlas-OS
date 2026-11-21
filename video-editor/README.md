@@ -30,6 +30,7 @@ It combines two open-source projects. Their skills are installed as **project sk
 2. Ask Claude: *"Edit the footage in video-editor/projects/my-video into a 60s launch video with captions and animated titles."*
 3. Claude inventories and transcribes the footage, then proposes a plan and **waits for your OK**. It then cuts, grades and builds animations (HyperFrames, one sub-agent per overlay), renders, and self-checks every cut.
 4. Output: `video-editor/projects/<my-video>/edit/final.mp4`. `edit/project.md` keeps session memory so you can come back later and iterate.
+5. Hand it to Connie: upload the final video and its transcript (`<Title>.transcript.json`) to the Drive folder **Video Edits / Launch Video**. See [`CLAUDE.md`](../CLAUDE.md).
 
 ## Requirements
 
