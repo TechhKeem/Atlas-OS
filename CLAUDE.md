@@ -32,12 +32,18 @@ Carousels live in `video-editor/projects/carousel-*/` (HTML slides rendered to
 1080×1350 PNGs with Playwright; copy `carousel-sequence-risk/` as the starting
 point: `build.py`, `render.js`, `fonts/`).
 
-- **All carousel fonts are Art Deco.** No Inter or other non-Deco faces.
-  - Titles: **Limelight**.
-  - Body text, numbers, buttons, labels: **Josefin Sans** (400/600/700).
-  - Brand mark "FK MANAGEMENT": **Poiret One** with "FK" in Limelight.
-  - Font files are in `carousel-sequence-risk/fonts/` (from `@fontsource/*`
-    on npm); `render.js` asserts each font loaded before capturing.
+- **ALWAYS use the "Deco" font — Outfit — for every piece of text.** Hakeem's
+  "Deco" is Instagram's Deco text style; the free match is **Outfit**
+  (`@fontsource/outfit`, Google Fonts). This applies to carousels AND to
+  on-screen text in videos (titles, widgets, captions, end cards). No other
+  typefaces (no Inter, Limelight, Josefin, Poiret, etc.).
+  - Titles: Outfit 600. Body/descriptions: Outfit 300–400. Numbers, buttons,
+    labels: Outfit 600–700. Brand mark "FK MANAGEMENT": Outfit 300 with "FK"
+    in Outfit 700 sage.
+  - Carousel font files: `video-editor/projects/carousel-sequence-risk/fonts/`;
+    `render.js` asserts Outfit loaded before capturing.
+  - HyperFrames bundles Outfit, so in video compositions just use
+    `font-family: 'Outfit'`.
 - **Charcoal gradient on every secondary photo** (slides 2 onward): a
   `#20242D` gradient at **60% opacity** on the side holding the text, fading
   out toward the subject, so the text stands out. The cover photo has no

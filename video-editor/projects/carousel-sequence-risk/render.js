@@ -9,7 +9,7 @@ const path = require('path');
     await page.goto('file://' + path.join(dir, `slide-${i}.html`));
     await page.evaluate(() => document.fonts.ready);
     const ok = await page.evaluate(() => [
-      document.fonts.check('76px "Limelight"'), document.fonts.check('700 35px "Josefin Sans"'), (!document.querySelector('.brand') || document.fonts.check('34px "Poiret One"')),
+      document.fonts.check('600 76px "Outfit"'), document.fonts.check('300 35px "Outfit"'), document.fonts.check('700 35px "Outfit"'),
     ]);
     if (ok.includes(false)) throw new Error(`slide ${i}: font not loaded ${ok}`);
     await page.waitForTimeout(150);
