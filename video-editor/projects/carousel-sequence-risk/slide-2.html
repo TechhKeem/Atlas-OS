@@ -45,6 +45,11 @@ html, body { width: 1080px; height: 1350px; overflow: hidden; background: #20242
 .tile .seq { font-weight: 700; font-size: 32px; margin-top: 10px; }
 .tile .end { font-family: 'Limelight', serif; font-size: 50px; margin-top: 12px; }
 .tile.good { border-color: rgba(143,214,174,0.6); } .tile.bad { border-color: rgba(240,138,126,0.6); }
+.proof { position: absolute; left: 50px; top: 172px; width: 560px; transform: rotate(-2.5deg); transform-origin: left top; }
+.proof img { display: block; width: 100%; border-radius: 22px; border: 2px solid rgba(255,255,255,0.55);
+              box-shadow: 0 24px 60px rgba(0,0,0,0.55); }
+.proof .tag { position: absolute; left: 18px; top: -22px; padding: 8px 18px; border-radius: 22px; background: #5CA581; color: #fff;
+               font-weight: 700; font-size: 22px; letter-spacing: 0.16em; text-transform: uppercase; box-shadow: 0 8px 20px rgba(0,0,0,0.35); }
 .cta { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 28px; height: 96px; border-radius: 48px;
         background: #3B7F5E; font-weight: 700; font-size: 34px; box-shadow: 0 14px 36px rgba(59,127,94,0.5); }
 .sig { margin-top: 18px; font-size: 26px; color: rgba(255,255,255,0.8); text-align: center; }
@@ -54,13 +59,14 @@ html, body { width: 1080px; height: 1350px; overflow: hidden; background: #20242
 <div class="brand"><b>FK</b> MANAGEMENT</div>
 <div class="count">2 / 5</div>
 
+<div class="proof"><div class="tag">Proof &middot; SPY YTD</div><img src="photos/spy_ytd.png" alt="SPY up 1.16% year to date"></div>
 <div class="glass" style="left:56px; right:56px; bottom:64px;">
   <div class="kicker">Do the math</div>
   <div class="deco" style="font-size:64px; margin-top:10px;">An &ldquo;up&rdquo; year<br>that costs you</div>
   <div class="rule"></div>
   <div class="math">
     <div class="row"><span class="k"><span class="op"></span>Portfolio</span><span class="v">$1,000,000</span></div>
-    <div class="row"><span class="k"><span class="op">+</span>S&amp;P 500 up 1%</span><span class="v pos">+$10,000</span></div>
+    <div class="row"><span class="k"><span class="op">+</span>S&amp;P 500 up ~1%</span><span class="v pos">+$10,000</span></div>
     <div class="row"><span class="k"><span class="op">&minus;</span>4% withdrawal</span><span class="v neg">&minus;$40,000</span></div>
     <div class="line"></div>
     <div class="row total"><span class="k"><span class="op">=</span>Year-end</span><span class="v">$970,000</span></div>
