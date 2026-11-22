@@ -12,16 +12,16 @@ SAGE, SAGE_L, CHAR, SOFT, RED = "#5CA581", "#8FD6AE", "#20242D", "#F6F7F9", "#F0
 
 BASE = f"""
 @font-face {{ font-family: 'Limelight'; src: url('fonts/limelight-latin-400-normal.woff2') format('woff2'); }}
+@font-face {{ font-family: 'Josefin Sans'; font-weight: 400; src: url('fonts/josefin-sans-latin-400-normal.woff2') format('woff2'); }}
+@font-face {{ font-family: 'Josefin Sans'; font-weight: 600; src: url('fonts/josefin-sans-latin-600-normal.woff2') format('woff2'); }}
+@font-face {{ font-family: 'Josefin Sans'; font-weight: 700; src: url('fonts/josefin-sans-latin-700-normal.woff2') format('woff2'); }}
 @font-face {{ font-family: 'Poiret One'; src: url('fonts/poiret-one-latin-400-normal.woff2') format('woff2'); }}
-@font-face {{ font-family: 'Inter'; font-weight: 400; src: url('fonts/inter-latin-400-normal.woff2') format('woff2'); }}
-@font-face {{ font-family: 'Inter'; font-weight: 600; src: url('fonts/inter-latin-600-normal.woff2') format('woff2'); }}
-@font-face {{ font-family: 'Inter'; font-weight: 700; src: url('fonts/inter-latin-700-normal.woff2') format('woff2'); }}
-@font-face {{ font-family: 'Inter'; font-weight: 800; src: url('fonts/inter-latin-800-normal.woff2') format('woff2'); }}
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-html, body {{ width: 1080px; height: 1350px; overflow: hidden; background: {CHAR}; font-family: 'Inter', sans-serif; color: {SOFT}; }}
+html, body {{ width: 1080px; height: 1350px; overflow: hidden; background: {CHAR}; font-family: 'Josefin Sans', sans-serif; color: {SOFT}; }}
 .photo {{ position: absolute; inset: 0; background-size: cover; background-repeat: no-repeat; }}
 /* charcoal gradient, 60% at the text side fading out toward the subject */
 .shade {{ position: absolute; inset: 0; background: linear-gradient(to top, rgba(32,36,45,0.60) 0%, rgba(32,36,45,0.60) 36%, rgba(32,36,45,0.22) 64%, rgba(32,36,45,0.22) 84%, rgba(32,36,45,0.60) 100%); }}
+.shade.cover {{ background: linear-gradient(to bottom, rgba(32,36,45,0.55) 0%, rgba(32,36,45,0) 14%); }}
 .shade.top {{ background: linear-gradient(to bottom, rgba(32,36,45,0.60) 0%, rgba(32,36,45,0.60) 52%, rgba(32,36,45,0.20) 80%, rgba(32,36,45,0.20) 100%); }}
 .glass {{ position: absolute; border-radius: 40px; padding: 42px 46px;
           background: linear-gradient(140deg, rgba(92,165,129,0.42) 0%, rgba(44,62,58,0.55) 38%, rgba(32,36,45,0.72) 100%);
@@ -31,26 +31,26 @@ html, body {{ width: 1080px; height: 1350px; overflow: hidden; background: {CHAR
 .glass::before {{ content: ''; position: absolute; inset: 0; border-radius: 40px; pointer-events: none;
                   background: radial-gradient(120% 60% at 0% 0%, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0) 55%); }}
 .glass > * {{ position: relative; }}
-.kicker {{ font-weight: 700; font-size: 26px; letter-spacing: 0.22em; text-transform: uppercase; color: {SAGE_L}; }}
+.kicker {{ font-weight: 700; font-size: 28px; letter-spacing: 0.22em; text-transform: uppercase; color: {SAGE_L}; }}
 .deco {{ font-family: 'Limelight', serif; font-size: 74px; line-height: 1.04; text-transform: uppercase; color: #fff; }}
 .deco em {{ font-style: normal; background: linear-gradient(180deg, #FFFFFF 0%, {SAGE_L} 60%, {SAGE} 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }}
 .rule {{ position: relative; height: 3px; width: 120px; margin: 22px 0 20px; background: linear-gradient(90deg, {SAGE_L}, rgba(143,214,174,0)); }}
 .rule::after {{ content: ''; position: absolute; left: 130px; top: -4px; width: 10px; height: 10px; transform: rotate(45deg); background: {SAGE_L}; }}
-.desc {{ font-size: 34px; line-height: 1.32; color: rgba(255,255,255,0.93); }}
+.desc {{ font-size: 37px; line-height: 1.28; color: rgba(255,255,255,0.93); }}
 .desc b {{ font-weight: 700; color: #fff; }}
 .brand {{ position: absolute; left: 56px; top: 52px; font-family: 'Poiret One', sans-serif; font-size: 34px; letter-spacing: 0.18em; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.5); }}
 .brand b {{ font-family: 'Limelight', serif; font-weight: 400; color: {SAGE_L}; letter-spacing: 0.06em; }}
 .count {{ position: absolute; right: 56px; top: 48px; padding: 10px 22px; border-radius: 30px; font-weight: 600; font-size: 26px; letter-spacing: 0.08em;
           background: rgba(32,36,45,0.55); border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(12px); }}
-.swipe {{ display: inline-flex; align-items: center; gap: 14px; margin-top: 26px; padding: 16px 30px; border-radius: 40px; background: {SOFT}; color: {CHAR}; font-weight: 800; font-size: 30px; }}
+.swipe {{ display: inline-flex; align-items: center; gap: 14px; margin-top: 26px; padding: 16px 30px; border-radius: 40px; background: {SOFT}; color: {CHAR}; font-weight: 700; font-size: 30px; }}
 .math {{ margin-top: 6px; }}
-.row {{ display: flex; justify-content: space-between; align-items: baseline; font-size: 36px; padding: 10px 0; }}
-.row .k {{ color: rgba(255,255,255,0.85); }} .row .v {{ font-weight: 800; letter-spacing: -0.01em; }}
-.row .op {{ display: inline-block; width: 44px; color: {SAGE_L}; font-weight: 800; }}
+.row {{ display: flex; justify-content: space-between; align-items: baseline; font-size: 39px; padding: 10px 0; }}
+.row .k {{ color: rgba(255,255,255,0.85); }} .row .v {{ font-weight: 700; letter-spacing: -0.01em; }}
+.row .op {{ display: inline-block; width: 44px; color: {SAGE_L}; font-weight: 700; }}
 .neg {{ color: {RED}; }} .pos {{ color: {SAGE_L}; }}
 .line {{ height: 2px; background: rgba(255,255,255,0.32); margin: 8px 0; }}
 .total {{ font-size: 46px; }}
-.note {{ font-size: 22px; color: rgba(255,255,255,0.62); margin-top: 16px; letter-spacing: 0.02em; }}
+.note {{ font-size: 24px; color: rgba(255,255,255,0.62); margin-top: 16px; letter-spacing: 0.02em; }}
 .duo {{ display: flex; gap: 18px; margin-top: 8px; }}
 .tile {{ flex: 1; border-radius: 26px; padding: 22px 24px; background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.18); }}
 .tile .who {{ font-weight: 700; font-size: 26px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.75); }}
@@ -58,7 +58,7 @@ html, body {{ width: 1080px; height: 1350px; overflow: hidden; background: {CHAR
 .tile .end {{ font-family: 'Limelight', serif; font-size: 50px; margin-top: 12px; }}
 .tile.good {{ border-color: rgba(143,214,174,0.6); }} .tile.bad {{ border-color: rgba(240,138,126,0.6); }}
 .cta {{ display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 28px; height: 96px; border-radius: 48px;
-        background: #3B7F5E; font-weight: 800; font-size: 34px; box-shadow: 0 14px 36px rgba(59,127,94,0.5); }}
+        background: #3B7F5E; font-weight: 700; font-size: 34px; box-shadow: 0 14px 36px rgba(59,127,94,0.5); }}
 .sig {{ margin-top: 18px; font-size: 26px; color: rgba(255,255,255,0.8); text-align: center; }}
 """
 
@@ -71,7 +71,7 @@ DISC = 'Hypothetical example for illustration only. Not investment advice.'
 def page(n, photo, pos, inner, shade="bottom"):
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{BASE}</style></head><body>
 <div class="photo" style="background-image:url('photos/{photo}'); background-position: {pos};"></div>
-<div class="shade{' top' if shade == 'top' else ''}"></div>
+<div class="shade{' top' if shade == 'top' else ''}{' cover' if shade == 'cover' else ''}"></div>
 {BRAND}
 <div class="count">{n} / 5</div>
 {inner}
@@ -84,9 +84,9 @@ slides = [
   <div class="kicker">The 4% rule problem</div>
   <div class="deco" style="font-size:62px; margin-top:12px; white-space:nowrap;">The market&rsquo;s up 1%.<br><em>Why are you down?</em></div>
   <div class="rule"></div>
-  <div class="desc" style="font-size:31px;">If the year ended today, many retirees would have <b>less</b> than they started with.</div>
-  <div class="swipe" style="margin-top:20px; padding:12px 26px; font-size:28px;">Swipe {ARROW}</div>
-</div>"""),
+  <div class="desc" style="font-size:34px;">If the year ended today, many retirees would have <b>less</b> than they started with.</div>
+  <div class="swipe" style="margin-top:20px; padding:12px 26px; font-size:30px;">Swipe {ARROW}</div>
+</div>""", shade="cover"),
     page(2, "2_side.jpg", "50% 20%", f"""
 <div class="glass" style="left:56px; right:56px; bottom:64px;">
   <div class="kicker">Do the math</div>
@@ -110,7 +110,7 @@ slides = [
     <div class="tile good"><div class="who">Retiree A</div><div class="seq">+20% &middot; +10% &middot; <span class="neg">&minus;15%</span></div><div class="end pos">$1.01M</div></div>
     <div class="tile bad"><div class="who">Retiree B</div><div class="seq"><span class="neg">&minus;15%</span> &middot; +10% &middot; +20%</div><div class="end neg">$976K</div></div>
   </div>
-  <div class="desc" style="font-size:30px; margin-top:20px;">Both start with $1M and take $40K a year. B hit the bad year first, <b>selling low to pay the bills</b>, and never caught up.</div>
+  <div class="desc" style="font-size:31px; margin-top:20px;">Both start with $1M and take $40K a year. B hit the bad year first, <b>selling low to pay the bills</b>, and never caught up.</div>
   <div class="note">{DISC}</div>
 </div>""", shade="top"),
     page(4, "3_standing.jpg", "50% 30%", f"""

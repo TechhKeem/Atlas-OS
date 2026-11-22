@@ -25,3 +25,26 @@ So, as the last step of every finished edit:
 
 If the transcript was made from the raw footage rather than the final cut,
 that is fine; Connie only needs to know what he said.
+
+## Carousel style rules (Hakeem's standing preferences)
+
+Carousels live in `video-editor/projects/carousel-*/` (HTML slides rendered to
+1080×1350 PNGs with Playwright; copy `carousel-sequence-risk/` as the starting
+point: `build.py`, `render.js`, `fonts/`).
+
+- **All carousel fonts are Art Deco.** No Inter or other non-Deco faces.
+  - Titles: **Limelight**.
+  - Body text, numbers, buttons, labels: **Josefin Sans** (400/600/700).
+  - Brand mark "FK MANAGEMENT": **Poiret One** with "FK" in Limelight.
+  - Font files are in `carousel-sequence-risk/fonts/` (from `@fontsource/*`
+    on npm); `render.js` asserts each font loaded before capturing.
+- **Charcoal gradient on every secondary photo** (slides 2 onward): a
+  `#20242D` gradient at **60% opacity** on the side holding the text, fading
+  out toward the subject, so the text stands out. The cover photo has no
+  gradient, only a thin top band so the brand mark reads.
+- Gradient glass cards (sage → charcoal, frosted blur, white hairline border),
+  FK brand colours: charcoal `#20242D`, sage `#5CA581`, platinum `#C1C4C8`,
+  soft white `#F6F7F9`.
+- Keep faces clear of cards; last slide carries an engaging question + CTA.
+- Hypothetical numbers get "Hypothetical example for illustration only. Not
+  investment advice."
