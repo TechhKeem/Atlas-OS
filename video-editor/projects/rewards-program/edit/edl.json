@@ -1,0 +1,55 @@
+{
+ "version": 1,
+ "sources": {
+  "A": "/workspace/Atlas-OS/video-editor/projects/rewards-program/rewards_program.mp4"
+ },
+ "ranges": [
+  {
+   "source": "A",
+   "start": 2.8,
+   "end": 24.44
+  },
+  {
+   "source": "A",
+   "start": 24.71,
+   "end": 27.34
+  },
+  {
+   "source": "A",
+   "start": 27.61,
+   "end": 28.74
+  },
+  {
+   "source": "A",
+   "start": 29.12,
+   "end": 30.71
+  },
+  {
+   "source": "A",
+   "start": 30.95,
+   "end": 41.69
+  },
+  {
+   "source": "A",
+   "start": 41.88,
+   "end": 46.21
+  },
+  {
+   "source": "A",
+   "start": 46.47,
+   "end": 48.95
+  },
+  {
+   "source": "A",
+   "start": 49.23,
+   "end": 49.98
+  },
+  {
+   "source": "A",
+   "start": 50.23,
+   "end": 51.2
+  }
+ ],
+ "grade": "eq=brightness=0.035:contrast=1.08:saturation=1.28:gamma=1.04,colorbalance=rs=0.02:bs=-0.01:rm=0.02:gm=0.005:bm=-0.015,unsharp=5:5:0.4",
+ "total_duration_s": 46.26
+}

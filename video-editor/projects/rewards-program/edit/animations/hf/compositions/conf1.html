@@ -1,0 +1,100 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; }
+    .band { position: absolute; left: 0; right: 0; top: 270px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .pill { display: inline-flex; align-items: center; gap: 16px; padding: 22px 38px; border-radius: 999px; font-weight: 800; font-size: 50px;
+             letter-spacing: -0.01em; color: #fff; box-shadow: 0 16px 40px rgba(0,0,0,0.28); white-space: nowrap; }
+    .sage { background: #3B7F5E; }
+    .sun { background: #FFC83D; color: #20242D; }
+    .char { background: rgba(32,36,45,0.88); }
+    .ocean { background: linear-gradient(120deg, #1FA2FF, #12D8FA); }
+    .sunset { background: linear-gradient(120deg, #FF6A5F, #FFB45C); }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.85), rgba(32,36,45,0.9)); border: 2px solid rgba(255,255,255,0.4);
+              backdrop-filter: blur(18px); }
+    .card { padding: 30px 40px; border-radius: 40px; color: #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.3); max-width: 900px; text-align: center; }
+    .k { font-weight: 600; font-size: 30px; letter-spacing: 0.16em; text-transform: uppercase; color: #8FD6AE; }
+    .big { font-weight: 800; font-size: 64px; line-height: 1.05; letter-spacing: -0.02em; margin-top: 6px; }
+    .hl { color: #FFC83D; }
+
+    #root { background: transparent; }
+    .cf { position: absolute; top: 0; }
+  </style>
+  <div id="root" data-composition-id="conf1" data-width="1080" data-height="1920">
+    <div class="cf" id="conf1c0" style="left:350px; width:16px; height:34px; background:#5CA581; border-radius:3%"></div><div class="cf" id="conf1c1" style="left:98px; width:19px; height:37px; background:#5CA581; border-radius:3%"></div><div class="cf" id="conf1c2" style="left:601px; width:16px; height:30px; background:#12D8FA; border-radius:3%"></div><div class="cf" id="conf1c3" style="left:105px; width:23px; height:32px; background:#12D8FA; border-radius:3%"></div><div class="cf" id="conf1c4" style="left:268px; width:16px; height:36px; background:#5CA581; border-radius:50%"></div><div class="cf" id="conf1c5" style="left:452px; width:23px; height:25px; background:#FF6A5F; border-radius:50%"></div><div class="cf" id="conf1c6" style="left:751px; width:21px; height:32px; background:#FF6A5F; border-radius:3%"></div><div class="cf" id="conf1c7" style="left:699px; width:26px; height:37px; background:#FFC83D; border-radius:50%"></div><div class="cf" id="conf1c8" style="left:236px; width:17px; height:35px; background:#FF6A5F; border-radius:50%"></div><div class="cf" id="conf1c9" style="left:465px; width:21px; height:35px; background:#FFC83D; border-radius:50%"></div><div class="cf" id="conf1c10" style="left:636px; width:17px; height:22px; background:#FF6A5F; border-radius:50%"></div><div class="cf" id="conf1c11" style="left:799px; width:19px; height:38px; background:#ffffff; border-radius:50%"></div><div class="cf" id="conf1c12" style="left:476px; width:15px; height:33px; background:#5CA581; border-radius:3%"></div><div class="cf" id="conf1c13" style="left:406px; width:22px; height:39px; background:#12D8FA; border-radius:50%"></div><div class="cf" id="conf1c14" style="left:156px; width:23px; height:35px; background:#FF6A5F; border-radius:3%"></div><div class="cf" id="conf1c15" style="left:819px; width:18px; height:34px; background:#5CA581; border-radius:50%"></div><div class="cf" id="conf1c16" style="left:687px; width:21px; height:36px; background:#8FD6AE; border-radius:3%"></div><div class="cf" id="conf1c17" style="left:30px; width:17px; height:27px; background:#ffffff; border-radius:50%"></div><div class="cf" id="conf1c18" style="left:245px; width:16px; height:26px; background:#12D8FA; border-radius:3%"></div><div class="cf" id="conf1c19" style="left:845px; width:23px; height:31px; background:#8FD6AE; border-radius:50%"></div><div class="cf" id="conf1c20" style="left:1023px; width:23px; height:25px; background:#8FD6AE; border-radius:3%"></div><div class="cf" id="conf1c21" style="left:710px; width:18px; height:32px; background:#8FD6AE; border-radius:3%"></div><div class="cf" id="conf1c22" style="left:941px; width:24px; height:26px; background:#FFC83D; border-radius:3%"></div><div class="cf" id="conf1c23" style="left:983px; width:18px; height:30px; background:#12D8FA; border-radius:50%"></div><div class="cf" id="conf1c24" style="left:839px; width:21px; height:36px; background:#8FD6AE; border-radius:3%"></div><div class="cf" id="conf1c25" style="left:521px; width:23px; height:38px; background:#5CA581; border-radius:3%"></div><div class="cf" id="conf1c26" style="left:68px; width:18px; height:40px; background:#12D8FA; border-radius:3%"></div><div class="cf" id="conf1c27" style="left:947px; width:25px; height:27px; background:#12D8FA; border-radius:3%"></div><div class="cf" id="conf1c28" style="left:79px; width:22px; height:36px; background:#8FD6AE; border-radius:50%"></div><div class="cf" id="conf1c29" style="left:526px; width:26px; height:37px; background:#8FD6AE; border-radius:50%"></div><div class="cf" id="conf1c30" style="left:365px; width:20px; height:35px; background:#FF6A5F; border-radius:50%"></div><div class="cf" id="conf1c31" style="left:947px; width:15px; height:27px; background:#8FD6AE; border-radius:50%"></div><div class="cf" id="conf1c32" style="left:580px; width:20px; height:31px; background:#FFC83D; border-radius:3%"></div><div class="cf" id="conf1c33" style="left:96px; width:17px; height:33px; background:#8FD6AE; border-radius:3%"></div><div class="cf" id="conf1c34" style="left:671px; width:15px; height:35px; background:#5CA581; border-radius:3%"></div><div class="cf" id="conf1c35" style="left:481px; width:22px; height:27px; background:#5CA581; border-radius:50%"></div><div class="cf" id="conf1c36" style="left:483px; width:22px; height:34px; background:#ffffff; border-radius:50%"></div><div class="cf" id="conf1c37" style="left:215px; width:25px; height:35px; background:#8FD6AE; border-radius:50%"></div><div class="cf" id="conf1c38" style="left:465px; width:15px; height:34px; background:#FF6A5F; border-radius:50%"></div><div class="cf" id="conf1c39" style="left:393px; width:18px; height:40px; background:#FFC83D; border-radius:3%"></div><div class="cf" id="conf1c40" style="left:301px; width:22px; height:26px; background:#5CA581; border-radius:3%"></div><div class="cf" id="conf1c41" style="left:251px; width:21px; height:32px; background:#8FD6AE; border-radius:50%"></div><div class="cf" id="conf1c42" style="left:891px; width:23px; height:31px; background:#FF6A5F; border-radius:3%"></div><div class="cf" id="conf1c43" style="left:862px; width:23px; height:39px; background:#ffffff; border-radius:3%"></div><div class="cf" id="conf1c44" style="left:55px; width:14px; height:32px; background:#8FD6AE; border-radius:50%"></div><div class="cf" id="conf1c45" style="left:568px; width:23px; height:31px; background:#5CA581; border-radius:50%"></div><div class="cf" id="conf1c46" style="left:83px; width:25px; height:27px; background:#5CA581; border-radius:3%"></div><div class="cf" id="conf1c47" style="left:13px; width:15px; height:27px; background:#ffffff; border-radius:3%"></div><div class="cf" id="conf1c48" style="left:128px; width:25px; height:26px; background:#5CA581; border-radius:50%"></div><div class="cf" id="conf1c49" style="left:227px; width:25px; height:26px; background:#12D8FA; border-radius:3%"></div><div class="cf" id="conf1c50" style="left:958px; width:22px; height:26px; background:#FF6A5F; border-radius:50%"></div><div class="cf" id="conf1c51" style="left:371px; width:18px; height:37px; background:#5CA581; border-radius:50%"></div><div class="cf" id="conf1c52" style="left:313px; width:18px; height:29px; background:#12D8FA; border-radius:3%"></div><div class="cf" id="conf1c53" style="left:308px; width:25px; height:26px; background:#FFC83D; border-radius:50%"></div><div class="cf" id="conf1c54" style="left:681px; width:25px; height:39px; background:#12D8FA; border-radius:3%"></div><div class="cf" id="conf1c55" style="left:309px; width:15px; height:39px; background:#8FD6AE; border-radius:3%"></div><div class="cf" id="conf1c56" style="left:708px; width:18px; height:32px; background:#FF6A5F; border-radius:3%"></div><div class="cf" id="conf1c57" style="left:979px; width:26px; height:30px; background:#8FD6AE; border-radius:3%"></div><div class="cf" id="conf1c58" style="left:218px; width:14px; height:38px; background:#FF6A5F; border-radius:50%"></div><div class="cf" id="conf1c59" style="left:389px; width:22px; height:32px; background:#8FD6AE; border-radius:3%"></div><div class="cf" id="conf1c60" style="left:943px; width:14px; height:23px; background:#ffffff; border-radius:50%"></div><div class="cf" id="conf1c61" style="left:506px; width:19px; height:36px; background:#8FD6AE; border-radius:3%"></div><div class="cf" id="conf1c62" style="left:966px; width:15px; height:36px; background:#5CA581; border-radius:3%"></div><div class="cf" id="conf1c63" style="left:687px; width:22px; height:24px; background:#5CA581; border-radius:50%"></div><div class="cf" id="conf1c64" style="left:326px; width:20px; height:39px; background:#ffffff; border-radius:3%"></div><div class="cf" id="conf1c65" style="left:24px; width:20px; height:34px; background:#FF6A5F; border-radius:3%"></div><div class="cf" id="conf1c66" style="left:454px; width:22px; height:26px; background:#FFC83D; border-radius:3%"></div><div class="cf" id="conf1c67" style="left:821px; width:18px; height:39px; background:#FF6A5F; border-radius:3%"></div><div class="cf" id="conf1c68" style="left:59px; width:14px; height:33px; background:#FF6A5F; border-radius:3%"></div><div class="cf" id="conf1c69" style="left:86px; width:16px; height:25px; background:#ffffff; border-radius:50%"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#conf1c0", { y: -159, rotation: 0, opacity: 1 }, { y: 1134, x: -21, rotation: -465, duration: 1.15, ease: "power1.in" }, 0.128);
+    tl.fromTo("#conf1c1", { y: -248, rotation: 0, opacity: 1 }, { y: 1627, x: -144, rotation: -301, duration: 1.57, ease: "power1.in" }, 0.221);
+    tl.fromTo("#conf1c2", { y: -124, rotation: 0, opacity: 1 }, { y: 1193, x: 23, rotation: -337, duration: 1.55, ease: "power1.in" }, 0.200);
+    tl.fromTo("#conf1c3", { y: -105, rotation: 0, opacity: 1 }, { y: 1519, x: 136, rotation: -149, duration: 1.53, ease: "power1.in" }, 0.174);
+    tl.fromTo("#conf1c4", { y: -114, rotation: 0, opacity: 1 }, { y: 1359, x: 154, rotation: -412, duration: 1.80, ease: "power1.in" }, 0.184);
+    tl.fromTo("#conf1c5", { y: -107, rotation: 0, opacity: 1 }, { y: 1616, x: 120, rotation: -201, duration: 1.63, ease: "power1.in" }, 0.014);
+    tl.fromTo("#conf1c6", { y: -165, rotation: 0, opacity: 1 }, { y: 1698, x: -141, rotation: 218, duration: 1.86, ease: "power1.in" }, 0.294);
+    tl.fromTo("#conf1c7", { y: -72, rotation: 0, opacity: 1 }, { y: 1420, x: 35, rotation: -7, duration: 1.38, ease: "power1.in" }, 0.310);
+    tl.fromTo("#conf1c8", { y: -227, rotation: 0, opacity: 1 }, { y: 1461, x: -71, rotation: -392, duration: 1.50, ease: "power1.in" }, 0.321);
+    tl.fromTo("#conf1c9", { y: -225, rotation: 0, opacity: 1 }, { y: 1309, x: -85, rotation: -16, duration: 1.22, ease: "power1.in" }, 0.335);
+    tl.fromTo("#conf1c10", { y: -235, rotation: 0, opacity: 1 }, { y: 1873, x: 144, rotation: 167, duration: 1.35, ease: "power1.in" }, 0.213);
+    tl.fromTo("#conf1c11", { y: -164, rotation: 0, opacity: 1 }, { y: 1460, x: -99, rotation: 523, duration: 1.42, ease: "power1.in" }, 0.139);
+    tl.fromTo("#conf1c12", { y: -70, rotation: 0, opacity: 1 }, { y: 1652, x: -137, rotation: -315, duration: 1.53, ease: "power1.in" }, 0.198);
+    tl.fromTo("#conf1c13", { y: -162, rotation: 0, opacity: 1 }, { y: 1980, x: -6, rotation: -203, duration: 1.19, ease: "power1.in" }, 0.166);
+    tl.fromTo("#conf1c14", { y: -70, rotation: 0, opacity: 1 }, { y: 1426, x: 61, rotation: 447, duration: 1.26, ease: "power1.in" }, 0.181);
+    tl.fromTo("#conf1c15", { y: -189, rotation: 0, opacity: 1 }, { y: 1301, x: 13, rotation: 3, duration: 1.83, ease: "power1.in" }, 0.181);
+    tl.fromTo("#conf1c16", { y: -215, rotation: 0, opacity: 1 }, { y: 1566, x: -46, rotation: -509, duration: 1.69, ease: "power1.in" }, 0.286);
+    tl.fromTo("#conf1c17", { y: -62, rotation: 0, opacity: 1 }, { y: 1960, x: -43, rotation: -302, duration: 1.85, ease: "power1.in" }, 0.157);
+    tl.fromTo("#conf1c18", { y: -100, rotation: 0, opacity: 1 }, { y: 1176, x: 51, rotation: 443, duration: 1.62, ease: "power1.in" }, 0.168);
+    tl.fromTo("#conf1c19", { y: -100, rotation: 0, opacity: 1 }, { y: 1974, x: -33, rotation: -107, duration: 1.37, ease: "power1.in" }, 0.276);
+    tl.fromTo("#conf1c20", { y: -99, rotation: 0, opacity: 1 }, { y: 1232, x: 104, rotation: 519, duration: 1.82, ease: "power1.in" }, 0.053);
+    tl.fromTo("#conf1c21", { y: -130, rotation: 0, opacity: 1 }, { y: 1574, x: 139, rotation: -71, duration: 1.88, ease: "power1.in" }, 0.005);
+    tl.fromTo("#conf1c22", { y: -143, rotation: 0, opacity: 1 }, { y: 1333, x: -26, rotation: -398, duration: 1.29, ease: "power1.in" }, 0.103);
+    tl.fromTo("#conf1c23", { y: -234, rotation: 0, opacity: 1 }, { y: 1237, x: 3, rotation: 403, duration: 1.80, ease: "power1.in" }, 0.289);
+    tl.fromTo("#conf1c24", { y: -236, rotation: 0, opacity: 1 }, { y: 1156, x: 58, rotation: 33, duration: 1.60, ease: "power1.in" }, 0.050);
+    tl.fromTo("#conf1c25", { y: -240, rotation: 0, opacity: 1 }, { y: 1507, x: -151, rotation: 426, duration: 1.13, ease: "power1.in" }, 0.067);
+    tl.fromTo("#conf1c26", { y: -153, rotation: 0, opacity: 1 }, { y: 1530, x: 141, rotation: 215, duration: 1.46, ease: "power1.in" }, 0.242);
+    tl.fromTo("#conf1c27", { y: -236, rotation: 0, opacity: 1 }, { y: 1498, x: -137, rotation: -280, duration: 1.21, ease: "power1.in" }, 0.294);
+    tl.fromTo("#conf1c28", { y: -66, rotation: 0, opacity: 1 }, { y: 1298, x: 145, rotation: -110, duration: 1.81, ease: "power1.in" }, 0.050);
+    tl.fromTo("#conf1c29", { y: -176, rotation: 0, opacity: 1 }, { y: 1421, x: -130, rotation: -145, duration: 1.42, ease: "power1.in" }, 0.348);
+    tl.fromTo("#conf1c30", { y: -68, rotation: 0, opacity: 1 }, { y: 1202, x: 134, rotation: -293, duration: 1.34, ease: "power1.in" }, 0.181);
+    tl.fromTo("#conf1c31", { y: -90, rotation: 0, opacity: 1 }, { y: 1708, x: 143, rotation: -102, duration: 1.76, ease: "power1.in" }, 0.265);
+    tl.fromTo("#conf1c32", { y: -223, rotation: 0, opacity: 1 }, { y: 1906, x: -74, rotation: -522, duration: 1.74, ease: "power1.in" }, 0.098);
+    tl.fromTo("#conf1c33", { y: -258, rotation: 0, opacity: 1 }, { y: 1995, x: -26, rotation: 449, duration: 1.20, ease: "power1.in" }, 0.093);
+    tl.fromTo("#conf1c34", { y: -74, rotation: 0, opacity: 1 }, { y: 1666, x: 10, rotation: -318, duration: 1.24, ease: "power1.in" }, 0.092);
+    tl.fromTo("#conf1c35", { y: -159, rotation: 0, opacity: 1 }, { y: 1980, x: 5, rotation: -275, duration: 1.11, ease: "power1.in" }, 0.013);
+    tl.fromTo("#conf1c36", { y: -66, rotation: 0, opacity: 1 }, { y: 1377, x: -91, rotation: -292, duration: 1.81, ease: "power1.in" }, 0.191);
+    tl.fromTo("#conf1c37", { y: -93, rotation: 0, opacity: 1 }, { y: 1113, x: 40, rotation: 410, duration: 1.89, ease: "power1.in" }, 0.346);
+    tl.fromTo("#conf1c38", { y: -251, rotation: 0, opacity: 1 }, { y: 1267, x: -74, rotation: -536, duration: 1.65, ease: "power1.in" }, 0.210);
+    tl.fromTo("#conf1c39", { y: -216, rotation: 0, opacity: 1 }, { y: 1265, x: -53, rotation: -449, duration: 1.81, ease: "power1.in" }, 0.012);
+    tl.fromTo("#conf1c40", { y: -180, rotation: 0, opacity: 1 }, { y: 1138, x: -153, rotation: -211, duration: 1.17, ease: "power1.in" }, 0.092);
+    tl.fromTo("#conf1c41", { y: -161, rotation: 0, opacity: 1 }, { y: 1356, x: 38, rotation: -384, duration: 1.68, ease: "power1.in" }, 0.268);
+    tl.fromTo("#conf1c42", { y: -146, rotation: 0, opacity: 1 }, { y: 1832, x: -155, rotation: 201, duration: 1.70, ease: "power1.in" }, 0.318);
+    tl.fromTo("#conf1c43", { y: -133, rotation: 0, opacity: 1 }, { y: 1964, x: -39, rotation: -53, duration: 1.13, ease: "power1.in" }, 0.030);
+    tl.fromTo("#conf1c44", { y: -246, rotation: 0, opacity: 1 }, { y: 1939, x: 127, rotation: -441, duration: 1.47, ease: "power1.in" }, 0.092);
+    tl.fromTo("#conf1c45", { y: -214, rotation: 0, opacity: 1 }, { y: 1685, x: -13, rotation: 373, duration: 1.71, ease: "power1.in" }, 0.082);
+    tl.fromTo("#conf1c46", { y: -209, rotation: 0, opacity: 1 }, { y: 1769, x: -63, rotation: 73, duration: 1.22, ease: "power1.in" }, 0.027);
+    tl.fromTo("#conf1c47", { y: -202, rotation: 0, opacity: 1 }, { y: 1565, x: -11, rotation: -36, duration: 1.64, ease: "power1.in" }, 0.242);
+    tl.fromTo("#conf1c48", { y: -96, rotation: 0, opacity: 1 }, { y: 1971, x: -16, rotation: -250, duration: 1.47, ease: "power1.in" }, 0.006);
+    tl.fromTo("#conf1c49", { y: -69, rotation: 0, opacity: 1 }, { y: 1219, x: 102, rotation: 9, duration: 1.52, ease: "power1.in" }, 0.050);
+    tl.fromTo("#conf1c50", { y: -162, rotation: 0, opacity: 1 }, { y: 1506, x: -63, rotation: -388, duration: 1.10, ease: "power1.in" }, 0.009);
+    tl.fromTo("#conf1c51", { y: -236, rotation: 0, opacity: 1 }, { y: 1934, x: 68, rotation: 434, duration: 1.77, ease: "power1.in" }, 0.263);
+    tl.fromTo("#conf1c52", { y: -205, rotation: 0, opacity: 1 }, { y: 1143, x: -127, rotation: 361, duration: 1.44, ease: "power1.in" }, 0.126);
+    tl.fromTo("#conf1c53", { y: -185, rotation: 0, opacity: 1 }, { y: 1961, x: 123, rotation: 337, duration: 1.25, ease: "power1.in" }, 0.179);
+    tl.fromTo("#conf1c54", { y: -114, rotation: 0, opacity: 1 }, { y: 1506, x: 81, rotation: 156, duration: 1.14, ease: "power1.in" }, 0.252);
+    tl.fromTo("#conf1c55", { y: -200, rotation: 0, opacity: 1 }, { y: 1765, x: 152, rotation: -259, duration: 1.37, ease: "power1.in" }, 0.165);
+    tl.fromTo("#conf1c56", { y: -218, rotation: 0, opacity: 1 }, { y: 1915, x: -1, rotation: -302, duration: 1.23, ease: "power1.in" }, 0.059);
+    tl.fromTo("#conf1c57", { y: -149, rotation: 0, opacity: 1 }, { y: 1387, x: -42, rotation: 334, duration: 1.24, ease: "power1.in" }, 0.085);
+    tl.fromTo("#conf1c58", { y: -206, rotation: 0, opacity: 1 }, { y: 1777, x: -1, rotation: 80, duration: 1.27, ease: "power1.in" }, 0.261);
+    tl.fromTo("#conf1c59", { y: -180, rotation: 0, opacity: 1 }, { y: 1501, x: 145, rotation: 377, duration: 1.30, ease: "power1.in" }, 0.095);
+    tl.fromTo("#conf1c60", { y: -245, rotation: 0, opacity: 1 }, { y: 1937, x: 137, rotation: 30, duration: 1.49, ease: "power1.in" }, 0.339);
+    tl.fromTo("#conf1c61", { y: -238, rotation: 0, opacity: 1 }, { y: 1843, x: 64, rotation: 374, duration: 1.88, ease: "power1.in" }, 0.053);
+    tl.fromTo("#conf1c62", { y: -131, rotation: 0, opacity: 1 }, { y: 1373, x: -119, rotation: -268, duration: 1.84, ease: "power1.in" }, 0.081);
+    tl.fromTo("#conf1c63", { y: -182, rotation: 0, opacity: 1 }, { y: 1301, x: 32, rotation: -529, duration: 1.57, ease: "power1.in" }, 0.184);
+    tl.fromTo("#conf1c64", { y: -211, rotation: 0, opacity: 1 }, { y: 1965, x: 65, rotation: -208, duration: 1.29, ease: "power1.in" }, 0.166);
+    tl.fromTo("#conf1c65", { y: -75, rotation: 0, opacity: 1 }, { y: 1304, x: -149, rotation: -175, duration: 1.63, ease: "power1.in" }, 0.090);
+    tl.fromTo("#conf1c66", { y: -198, rotation: 0, opacity: 1 }, { y: 1838, x: -86, rotation: -301, duration: 1.88, ease: "power1.in" }, 0.072);
+    tl.fromTo("#conf1c67", { y: -78, rotation: 0, opacity: 1 }, { y: 1151, x: 30, rotation: 456, duration: 1.49, ease: "power1.in" }, 0.314);
+    tl.fromTo("#conf1c68", { y: -170, rotation: 0, opacity: 1 }, { y: 1741, x: -59, rotation: -418, duration: 1.25, ease: "power1.in" }, 0.248);
+    tl.fromTo("#conf1c69", { y: -184, rotation: 0, opacity: 1 }, { y: 1436, x: -54, rotation: -357, duration: 1.63, ease: "power1.in" }, 0.011);
+    window.__timelines["conf1"] = tl;
+  </script>
+</template>

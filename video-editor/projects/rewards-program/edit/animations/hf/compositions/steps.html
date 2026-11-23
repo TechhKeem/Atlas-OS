@@ -1,0 +1,46 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; }
+    .band { position: absolute; left: 0; right: 0; top: 270px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .pill { display: inline-flex; align-items: center; gap: 16px; padding: 22px 38px; border-radius: 999px; font-weight: 800; font-size: 50px;
+             letter-spacing: -0.01em; color: #fff; box-shadow: 0 16px 40px rgba(0,0,0,0.28); white-space: nowrap; }
+    .sage { background: #3B7F5E; }
+    .sun { background: #FFC83D; color: #20242D; }
+    .char { background: rgba(32,36,45,0.88); }
+    .ocean { background: linear-gradient(120deg, #1FA2FF, #12D8FA); }
+    .sunset { background: linear-gradient(120deg, #FF6A5F, #FFB45C); }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.85), rgba(32,36,45,0.9)); border: 2px solid rgba(255,255,255,0.4);
+              backdrop-filter: blur(18px); }
+    .card { padding: 30px 40px; border-radius: 40px; color: #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.3); max-width: 900px; text-align: center; }
+    .k { font-weight: 600; font-size: 30px; letter-spacing: 0.16em; text-transform: uppercase; color: #8FD6AE; }
+    .big { font-weight: 800; font-size: 64px; line-height: 1.05; letter-spacing: -0.02em; margin-top: 6px; }
+    .hl { color: #FFC83D; }
+
+    #root { background: transparent; }
+    .steps { position: absolute; left: 90px; right: 90px; top: 255px; }
+    .stp { display: flex; align-items: center; gap: 20px; padding: 18px 26px; border-radius: 28px; margin-top: 14px;
+            background: rgba(32,36,45,0.88); color: #fff; font-weight: 700; font-size: 42px; box-shadow: 0 14px 34px rgba(0,0,0,0.28); }
+    .n { width: 62px; height: 62px; border-radius: 31px; background: #3B7F5E; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 36px; flex: none; }
+    .ttl { font-weight: 800; font-size: 48px; color: #20242D; background: #FFC83D; display: inline-block; padding: 10px 26px; border-radius: 22px; }
+  </style>
+  <div id="root" data-composition-id="steps" data-width="1080" data-height="1920">
+    <div class="steps">
+      <div class="ttl" id="st0">All you gotta do:</div>
+      <div class="stp" id="st1"><div class="n">1</div>Reach out to me</div>
+      <div class="stp" id="st2"><div class="n">2</div><div>Connect me with someone <span id="ret">retiring</span></div></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#st0", { opacity: 0, scale: 0.55, rotation: -4 }, { opacity: 1, scale: 1, rotation: -2, duration: 0.38, ease: "back.out(2.2)" }, 0.000);
+    tl.fromTo("#st1", { opacity: 0, scale: 0.55, rotation: 0 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.38, ease: "back.out(2.2)" }, 0.700);
+    tl.fromTo("#st2", { opacity: 0, scale: 0.55, rotation: 0 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.38, ease: "back.out(2.2)" }, 1.850);
+    tl.fromTo("#ret", { color: "#ffffff" }, { color: "#FFC83D", duration: 0.2 }, 3.700);
+    tl.to("#st2", { scale: 1.06, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, 3.700);
+    tl.to("#st0", { opacity: 0, scale: 0.8, duration: 0.18, ease: "power2.in" }, 5.150);
+    tl.to("#st1", { opacity: 0, scale: 0.8, duration: 0.18, ease: "power2.in" }, 5.150);
+    tl.to("#st2", { opacity: 0, scale: 0.8, duration: 0.18, ease: "power2.in" }, 5.150);
+    window.__timelines["steps"] = tl;
+  </script>
+</template>
