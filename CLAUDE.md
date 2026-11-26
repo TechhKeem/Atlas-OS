@@ -54,3 +54,17 @@ point: `build.py`, `render.js`, `fonts/`).
 - Keep faces clear of cards; last slide carries an engaging question + CTA.
 - Hypothetical numbers get "Hypothetical example for illustration only. Not
   investment advice."
+
+## B-roll libraries (Hakeem's Google Drive)
+
+Both folders live inside **Video Edits / Launch Video**. Use them whenever an edit needs b-roll:
+
+| Folder | Drive folder ID | What it holds | Use it for |
+|---|---|---|---|
+| **B Roll** | `1sl5rwxwYPp4zVw7cfJIxuhuPQVt9MLPY` | Pictures & videos of Hakeem plus neutral footage | General cutaways: covering jump cuts, illustrating a line, pacing changes, intros/outros |
+| **Authority** | `1BYRJSmeyVnxPLpDtd0Xga7NXPc58pvYN` | Hakeem at conferences, speaking engagements, events | Credibility moments: "I'm Finance Keem", "licensed fiduciary", "what I do every day", CTAs, results/claims, end cards |
+
+- List contents with the Drive search tool (`'<folder id>' in ancestors`). Pick clips by what the line needs; prefer Authority over B Roll whenever the script is about who Hakeem is or why to trust him.
+- Downloading: files are private by default. Download via `https://drive.usercontent.google.com/download?id=<id>&export=download&confirm=t` only works when the file (or its folder) is shared "Anyone with the link". If a download returns HTML, ask Hakeem to share the folder that way; never change sharing yourself.
+- Keep an index of what's in each folder at `video-editor/broll-index.md` (filename, type, length/size, a one-line description of the shot) once files have been reviewed, so later edits can pick clips without re-downloading.
+- HEIC photos: convert to JPG with ffmpeg before use. iPhone .MOV is fine (HEVC); re-encode to H.264 with `-g 30` before putting it in a HyperFrames project.
