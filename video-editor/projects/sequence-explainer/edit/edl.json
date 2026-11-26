@@ -1,0 +1,75 @@
+{
+ "version": 1,
+ "sources": {
+  "A": "/workspace/Atlas-OS/video-editor/projects/sequence-explainer/retirement_scenes.mp4"
+ },
+ "ranges": [
+  {
+   "source": "A",
+   "start": 0.0,
+   "end": 1.0
+  },
+  {
+   "source": "A",
+   "start": 1.36,
+   "end": 15.51
+  },
+  {
+   "source": "A",
+   "start": 15.83,
+   "end": 18.08
+  },
+  {
+   "source": "A",
+   "start": 18.32,
+   "end": 20.65
+  },
+  {
+   "source": "A",
+   "start": 20.87,
+   "end": 34.44
+  },
+  {
+   "source": "A",
+   "start": 34.84,
+   "end": 35.79
+  },
+  {
+   "source": "A",
+   "start": 36.15,
+   "end": 58.13
+  },
+  {
+   "source": "A",
+   "start": 58.32,
+   "end": 67.38
+  },
+  {
+   "source": "A",
+   "start": 68.34,
+   "end": 80.9
+  },
+  {
+   "source": "A",
+   "start": 105.22,
+   "end": 110.75
+  },
+  {
+   "source": "A",
+   "start": 86.0,
+   "end": 98.6
+  },
+  {
+   "source": "A",
+   "start": 111.92,
+   "end": 113.92
+  },
+  {
+   "source": "A",
+   "start": 114.33,
+   "end": 133.75
+  }
+ ],
+ "grade": "eq=brightness=0.02:contrast=1.06:saturation=1.08,colorbalance=rs=-0.01:bs=0.015:rm=0.01:bm=-0.005",
+ "total_duration_s": 117.4
+}

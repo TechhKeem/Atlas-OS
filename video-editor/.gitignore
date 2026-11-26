@@ -22,3 +22,6 @@ projects/**/edit/clips_graded/
 projects/**/edit/music/*.png
 projects/**/photos/
 projects/reference-concept/
+projects/**/.graphics.hf-transaction-*/
+projects/**/render.log
+projects/**/snaps.txt

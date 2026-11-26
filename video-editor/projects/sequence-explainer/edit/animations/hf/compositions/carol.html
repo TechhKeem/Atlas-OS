@@ -1,0 +1,62 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; }
+    .hdr { position: absolute; left: 0; right: 0; top: 250px; display: flex; flex-direction: column; align-items: center; }
+    .chap { display: inline-block; padding: 12px 26px; border-radius: 999px; background: #20242D; color: #fff; font-weight: 700;
+             font-size: 30px; letter-spacing: 0.14em; text-transform: uppercase; }
+    .area { position: absolute; left: 70px; right: 70px; top: 345px; height: 720px; display: flex; flex-direction: column;
+             align-items: center; justify-content: center; gap: 22px; }
+    .card { border-radius: 36px; padding: 30px 40px; color: #fff; text-align: center;
+             background: linear-gradient(140deg, rgba(92,165,129,0.95) 0%, rgba(44,62,58,0.96) 45%, rgba(32,36,45,0.98) 100%);
+             border: 1.5px solid rgba(255,255,255,0.35); box-shadow: 0 24px 60px rgba(32,36,45,0.28), inset 0 1.5px 0 rgba(255,255,255,0.35); }
+    .lbl { font-weight: 500; font-size: 32px; letter-spacing: 0.06em; text-transform: uppercase; color: #8FD6AE; }
+    .num { font-weight: 800; font-size: 104px; letter-spacing: -0.03em; line-height: 1.0; }
+    .mid { font-weight: 700; font-size: 60px; letter-spacing: -0.02em; line-height: 1.05; }
+    .sub { font-weight: 400; font-size: 34px; color: rgba(255,255,255,0.86); margin-top: 6px; }
+    .row { display: flex; gap: 20px; justify-content: center; align-items: stretch; }
+    .chip { padding: 18px 30px; border-radius: 26px; font-weight: 800; font-size: 64px; color: #fff; background: #F08A7E;
+             box-shadow: 0 14px 30px rgba(240,138,126,0.35); }
+    .avatar { width: 120px; height: 120px; border-radius: 60px; display: flex; align-items: center; justify-content: center;
+               margin: 0 auto 8px; color: #fff; }
+    .pos { color: #8FD6AE; } .neg { color: #F08A7E; } .hl { color: #FFC83D; }
+    .note { font-weight: 400; font-size: 28px; color: rgba(32,36,45,0.7); margin-top: 4px; }
+    .tbl { width: 100%; }
+    .tr { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 26px; border-radius: 26px;
+           margin-top: 14px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); text-align: left; }
+    .who { font-weight: 700; font-size: 40px; }
+    .val { font-weight: 800; font-size: 46px; text-align: right; }
+    .val small { display: block; font-weight: 500; font-size: 26px; color: rgba(255,255,255,0.8); }
+    .mark { width: 56px; height: 56px; border-radius: 28px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 34px; flex: none; }
+
+
+  </style>
+  <div id="root" data-composition-id="carol" data-width="1080" data-height="1920">
+    <div id="carol-all">
+    <div class="hdr"><div class="chap" id="carolh">Plan 2 &middot; Carol</div></div>
+    <div class="area">
+      <div class="card" id="ca1" style="width:100%">
+        <div class="avatar" style="background:#3B7F5E"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div>
+        <div class="mid">Carol</div>
+      </div>
+      <div class="card" id="ca2" style="width:100%; text-align:left">
+        <div class="sub" id="ca3" style="font-size:40px; margin:6px 0">&#10003; Same $1,000,000</div>
+        <div class="sub" id="ca4" style="font-size:40px; margin:6px 0">&#10003; Same $60,000 / year</div>
+        <div class="sub" id="ca5" style="font-size:40px; margin:6px 0">&#10003; Same bad start</div>
+      </div>
+      <div class="chap" id="ca6" style="font-size:40px; background:#FFC83D; color:#20242D">But she buys income first</div></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#carolh", { opacity: 0, y: 10, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 0.050);
+    tl.fromTo("#ca1", { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 0.850);
+    tl.fromTo("#ca2", { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 1.700);
+    tl.fromTo("#ca3", { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 1.850);
+    tl.fromTo("#ca4", { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 2.850);
+    tl.fromTo("#ca5", { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 5.100);
+    tl.fromTo("#ca6", { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 7.850);
+    tl.to("#carol-all", { opacity: 0, y: -16, duration: 0.25, ease: "power2.in" }, 9.030);
+    window.__timelines["carol"] = tl;
+  </script>
+</template>

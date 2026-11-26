@@ -1,0 +1,60 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; }
+    .hdr { position: absolute; left: 0; right: 0; top: 250px; display: flex; flex-direction: column; align-items: center; }
+    .chap { display: inline-block; padding: 12px 26px; border-radius: 999px; background: #20242D; color: #fff; font-weight: 700;
+             font-size: 30px; letter-spacing: 0.14em; text-transform: uppercase; }
+    .area { position: absolute; left: 70px; right: 70px; top: 345px; height: 720px; display: flex; flex-direction: column;
+             align-items: center; justify-content: center; gap: 22px; }
+    .card { border-radius: 36px; padding: 30px 40px; color: #fff; text-align: center;
+             background: linear-gradient(140deg, rgba(92,165,129,0.95) 0%, rgba(44,62,58,0.96) 45%, rgba(32,36,45,0.98) 100%);
+             border: 1.5px solid rgba(255,255,255,0.35); box-shadow: 0 24px 60px rgba(32,36,45,0.28), inset 0 1.5px 0 rgba(255,255,255,0.35); }
+    .lbl { font-weight: 500; font-size: 32px; letter-spacing: 0.06em; text-transform: uppercase; color: #8FD6AE; }
+    .num { font-weight: 800; font-size: 104px; letter-spacing: -0.03em; line-height: 1.0; }
+    .mid { font-weight: 700; font-size: 60px; letter-spacing: -0.02em; line-height: 1.05; }
+    .sub { font-weight: 400; font-size: 34px; color: rgba(255,255,255,0.86); margin-top: 6px; }
+    .row { display: flex; gap: 20px; justify-content: center; align-items: stretch; }
+    .chip { padding: 18px 30px; border-radius: 26px; font-weight: 800; font-size: 64px; color: #fff; background: #F08A7E;
+             box-shadow: 0 14px 30px rgba(240,138,126,0.35); }
+    .avatar { width: 120px; height: 120px; border-radius: 60px; display: flex; align-items: center; justify-content: center;
+               margin: 0 auto 8px; color: #fff; }
+    .pos { color: #8FD6AE; } .neg { color: #F08A7E; } .hl { color: #FFC83D; }
+    .note { font-weight: 400; font-size: 28px; color: rgba(32,36,45,0.7); margin-top: 4px; }
+    .tbl { width: 100%; }
+    .tr { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 26px; border-radius: 26px;
+           margin-top: 14px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); text-align: left; }
+    .who { font-weight: 700; font-size: 40px; }
+    .val { font-weight: 800; font-size: 46px; text-align: right; }
+    .val small { display: block; font-weight: 500; font-size: 26px; color: rgba(255,255,255,0.8); }
+    .mark { width: 56px; height: 56px; border-radius: 28px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 34px; flex: none; }
+
+
+  </style>
+  <div id="root" data-composition-id="weak" data-width="1080" data-height="1920">
+    <div id="weak-all">
+    <div class="hdr"><div class="chap" id="weakh">If it averages 6.6%</div></div>
+    <div class="area">
+      <div class="card" id="wk0" style="width:100%">
+        <div class="lbl">Same income &middot; same bad start</div>
+        <div class="tbl">
+          <div class="tr" id="wk1"><div style="display:flex; align-items:center; gap:16px"><div class="mark" style="background:#C8473C">&#10007;</div><span class="who">James</span></div><div class="val"><span class="neg">$0</span><small>runs out in year 26</small></div></div>
+          <div class="tr" id="wk2"><div style="display:flex; align-items:center; gap:16px"><div class="mark" style="background:#5CA581">&#10003;</div><span class="who">Carol</span></div><div class="val">$187K<small>at year 30 + $32,500 / yr for life</small></div></div>
+        </div>
+      </div>
+      <div class="chap" id="wk3" style="font-size:34px; background:#FFC83D; color:#20242D">Carol&rsquo;s paycheck never changed</div>
+      <div class="note" id="wk4">Hypothetical example for illustration only</div></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#weakh", { opacity: 0, y: 10, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 0.050);
+    tl.fromTo("#wk0", { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 2.550);
+    tl.fromTo("#wk1", { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 3.550);
+    tl.fromTo("#wk2", { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 6.750);
+    tl.fromTo("#wk3", { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 10.100);
+    tl.fromTo("#wk4", { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, 10.100);
+    tl.to("#weak-all", { opacity: 0, y: -16, duration: 0.25, ease: "power2.in" }, 12.230);
+    window.__timelines["weak"] = tl;
+  </script>
+</template>
