@@ -1,0 +1,1064 @@
+[
+{
+"id": "w0",
+"text": "Two",
+"start": 0.0,
+"end": 0.28
+},
+{
+"id": "w1",
+"text": "retirees,",
+"start": 0.28,
+"end": 0.74
+},
+{
+"id": "w2",
+"text": "same",
+"start": 0.913,
+"end": 1.033
+},
+{
+"id": "w3",
+"text": "$1",
+"start": 1.033,
+"end": 1.213
+},
+{
+"id": "w4",
+"text": "million,",
+"start": 1.213,
+"end": 1.453
+},
+{
+"id": "w5",
+"text": "the",
+"start": 1.613,
+"end": 1.813
+},
+{
+"id": "w6",
+"text": "same",
+"start": 1.813,
+"end": 2.053
+},
+{
+"id": "w7",
+"text": "$60,000",
+"start": 2.053,
+"end": 2.753
+},
+{
+"id": "w9",
+"text": "a",
+"start": 2.753,
+"end": 3.133
+},
+{
+"id": "w10",
+"text": "year",
+"start": 3.133,
+"end": 3.313
+},
+{
+"id": "w11",
+"text": "to",
+"start": 3.313,
+"end": 3.653
+},
+{
+"id": "w12",
+"text": "live",
+"start": 3.653,
+"end": 3.813
+},
+{
+"id": "w13",
+"text": "on.",
+"start": 3.813,
+"end": 4.053
+},
+{
+"id": "w14",
+"text": "One",
+"start": 4.213,
+"end": 4.473
+},
+{
+"id": "w15",
+"text": "of",
+"start": 4.473,
+"end": 4.573
+},
+{
+"id": "w16",
+"text": "them",
+"start": 4.573,
+"end": 4.693
+},
+{
+"id": "w17",
+"text": "can",
+"start": 4.693,
+"end": 4.853
+},
+{
+"id": "w18",
+"text": "run",
+"start": 4.853,
+"end": 4.973
+},
+{
+"id": "w19",
+"text": "out",
+"start": 4.973,
+"end": 5.153
+},
+{
+"id": "w20",
+"text": "of",
+"start": 5.153,
+"end": 5.233
+},
+{
+"id": "w21",
+"text": "money,",
+"start": 5.233,
+"end": 5.453
+},
+{
+"id": "w22",
+"text": "the",
+"start": 5.613,
+"end": 5.813
+},
+{
+"id": "w23",
+"text": "other",
+"start": 5.813,
+"end": 6.033
+},
+{
+"id": "w24",
+"text": "never",
+"start": 6.033,
+"end": 6.453
+},
+{
+"id": "w25",
+"text": "will.",
+"start": 6.453,
+"end": 6.793
+},
+{
+"id": "w29",
+"text": "Meet",
+"start": 6.96,
+"end": 7.06
+},
+{
+"id": "w30",
+"text": "James.",
+"start": 7.06,
+"end": 7.4
+},
+{
+"id": "w31",
+"text": "He",
+"start": 7.58,
+"end": 7.72
+},
+{
+"id": "w32",
+"text": "puts",
+"start": 7.72,
+"end": 7.88
+},
+{
+"id": "w33",
+"text": "all",
+"start": 7.88,
+"end": 8.14
+},
+{
+"id": "w34",
+"text": "of",
+"start": 8.14,
+"end": 8.26
+},
+{
+"id": "w35",
+"text": "it",
+"start": 8.26,
+"end": 8.38
+},
+{
+"id": "w36",
+"text": "into",
+"start": 8.38,
+"end": 8.6
+},
+{
+"id": "w37",
+"text": "the",
+"start": 8.6,
+"end": 8.74
+},
+{
+"id": "w38",
+"text": "S",
+"start": 8.74,
+"end": 8.84
+},
+{
+"id": "w39",
+"text": "&P",
+"start": 8.84,
+"end": 9.12
+},
+{
+"id": "w40",
+"text": "500",
+"start": 9.12,
+"end": 9.44
+},
+{
+"id": "w41",
+"text": "fund,",
+"start": 9.44,
+"end": 9.9
+},
+{
+"id": "w42",
+"text": "VOO,",
+"start": 10.08,
+"end": 10.26
+},
+{
+"id": "w43",
+"text": "and",
+"start": 10.447,
+"end": 10.587
+},
+{
+"id": "w44",
+"text": "takes",
+"start": 10.587,
+"end": 10.767
+},
+{
+"id": "w45",
+"text": "out",
+"start": 10.767,
+"end": 10.967
+},
+{
+"id": "w46",
+"text": "6%",
+"start": 10.967,
+"end": 11.447
+},
+{
+"id": "w48",
+"text": "a",
+"start": 11.447,
+"end": 11.587
+},
+{
+"id": "w49",
+"text": "year.",
+"start": 11.587,
+"end": 11.787
+},
+{
+"id": "w57",
+"text": "James",
+"start": 11.96,
+"end": 12.02
+},
+{
+"id": "w58",
+"text": "retires",
+"start": 12.02,
+"end": 12.52
+},
+{
+"id": "w59",
+"text": "right",
+"start": 12.52,
+"end": 12.82
+},
+{
+"id": "w60",
+"text": "into",
+"start": 12.82,
+"end": 13.12
+},
+{
+"id": "w61",
+"text": "a",
+"start": 13.12,
+"end": 13.38
+},
+{
+"id": "w62",
+"text": "rough",
+"start": 13.38,
+"end": 13.56
+},
+{
+"id": "w63",
+"text": "market,",
+"start": 13.56,
+"end": 14.0
+},
+{
+"id": "w64",
+"text": "down",
+"start": 14.18,
+"end": 14.2
+},
+{
+"id": "w65",
+"text": "15%,",
+"start": 14.2,
+"end": 14.98
+},
+{
+"id": "w66",
+"text": "then",
+"start": 14.98,
+"end": 15.46
+},
+{
+"id": "w67",
+"text": "down",
+"start": 15.46,
+"end": 15.72
+},
+{
+"id": "w68",
+"text": "10,",
+"start": 15.72,
+"end": 15.98
+},
+{
+"id": "w69",
+"text": "then",
+"start": 16.147,
+"end": 16.387
+},
+{
+"id": "w70",
+"text": "down",
+"start": 16.387,
+"end": 16.827
+},
+{
+"id": "w71",
+"text": "5.",
+"start": 16.827,
+"end": 17.187
+},
+{
+"id": "w87",
+"text": "In",
+"start": 17.36,
+"end": 17.9
+},
+{
+"id": "w88",
+"text": "three",
+"start": 17.9,
+"end": 18.12
+},
+{
+"id": "w89",
+"text": "years,",
+"start": 18.12,
+"end": 18.42
+},
+{
+"id": "w90",
+"text": "his",
+"start": 18.48,
+"end": 18.68
+},
+{
+"id": "w91",
+"text": "million",
+"start": 18.68,
+"end": 18.96
+},
+{
+"id": "w92",
+"text": "is",
+"start": 18.96,
+"end": 19.2
+},
+{
+"id": "w93",
+"text": "down",
+"start": 19.2,
+"end": 19.42
+},
+{
+"id": "w94",
+"text": "to",
+"start": 19.42,
+"end": 19.64
+},
+{
+"id": "w95",
+"text": "$575,000.",
+"start": 19.64,
+"end": 21.88
+},
+{
+"id": "w98",
+"text": "meet",
+"start": 22.06,
+"end": 22.3
+},
+{
+"id": "w99",
+"text": "Carol,",
+"start": 22.3,
+"end": 22.56
+},
+{
+"id": "w109",
+"text": "same",
+"start": 22.727,
+"end": 23.167
+},
+{
+"id": "w110",
+"text": "bad",
+"start": 23.167,
+"end": 23.607
+},
+{
+"id": "w111",
+"text": "start,",
+"start": 23.607,
+"end": 23.987
+},
+{
+"id": "w112",
+"text": "but",
+"start": 24.147,
+"end": 24.427
+},
+{
+"id": "w113",
+"text": "this",
+"start": 24.427,
+"end": 24.747
+},
+{
+"id": "w114",
+"text": "time",
+"start": 24.747,
+"end": 25.087
+},
+{
+"id": "w115",
+"text": "she",
+"start": 25.087,
+"end": 25.307
+},
+{
+"id": "w116",
+"text": "buys",
+"start": 25.307,
+"end": 25.587
+},
+{
+"id": "w117",
+"text": "income",
+"start": 25.587,
+"end": 26.007
+},
+{
+"id": "w118",
+"text": "first.",
+"start": 26.007,
+"end": 26.407
+},
+{
+"id": "w119",
+"text": "She",
+"start": 26.593,
+"end": 26.813
+},
+{
+"id": "w120",
+"text": "puts",
+"start": 26.813,
+"end": 27.033
+},
+{
+"id": "w121",
+"text": "$500,000",
+"start": 27.033,
+"end": 28.033
+},
+{
+"id": "w123",
+"text": "into",
+"start": 28.033,
+"end": 28.753
+},
+{
+"id": "w124",
+"text": "a",
+"start": 28.753,
+"end": 28.973
+},
+{
+"id": "w125",
+"text": "private",
+"start": 28.973,
+"end": 29.253
+},
+{
+"id": "w126",
+"text": "pension",
+"start": 29.253,
+"end": 29.573
+},
+{
+"id": "w127",
+"text": "account",
+"start": 29.573,
+"end": 29.933
+},
+{
+"id": "w128",
+"text": "paying",
+"start": 29.933,
+"end": 30.253
+},
+{
+"id": "w129",
+"text": "6.5%.",
+"start": 30.253,
+"end": 31.053
+},
+{
+"id": "w131",
+"text": "That's",
+"start": 31.213,
+"end": 31.813
+},
+{
+"id": "w132",
+"text": "$32,500",
+"start": 31.813,
+"end": 33.593
+},
+{
+"id": "w134",
+"text": "every",
+"start": 33.593,
+"end": 34.533
+},
+{
+"id": "w135",
+"text": "year",
+"start": 34.533,
+"end": 34.793
+},
+{
+"id": "w136",
+"text": "for",
+"start": 34.793,
+"end": 35.033
+},
+{
+"id": "w137",
+"text": "the",
+"start": 35.033,
+"end": 35.113
+},
+{
+"id": "w138",
+"text": "rest",
+"start": 35.113,
+"end": 35.233
+},
+{
+"id": "w139",
+"text": "of",
+"start": 35.233,
+"end": 35.353
+},
+{
+"id": "w140",
+"text": "her",
+"start": 35.353,
+"end": 35.473
+},
+{
+"id": "w141",
+"text": "life,",
+"start": 35.473,
+"end": 35.713
+},
+{
+"id": "w165",
+"text": "$32,500",
+"start": 35.893,
+"end": 36.533
+},
+{
+"id": "w167",
+"text": "plus",
+"start": 36.533,
+"end": 37.213
+},
+{
+"id": "w168",
+"text": "$27,500",
+"start": 37.213,
+"end": 38.293
+},
+{
+"id": "w170",
+"text": "is",
+"start": 38.293,
+"end": 38.893
+},
+{
+"id": "w171",
+"text": "the",
+"start": 38.893,
+"end": 39.073
+},
+{
+"id": "w172",
+"text": "same",
+"start": 39.073,
+"end": 39.333
+},
+{
+"id": "w173",
+"text": "$60,000",
+"start": 39.333,
+"end": 40.133
+},
+{
+"id": "w175",
+"text": "as",
+"start": 40.133,
+"end": 40.573
+},
+{
+"id": "w176",
+"text": "James.",
+"start": 40.573,
+"end": 40.733
+},
+{
+"id": "w187",
+"text": "If",
+"start": 40.893,
+"end": 40.993
+},
+{
+"id": "w188",
+"text": "the",
+"start": 40.993,
+"end": 41.193
+},
+{
+"id": "w189",
+"text": "market",
+"start": 41.193,
+"end": 41.473
+},
+{
+"id": "w190",
+"text": "averages",
+"start": 41.473,
+"end": 41.933
+},
+{
+"id": "w191",
+"text": "9%",
+"start": 41.933,
+"end": 42.413
+},
+{
+"id": "w193",
+"text": "after",
+"start": 42.413,
+"end": 42.753
+},
+{
+"id": "w194",
+"text": "that,",
+"start": 42.753,
+"end": 43.013
+},
+{
+"id": "w195",
+"text": "then",
+"start": 43.233,
+"end": 43.293
+},
+{
+"id": "w196",
+"text": "they'll",
+"start": 43.293,
+"end": 43.433
+},
+{
+"id": "w197",
+"text": "be",
+"start": 43.433,
+"end": 43.553
+},
+{
+"id": "w198",
+"text": "fine.",
+"start": 43.553,
+"end": 43.813
+},
+{
+"id": "w227",
+"text": "But",
+"start": 43.993,
+"end": 44.113
+},
+{
+"id": "w228",
+"text": "if",
+"start": 44.113,
+"end": 44.193
+},
+{
+"id": "w229",
+"text": "the",
+"start": 44.193,
+"end": 44.333
+},
+{
+"id": "w230",
+"text": "markets",
+"start": 44.333,
+"end": 44.573
+},
+{
+"id": "w231",
+"text": "were",
+"start": 44.573,
+"end": 44.833
+},
+{
+"id": "w232",
+"text": "to",
+"start": 44.833,
+"end": 44.993
+},
+{
+"id": "w233",
+"text": "average",
+"start": 44.993,
+"end": 45.273
+},
+{
+"id": "w234",
+"text": "a",
+"start": 45.273,
+"end": 45.453
+},
+{
+"id": "w235",
+"text": "little",
+"start": 45.453,
+"end": 45.593
+},
+{
+"id": "w236",
+"text": "less,",
+"start": 45.593,
+"end": 45.953
+},
+{
+"id": "w237",
+"text": "about",
+"start": 46.113,
+"end": 46.273
+},
+{
+"id": "w238",
+"text": "6.6%,",
+"start": 46.273,
+"end": 46.953
+},
+{
+"id": "w240",
+"text": "James",
+"start": 47.113,
+"end": 47.533
+},
+{
+"id": "w241",
+"text": "runs",
+"start": 47.533,
+"end": 47.833
+},
+{
+"id": "w242",
+"text": "out",
+"start": 47.833,
+"end": 48.053
+},
+{
+"id": "w243",
+"text": "of",
+"start": 48.053,
+"end": 48.133
+},
+{
+"id": "w244",
+"text": "money",
+"start": 48.133,
+"end": 48.293
+},
+{
+"id": "w245",
+"text": "completely.",
+"start": 48.293,
+"end": 48.793
+},
+{
+"id": "w246",
+"text": "In",
+"start": 48.98,
+"end": 49.02
+},
+{
+"id": "w247",
+"text": "year",
+"start": 49.02,
+"end": 49.14
+},
+{
+"id": "w248",
+"text": "26,",
+"start": 49.14,
+"end": 49.64
+},
+{
+"id": "w249",
+"text": "Carol?",
+"start": 49.827,
+"end": 49.987
+},
+{
+"id": "w256",
+"text": "her",
+"start": 50.16,
+"end": 50.26
+},
+{
+"id": "w257",
+"text": "$32,500",
+"start": 50.26,
+"end": 51.58
+},
+{
+"id": "w259",
+"text": "shows",
+"start": 51.58,
+"end": 51.96
+},
+{
+"id": "w260",
+"text": "up",
+"start": 51.96,
+"end": 52.3
+},
+{
+"id": "w261",
+"text": "every",
+"start": 52.3,
+"end": 52.68
+},
+{
+"id": "w262",
+"text": "year",
+"start": 52.68,
+"end": 52.92
+},
+{
+"id": "w263",
+"text": "for",
+"start": 52.92,
+"end": 53.16
+},
+{
+"id": "w264",
+"text": "the",
+"start": 53.16,
+"end": 53.24
+},
+{
+"id": "w265",
+"text": "rest",
+"start": 53.24,
+"end": 53.36
+},
+{
+"id": "w266",
+"text": "of",
+"start": 53.36,
+"end": 53.5
+},
+{
+"id": "w267",
+"text": "her",
+"start": 53.5,
+"end": 53.62
+},
+{
+"id": "w268",
+"text": "life.",
+"start": 53.62,
+"end": 53.82
+},
+{
+"id": "w319",
+"text": "James",
+"start": 53.993,
+"end": 54.213
+},
+{
+"id": "w320",
+"text": "is",
+"start": 54.213,
+"end": 54.453
+},
+{
+"id": "w321",
+"text": "hoping",
+"start": 54.453,
+"end": 54.673
+},
+{
+"id": "w322",
+"text": "that",
+"start": 54.673,
+"end": 54.913
+},
+{
+"id": "w323",
+"text": "the",
+"start": 54.913,
+"end": 55.073
+},
+{
+"id": "w324",
+"text": "market",
+"start": 55.073,
+"end": 55.373
+},
+{
+"id": "w325",
+"text": "cooperates.",
+"start": 55.373,
+"end": 56.273
+},
+{
+"id": "w326",
+"text": "Carol",
+"start": 56.447,
+"end": 56.547
+},
+{
+"id": "w327",
+"text": "has",
+"start": 56.547,
+"end": 56.847
+},
+{
+"id": "w328",
+"text": "a",
+"start": 56.847,
+"end": 57.027
+},
+{
+"id": "w329",
+"text": "paycheck.",
+"start": 57.027,
+"end": 57.347
+},
+{
+"id": "w341",
+"text": "DM",
+"start": 57.527,
+"end": 58.107
+},
+{
+"id": "w342",
+"text": "me",
+"start": 58.107,
+"end": 58.267
+},
+{
+"id": "w343",
+"text": "the",
+"start": 58.267,
+"end": 58.387
+},
+{
+"id": "w344",
+"text": "word",
+"start": 58.387,
+"end": 58.567
+},
+{
+"id": "w345",
+"text": "INCOME,",
+"start": 58.567,
+"end": 59.367
+},
+{
+"id": "w346",
+"text": "and",
+"start": 59.467,
+"end": 59.547
+},
+{
+"id": "w347",
+"text": "I'll",
+"start": 59.547,
+"end": 59.707
+},
+{
+"id": "w348",
+"text": "stress",
+"start": 59.707,
+"end": 59.947
+},
+{
+"id": "w349",
+"text": "test",
+"start": 59.947,
+"end": 60.267
+},
+{
+"id": "w350",
+"text": "your",
+"start": 60.267,
+"end": 60.727
+},
+{
+"id": "w351",
+"text": "plan.",
+"start": 60.727,
+"end": 61.027
+}
+]

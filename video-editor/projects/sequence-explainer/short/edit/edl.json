@@ -1,0 +1,155 @@
+{
+ "version": 1,
+ "sources": {
+  "A": "/workspace/Atlas-OS/video-editor/projects/sequence-explainer/retirement_scenes.mp4"
+ },
+ "ranges": [
+  {
+   "source": "A",
+   "start": 0,
+   "end": 0.82
+  },
+  {
+   "source": "A",
+   "start": 1.42,
+   "end": 2.12
+  },
+  {
+   "source": "A",
+   "start": 2.7,
+   "end": 5.3
+  },
+  {
+   "source": "A",
+   "start": 5.7,
+   "end": 7.1
+  },
+  {
+   "source": "A",
+   "start": 7.34,
+   "end": 8.7
+  },
+  {
+   "source": "A",
+   "start": 9.64,
+   "end": 10.22
+  },
+  {
+   "source": "A",
+   "start": 10.58,
+   "end": 13.06
+  },
+  {
+   "source": "A",
+   "start": 13.28,
+   "end": 13.62
+  },
+  {
+   "source": "A",
+   "start": 13.96,
+   "end": 15.48
+  },
+  {
+   "source": "A",
+   "start": 18.5,
+   "end": 20.68
+  },
+  {
+   "source": "A",
+   "start": 21.06,
+   "end": 23.02
+  },
+  {
+   "source": "A",
+   "start": 23.38,
+   "end": 24.6
+  },
+  {
+   "source": "A",
+   "start": 28.34,
+   "end": 33.02
+  },
+  {
+   "source": "A",
+   "start": 33.74,
+   "end": 34.4
+  },
+  {
+   "source": "A",
+   "start": 38.44,
+   "end": 39.84
+  },
+  {
+   "source": "A",
+   "start": 40.34,
+   "end": 42.78
+  },
+  {
+   "source": "A",
+   "start": 43.08,
+   "end": 47.68
+  },
+  {
+   "source": "A",
+   "start": 48.44,
+   "end": 53.12
+  },
+  {
+   "source": "A",
+   "start": 62.32,
+   "end": 67.32
+  },
+  {
+   "source": "A",
+   "start": 72.86,
+   "end": 75.94
+  },
+  {
+   "source": "A",
+   "start": 86.0,
+   "end": 88.1
+  },
+  {
+   "source": "A",
+   "start": 88.32,
+   "end": 89.32
+  },
+  {
+   "source": "A",
+   "start": 89.52,
+   "end": 91.36
+  },
+  {
+   "source": "A",
+   "start": 91.74,
+   "end": 92.58
+  },
+  {
+   "source": "A",
+   "start": 92.78,
+   "end": 93.1
+  },
+  {
+   "source": "A",
+   "start": 94.76,
+   "end": 98.58
+  },
+  {
+   "source": "A",
+   "start": 121.08,
+   "end": 123.5
+  },
+  {
+   "source": "A",
+   "start": 123.86,
+   "end": 124.94
+  },
+  {
+   "source": "A",
+   "start": 130.04,
+   "end": 133.7
+  }
+ ],
+ "grade": "eq=brightness=0.02:contrast=1.06:saturation=1.08,colorbalance=rs=-0.01:bs=0.015:rm=0.01:bm=-0.005",
+ "total_duration_s": 60.78
+}
