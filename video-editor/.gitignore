@@ -25,3 +25,8 @@ projects/reference-concept/
 projects/**/.graphics.hf-transaction-*/
 projects/**/render.log
 projects/**/snaps.txt
+projects/**/edit/frames/
+projects/**/edit/snaps*/
+projects/**/edit/hf/assets/*.jpg
+projects/**/edit/hf/assets/*.png
+projects/**/edit/work-*/

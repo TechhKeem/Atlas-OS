@@ -1,0 +1,28 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; color: #fff; }
+    .wrap { position: absolute; left: 110px; right: 180px; bottom: 700px; text-align: left; }
+    .kick { font-weight: 600; font-size: 38px; letter-spacing: 0.16em; text-transform: uppercase; color: #8FD6AE; }
+    .h { font-weight: 700; font-size: 92px; line-height: 1.03; letter-spacing: -0.025em; text-shadow: 0 6px 30px rgba(0,0,0,0.45); }
+    .h2 { font-weight: 600; font-size: 72px; line-height: 1.08; letter-spacing: -0.02em; text-shadow: 0 6px 30px rgba(0,0,0,0.45); }
+    .hl { color: #8FD6AE; }
+    .line { display: block; }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.88), rgba(32,36,45,0.9)); border: 2px solid rgba(255,255,255,0.38);
+              backdrop-filter: blur(20px); border-radius: 44px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+
+
+  </style>
+  <div id="root" data-composition-id="bills" data-width="1080" data-height="1920">
+    <div class="wrap"><div class="h" id="bl"><span id="blw0" class="" style="display:inline-block">Your</span> <span id="blw1" class="" style="display:inline-block">bills</span> <span id="blw2" class="hl" style="display:inline-block">don't.</span></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#blw0", { opacity: 0, y: 70, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.05);
+    tl.fromTo("#blw1", { opacity: 0, y: 70, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.14);
+    tl.fromTo("#blw2", { opacity: 0, y: 70, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.23);
+    tl.fromTo("#blw2", { scale: 1 }, { scale: 1.12, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out" }, 0.62);
+    tl.to(".wrap", { opacity: 0, y: -50, filter: "blur(8px)", duration: 0.28, ease: "power2.in" }, 1.75);
+    window.__timelines["bills"] = tl;
+  </script>
+</template>

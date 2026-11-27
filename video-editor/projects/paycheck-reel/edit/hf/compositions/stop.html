@@ -1,0 +1,33 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; color: #fff; }
+    .wrap { position: absolute; left: 110px; right: 180px; bottom: 700px; text-align: left; }
+    .kick { font-weight: 600; font-size: 38px; letter-spacing: 0.16em; text-transform: uppercase; color: #8FD6AE; }
+    .h { font-weight: 700; font-size: 92px; line-height: 1.03; letter-spacing: -0.025em; text-shadow: 0 6px 30px rgba(0,0,0,0.45); }
+    .h2 { font-weight: 600; font-size: 72px; line-height: 1.08; letter-spacing: -0.02em; text-shadow: 0 6px 30px rgba(0,0,0,0.45); }
+    .hl { color: #8FD6AE; }
+    .line { display: block; }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.88), rgba(32,36,45,0.9)); border: 2px solid rgba(255,255,255,0.38);
+              backdrop-filter: blur(20px); border-radius: 44px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+
+
+  </style>
+  <div id="root" data-composition-id="stop" data-width="1080" data-height="1920">
+    <div class="wrap"><div class="kick" id="sk">Stop asking</div><div style="height:22px"></div>
+      <div style="position:relative; display:inline-block"><div class="h2" id="sq"><span id="sqw0" class="" style="display:inline-block">“How</span> <span id="sqw1" class="" style="display:inline-block">much</span> <span id="sqw2" class="" style="display:inline-block">do</span> <span id="sqw3" class="" style="display:inline-block">I</span> <span id="sqw4" class="" style="display:inline-block">have?”</span></div><div id="strike" style="position:absolute; left:-6px; right:-6px; top:52%; height:12px; border-radius:6px; background:#5CA581; transform-origin:left center"></div></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#sk", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.10);
+    tl.fromTo("#sqw0", { opacity: 0, y: 70, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.35);
+    tl.fromTo("#sqw1", { opacity: 0, y: 70, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.42);
+    tl.fromTo("#sqw2", { opacity: 0, y: 70, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.49);
+    tl.fromTo("#sqw3", { opacity: 0, y: 70, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.56);
+    tl.fromTo("#sqw4", { opacity: 0, y: 70, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.63);
+    tl.fromTo("#strike", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.inOut" }, 2.0);
+    tl.to("#sq", { opacity: 0.55, duration: 0.3 }, 2.2);
+    tl.to(".wrap", { opacity: 0, y: -50, filter: "blur(8px)", duration: 0.28, ease: "power2.in" }, 3.20);
+    window.__timelines["stop"] = tl;
+  </script>
+</template>

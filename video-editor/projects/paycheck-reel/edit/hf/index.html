@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #20242D; }
+      #root { position: relative; width: 100%; height: 100%; font-family: 'Outfit', sans-serif; background: #20242D; }
+      .shot { transform-origin: 50% 40%; }
+      /* FK rule: charcoal #20242D gradient at 60% on the text side (lower half), fading toward the subject */
+      #grad { position: absolute; inset: 0; z-index: 3; pointer-events: none;
+               background: linear-gradient(to top, rgba(32,36,45,0.6) 0%, rgba(32,36,45,0.6) 42%, rgba(32,36,45,0) 72%); }
+      #gradEnd { position: absolute; inset: 0; z-index: 4; background: linear-gradient(to top, rgba(32,36,45,0.94) 0%, rgba(32,36,45,0.88) 38%, rgba(32,36,45,0.25) 62%, rgba(32,36,45,0.05) 80%); }
+      #flash { position: absolute; inset: 0; z-index: 9; background: #F6F7F9; opacity: 0; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="31.0" data-width="1080" data-height="1920">
+      <img id="s1" class="clip shot" src="assets/8720_sunset.jpg" data-start="0.0" data-duration="3.0" data-track-index="0" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1" alt="">
+      <img id="s2" class="clip shot" src="assets/8770_profile.jpg" data-start="3.0" data-duration="2.0" data-track-index="0" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1" alt="">
+      <img id="s3" class="clip shot" src="assets/6364_courtyard.jpg" data-start="5.0" data-duration="3.5" data-track-index="0" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1" alt="">
+      <img id="s4" class="clip shot" src="assets/8718_phone.jpg" data-start="8.5" data-duration="3.5" data-track-index="0" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1" alt="">
+      <img id="s5" class="clip shot" src="assets/6425_handshake.jpg" data-start="12.0" data-duration="3.5" data-track-index="0" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1" alt="">
+      <img id="s6" class="clip shot" src="assets/7105_hillside.jpg" data-start="15.5" data-duration="3.5" data-track-index="0" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1" alt="">
+      <video id="s7" class="clip shot" src="assets/0985_stage.mp4" data-start="19.0" data-duration="3.5" data-track-index="0" muted playsinline style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1"></video>
+      <video id="s8" class="clip shot" src="assets/8752_camera_crew.mp4" data-start="22.5" data-duration="2.0" data-track-index="0" muted playsinline style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1"></video>
+      <img id="s9" class="clip shot" src="assets/7358_hope_speaking.jpg" data-start="24.5" data-duration="1.5" data-track-index="0" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1" alt="">
+      <img id="s10" class="clip shot" src="assets/wsl22_headshot.jpg" data-start="26.0" data-duration="5.0" data-track-index="0" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1" alt="">
+      <div id="grad"></div>
+      <div id="gradEnd" class="clip" data-start="26" data-duration="5" data-track-index="2"></div>
+      <div id="flash"></div>
+      <audio id="music" class="clip" src="assets/music.m4a" data-start="0" data-duration="31.0" data-track-index="3" data-volume="1"></audio>
+      <div id="hook" data-composition-id="hook" data-composition-src="compositions/hook.html" data-start="0.00" data-duration="3.00" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="bills" data-composition-id="bills" data-composition-src="compositions/bills.html" data-start="3.00" data-duration="2.00" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="stop" data-composition-id="stop" data-composition-src="compositions/stop.html" data-start="5.00" data-duration="3.50" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="start" data-composition-id="start" data-composition-src="compositions/start.html" data-start="8.50" data-duration="3.50" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="step1" data-composition-id="step1" data-composition-src="compositions/step1.html" data-start="12.00" data-duration="3.50" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="step2" data-composition-id="step2" data-composition-src="compositions/step2.html" data-start="15.50" data-duration="3.50" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="step3" data-composition-id="step3" data-composition-src="compositions/step3.html" data-start="19.00" data-duration="3.50" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="me" data-composition-id="me" data-composition-src="compositions/me.html" data-start="22.50" data-duration="3.50" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="endcard" data-composition-id="endcard" data-composition-src="compositions/endcard.html" data-start="26.00" data-duration="5.00" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:8"></div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#s1", { scale: 1.12, y: 0 }, { scale: 1.0, y: 0, duration: 3.0, ease: "none" }, 0.0);
+      tl.fromTo("#s2", { scale: 1.0, y: 0 }, { scale: 1.1, y: -20, duration: 2.0, ease: "none" }, 3.0);
+      tl.fromTo("#s3", { scale: 1.1, y: 0 }, { scale: 1.0, y: 0, duration: 3.5, ease: "none" }, 5.0);
+      tl.fromTo("#s4", { scale: 1.0, y: 0 }, { scale: 1.09, y: 0, duration: 3.5, ease: "none" }, 8.5);
+      tl.fromTo("#s5", { scale: 1.1, y: 0 }, { scale: 1.0, y: 0, duration: 3.5, ease: "none" }, 12.0);
+      tl.fromTo("#s6", { scale: 1.0, y: 0 }, { scale: 1.1, y: 0, duration: 3.5, ease: "none" }, 15.5);
+      tl.fromTo("#s7", { scale: 1.0, y: 0 }, { scale: 1.06, y: 0, duration: 3.5, ease: "none" }, 19.0);
+      tl.fromTo("#s8", { scale: 1.08, y: 0 }, { scale: 1.0, y: 0, duration: 2.0, ease: "none" }, 22.5);
+      tl.fromTo("#s9", { scale: 1.0, y: 0 }, { scale: 1.08, y: 0, duration: 1.5, ease: "none" }, 24.5);
+      tl.fromTo("#s10", { scale: 1.16, y: -130 }, { scale: 1.12, y: -130, duration: 5.0, ease: "none" }, 26.0);
+      tl.fromTo("#gradEnd", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 26.0);
+      tl.fromTo("#flash", { opacity: 0.85 }, { opacity: 0, duration: 0.35, ease: "power2.out", immediateRender: false }, 12.0);
+      tl.fromTo("#flash", { opacity: 0.85 }, { opacity: 0, duration: 0.35, ease: "power2.out", immediateRender: false }, 22.5);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
