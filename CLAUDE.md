@@ -25,6 +25,20 @@ As the last step of every finished edit:
   no conversion to a Google Doc.
 - Tell Hakeem in one line what is in each folder.
 
+**Logos folder contents** (all 2000×2000 PNG, wordmark "FK | MANAGEMENT"):
+
+| File | ID | Look | Background |
+|---|---|---|---|
+| `3-Picsart-BackgroundRemover.png` | `1OMkeQZbYCNz8hG0KL71djzpT7fsyL3qh` | Charcoal FK MANAGEMENT + sage "By Finance Keem" script, charcoal swoosh | **Transparent**: default for overlays on light/photo areas |
+| `3.png` | `1DnQBnDSD-Z5BfH8qDLnjDQoZOGT6y2dL` | Same as above | White |
+| `4.png` | `14LTkBmcRqLHe_Fpk-9wFgpt5AEi6Zv6C` | Sage FK MANAGEMENT + charcoal script, sage swoosh | White |
+| `1.png` | `14xRebbJ1NEjsgyXzwJ_zIw-M4KVzNROZ` | Charcoal FK MANAGEMENT only | White |
+| `2.png` | `15ZSzWELpNcfRdVtZQeTX7-XaOBnj1onR` | Sage FK MANAGEMENT only | White |
+
+Crop the empty square padding (the mark sits in the middle ~40% band). The white-background ones can go on
+light cards with `mix-blend-mode: multiply`. There is no light/white version for charcoal backgrounds yet, so on dark
+end cards set the brand mark in Outfit (per the carousel rules) or ask Hakeem for a white logo.
+
 All existing transcripts (Funnel Intro, Coworker Retiring, Rewards Program,
 Retirement scenes, Retirement scenes 60s) are now in **Transcripts**. If the transcript was made from the raw footage rather than the final
 cut, that is fine; Connie only needs to know what he said.
@@ -69,5 +83,5 @@ Both folders live inside **Video Edits / Launch Video**. Use them whenever an ed
 
 - List contents with the Drive search tool (`'<folder id>' in ancestors`). Pick clips by what the line needs; prefer Authority over B Roll whenever the script is about who Hakeem is or why to trust him.
 - Downloading: files are private by default. Download via `https://drive.usercontent.google.com/download?id=<id>&export=download&confirm=t` only works when the file (or its folder) is shared "Anyone with the link". If a download returns HTML, ask Hakeem to share the folder that way; never change sharing yourself.
-- The shot index lives in two places: the Google Sheet **B-Roll Index** in Launch Video (ID `1Y11wfNZjpcsWvLU9L5Y5SdPh96V_7r2rXbWJsr97E8c`) and `video-editor/broll-index.md`. Search it first when picking b-roll; update both when new files are reviewed. The Drive connector cannot rename or move Hakeem's files, so the index is the naming layer.
+- The shot index (B Roll + Authority; Authority rows tagged `[Authority]` in Category, strongest marked `Top`) lives in two places: the Google Sheet **B-Roll Index** in Launch Video (ID `1Y11wfNZjpcsWvLU9L5Y5SdPh96V_7r2rXbWJsr97E8c`) and `video-editor/broll-index.md`. Search it first when picking b-roll; update both when new files are reviewed. The Drive connector cannot rename or move Hakeem's files, so the index is the naming layer.
 - HEIC photos: convert to JPG with ffmpeg before use. iPhone .MOV is fine (HEVC); re-encode to H.264 with `-g 30` before putting it in a HyperFrames project.
