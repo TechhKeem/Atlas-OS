@@ -1,4 +1,5 @@
-"""Prep stills (EXIF-upright, 9:16 crop at a focus x, 1350x2400 for Ken Burns headroom) and clips (H.264 1080x1920, -g 30)."""
+"""HLG iPhone clips are tone-mapped to SDR bt709 so the render stays SDR.
+Prep stills (EXIF-upright, 9:16 crop at a focus x, 1350x2400 for Ken Burns headroom) and clips (H.264 1080x1920, -g 30)."""
 import os, subprocess
 from PIL import Image, ImageOps
 P = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,6 +20,6 @@ logo.crop(logo.getbbox()).save(os.path.join(A, "logo.png"))
 CLIPS = {"8752_camera_crew": (1.5, 2.2), "0985_stage": (0.6, 3.8)}  # (start, dur)
 for n, (s, d) in CLIPS.items():
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(s), "-t", str(d), "-i", os.path.join(P, "clips", n + ".mov"),
-                    "-vf", "scale=1080:1920:flags=lanczos,eq=saturation=1.08:contrast=1.04,fps=30", "-an", "-c:v", "libx264",
-                    "-preset", "medium", "-crf", "18", "-g", "30", "-pix_fmt", "yuv420p", os.path.join(A, n + ".mp4")], check=True)
+                    "-vf", "zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,scale=1080:1920:flags=lanczos,eq=saturation=1.12:contrast=1.04:brightness=0.02,fps=30", "-an", "-c:v", "libx264",
+                    "-preset", "medium", "-crf", "18", "-g", "30", "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", os.path.join(A, n + ".mp4")], check=True)
     print(n, "ok")

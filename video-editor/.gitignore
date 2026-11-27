@@ -30,3 +30,5 @@ projects/**/edit/snaps*/
 projects/**/edit/hf/assets/*.jpg
 projects/**/edit/hf/assets/*.png
 projects/**/edit/work-*/
+projects/**/.transcode-cache/
+projects/**/.render.hf-transaction-*/
