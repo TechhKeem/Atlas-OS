@@ -7,6 +7,8 @@ widgets on the numbers, quotable closer, comment-bait end card. No music. 1080×
 **Pipeline:** `prep_media.py` → `build_vo.py` (12 word-boundary cuts, 0.15 s gaps, "boo"→VOO fix) → `build_hf.py` →
 `npx hyperframes@0.9.86 render --sdr` → `finish.sh` (voice-only loudnorm −14 LUFS, final + phone copy).
 
+**v2 (Hakeem feedback):** video-first (19 video / 3 stills) from `clip-library/`; per-shot text placement (`shots.py`); compact ticker cards so nothing covers people.
+
 **Decisions:** dropped the Chuck E. Cheese family clip (third-party logo); hook shot swapped from WSL-6 to PROCON so
 the title box doesn't touch his face; the $27,500 VOO half is shown silently in the Carol card to keep it short.
 
