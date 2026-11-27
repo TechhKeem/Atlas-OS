@@ -8,7 +8,7 @@ description: Make a Finance Keem (FK Management) Instagram/TikTok reel end to en
 Distilled from three reference reels Hakeem picked (Drive **Video Edits / Launch Video / Content Examples**,
 `1yiXEaNbAH6Xb11VduRUs3UMsA2ltRtJG`; breakdown in `references/examples.md`) plus the house rules in the repo's
 `CLAUDE.md` (fonts, colours, Drive folders). The working reference build is
-`video-editor/projects/paycheck-reel/` — copy its `edit/*.py` as the starting point.
+`video-editor/projects/same-million-reel/` (first reel made with this skill) — copy its `edit/*.py` / `finish.sh`.
 
 ## Hard rules (always)
 
@@ -102,7 +102,9 @@ margin tweens); anchor them so faces stay clear (bottom-anchored above the capti
 
 Headshot (Authority WSL-22 or similar) shifted so the face is clear, charcoal gradient, transparent logo
 (Logos `3-Picsart-BackgroundRemover.png`) on a soft-white plate, glass CTA card: "Comment **PLAN**" + "for my free
-retirement quiz" + `hello.financekeem.com`, disclaimer ≥ 28 px held ≥ 4 s.
+retirement quiz" + `hello.financekeem.com`, disclaimer ≥ 28 px held ≥ 4 s. For reach, open the CTA with a one-word
+question viewers can answer in the comments ("James or Carol?") — it doubles as comment bait. If Hakeem never says the
+CTA in the source audio, keep it on screen only and suggest a 4 s re-record line in the hand-off.
 
 ## 7. Pipeline (reuse `video-editor/projects/paycheck-reel/edit/`)
 
@@ -115,7 +117,8 @@ retirement quiz" + `hello.financekeem.com`, disclaimer ≥ 28 px held ≥ 4 s.
    (word-boundary cuts, each loudnorm −16, 0.25 s gaps) → `words_out.json`.
 5. `build_hf.py` → HyperFrames project; `npx --yes hyperframes@0.9.86 check` until clean (ignore TikTok-only safe-zone
    warnings); `snapshot --at …` and **look at every frame** for faces under text, empty cards, unreadable words.
-6. `render --sdr` → mux voice (no music unless asked) with two-pass loudnorm to −14 LUFS, −1.5 dBTP →
+6. `render --sdr` → mux voice (no music unless asked): upmix the mono VO to stereo first, measure, apply gain to −14 LUFS
+   + `alimiter` at −1.5 dBTP (see `same-million-reel/edit/finish.sh`; linear loudnorm under-shoots on peaky VO) →
    `final.mp4` (H.264 CRF 18, bt709, faststart) + `final_phone.mp4` (720p) → send the phone copy to Hakeem.
 7. Deliver (Hard rule 10), write `edit/project.md`, commit sources (never renders/caches: see `video-editor/.gitignore`).
 
