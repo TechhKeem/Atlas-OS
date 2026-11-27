@@ -1,0 +1,1 @@
+colorbalance=rs=-0.01:bs=0.01:rh=-0.03:gh=-0.01:bh=0.03,curves=all='0/0 0.2/0.17 0.55/0.6 0.85/0.94 1/1',eq=saturation=0.97

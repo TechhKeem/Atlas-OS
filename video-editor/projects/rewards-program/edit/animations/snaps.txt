@@ -1,0 +1,9 @@
+/workspace/Atlas-OS/video-editor/projects/rewards-program/edit/animations/hf/.hyperframes/artifacts/snapshots/b84faa49-729f-4fdc-ac75-27723ce5a301/frame-00-at-1.2s.png
+/workspace/Atlas-OS/video-editor/projects/rewards-program/edit/animations/hf/.hyperframes/artifacts/snapshots/b84faa49-729f-4fdc-ac75-27723ce5a301/frame-01-at-2.9s.png
+/workspace/Atlas-OS/video-editor/projects/rewards-program/edit/animations/hf/.hyperframes/artifacts/snapshots/b84faa49-729f-4fdc-ac75-27723ce5a301/frame-02-at-15.6s.png
+/workspace/Atlas-OS/video-editor/projects/rewards-program/edit/animations/hf/.hyperframes/artifacts/snapshots/b84faa49-729f-4fdc-ac75-27723ce5a301/frame-03-at-17.3s.png
+/workspace/Atlas-OS/video-editor/projects/rewards-program/edit/animations/hf/.hyperframes/artifacts/snapshots/b84faa49-729f-4fdc-ac75-27723ce5a301/frame-04-at-18.6s.png
+/workspace/Atlas-OS/video-editor/projects/rewards-program/edit/animations/hf/.hyperframes/artifacts/snapshots/b84faa49-729f-4fdc-ac75-27723ce5a301/frame-05-at-36s.png
+/workspace/Atlas-OS/video-editor/projects/rewards-program/edit/animations/hf/.hyperframes/artifacts/snapshots/b84faa49-729f-4fdc-ac75-27723ce5a301/frame-06-at-40.8s.png
+/workspace/Atlas-OS/video-editor/projects/rewards-program/edit/animations/hf/.hyperframes/artifacts/snapshots/b84faa49-729f-4fdc-ac75-27723ce5a301/frame-07-at-45.2s.png
+/workspace/Atlas-OS/video-editor/projects/rewards-program/edit/animations/hf/.hyperframes/artifacts/snapshots/b84faa49-729f-4fdc-ac75-27723ce5a301/frame-08-at-48.35s.png

@@ -1,0 +1,40 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; color: #FFFFFF; }
+    .blk { position: absolute; left: 0; top: 0; width: 560px; }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.93), rgba(32,37,45,0.95)); border: 2px solid rgba(255,255,255,0.38);
+              backdrop-filter: blur(20px); border-radius: 34px; box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+    .box { display: inline-block; background: #20252D; color: #FFFFFF; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .hl { color: #8FD6AE; }
+
+
+    .card { height: 196px; padding: 20px 30px; box-sizing: border-box; overflow: hidden; }
+    .kick { font-weight: 600; font-size: 25px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.92; white-space: nowrap; }
+    .stage { position: relative; height: 128px; margin-top: 8px; }
+    .st { position: absolute; left: 0; top: 0; width: 100%; opacity: 0; }
+    .big { font-weight: 700; font-size: 60px; line-height: 1.05; letter-spacing: -0.02em; white-space: nowrap; }
+    .small { font-weight: 400; font-size: 30px; line-height: 1.25; margin-top: 8px; color: rgba(255,255,255,0.92); }
+    .r { display: flex; align-items: center; gap: 14px; font-size: 37px; font-weight: 500; height: 56px; opacity: 0; white-space: nowrap; }
+    .r b { font-weight: 700; }
+    .ok, .no { display: inline-flex; width: 44px; height: 44px; border-radius: 22px; align-items: center; justify-content: center; font-weight: 700; font-size: 28px; flex: none; }
+    .ok { background: #8FD6AE; color: #20252D; } .no { background: #C1C4C8; color: #20252D; }
+  </style>
+  <div id="root" data-composition-id="result" data-width="1080" data-height="1920">
+    <div class="blk" id="rcb"><div class="card glass" id="rcc"><div class="kick">3 &middot; If markets average 6.6%</div>
+      <div style="margin-top:14px"><div class="r" id="r1"><span class="no">&times;</span>James: <b>$0 by year 26</b></div>
+      <div class="r" id="r2" style="margin-top:10px"><span class="ok">&#10003;</span>Carol: <b class="hl">+$32,500/yr</b> for life</div></div></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#rcb", { x: 340, y: 300 }, 0.000);
+    tl.set("#rcb", { x: 260, y: 300 }, 3.250);
+    tl.set("#rcb", { x: 260, y: 300 }, 5.470);
+    tl.set("#rcb", { x: 260, y: 300 }, 8.850);
+    tl.fromTo("#rcc", { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power4.out" }, 0.02);
+    tl.fromTo("#r1", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 3.96);
+    tl.fromTo("#r2", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 6.49);
+    tl.to("#rcc", { opacity: 0, duration: 0.22, ease: "power2.in" }, 12.13);
+    window.__timelines["result"] = tl;
+  </script>
+</template>

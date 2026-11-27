@@ -1,0 +1,50 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; color: #FFFFFF; }
+    .blk { position: absolute; left: 0; top: 0; width: 560px; }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.93), rgba(32,37,45,0.95)); border: 2px solid rgba(255,255,255,0.38);
+              backdrop-filter: blur(20px); border-radius: 34px; box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+    .box { display: inline-block; background: #20252D; color: #FFFFFF; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .hl { color: #8FD6AE; }
+
+
+    .card { height: 196px; padding: 20px 30px; box-sizing: border-box; overflow: hidden; }
+    .kick { font-weight: 600; font-size: 25px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.92; white-space: nowrap; }
+    .stage { position: relative; height: 128px; margin-top: 8px; }
+    .st { position: absolute; left: 0; top: 0; width: 100%; opacity: 0; }
+    .big { font-weight: 700; font-size: 60px; line-height: 1.05; letter-spacing: -0.02em; white-space: nowrap; }
+    .small { font-weight: 400; font-size: 30px; line-height: 1.25; margin-top: 8px; color: rgba(255,255,255,0.92); }
+    .r { display: flex; align-items: center; gap: 14px; font-size: 37px; font-weight: 500; height: 56px; opacity: 0; white-space: nowrap; }
+    .r b { font-weight: 700; }
+    .ok, .no { display: inline-flex; width: 44px; height: 44px; border-radius: 22px; align-items: center; justify-content: center; font-weight: 700; font-size: 28px; flex: none; }
+    .ok { background: #8FD6AE; color: #20252D; } .no { background: #C1C4C8; color: #20252D; }
+  </style>
+  <div id="root" data-composition-id="carol" data-width="1080" data-height="1920">
+    <div class="blk" id="carolb"><div class="card glass" id="carolc"><div class="kick">2 &middot; Income first &middot; Carol</div><div class="stage">
+      <div class="st" id="carols0"><div class="big">Same $1M</div><div class="small">same $60K/yr &middot; same bad start</div></div>
+      <div class="st" id="carols1"><div class="big">$500,000</div><div class="small">&rarr; private pension account</div></div>
+      <div class="st" id="carols2"><div class="big"><span class='hl'>$32,500</span>/yr</div><div class="small">6.5% &middot; for the rest of her life</div></div>
+      <div class="st" id="carols3"><div class="big">+ $27,500/yr</div><div class="small">from $500K in VOO = same $60K</div></div>
+    </div></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#carolb", { x: 260, y: 300 }, 0.000);
+    tl.set("#carolb", { x: 260, y: 300 }, 2.200);
+    tl.set("#carolb", { x: 340, y: 300 }, 4.730);
+    tl.set("#carolb", { x: 340, y: 300 }, 7.100);
+    tl.set("#carolb", { x: 260, y: 300 }, 9.440);
+    tl.set("#carolb", { x: 260, y: 300 }, 12.600);
+    tl.fromTo("#carolc", { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power4.out" }, 0.02);
+    tl.fromTo("#carols0", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 0.10);
+    tl.to("#carols0", { opacity: 0, y: -24, duration: 0.2, ease: "power2.in" }, 4.90);
+    tl.fromTo("#carols1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 4.95);
+    tl.to("#carols1", { opacity: 0, y: -24, duration: 0.2, ease: "power2.in" }, 9.99);
+    tl.fromTo("#carols2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 10.04);
+    tl.to("#carols2", { opacity: 0, y: -24, duration: 0.2, ease: "power2.in" }, 14.07);
+    tl.fromTo("#carols3", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 14.12);
+    tl.to("#carolc", { opacity: 0, duration: 0.22, ease: "power2.in" }, 15.70);
+    window.__timelines["carol"] = tl;
+  </script>
+</template>

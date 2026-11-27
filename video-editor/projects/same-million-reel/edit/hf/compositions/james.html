@@ -1,0 +1,57 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; color: #FFFFFF; }
+    .blk { position: absolute; left: 0; top: 0; width: 560px; }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.93), rgba(32,37,45,0.95)); border: 2px solid rgba(255,255,255,0.38);
+              backdrop-filter: blur(20px); border-radius: 34px; box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+    .box { display: inline-block; background: #20252D; color: #FFFFFF; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .hl { color: #8FD6AE; }
+
+
+    .card { height: 196px; padding: 20px 30px; box-sizing: border-box; overflow: hidden; }
+    .kick { font-weight: 600; font-size: 25px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.92; white-space: nowrap; }
+    .stage { position: relative; height: 128px; margin-top: 8px; }
+    .st { position: absolute; left: 0; top: 0; width: 100%; opacity: 0; }
+    .big { font-weight: 700; font-size: 60px; line-height: 1.05; letter-spacing: -0.02em; white-space: nowrap; }
+    .small { font-weight: 400; font-size: 30px; line-height: 1.25; margin-top: 8px; color: rgba(255,255,255,0.92); }
+    .r { display: flex; align-items: center; gap: 14px; font-size: 37px; font-weight: 500; height: 56px; opacity: 0; white-space: nowrap; }
+    .r b { font-weight: 700; }
+    .ok, .no { display: inline-flex; width: 44px; height: 44px; border-radius: 22px; align-items: center; justify-content: center; font-weight: 700; font-size: 28px; flex: none; }
+    .ok { background: #8FD6AE; color: #20252D; } .no { background: #C1C4C8; color: #20252D; }
+  </style>
+  <div id="root" data-composition-id="james" data-width="1080" data-height="1920">
+    <div class="blk" id="jamesb"><div class="card glass" id="jamesc"><div class="kick">1 &middot; All in the market &middot; James</div><div class="stage">
+      <div class="st" id="jamess0"><div class="big">$1,000,000</div><div class="small">all in VOO (S&amp;P 500)</div></div>
+      <div class="st" id="jamess1"><div class="big"><span class='hl'>$60,000</span>/yr</div><div class="small">takes out 6% a year</div></div>
+      <div class="st" id="jamess2"><div class="big"><span id='d1' style='opacity:0'>&minus;15%</span> <span id='d2' style='opacity:0'>&minus;10%</span> <span id='d3' style='opacity:0'>&minus;5%</span></div><div class="small">retires into a rough market</div></div>
+      <div class="st" id="jamess3"><div class="big">Still $60,000/yr</div><div class="small">selling at the bottom</div></div>
+      <div class="st" id="jamess4"><div class="big">$575,000</div><div class="small">left after just 3 years</div></div>
+    </div></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#jamesb", { x: 340, y: 300 }, 0.000);
+    tl.set("#jamesb", { x: 340, y: 300 }, 2.910);
+    tl.set("#jamesb", { x: 100, y: 330 }, 5.930);
+    tl.set("#jamesb", { x: 260, y: 300 }, 8.910);
+    tl.set("#jamesb", { x: 100, y: 310 }, 12.120);
+    tl.set("#jamesb", { x: 260, y: 300 }, 15.160);
+    tl.set("#jamesb", { x: 340, y: 300 }, 17.410);
+    tl.fromTo("#jamesc", { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power4.out" }, 0.02);
+    tl.fromTo("#jamess0", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 0.10);
+    tl.to("#jamess0", { opacity: 0, y: -24, duration: 0.2, ease: "power2.in" }, 4.43);
+    tl.fromTo("#jamess1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 4.48);
+    tl.to("#jamess1", { opacity: 0, y: -24, duration: 0.2, ease: "power2.in" }, 8.06);
+    tl.fromTo("#jamess2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 8.11);
+    tl.to("#jamess2", { opacity: 0, y: -24, duration: 0.2, ease: "power2.in" }, 12.37);
+    tl.fromTo("#jamess3", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 12.42);
+    tl.to("#jamess3", { opacity: 0, y: -24, duration: 0.2, ease: "power2.in" }, 17.85);
+    tl.fromTo("#jamess4", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 17.90);
+    tl.fromTo("#d1", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.4)", immediateRender: false }, 8.51);
+    tl.fromTo("#d2", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.4)", immediateRender: false }, 9.79);
+    tl.fromTo("#d3", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.4)", immediateRender: false }, 11.07);
+    tl.to("#jamesc", { opacity: 0, duration: 0.22, ease: "power2.in" }, 19.46);
+    window.__timelines["james"] = tl;
+  </script>
+</template>

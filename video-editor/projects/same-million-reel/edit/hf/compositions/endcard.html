@@ -1,0 +1,38 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; color: #FFFFFF; }
+    .blk { position: absolute; left: 0; top: 0; width: 560px; }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.93), rgba(32,37,45,0.95)); border: 2px solid rgba(255,255,255,0.38);
+              backdrop-filter: blur(20px); border-radius: 34px; box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+    .box { display: inline-block; background: #20252D; color: #FFFFFF; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .hl { color: #8FD6AE; }
+
+
+    .logo { position: absolute; left: 300px; right: 330px; top: 610px; padding: 14px 20px; border-radius: 30px; background: rgba(246,247,249,0.97);
+             box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+    .logo img { display: block; width: 100%; }
+    .cta { position: absolute; left: 110px; right: 180px; top: 790px; padding: 24px 32px; text-align: center; }
+    .q { font-weight: 600; font-size: 46px; }
+    .c2 { font-weight: 700; font-size: 74px; letter-spacing: 0.01em; margin: 2px 0; }
+    .c3 { font-weight: 400; font-size: 34px; color: rgba(255,255,255,0.92); }
+    .url { font-weight: 600; font-size: 34px; color: #8FD6AE; margin-top: 4px; }
+    .disc { position: absolute; left: 110px; right: 180px; top: 1102px; text-align: center; font-weight: 300; font-size: 28px; line-height: 1.32;
+             color: rgba(255,255,255,0.8); }
+  </style>
+  <div id="root" data-composition-id="endcard" data-width="1080" data-height="1920">
+    <div class="logo" id="lg"><img src="assets/logo.png" alt="FK Management by Finance Keem"></div>
+    <div class="cta glass" id="cta"><div class="q">James or Carol?</div><div class="c2" id="kw">Comment <span class="hl">PLAN</span></div>
+      <div class="c3">for my free retirement quiz</div><div class="url">hello.financekeem.com</div></div>
+    <div class="disc" id="disc">Hypothetical example. Not investment advice. Returns not guaranteed. Guarantees subject to the issuing insurer&#39;s claims-paying ability.</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#lg", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.45, ease: "power4.out" }, 0.05);
+    tl.fromTo("#cta", { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 0.2);
+    tl.fromTo("#kw", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.4)" }, 0.55);
+    tl.to("#kw", { scale: 1.06, duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.4);
+    tl.fromTo("#disc", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.35);
+    window.__timelines["endcard"] = tl;
+  </script>
+</template>

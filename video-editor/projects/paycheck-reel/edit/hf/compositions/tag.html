@@ -1,0 +1,23 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; color: #fff; }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.9), rgba(32,36,45,0.92)); border: 2px solid rgba(255,255,255,0.38);
+              backdrop-filter: blur(20px); border-radius: 40px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+    .band { position: absolute; left: 100px; right: 180px; top: 600px; }
+    .kick { font-weight: 600; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: #8FD6AE; }
+    .hl { color: #8FD6AE; }
+
+
+  </style>
+  <div id="root" data-composition-id="tag" data-width="1080" data-height="1920">
+    <div class="band" style="top:640px"><div id="tg" class="glass" style="display:inline-flex; align-items:center; gap:16px; padding:20px 30px; border-radius:999px">
+      <span style="width:16px;height:16px;border-radius:8px;background:#8FD6AE"></span><span class="kick" style="color:#fff; font-size:32px">Real client story</span></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#tg", { opacity: 0, y: 50, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power4.out" }, 0.25);
+    tl.to("#tg", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.28, ease: "power2.in" }, 6.00);
+    window.__timelines["tag"] = tl;
+  </script>
+</template>

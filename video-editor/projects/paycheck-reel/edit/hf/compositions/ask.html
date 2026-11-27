@@ -1,0 +1,23 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; color: #fff; }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.9), rgba(32,36,45,0.92)); border: 2px solid rgba(255,255,255,0.38);
+              backdrop-filter: blur(20px); border-radius: 40px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+    .band { position: absolute; left: 100px; right: 180px; top: 600px; }
+    .kick { font-weight: 600; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: #8FD6AE; }
+    .hl { color: #8FD6AE; }
+
+
+  </style>
+  <div id="root" data-composition-id="ask" data-width="1080" data-height="1920">
+    <div class="band" style="top:620px"><div id="aq" style="font-weight:700; font-size:96px; line-height:1.02; letter-spacing:-0.025em; text-shadow:0 6px 30px rgba(0,0,0,.45)">
+      Can he <span class="hl">actually</span> retire?</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#aq", { opacity: 0, y: 70, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power4.out" }, 0.64);
+    tl.to("#aq", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.28, ease: "power2.in" }, 2.65);
+    window.__timelines["ask"] = tl;
+  </script>
+</template>

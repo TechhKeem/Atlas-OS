@@ -1,0 +1,318 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; }
+    .sky { position: absolute; inset: 0; background: linear-gradient(180deg, #E3F1EA 0%, #F6F7F9 55%, #EEF3F0 100%); }
+    .floor { position: absolute; left: -100px; right: -100px; top: 1080px; height: 900px; border-radius: 50% 50% 0 0 / 120px 120px 0 0;
+              background: linear-gradient(180deg, #D7E6DD 0%, #E8EFEA 60%); }
+    .glow { position: absolute; width: 900px; height: 900px; left: 90px; top: 180px; border-radius: 50%;
+             background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%); }
+    .actor { position: absolute; top: 352px; }
+    .tag { position: absolute; left: 0; right: 0; text-align: center; }
+    .tag span { display: inline-block; padding: 14px 30px; border-radius: 999px; background: #20242D; color: #fff; font-weight: 700; font-size: 40px;
+                 box-shadow: 0 14px 30px rgba(32,36,45,0.25); white-space: nowrap; }
+    .big span { font-size: 54px; font-weight: 800; padding: 18px 38px; }
+    .chip { display: inline-block; padding: 14px 26px; border-radius: 24px; background: #E5574B; color: #fff; font-weight: 800; font-size: 62px;
+             box-shadow: 0 14px 30px rgba(229,87,75,0.35); margin: 0 8px; }
+    .lbl { position: absolute; text-align: center; font-weight: 800; color: #20242D; }
+    .card { position: absolute; border-radius: 34px; padding: 26px 34px; color: #fff; text-align: center;
+             background: linear-gradient(140deg, rgba(92,165,129,0.97) 0%, rgba(44,62,58,0.97) 45%, rgba(32,36,45,0.98) 100%);
+             border: 1.5px solid rgba(255,255,255,0.35); box-shadow: 0 24px 50px rgba(32,36,45,0.28); }
+    .card .k { font-weight: 500; font-size: 28px; letter-spacing: 0.08em; text-transform: uppercase; color: #8FD6AE; }
+    .card .v { font-weight: 800; font-size: 64px; letter-spacing: -0.02em; line-height: 1.05; }
+    .badge { position: absolute; width: 96px; height: 96px; border-radius: 48px; display: flex; align-items: center; justify-content: center;
+              color: #fff; font-weight: 800; font-size: 58px; box-shadow: 0 12px 26px rgba(32,36,45,0.25); }
+    .bubble { position: absolute; padding: 18px 26px; border-radius: 28px; background: #fff; color: #20242D; font-weight: 700; font-size: 34px;
+               box-shadow: 0 14px 30px rgba(32,36,45,0.18); text-align: center; }
+    .env { position: absolute; }
+    #chart { position: absolute; left: 90px; top: 330px; }
+</style>
+  <div id="root" data-composition-id="stage" data-width="1080" data-height="1920" data-layout-allow-overflow data-layout-allow-overlap>
+    <div id="stage-all">
+    <div class="sky"></div><div class="glow"></div><div class="floor"></div>
+    <svg id="chart" width="900" height="520" viewBox="0 0 900 520"><polyline id="chartline" points="20,60 200,180 330,140 470,300 600,270 760,440 880,470"
+      fill="none" stroke="#E5574B" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1400" stroke-dashoffset="1400" opacity="0.85"/></svg>
+    <div class="actor" id="jmwrap" style="left:333px">
+<svg id="jm" class="char" width="414" height="759" viewBox="0 0 360 660" overflow="visible">
+  <defs>
+    <radialGradient id="jm-skin" cx="40%" cy="35%" r="70%"><stop offset="0%" stop-color="#E9B48E"/><stop offset="100%" stop-color="#C98B63"/></radialGradient>
+    <radialGradient id="jm-hair" cx="40%" cy="30%" r="80%"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#C9CDD3"/></radialGradient>
+    <linearGradient id="jm-top" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3E6FB0"/><stop offset="100%" stop-color="#28487A"/></linearGradient>
+    <radialGradient id="jm-eye" cx="45%" cy="40%" r="60%"><stop offset="0%" stop-color="#5A3B22"/><stop offset="100%" stop-color="#22140A"/></radialGradient>
+  </defs>
+  <ellipse cx="180" cy="640" rx="130" ry="18" fill="rgba(32,36,45,0.18)"/>
+  <g id="jm-body">
+    <path d="M70 640 L80 430 C86 360 130 330 180 330 C230 330 274 360 280 430 L290 640 Z" fill="url(#jm-top)"/>
+    <path d="M150 335 L180 400 L210 335" fill="#FFFFFF" opacity="0.9"/>
+    <g id="jm-armL"><path d="M92 400 C50 450 52 520 74 560" stroke="url(#jm-top)" stroke-width="44" stroke-linecap="round" fill="none"/>
+      <circle cx="76" cy="566" r="24" fill="url(#jm-skin)"/></g>
+    <g id="jm-armR"><path d="M268 400 C310 450 308 520 286 560" stroke="url(#jm-top)" stroke-width="44" stroke-linecap="round" fill="none"/>
+      <circle cx="284" cy="566" r="24" fill="url(#jm-skin)"/></g>
+  </g>
+  <g id="jm-head">
+    
+    <rect x="160" y="290" width="40" height="50" rx="16" fill="url(#jm-skin)"/>
+    <ellipse cx="62" cy="200" rx="22" ry="30" fill="url(#jm-skin)"/><ellipse cx="298" cy="200" rx="22" ry="30" fill="url(#jm-skin)"/>
+    <ellipse cx="180" cy="190" rx="122" ry="130" fill="url(#jm-skin)"/>
+    <ellipse cx="140" cy="120" rx="54" ry="30" fill="#FFFFFF" opacity="0.18"/>
+    <ellipse cx="74" cy="150" rx="30" ry="46" fill="url(#jm-hair)"/><ellipse cx="286" cy="150" rx="30" ry="46" fill="url(#jm-hair)"/><path d="M120 76 C140 56 220 56 240 76 C220 70 140 70 120 76Z" fill="url(#jm-hair)" opacity="0.9"/>
+    <g id="jm-eyes">
+      <ellipse cx="138" cy="196" rx="26" ry="30" fill="#FFFFFF"/><ellipse cx="222" cy="196" rx="26" ry="30" fill="#FFFFFF"/>
+      <circle id="jm-pl" cx="141" cy="200" r="15" fill="url(#jm-eye)"/><circle id="jm-pr" cx="225" cy="200" r="15" fill="url(#jm-eye)"/>
+      <circle cx="146" cy="193" r="5" fill="#FFFFFF"/><circle cx="230" cy="193" r="5" fill="#FFFFFF"/>
+    </g>
+    <g id="jm-lids" fill="url(#jm-skin)"><rect x="108" y="160" width="60" height="70" rx="28"/><rect x="192" y="160" width="60" height="70" rx="28"/></g>
+    <g id="jm-glasses" fill="none" stroke="#2B2F38" stroke-width="7"><circle cx="138" cy="196" r="34"/><circle cx="222" cy="196" r="34"/><path d="M172 196 h16"/></g>
+    <path id="jm-browL" d="M110 150 Q138 136 166 148" stroke="#9AA0A6" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <path id="jm-browR" d="M194 148 Q222 136 250 150" stroke="#9AA0A6" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <ellipse cx="180" cy="236" rx="14" ry="10" fill="#C98B63" opacity="0.55"/>
+    <ellipse cx="108" cy="248" rx="20" ry="12" fill="#FF8A80" opacity="0.28"/><ellipse cx="252" cy="248" rx="20" ry="12" fill="#FF8A80" opacity="0.28"/>
+    <path id="jm-smile" d="M140 268 Q180 300 220 268" stroke="#5B2A1E" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <ellipse id="jm-oh" cx="180" cy="278" rx="16" ry="20" fill="#5B2A1E" opacity="0"/>
+    <path id="jm-frown" d="M146 286 Q180 262 214 286" stroke="#5B2A1E" stroke-width="9" stroke-linecap="round" fill="none" opacity="0"/>
+    <path id="jm-sweat" d="M290 120 q14 22 0 34 q-14 -12 0 -34z" fill="#8FD3FF" opacity="0"/>
+  </g>
+</svg></div>
+    <div class="actor" id="crwrap" style="left:333px">
+<svg id="cr" class="char" width="414" height="759" viewBox="0 0 360 660" overflow="visible">
+  <defs>
+    <radialGradient id="cr-skin" cx="40%" cy="35%" r="70%"><stop offset="0%" stop-color="#9A6646"/><stop offset="100%" stop-color="#6E4329"/></radialGradient>
+    <radialGradient id="cr-hair" cx="40%" cy="30%" r="80%"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#D5D8DD"/></radialGradient>
+    <linearGradient id="cr-top" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5CA581"/><stop offset="100%" stop-color="#3B7F5E"/></linearGradient>
+    <radialGradient id="cr-eye" cx="45%" cy="40%" r="60%"><stop offset="0%" stop-color="#5A3B22"/><stop offset="100%" stop-color="#22140A"/></radialGradient>
+  </defs>
+  <ellipse cx="180" cy="640" rx="130" ry="18" fill="rgba(32,36,45,0.18)"/>
+  <g id="cr-body">
+    <path d="M70 640 L80 430 C86 360 130 330 180 330 C230 330 274 360 280 430 L290 640 Z" fill="url(#cr-top)"/>
+    <path d="M150 335 L180 400 L210 335" fill="#FFFFFF" opacity="0.9"/>
+    <g id="cr-armL"><path d="M92 400 C50 450 52 520 74 560" stroke="url(#cr-top)" stroke-width="44" stroke-linecap="round" fill="none"/>
+      <circle cx="76" cy="566" r="24" fill="url(#cr-skin)"/></g>
+    <g id="cr-armR"><path d="M268 400 C310 450 308 520 286 560" stroke="url(#cr-top)" stroke-width="44" stroke-linecap="round" fill="none"/>
+      <circle cx="284" cy="566" r="24" fill="url(#cr-skin)"/><g transform="translate(290 540)" id="cr-mug"><rect x="-26" y="-36" width="52" height="60" rx="12" fill="#FFFFFF" stroke="#3B7F5E" stroke-width="6"/><path d="M26 -20 q22 0 22 18 q0 18 -22 18" fill="none" stroke="#3B7F5E" stroke-width="6"/><path d="M-10 -52 q8 -12 0 -22 M8 -50 q8 -12 0 -22" stroke="#C9D3CE" stroke-width="5" fill="none" stroke-linecap="round"/></g></g>
+  </g>
+  <g id="cr-head">
+    <ellipse cx="180" cy="200" rx="150" ry="150" fill="url(#cr-hair)"/><circle cx="180" cy="40" r="52" fill="url(#cr-hair)"/>
+    <rect x="160" y="290" width="40" height="50" rx="16" fill="url(#cr-skin)"/>
+    <ellipse cx="62" cy="200" rx="22" ry="30" fill="url(#cr-skin)"/><ellipse cx="298" cy="200" rx="22" ry="30" fill="url(#cr-skin)"/>
+    <ellipse cx="180" cy="190" rx="122" ry="130" fill="url(#cr-skin)"/>
+    <ellipse cx="140" cy="120" rx="54" ry="30" fill="#FFFFFF" opacity="0.18"/>
+    <path d="M58 170 C56 90 116 52 180 52 C244 52 304 90 302 170 C280 120 236 104 180 112 C124 104 80 120 58 170Z" fill="url(#cr-hair)"/>
+    <g id="cr-eyes">
+      <ellipse cx="138" cy="196" rx="26" ry="30" fill="#FFFFFF"/><ellipse cx="222" cy="196" rx="26" ry="30" fill="#FFFFFF"/>
+      <circle id="cr-pl" cx="141" cy="200" r="15" fill="url(#cr-eye)"/><circle id="cr-pr" cx="225" cy="200" r="15" fill="url(#cr-eye)"/>
+      <circle cx="146" cy="193" r="5" fill="#FFFFFF"/><circle cx="230" cy="193" r="5" fill="#FFFFFF"/>
+    </g>
+    <g id="cr-lids" fill="url(#cr-skin)"><rect x="108" y="160" width="60" height="70" rx="28"/><rect x="192" y="160" width="60" height="70" rx="28"/></g>
+    
+    <path id="cr-browL" d="M110 150 Q138 136 166 148" stroke="#B9BEC4" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <path id="cr-browR" d="M194 148 Q222 136 250 150" stroke="#B9BEC4" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <ellipse cx="180" cy="236" rx="14" ry="10" fill="#6E4329" opacity="0.55"/>
+    <ellipse cx="108" cy="248" rx="20" ry="12" fill="#FF8A80" opacity="0.28"/><ellipse cx="252" cy="248" rx="20" ry="12" fill="#FF8A80" opacity="0.28"/>
+    <path id="cr-smile" d="M140 268 Q180 300 220 268" stroke="#5B2A1E" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <ellipse id="cr-oh" cx="180" cy="278" rx="16" ry="20" fill="#5B2A1E" opacity="0"/>
+    <path id="cr-frown" d="M146 286 Q180 262 214 286" stroke="#5B2A1E" stroke-width="9" stroke-linecap="round" fill="none" opacity="0"/>
+    <path id="cr-sweat" d="M290 120 q14 22 0 34 q-14 -12 0 -34z" fill="#8FD3FF" opacity="0"/>
+  </g>
+</svg></div>
+    <div id="sackwrap" style="position:absolute; left:720px; top:780px"><svg id="sack" width="260" height="300" viewBox="0 0 260 300" overflow="visible">
+  <defs><radialGradient id="sackg" cx="40%" cy="35%" r="75%"><stop offset="0%" stop-color="#B98A5A"/><stop offset="100%" stop-color="#7A5230"/></radialGradient></defs>
+  <ellipse cx="130" cy="292" rx="100" ry="12" fill="rgba(32,36,45,0.18)"/>
+  <g id="sackbody"><path d="M70 80 C10 140 20 286 130 286 C240 286 250 140 190 80 Z" fill="url(#sackg)"/>
+  <path d="M84 70 Q130 92 176 70 L166 52 Q130 66 94 52 Z" fill="#5E3E22"/>
+  <text x="130" y="210" text-anchor="middle" font-family="Outfit" font-weight="800" font-size="96" fill="#FFE08A" stroke="#5E3E22" stroke-width="3">$</text></g>
+  <circle class="coin" id="coin0" cx="0" cy="0" r="16" fill="#FFC83D" stroke="#E0A800" stroke-width="4"/><circle class="coin" id="coin1" cx="0" cy="0" r="16" fill="#FFC83D" stroke="#E0A800" stroke-width="4"/><circle class="coin" id="coin2" cx="0" cy="0" r="16" fill="#FFC83D" stroke="#E0A800" stroke-width="4"/><circle class="coin" id="coin3" cx="0" cy="0" r="16" fill="#FFC83D" stroke="#E0A800" stroke-width="4"/><circle class="coin" id="coin4" cx="0" cy="0" r="16" fill="#FFC83D" stroke="#E0A800" stroke-width="4"/><circle class="coin" id="coin5" cx="0" cy="0" r="16" fill="#FFC83D" stroke="#E0A800" stroke-width="4"/><circle class="coin" id="coin6" cx="0" cy="0" r="16" fill="#FFC83D" stroke="#E0A800" stroke-width="4"/><circle class="coin" id="coin7" cx="0" cy="0" r="16" fill="#FFC83D" stroke="#E0A800" stroke-width="4"/><circle class="coin" id="coin8" cx="0" cy="0" r="16" fill="#FFC83D" stroke="#E0A800" stroke-width="4"/><circle class="coin" id="coin9" cx="0" cy="0" r="16" fill="#FFC83D" stroke="#E0A800" stroke-width="4"/>
+</svg></div>
+    <div class="lbl" id="sacklbl" style="left:640px; width:380px; top:1080px; font-size:56px">$1,000,000</div>
+    <div class="tag big" id="t_james" style="top:240px"><span>James</span></div>
+    <div class="tag" id="t_voo" style="top:330px"><span style="background:#3B7F5E">All in VOO &middot; takes 6% = $60,000/yr</span></div>
+    <div class="tag" id="t_rough" style="top:240px"><span style="background:#E5574B">A rough start</span></div>
+    <div class="tag" id="t_chips" style="top:325px"><span class="chip" id="c1">&minus;15%</span><span class="chip" id="c2">&minus;10%</span><span class="chip" id="c3">&minus;5%</span></div>
+    <div class="tag big" id="t_carol" style="top:240px"><span style="background:#3B7F5E">Carol</span></div>
+    <div class="tag" id="t_same" style="top:330px"><span>Same $1M &middot; same bad start</span></div>
+    <div class="tag" id="t_first" style="top:405px"><span style="background:#FFC83D; color:#20242D">She buys income first</span></div>
+    <div class="card" id="pension" style="left:60px; top:240px; width:470px"><div class="k">Private pension account</div><div class="v">$500K <span style="color:#8FD6AE">@ 6.5%</span></div></div>
+    <div class="card" id="forlife" style="left:560px; top:240px; width:460px"><div class="k">Pays her</div><div class="v">$32,500<span style="font-size:32px">/yr</span></div><div class="k" style="color:#FFC83D">for life</div></div>
+    <div class="card" id="eq" style="left:70px; right:70px; top:240px"><div class="v" style="font-size:58px">$32,500 + $27,500 = <span style="color:#FFC83D">$60,000</span></div>
+      <div class="k" style="margin-top:6px">pension &nbsp;+&nbsp; VOO &nbsp;=&nbsp; same as James</div></div>
+    <div class="tag" id="t_9" style="top:240px"><span style="background:#3B7F5E">If the market averages 9%: both fine</span></div>
+    <div class="tag" id="t_66" style="top:240px"><span style="background:#E5574B">If it averages 6.6%&hellip;</span></div>
+    <div class="badge" id="bj9" style="left:250px; top:330px; background:#5CA581">&#10003;</div>
+    <div class="badge" id="bc9" style="left:735px; top:330px; background:#5CA581">&#10003;</div>
+    <div class="badge" id="bjx" style="left:262px; top:470px; background:#E5574B">&#10007;</div>
+    <div class="bubble" id="b_j0" style="left:50px; top:325px; width:420px">James runs out<br><b style="color:#E5574B; font-size:44px">$0 &middot; year 26</b></div>
+    <div class="bubble" id="b_c" style="left:600px; top:325px; width:420px">Carol&rsquo;s paycheck<br><b style="color:#3B7F5E; font-size:44px">$32,500 / yr for life</b></div>
+    <div class="bubble" id="b_hope" style="left:50px; top:330px; width:420px">&ldquo;Hoping the market cooperates&hellip;&rdquo;</div>
+    <div class="bubble" id="b_pay" style="left:600px; top:330px; width:420px">&ldquo;I have a paycheck.&rdquo;</div>
+    <div class="env" id="env1" style="left:900px; top:300px"><svg class="env" width="170" height="110" viewBox="0 0 170 110"><rect x="2" y="2" width="166" height="106" rx="14" fill="#FFFFFF" stroke="#3B7F5E" stroke-width="5"/>
+  <path d="M4 8 L85 62 L166 8" fill="none" stroke="#3B7F5E" stroke-width="5"/><text x="85" y="96" text-anchor="middle" font-family="Outfit" font-weight="800" font-size="26" fill="#3B7F5E">$32,500</text></svg></div>
+    <div class="env" id="env2" style="left:900px; top:300px"><svg class="env" width="170" height="110" viewBox="0 0 170 110"><rect x="2" y="2" width="166" height="106" rx="14" fill="#FFFFFF" stroke="#3B7F5E" stroke-width="5"/>
+  <path d="M4 8 L85 62 L166 8" fill="none" stroke="#3B7F5E" stroke-width="5"/><text x="85" y="96" text-anchor="middle" font-family="Outfit" font-weight="800" font-size="26" fill="#3B7F5E">$32,500</text></svg></div>
+    <div class="env" id="env3" style="left:900px; top:300px"><svg class="env" width="170" height="110" viewBox="0 0 170 110"><rect x="2" y="2" width="166" height="106" rx="14" fill="#FFFFFF" stroke="#3B7F5E" stroke-width="5"/>
+  <path d="M4 8 L85 62 L166 8" fill="none" stroke="#3B7F5E" stroke-width="5"/><text x="85" y="96" text-anchor="middle" font-family="Outfit" font-weight="800" font-size="26" fill="#3B7F5E">$32,500</text></svg></div>
+    <div class="env" id="env4" style="left:900px; top:300px"><svg class="env" width="170" height="110" viewBox="0 0 170 110"><rect x="2" y="2" width="166" height="106" rx="14" fill="#FFFFFF" stroke="#3B7F5E" stroke-width="5"/>
+  <path d="M4 8 L85 62 L166 8" fill="none" stroke="#3B7F5E" stroke-width="5"/><text x="85" y="96" text-anchor="middle" font-family="Outfit" font-weight="800" font-size="26" fill="#3B7F5E">$32,500</text></svg></div>
+    <div class="lbl" id="note" style="left:60px; right:60px; top:196px; font-size:28px; font-weight:400; color:rgba(32,36,45,0.65)">Hypothetical example for illustration only</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#crwrap,#t_voo,#t_rough,#t_chips,#t_carol,#t_same,#t_first,#pension,#forlife,#eq,#t_9,#t_66,#bj9,#bc9,#bjx,#b_j0,#b_c,#b_hope,#b_pay,#env1,#env2,#env3,#env4,#note,#t_james", { opacity: 0 }, 0);
+    tl.set(".coin", { opacity: 0 }, 0);
+    tl.set("#jmwrap", { x: -700, y: 0, scale: 1, rotation: 0, opacity: 1 }, 0);
+    tl.set("#crwrap", { x: 760, y: 0, scale: 1, rotation: 0 }, 0);
+    tl.to("#jmwrap", { x: -120, duration: 0.7, ease: "back.out(1.4)" }, 0.10);
+    tl.fromTo("#sackwrap", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 1.70);
+    tl.fromTo("#sacklbl", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.90);
+    tl.fromTo("#t_james", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 0.20);
+    tl.fromTo("#t_voo", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 3.70);
+    tl.to("#jm-armR", { rotation: -150, transformOrigin: "268px 400px", duration: 0.35, ease: "back.out(2)" }, 0.70);
+    tl.to("#jm-armR", { rotation: -120, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 1 }, 1.05);
+    tl.to("#jm-armR", { rotation: -120, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 1 }, 1.41);
+    tl.to("#jm-armR", { rotation: 0, duration: 0.35, ease: "power2.inOut" }, 1.77);
+    tl.to("#t_james", { opacity: 0, duration: 0.25, ease: "power2.in" }, 4.90);
+    tl.to("#t_voo", { opacity: 0, duration: 0.25, ease: "power2.in" }, 4.90);
+    tl.fromTo("#t_rough", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 5.10);
+    tl.to("#chartline", { strokeDashoffset: 0, duration: 4.6, ease: "power1.inOut" }, 5.30);
+    tl.fromTo("#t_chips", { opacity: 0, y: 0, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 7.20);
+    tl.fromTo("#c1", { opacity: 0, y: 30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 7.25);
+    tl.fromTo("#c2", { opacity: 0, y: 30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 8.75);
+    tl.fromTo("#c3", { opacity: 0, y: 30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 9.85);
+    tl.to("#jm-smile", { opacity: 0, duration: 0.25 }, 7.30);
+    tl.to("#jm-oh", { opacity: 1, duration: 0.25 }, 7.30);
+    tl.to("#jm-frown", { opacity: 0, duration: 0.25 }, 7.30);
+    tl.to("#jm-browL", { rotation: 14, y: -6, transformOrigin: "100% 50%", duration: 0.25 }, 7.30);
+    tl.to("#jm-browR", { rotation: -14, y: -6, transformOrigin: "0% 50%", duration: 0.25 }, 7.30);
+    tl.to("#jm-smile", { opacity: 0, duration: 0.25 }, 8.80);
+    tl.to("#jm-oh", { opacity: 0, duration: 0.25 }, 8.80);
+    tl.to("#jm-frown", { opacity: 1, duration: 0.25 }, 8.80);
+    tl.to("#jm-browL", { rotation: 14, y: -6, transformOrigin: "100% 50%", duration: 0.25 }, 8.80);
+    tl.to("#jm-browR", { rotation: -14, y: -6, transformOrigin: "0% 50%", duration: 0.25 }, 8.80);
+    tl.to("#jm-sweat", { opacity: 1, y: 14, duration: 0.6, ease: "power1.in" }, 8.80);
+    tl.set("#jmwrap", { x: -132 }, 7.30);
+    tl.to("#jmwrap", { x: -120, duration: 0.25, ease: "elastic.out(1, 0.3)" }, 7.31);
+    tl.set("#jmwrap", { x: -132 }, 8.80);
+    tl.to("#jmwrap", { x: -120, duration: 0.25, ease: "elastic.out(1, 0.3)" }, 8.81);
+    tl.set("#jmwrap", { x: -132 }, 9.90);
+    tl.to("#jmwrap", { x: -120, duration: 0.25, ease: "elastic.out(1, 0.3)" }, 9.91);
+    tl.to("#t_rough", { opacity: 0, duration: 0.25, ease: "power2.in" }, 10.30);
+    tl.to("#t_chips", { opacity: 0, duration: 0.25, ease: "power2.in" }, 10.30);
+    tl.to("#chartline", { opacity: 0.25, duration: 0.4 }, 10.30);
+    tl.fromTo("#coin0", { opacity: 1, x: 130, y: 120 }, { x: 122, y: -36, duration: 0.45, ease: "power2.out" }, 10.70);
+    tl.to("#coin0", { y: 520, opacity: 0, duration: 0.5, ease: "power2.in" }, 11.15);
+    tl.fromTo("#coin1", { opacity: 1, x: 130, y: 120 }, { x: 180, y: -8, duration: 0.45, ease: "power2.out" }, 10.92);
+    tl.to("#coin1", { y: 520, opacity: 0, duration: 0.5, ease: "power2.in" }, 11.37);
+    tl.fromTo("#coin2", { opacity: 1, x: 130, y: 120 }, { x: 162, y: -11, duration: 0.45, ease: "power2.out" }, 11.14);
+    tl.to("#coin2", { y: 520, opacity: 0, duration: 0.5, ease: "power2.in" }, 11.59);
+    tl.fromTo("#coin3", { opacity: 1, x: 130, y: 120 }, { x: -80, y: -75, duration: 0.45, ease: "power2.out" }, 11.36);
+    tl.to("#coin3", { y: 520, opacity: 0, duration: 0.5, ease: "power2.in" }, 11.81);
+    tl.fromTo("#coin4", { opacity: 1, x: 130, y: 120 }, { x: 231, y: -49, duration: 0.45, ease: "power2.out" }, 11.58);
+    tl.to("#coin4", { y: 520, opacity: 0, duration: 0.5, ease: "power2.in" }, 12.03);
+    tl.fromTo("#coin5", { opacity: 1, x: 130, y: 120 }, { x: 216, y: -124, duration: 0.45, ease: "power2.out" }, 11.80);
+    tl.to("#coin5", { y: 520, opacity: 0, duration: 0.5, ease: "power2.in" }, 12.25);
+    tl.fromTo("#coin6", { opacity: 1, x: 130, y: 120 }, { x: 69, y: -105, duration: 0.45, ease: "power2.out" }, 12.02);
+    tl.to("#coin6", { y: 520, opacity: 0, duration: 0.5, ease: "power2.in" }, 12.47);
+    tl.fromTo("#coin7", { opacity: 1, x: 130, y: 120 }, { x: 95, y: -60, duration: 0.45, ease: "power2.out" }, 12.24);
+    tl.to("#coin7", { y: 520, opacity: 0, duration: 0.5, ease: "power2.in" }, 12.69);
+    tl.fromTo("#coin8", { opacity: 1, x: 130, y: 120 }, { x: -86, y: -110, duration: 0.45, ease: "power2.out" }, 12.46);
+    tl.to("#coin8", { y: 520, opacity: 0, duration: 0.5, ease: "power2.in" }, 12.91);
+    tl.fromTo("#coin9", { opacity: 1, x: 130, y: 120 }, { x: 5, y: -12, duration: 0.45, ease: "power2.out" }, 12.68);
+    tl.to("#coin9", { y: 520, opacity: 0, duration: 0.5, ease: "power2.in" }, 13.13);
+    tl.to("#sackbody", { scale: 0.66, transformOrigin: "50% 100%", duration: 2.0, ease: "power2.inOut" }, 10.90);
+    const sk = { v: 1000000 };
+    tl.fromTo(sk, { v: 1000000 }, { v: 575000, duration: 1.6, ease: "power2.inOut", onUpdate: () => { document.querySelector("#sacklbl").textContent = "$" + Math.round(sk.v/1000).toLocaleString("en-US") + ",000"; } }, 11.30);
+    tl.to("#sacklbl", { color: "#E5574B", duration: 0.3 }, 12.70);
+    tl.to("#jmwrap", { x: -470, scale: 0.7, transformOrigin: "50% 100%", opacity: 0.0, duration: 0.6, ease: "power3.inOut" }, 14.80);
+    tl.to("#sackwrap, #sacklbl, #chartline", { opacity: 0, duration: 0.4 }, 14.80);
+    tl.set("#crwrap", { opacity: 1, x: 760 }, 15.10);
+    tl.to("#crwrap", { x: 0, duration: 0.75, ease: "back.out(1.4)" }, 15.11);
+    tl.fromTo("#t_carol", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 15.20);
+    tl.fromTo("#t_same", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 15.80);
+    tl.fromTo("#t_first", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 18.35);
+    tl.to("#cr-armR", { rotation: -150, transformOrigin: "268px 400px", duration: 0.35, ease: "back.out(2)" }, 15.70);
+    tl.to("#cr-armR", { rotation: -120, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 1 }, 16.05);
+    tl.to("#cr-armR", { rotation: 0, duration: 0.35, ease: "power2.inOut" }, 16.41);
+    tl.to("#cr", { y: -40, scaleY: 1.04, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, 18.70);
+    tl.set("#cr", { scaleY: 0.94, scaleX: 1.04 }, 19.06);
+    tl.to("#cr", { scaleY: 1, scaleX: 1, duration: 0.25, ease: "elastic.out(1, 0.5)" }, 19.07);
+    tl.to("#t_carol", { opacity: 0, duration: 0.25, ease: "power2.in" }, 19.50);
+    tl.to("#t_same", { opacity: 0, duration: 0.25, ease: "power2.in" }, 19.50);
+    tl.to("#t_first", { opacity: 0, duration: 0.25, ease: "power2.in" }, 19.50);
+    tl.fromTo("#pension", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 20.05);
+    tl.fromTo("#forlife", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 24.85);
+    tl.to("#crwrap", { x: 60, duration: 0.5, ease: "power2.inOut" }, 19.70);
+    tl.fromTo("#env1", { opacity: 1, x: 0, y: 0, rotation: -20, scale: 0.6 }, { x: -420, y: 560, rotation: 8, scale: 1, duration: 0.9, ease: "power2.inOut" }, 25.00);
+    tl.to("#env1", { opacity: 0, scale: 0.5, duration: 0.25 }, 25.95);
+    tl.to("#cr", { y: -30, scaleY: 1.04, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, 25.90);
+    tl.set("#cr", { scaleY: 0.94, scaleX: 1.04 }, 26.26);
+    tl.to("#cr", { scaleY: 1, scaleX: 1, duration: 0.25, ease: "elastic.out(1, 0.5)" }, 26.27);
+    tl.to("#pension", { opacity: 0, duration: 0.25, ease: "power2.in" }, 28.80);
+    tl.to("#forlife", { opacity: 0, duration: 0.25, ease: "power2.in" }, 28.80);
+    tl.fromTo("#eq", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 28.95);
+    tl.to("#crwrap", { x: 235, scale: 0.86, transformOrigin: "50% 100%", duration: 0.6, ease: "power3.inOut" }, 32.10);
+    tl.set("#jmwrap", { opacity: 1, x: -700, scale: 0.86, rotation: 0, y: 0 }, 32.10);
+    tl.to("#jmwrap", { x: -250, duration: 0.6, ease: "back.out(1.4)" }, 32.11);
+    tl.to("#jm-smile", { opacity: 1, duration: 0.25 }, 32.10);
+    tl.to("#jm-oh", { opacity: 0, duration: 0.25 }, 32.10);
+    tl.to("#jm-frown", { opacity: 0, duration: 0.25 }, 32.10);
+    tl.to("#jm-browL", { rotation: 0, y: 0, duration: 0.25 }, 32.10);
+    tl.to("#jm-browR", { rotation: 0, y: 0, duration: 0.25 }, 32.10);
+    tl.to("#jm-sweat", { opacity: 0, duration: 0.2 }, 32.10);
+    tl.to("#eq", { opacity: 0, duration: 0.25, ease: "power2.in" }, 33.95);
+    tl.fromTo("#t_9", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 34.10);
+    tl.fromTo("#bj9", { opacity: 0, y: 30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 36.50);
+    tl.fromTo("#bc9", { opacity: 0, y: 30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 36.60);
+    tl.to("#jm", { y: -24, scaleY: 1.04, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, 36.65);
+    tl.set("#jm", { scaleY: 0.94, scaleX: 1.04 }, 37.01);
+    tl.to("#jm", { scaleY: 1, scaleX: 1, duration: 0.25, ease: "elastic.out(1, 0.5)" }, 37.02);
+    tl.to("#cr", { y: -24, scaleY: 1.04, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, 36.75);
+    tl.set("#cr", { scaleY: 0.94, scaleX: 1.04 }, 37.11);
+    tl.to("#cr", { scaleY: 1, scaleX: 1, duration: 0.25, ease: "elastic.out(1, 0.5)" }, 37.12);
+    tl.to("#t_9", { opacity: 0, duration: 0.25, ease: "power2.in" }, 37.00);
+    tl.to("#bj9", { opacity: 0, duration: 0.25, ease: "power2.in" }, 37.00);
+    tl.to("#bc9", { opacity: 0, duration: 0.25, ease: "power2.in" }, 37.00);
+    tl.fromTo("#t_66", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 37.10);
+    tl.to("#jm-smile", { opacity: 0, duration: 0.25 }, 39.50);
+    tl.to("#jm-oh", { opacity: 0, duration: 0.25 }, 39.50);
+    tl.to("#jm-frown", { opacity: 1, duration: 0.25 }, 39.50);
+    tl.to("#jm-browL", { rotation: 14, y: -6, transformOrigin: "100% 50%", duration: 0.25 }, 39.50);
+    tl.to("#jm-browR", { rotation: -14, y: -6, transformOrigin: "0% 50%", duration: 0.25 }, 39.50);
+    tl.to("#jm-sweat", { opacity: 1, y: 14, duration: 0.6, ease: "power1.in" }, 39.50);
+    tl.fromTo("#b_j0", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 41.40);
+    tl.to("#jmwrap", { y: 26, rotation: -4, duration: 0.6, ease: "power2.out" }, 41.40);
+    tl.fromTo("#b_c", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 43.20);
+    tl.fromTo("#env2", { opacity: 1, x: 0, y: 0, rotation: -20, scale: 0.6 }, { x: -140, y: 560, rotation: 6, scale: 0.9, duration: 0.8, ease: "power2.inOut" }, 43.40);
+    tl.to("#env2", { opacity: 0, scale: 0.5, duration: 0.2 }, 44.20);
+    tl.fromTo("#env3", { opacity: 1, x: 0, y: 0, rotation: -20, scale: 0.6 }, { x: -140, y: 560, rotation: 6, scale: 0.9, duration: 0.8, ease: "power2.inOut" }, 44.40);
+    tl.to("#env3", { opacity: 0, scale: 0.5, duration: 0.2 }, 45.20);
+    tl.fromTo("#env4", { opacity: 1, x: 0, y: 0, rotation: -20, scale: 0.6 }, { x: -140, y: 560, rotation: 6, scale: 0.9, duration: 0.8, ease: "power2.inOut" }, 45.40);
+    tl.to("#env4", { opacity: 0, scale: 0.5, duration: 0.2 }, 46.20);
+    tl.to("#cr", { y: -22, scaleY: 1.04, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, 44.30);
+    tl.set("#cr", { scaleY: 0.94, scaleX: 1.04 }, 44.66);
+    tl.to("#cr", { scaleY: 1, scaleX: 1, duration: 0.25, ease: "elastic.out(1, 0.5)" }, 44.67);
+    tl.fromTo("#note", { opacity: 0, y: 0, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 37.30);
+    tl.to("#t_66", { opacity: 0, duration: 0.25, ease: "power2.in" }, 46.95);
+    tl.to("#b_j0", { opacity: 0, duration: 0.25, ease: "power2.in" }, 46.95);
+    tl.to("#b_c", { opacity: 0, duration: 0.25, ease: "power2.in" }, 46.95);
+    tl.fromTo("#b_hope", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 47.10);
+    tl.fromTo("#b_pay", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 49.40);
+    tl.fromTo("#jm-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 1.50);
+    tl.fromTo("#jm-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 4.00);
+    tl.fromTo("#jm-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 6.10);
+    tl.fromTo("#jm-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 11.70);
+    tl.fromTo("#jm-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 14.00);
+    tl.fromTo("#jm-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 33.30);
+    tl.fromTo("#jm-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 38.10);
+    tl.fromTo("#jm-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 43.90);
+    tl.fromTo("#jm-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 47.70);
+    tl.fromTo("#cr-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 16.90);
+    tl.fromTo("#cr-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 21.50);
+    tl.fromTo("#cr-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 24.00);
+    tl.fromTo("#cr-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 27.20);
+    tl.fromTo("#cr-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 30.70);
+    tl.fromTo("#cr-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 35.30);
+    tl.fromTo("#cr-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 40.40);
+    tl.fromTo("#cr-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 46.00);
+    tl.fromTo("#cr-lids", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.07, ease: "power1.in", yoyo: true, repeat: 1 }, 48.50);
+    tl.to("#stage-all", { opacity: 0, duration: 0.3 }, 49.15);
+    window.__timelines["stage"] = tl;
+  </script>
+</template>

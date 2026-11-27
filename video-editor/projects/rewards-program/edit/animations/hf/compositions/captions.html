@@ -1,0 +1,169 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; }
+    .band { position: absolute; left: 0; right: 0; top: 270px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .pill { display: inline-flex; align-items: center; gap: 16px; padding: 22px 38px; border-radius: 999px; font-weight: 800; font-size: 50px;
+             letter-spacing: -0.01em; color: #fff; box-shadow: 0 16px 40px rgba(0,0,0,0.28); white-space: nowrap; }
+    .sage { background: #3B7F5E; }
+    .sun { background: #FFC83D; color: #20242D; }
+    .char { background: rgba(32,36,45,0.88); }
+    .ocean { background: linear-gradient(120deg, #1FA2FF, #12D8FA); }
+    .sunset { background: linear-gradient(120deg, #FF6A5F, #FFB45C); }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.85), rgba(32,36,45,0.9)); border: 2px solid rgba(255,255,255,0.4);
+              backdrop-filter: blur(18px); }
+    .card { padding: 30px 40px; border-radius: 40px; color: #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.3); max-width: 900px; text-align: center; }
+    .k { font-weight: 600; font-size: 30px; letter-spacing: 0.16em; text-transform: uppercase; color: #8FD6AE; }
+    .big { font-weight: 800; font-size: 64px; line-height: 1.05; letter-spacing: -0.02em; margin-top: 6px; }
+    .hl { color: #FFC83D; }
+
+    #root { background: transparent; }
+    .cap { position: absolute; left: 0; right: 0; top: 1290px; text-align: center; }
+    .cap.up { top: 1170px; }
+    .cap span { display: inline-block; padding: 14px 30px; border-radius: 26px; background: rgba(32,36,45,0.9); color: #fff; font-weight: 800; font-size: 60px;
+                 letter-spacing: -0.01em; white-space: nowrap; box-shadow: 0 10px 28px rgba(0,0,0,0.3); }
+    .cap i { font-style: normal; color: #FFC83D; }
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+    <div class="cap clip" id="cap0" data-start="0.050" data-duration="0.240" data-track-index="0"><span id="capt0">HOW WOULD YOU</span></div>
+    <div class="cap clip" id="cap1" data-start="0.290" data-duration="0.340" data-track-index="0"><span id="capt1">LIKE TO GO</span></div>
+    <div class="cap clip" id="cap2" data-start="0.630" data-duration="0.580" data-track-index="0"><span id="capt2"><i>ANYWHERE</i> IN THE</span></div>
+    <div class="cap clip" id="cap3" data-start="1.210" data-duration="0.840" data-track-index="0"><span id="capt3"><i>WORLD</i> ON MY</span></div>
+    <div class="cap clip" id="cap4" data-start="2.050" data-duration="0.350" data-track-index="0"><span id="capt4"><i>DIME?</i></span></div>
+    <div class="cap clip" id="cap5" data-start="2.490" data-duration="0.490" data-track-index="0"><span id="capt5">I&#x27;M <i>SERIOUS.</i></span></div>
+    <div class="cap clip" id="cap6" data-start="3.290" data-duration="0.240" data-track-index="0"><span id="capt6">HOW WOULD YOU</span></div>
+    <div class="cap clip" id="cap7" data-start="3.530" data-duration="0.320" data-track-index="0"><span id="capt7">LIKE TO GO</span></div>
+    <div class="cap clip" id="cap8" data-start="4.870" data-duration="0.970" data-track-index="0"><span id="capt8">ON MY <i>DIME?</i></span></div>
+    <div class="cap clip" id="cap9" data-start="5.950" data-duration="0.380" data-track-index="0"><span id="capt9">MY NAME IS</span></div>
+    <div class="cap clip" id="cap10" data-start="6.330" data-duration="0.750" data-track-index="0"><span id="capt10">FINANCE <i>KEEM.</i></span></div>
+    <div class="cap clip" id="cap11" data-start="7.110" data-duration="0.320" data-track-index="0"><span id="capt11">I WORK IN</span></div>
+    <div class="cap clip" id="cap12" data-start="7.430" data-duration="0.860" data-track-index="0"><span id="capt12">THE FINANCIAL SERVICES</span></div>
+    <div class="cap clip" id="cap13" data-start="8.290" data-duration="0.610" data-track-index="0"><span id="capt13">INDUSTRY,</span></div>
+    <div class="cap clip" id="cap14" data-start="8.990" data-duration="0.480" data-track-index="0"><span id="capt14">AND MY GOAL</span></div>
+    <div class="cap clip" id="cap15" data-start="9.470" data-duration="0.580" data-track-index="0"><span id="capt15">IS TO CHANGE</span></div>
+    <div class="cap clip" id="cap16" data-start="10.050" data-duration="0.640" data-track-index="0"><span id="capt16">THE WAY THAT</span></div>
+    <div class="cap clip" id="cap17" data-start="10.690" data-duration="0.580" data-track-index="0"><span id="capt17">MY CLIENTS ARE</span></div>
+    <div class="cap clip" id="cap18" data-start="11.270" data-duration="1.140" data-track-index="0"><span id="capt18"><i>CELEBRATED</i> WHEN THEY</span></div>
+    <div class="cap clip" id="cap19" data-start="12.410" data-duration="1.020" data-track-index="0"><span id="capt19">MAKE BIG CHANGES</span></div>
+    <div class="cap clip" id="cap20" data-start="13.430" data-duration="0.730" data-track-index="0"><span id="capt20">IN THEIR LIVES.</span></div>
+    <div class="cap clip" id="cap21" data-start="14.330" data-duration="0.380" data-track-index="0"><span id="capt21">I JUST SENT</span></div>
+    <div class="cap clip up" id="cap22" data-start="14.710" data-duration="0.580" data-track-index="0"><span id="capt22">A FRIEND TO</span></div>
+    <div class="cap clip up" id="cap23" data-start="15.290" data-duration="0.520" data-track-index="0"><span id="capt23"><i>SANTORINI,</i></span></div>
+    <div class="cap clip up" id="cap24" data-start="15.810" data-duration="0.430" data-track-index="0"><span id="capt24"><i>GREECE.</i></span></div>
+    <div class="cap clip" id="cap25" data-start="16.330" data-duration="0.380" data-track-index="0"><span id="capt25">I SENT ANOTHER</span></div>
+    <div class="cap clip up" id="cap26" data-start="16.710" data-duration="0.950" data-track-index="0"><span id="capt26">FRIEND TO <i>HAWAII,</i></span></div>
+    <div class="cap clip up" id="cap27" data-start="17.690" data-duration="0.700" data-track-index="0"><span id="capt27">ALL BECAUSE THEY</span></div>
+    <div class="cap clip" id="cap28" data-start="18.390" data-duration="0.520" data-track-index="0"><span id="capt28">HELPED ME ONE</span></div>
+    <div class="cap clip" id="cap29" data-start="18.910" data-duration="0.440" data-track-index="0"><span id="capt29">WAY OR ANOTHER</span></div>
+    <div class="cap clip" id="cap30" data-start="19.350" data-duration="0.630" data-track-index="0"><span id="capt30">IN <i>BUSINESS.</i></span></div>
+    <div class="cap clip" id="cap31" data-start="20.050" data-duration="0.440" data-track-index="0"><span id="capt31">FOR SOME TIME,</span></div>
+    <div class="cap clip" id="cap32" data-start="20.490" data-duration="0.400" data-track-index="0"><span id="capt32">I&#x27;VE BEEN KEEPING</span></div>
+    <div class="cap clip" id="cap33" data-start="20.890" data-duration="0.650" data-track-index="0"><span id="capt33">THIS A <i>SECRET,</i></span></div>
+    <div class="cap clip" id="cap34" data-start="21.637" data-duration="0.510" data-track-index="0"><span id="capt34">BUT WHY NOT</span></div>
+    <div class="cap clip" id="cap35" data-start="22.147" data-duration="0.650" data-track-index="0"><span id="capt35">OPEN IT UP?</span></div>
+    <div class="cap clip" id="cap36" data-start="22.847" data-duration="0.400" data-track-index="0"><span id="capt36">IF YOU HELP</span></div>
+    <div class="cap clip" id="cap37" data-start="23.247" data-duration="0.540" data-track-index="0"><span id="capt37">ME GROW MY</span></div>
+    <div class="cap clip" id="cap38" data-start="23.787" data-duration="0.413" data-track-index="0"><span id="capt38"><i>BUSINESS,</i></span></div>
+    <div class="cap clip" id="cap39" data-start="26.283" data-duration="0.840" data-track-index="0"><span id="capt39">AND THE</span></div>
+    <div class="cap clip" id="cap40" data-start="27.173" data-duration="0.480" data-track-index="0"><span id="capt40">PEOPLE THAT YOU</span></div>
+    <div class="cap clip" id="cap41" data-start="27.653" data-duration="0.720" data-track-index="0"><span id="capt41"><i>REFER</i> ME TO</span></div>
+    <div class="cap clip" id="cap42" data-start="28.373" data-duration="0.860" data-track-index="0"><span id="capt42">ON THAT SAME</span></div>
+    <div class="cap clip" id="cap43" data-start="29.233" data-duration="1.080" data-track-index="0"><span id="capt43"><i>VACATION</i> OR ANY</span></div>
+    <div class="cap clip" id="cap44" data-start="30.313" data-duration="0.820" data-track-index="0"><span id="capt44">OTHER <i>VACATION</i> AROUND</span></div>
+    <div class="cap clip" id="cap45" data-start="31.133" data-duration="0.490" data-track-index="0"><span id="capt45">THE WORLD.</span></div>
+    <div class="cap clip" id="cap46" data-start="31.713" data-duration="0.220" data-track-index="0"><span id="capt46">ALL YOU GOTTA</span></div>
+    <div class="cap clip" id="cap47" data-start="31.933" data-duration="0.700" data-track-index="0"><span id="capt47">DO IS REACH</span></div>
+    <div class="cap clip" id="cap48" data-start="32.633" data-duration="0.560" data-track-index="0"><span id="capt48">OUT TO ME</span></div>
+    <div class="cap clip" id="cap49" data-start="33.193" data-duration="0.920" data-track-index="0"><span id="capt49">OR CONNECT ME</span></div>
+    <div class="cap clip" id="cap50" data-start="34.113" data-duration="0.560" data-track-index="0"><span id="capt50">WITH SOMEONE THAT</span></div>
+    <div class="cap clip" id="cap51" data-start="34.673" data-duration="0.520" data-track-index="0"><span id="capt51">YOU KNOW THAT</span></div>
+    <div class="cap clip" id="cap52" data-start="35.193" data-duration="0.700" data-track-index="0"><span id="capt52">MAY BE <i>RETIRING</i></span></div>
+    <div class="cap clip" id="cap53" data-start="35.893" data-duration="0.660" data-track-index="0"><span id="capt53">AND IN THEIR</span></div>
+    <div class="cap clip" id="cap54" data-start="36.553" data-duration="0.370" data-track-index="0"><span id="capt54">FUTURE.</span></div>
+    <div class="cap clip" id="cap55" data-start="37.173" data-duration="0.590" data-track-index="0"><span id="capt55">THAT&#x27;S <i>IT.</i></span></div>
+    <div class="cap clip" id="cap56" data-start="37.850" data-duration="0.400" data-track-index="0"><span id="capt56">IT&#x27;S AS <i>SIMPLE</i></span></div>
+    <div class="cap clip" id="cap57" data-start="38.250" data-duration="0.550" data-track-index="0"><span id="capt57">AS THAT.</span></div>
+    <div class="cap clip" id="cap58" data-start="38.830" data-duration="0.930" data-track-index="0"><span id="capt58">I&#x27;M FINANCE <i>KEEM.</i></span></div>
+    <div class="cap clip" id="cap59" data-start="39.870" data-duration="0.320" data-track-index="0"><span id="capt59">I&#x27;M LOOKING TO</span></div>
+    <div class="cap clip" id="cap60" data-start="40.190" data-duration="0.920" data-track-index="0"><span id="capt60">BECOME YOUR NEXT</span></div>
+    <div class="cap clip" id="cap61" data-start="41.110" data-duration="0.910" data-track-index="0"><span id="capt61">FINANCIAL ADVISOR</span></div>
+    <div class="cap clip" id="cap62" data-start="42.313" data-duration="0.580" data-track-index="0"><span id="capt62">CHANGE THE WAY</span></div>
+    <div class="cap clip" id="cap63" data-start="42.893" data-duration="1.140" data-track-index="0"><span id="capt63">FINANCIAL ADVISORY IS</span></div>
+    <div class="cap clip" id="cap64" data-start="44.033" data-duration="0.570" data-track-index="0"><span id="capt64"><i>CELEBRATED.</i></span></div>
+    <div class="cap clip" id="cap65" data-start="44.793" data-duration="0.570" data-track-index="0"><span id="capt65">I&#x27;LL SEE YOU</span></div>
+    <div class="cap clip" id="cap66" data-start="45.370" data-duration="0.370" data-track-index="0"><span id="capt66">ON THE OTHER</span></div>
+    <div class="cap clip" id="cap67" data-start="45.740" data-duration="0.260" data-track-index="0"><span id="capt67">SIDE.</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#capt0", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 0.050);
+    tl.fromTo("#capt1", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 0.290);
+    tl.fromTo("#capt2", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 0.630);
+    tl.fromTo("#capt3", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 1.210);
+    tl.fromTo("#capt4", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 2.050);
+    tl.fromTo("#capt5", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 2.490);
+    tl.fromTo("#capt6", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 3.290);
+    tl.fromTo("#capt7", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 3.530);
+    tl.fromTo("#capt8", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 4.870);
+    tl.fromTo("#capt9", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 5.950);
+    tl.fromTo("#capt10", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 6.330);
+    tl.fromTo("#capt11", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 7.110);
+    tl.fromTo("#capt12", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 7.430);
+    tl.fromTo("#capt13", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 8.290);
+    tl.fromTo("#capt14", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 8.990);
+    tl.fromTo("#capt15", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 9.470);
+    tl.fromTo("#capt16", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 10.050);
+    tl.fromTo("#capt17", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 10.690);
+    tl.fromTo("#capt18", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 11.270);
+    tl.fromTo("#capt19", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 12.410);
+    tl.fromTo("#capt20", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 13.430);
+    tl.fromTo("#capt21", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 14.330);
+    tl.fromTo("#capt22", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 14.710);
+    tl.fromTo("#capt23", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 15.290);
+    tl.fromTo("#capt24", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 15.810);
+    tl.fromTo("#capt25", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 16.330);
+    tl.fromTo("#capt26", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 16.710);
+    tl.fromTo("#capt27", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 17.690);
+    tl.fromTo("#capt28", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 18.390);
+    tl.fromTo("#capt29", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 18.910);
+    tl.fromTo("#capt30", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 19.350);
+    tl.fromTo("#capt31", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 20.050);
+    tl.fromTo("#capt32", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 20.490);
+    tl.fromTo("#capt33", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 20.890);
+    tl.fromTo("#capt34", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 21.637);
+    tl.fromTo("#capt35", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 22.147);
+    tl.fromTo("#capt36", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 22.847);
+    tl.fromTo("#capt37", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 23.247);
+    tl.fromTo("#capt38", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 23.787);
+    tl.fromTo("#capt39", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 26.283);
+    tl.fromTo("#capt40", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 27.173);
+    tl.fromTo("#capt41", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 27.653);
+    tl.fromTo("#capt42", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 28.373);
+    tl.fromTo("#capt43", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 29.233);
+    tl.fromTo("#capt44", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 30.313);
+    tl.fromTo("#capt45", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 31.133);
+    tl.fromTo("#capt46", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 31.713);
+    tl.fromTo("#capt47", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 31.933);
+    tl.fromTo("#capt48", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 32.633);
+    tl.fromTo("#capt49", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 33.193);
+    tl.fromTo("#capt50", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 34.113);
+    tl.fromTo("#capt51", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 34.673);
+    tl.fromTo("#capt52", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 35.193);
+    tl.fromTo("#capt53", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 35.893);
+    tl.fromTo("#capt54", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 36.553);
+    tl.fromTo("#capt55", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 37.173);
+    tl.fromTo("#capt56", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 37.850);
+    tl.fromTo("#capt57", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 38.250);
+    tl.fromTo("#capt58", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 38.830);
+    tl.fromTo("#capt59", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 39.870);
+    tl.fromTo("#capt60", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 40.190);
+    tl.fromTo("#capt61", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 41.110);
+    tl.fromTo("#capt62", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 42.313);
+    tl.fromTo("#capt63", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 42.893);
+    tl.fromTo("#capt64", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 44.033);
+    tl.fromTo("#capt65", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 44.793);
+    tl.fromTo("#capt66", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 45.370);
+    tl.fromTo("#capt67", { opacity: 0, scale: 0.8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.14, ease: "back.out(2.5)" }, 45.740);
+    window.__timelines["captions"] = tl;
+  </script>
+</template>

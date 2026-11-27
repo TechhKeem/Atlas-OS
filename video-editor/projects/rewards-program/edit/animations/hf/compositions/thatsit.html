@@ -1,0 +1,35 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; }
+    .band { position: absolute; left: 0; right: 0; top: 270px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .pill { display: inline-flex; align-items: center; gap: 16px; padding: 22px 38px; border-radius: 999px; font-weight: 800; font-size: 50px;
+             letter-spacing: -0.01em; color: #fff; box-shadow: 0 16px 40px rgba(0,0,0,0.28); white-space: nowrap; }
+    .sage { background: #3B7F5E; }
+    .sun { background: #FFC83D; color: #20242D; }
+    .char { background: rgba(32,36,45,0.88); }
+    .ocean { background: linear-gradient(120deg, #1FA2FF, #12D8FA); }
+    .sunset { background: linear-gradient(120deg, #FF6A5F, #FFB45C); }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.85), rgba(32,36,45,0.9)); border: 2px solid rgba(255,255,255,0.4);
+              backdrop-filter: blur(18px); }
+    .card { padding: 30px 40px; border-radius: 40px; color: #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.3); max-width: 900px; text-align: center; }
+    .k { font-weight: 600; font-size: 30px; letter-spacing: 0.16em; text-transform: uppercase; color: #8FD6AE; }
+    .big { font-weight: 800; font-size: 64px; line-height: 1.05; letter-spacing: -0.02em; margin-top: 6px; }
+    .hl { color: #FFC83D; }
+
+    #root { background: transparent; }
+
+  </style>
+  <div id="root" data-composition-id="thatsit" data-width="1080" data-height="1920">
+    <div class="band"><div class="pill sun" id="ti" style="font-size:84px; padding:26px 54px">THAT&rsquo;S IT.</div>
+      <div class="pill char" id="ti2">As simple as that</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ti", { opacity: 0, scale: 0.55, rotation: -10 }, { opacity: 1, scale: 1, rotation: -5, duration: 0.32, ease: "back.out(2.2)" }, 0.000);
+    tl.fromTo("#ti2", { opacity: 0, scale: 0.55, rotation: 4 }, { opacity: 1, scale: 1, rotation: 2, duration: 0.38, ease: "back.out(2.2)" }, 0.800);
+    tl.to("#ti", { opacity: 0, scale: 0.8, duration: 0.18, ease: "power2.in" }, 1.450);
+    tl.to("#ti2", { opacity: 0, scale: 0.8, duration: 0.18, ease: "power2.in" }, 1.450);
+    window.__timelines["thatsit"] = tl;
+  </script>
+</template>
