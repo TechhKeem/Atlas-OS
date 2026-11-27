@@ -22,7 +22,12 @@ Distilled from three reference reels Hakeem picked (Drive **Video Edits / Launch
 5. **CTA is "Comment <WORD>"**, never "DM me" (comments boost reach). Freebie = the free retirement quiz at
    **hello.financekeem.com**. Keyword is **PLAN** (Hakeem’s choice) unless he names another for a specific reel.
 6. **Proof only from the approved list** (below). Never invent stats, clients, results or credentials.
-7. **Faces stay clear** of every card, caption and widget. Text lives in the safe band: nothing in the bottom
+7. **Never cover Hakeem or the people with him** — not faces, not bodies. **Per shot**, look at that shot's frames on a
+   pixel grid (`same-million-reel/edit/place/`) and pick where the text stack (title / glass card + caption) goes for
+   THAT shot: a vertical band (`text_y`) and a side (L x100-660, R x340-900, C x260-820). Every text block jumps to the
+   new spot on each cut (`shots.py` + `place_sets()` in `same-million-reel/edit/build_hf.py`). If a shot has no free
+   band, don't put it under a widget (use it where only a caption shows, or not at all).
+   Original rule: faces stay clear of every card, caption and widget. Text lives in the safe band: nothing in the bottom
    700 px (Reels UI) or the right 180 px (Shorts UI) of a 1080×1920 frame.
 8. **Compliance:** use "private pension account", never "annuity". Hypothetical numbers carry "Hypothetical
    example for illustration only. Not investment advice." Anything implying guaranteed income adds "Guarantees are
@@ -71,6 +76,8 @@ b-roll from a distinct setting so sections still feel different.
 
 ## 3. Picture — b-roll rules
 
+- **Video first.** Build the picture from video clips; stills only as an occasional accent (≤ ~3 per reel). Keep a
+  local clip library (`video-editor/projects/clip-library/`, gitignored) of every downloaded clip with contact sheets.
 - **Search the shot index first** (`video-editor/broll-index.md` / Sheet "B-Roll Index"). `[Authority]` + `Top` rows
   for who-he-is/why-trust moments; B Roll for general cutaways. Download small files with the Drive connector
   (≤ 10 MB); larger ones need the folder shared "Anyone with the link".
@@ -93,10 +100,14 @@ b-roll from a distinct setting so sections still feel different.
 
 ## 5. Glass widgets (Hakeem's signature — use 1–3 per reel)
 
+Prefer compact **ticker cards** (fixed ~196 px tall, ≤ 560 px wide): a kicker line (section label merged in, e.g.
+"1 · ALL IN THE MARKET · JAMES"), one big value and one small line that swap on the spoken word. Small cards fit the
+free band of almost any shot; tall accumulating cards end up covering people.
+
 Sage→charcoal gradient glass, frosted blur, white hairline border, Outfit. Use them only where a number, equation
 or comparison needs to be *seen*: the math ("pension + Social Security − expenses"), before/after ("$1 vs $400"),
 a 3-step summary. Time every row to the spoken word (`words_out.json`); grow cards row by row (height reveal, no
-margin tweens); anchor them so faces stay clear (bottom-anchored above the captions works).
+margin tweens); place them per shot (Hard rule 7).
 
 ## 6. End card / CTA (last 6–9 s)
 

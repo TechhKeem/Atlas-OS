@@ -17,7 +17,7 @@ TM = "zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desa
 CLIPS = {"8752_camera_crew": (1.5, 2.6, True), "0985_stage": (0.6, 3.4, True), "5362_cornhole_child": (0.8, 3.3, None)}
 for n, (s, d, hlg) in CLIPS.items():
     src = os.path.join(P, "clips", n + ".mov")
-    trc = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=color_transfer", "-of", "csv=p=0", src], capture_output=True, text=True).stdout.strip()
+    trc = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=color_transfer", "-of", "csv=p=0", src], capture_output=True, text=True).stdout.strip().strip(",")
     tm = TM if trc in ("arib-std-b67", "smpte2084") else ""
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(s), "-t", str(d), "-i", src, "-vf",
                     tm + "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,eq=saturation=1.1:contrast=1.04,fps=30",

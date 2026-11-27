@@ -34,3 +34,5 @@ projects/**/.transcode-cache/
 projects/**/.render.hf-transaction-*/
 projects/reference-examples/
 projects/**/edit/chk/
+projects/clip-library/
+projects/**/edit/place/
