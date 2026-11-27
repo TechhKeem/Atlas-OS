@@ -1,0 +1,44 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; color: #FFFFFF; }
+    .bg { position: absolute; inset: 0; background: radial-gradient(120% 70% at 50% 35%, #2B3A36 0%, #20252D 62%); }
+    .grid { position: absolute; inset: 0; opacity: 0.07; background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px);
+             background-size: 90px 90px; }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.9), rgba(32,37,45,0.94)); border: 2px solid rgba(255,255,255,0.36);
+              backdrop-filter: blur(20px); border-radius: 34px; box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+    .box { display: inline-block; background: #20252D; color: #FFFFFF; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .kick { font-weight: 600; font-size: 28px; letter-spacing: 0.16em; text-transform: uppercase; color: #8FD6AE; }
+    .hl { color: #8FD6AE; }
+
+    .chart { position: absolute; left: 90px; top: 420px; width: 900px; height: 560px; }
+    .lbl { position: absolute; font-weight: 700; font-size: 46px; padding: 6px 18px; border-radius: 16px; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); }
+  </style>
+  <div id="root" data-composition-id="crash" data-width="1080" data-height="1920">
+    <div class="bg"></div><div class="grid"></div>
+    <div style="position:absolute; left:110px; right:180px; top:300px"><div class="kick" id="ck">James &middot; $1,000,000 in VOO</div>
+      <div id="ct" style="font-weight:600; font-size:52px; margin-top:8px">Retires into a rough market</div></div>
+    <div class="chart"><svg width="900" height="560" viewBox="0 0 900 560">
+        <line x1="40" y1="500" x2="880" y2="500" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+        <path id="cs0" d="M40,70 L250,92" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" fill="none" stroke="#8FD6AE" stroke-width="10" stroke-linecap="butt" stroke-linejoin="round"/>
+        <path id="cs1" d="M250,92 L330,210 L520,238" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" fill="none" stroke="#C1C4C8" stroke-width="10" stroke-linecap="butt" stroke-linejoin="round"/>
+        <path id="cs2" d="M520,238 L600,320 L780,340" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" fill="none" stroke="#C1C4C8" stroke-width="10" stroke-linecap="butt" stroke-linejoin="round"/>
+        <path id="cs3" d="M780,340 L860,400" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" fill="none" stroke="#C1C4C8" stroke-width="10" stroke-linecap="butt" stroke-linejoin="round"/>
+      </svg>
+      <div class="lbl" id="l1" style="left:330px; top:120px">&minus;15%</div><div class="lbl" id="l2" style="left:600px; top:230px">&minus;10%</div>
+      <div class="lbl" id="l3" style="left:720px; top:420px">&minus;5%</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ck", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, 0.05);
+    tl.fromTo("#ct", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, 0.20);
+    tl.fromTo("#cs0", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 2.04, ease: "power2.inOut", immediateRender: false }, 0.10);
+    tl.fromTo("#cs1", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut", immediateRender: false }, 2.14);
+    tl.fromTo("#l1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, 2.34);
+    tl.fromTo("#cs2", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut", immediateRender: false }, 3.42);
+    tl.fromTo("#l2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, 3.62);
+    tl.fromTo("#cs3", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.4, ease: "power2.inOut", immediateRender: false }, 4.38);
+    tl.fromTo("#l3", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, 4.53);
+    window.__timelines["crash"] = tl;
+  </script>
+</template>

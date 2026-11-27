@@ -37,3 +37,7 @@ projects/**/edit/chk/
 projects/clip-library/
 projects/**/edit/place/
 __pycache__/
+projects/**/edit3/snaps*/
+projects/**/edit3/*.wav
+projects/**/edit3/hf/assets/*.mp4
+projects/**/edit3/hf/assets/*.m4a

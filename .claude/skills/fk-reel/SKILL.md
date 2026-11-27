@@ -8,7 +8,8 @@ description: Make a Finance Keem (FK Management) Instagram/TikTok reel end to en
 Distilled from three reference reels Hakeem picked (Drive **Video Edits / Launch Video / Content Examples**,
 `1yiXEaNbAH6Xb11VduRUs3UMsA2ltRtJG`; breakdown in `references/examples.md`) plus the house rules in the repo's
 `CLAUDE.md` (fonts, colours, Drive folders). The working reference build is
-`video-editor/projects/same-million-reel/` (first reel made with this skill) — copy its `edit/*.py` / `finish.sh`.
+`video-editor/projects/same-million-reel/edit3/` (talking head + inserts + own animations) — copy `plan.py`,
+`build_aroll.py`, `prep_inserts.py`, `build_hf.py`, `finish.sh`.
 
 ## Hard rules (always)
 
@@ -44,6 +45,27 @@ Distilled from three reference reels Hakeem picked (Drive **Video Edits / Launch
 - Over 200 families helped
 - Spoken at major conferences and on panels (e.g. Wealth Summit "Assets vs Liabilities" panel, Operation HOPE panel)
 - Owner of FK Management ("Finance Keem")
+
+## 0. Make it feel edited, not generated (Hakeem's review of "Same $1 Million" v1–v2)
+
+- **His face is the backbone when it exists.** Search the library for an on-camera take of the script (the transcripts in
+  `video-editor/projects/clip-library/review/*.json` make this a grep) before building a voice-over over stills.
+- **Every library clip appears once per reel.** If the material runs out, make an animation instead of repeating a clip.
+- **Cut on his words, not on a timer:** inserts start on the noun they illustrate, punch-ins land on emphasis words,
+  a beat of near-stillness before the quotable line. Long inserts (> 4.5 s) get one punch-in halfway.
+- **Inserts must match the line** (literal > his real proof > aspirational). If no clip fits a money moment, build an
+  **own animation** (chart drawing on, counter, split cards, two-line race) on a charcoal background, in Outfit + FK
+  colours — see `same-million-reel/edit3/build_hf.py`.
+- **One text layer most of the time:** captions only (no bounce, a 0.06 s fade), the hook title above his head, cards
+  live inside the animations. No section labels over footage.
+- **Natural clip audio** at ~0.10–0.12 volume under his voice where it adds life (kids, crowd, Topgolf); never music
+  unless he asks.
+- **Handmade touches:** one consistent light grade on every clip (`eq` contrast 1.04 / saturation 1.06 + slight warmth),
+  one slow-motion moment (the end card), punch-ins instead of fake camera moves.
+- **Reuse his spoken lines:** intros and CTAs often already exist in other recordings (e.g. the "comment PLAN, I'll reach
+  out to you personally" line in `F6104414`); level-match them and use them before asking for a re-record.
+- The review pipeline for new uploads: `clip-library/dl.sh` (parallel download) → `clip-library/review.py`
+  (contact sheet + transcript per clip) → update both index copies.
 
 ## 1. Pick the format (one per reel, from what exists)
 

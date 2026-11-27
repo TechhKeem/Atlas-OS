@@ -1,0 +1,1470 @@
+{
+"aroll_end": 66.26,
+"cta_start": 66.61,
+"words": [
+{
+"text": "Two",
+"start": 0.0,
+"end": 0.28,
+"label": "hook"
+},
+{
+"text": "retirees,",
+"start": 0.28,
+"end": 0.74,
+"label": "hook"
+},
+{
+"text": "same",
+"start": 0.94,
+"end": 1.06,
+"label": "hook"
+},
+{
+"text": "$1",
+"start": 1.06,
+"end": 1.24,
+"label": "hook"
+},
+{
+"text": "million,",
+"start": 1.24,
+"end": 1.48,
+"label": "hook"
+},
+{
+"text": "the",
+"start": 1.68,
+"end": 1.88,
+"label": "hook"
+},
+{
+"text": "same",
+"start": 1.88,
+"end": 2.12,
+"label": "hook"
+},
+{
+"text": "$60",
+"start": 2.12,
+"end": 2.48,
+"label": "hook"
+},
+{
+"text": ",000",
+"start": 2.48,
+"end": 2.82,
+"label": "hook"
+},
+{
+"text": "a",
+"start": 2.82,
+"end": 3.2,
+"label": "hook"
+},
+{
+"text": "year",
+"start": 3.2,
+"end": 3.38,
+"label": "hook"
+},
+{
+"text": "to",
+"start": 3.38,
+"end": 3.72,
+"label": "hook"
+},
+{
+"text": "live",
+"start": 3.72,
+"end": 3.88,
+"label": "hook"
+},
+{
+"text": "on.",
+"start": 3.88,
+"end": 4.12,
+"label": "hook"
+},
+{
+"text": "One",
+"start": 4.32,
+"end": 4.58,
+"label": "hook"
+},
+{
+"text": "of",
+"start": 4.58,
+"end": 4.68,
+"label": "hook"
+},
+{
+"text": "them",
+"start": 4.68,
+"end": 4.8,
+"label": "hook"
+},
+{
+"text": "can",
+"start": 4.8,
+"end": 4.96,
+"label": "hook"
+},
+{
+"text": "run",
+"start": 4.96,
+"end": 5.08,
+"label": "hook"
+},
+{
+"text": "out",
+"start": 5.08,
+"end": 5.26,
+"label": "hook"
+},
+{
+"text": "of",
+"start": 5.26,
+"end": 5.34,
+"label": "hook"
+},
+{
+"text": "money,",
+"start": 5.34,
+"end": 5.56,
+"label": "hook"
+},
+{
+"text": "the",
+"start": 5.76,
+"end": 5.96,
+"label": "hook"
+},
+{
+"text": "other",
+"start": 5.96,
+"end": 6.18,
+"label": "hook"
+},
+{
+"text": "never",
+"start": 6.18,
+"end": 6.6,
+"label": "hook"
+},
+{
+"text": "will.",
+"start": 6.6,
+"end": 6.94,
+"label": "hook"
+},
+{
+"text": "Here's",
+"start": 7.26,
+"end": 7.38,
+"label": "hook"
+},
+{
+"text": "the",
+"start": 7.38,
+"end": 7.48,
+"label": "hook"
+},
+{
+"text": "difference.",
+"start": 7.48,
+"end": 7.76,
+"label": "hook"
+},
+{
+"text": "Meet",
+"start": 7.88,
+"end": 7.98,
+"label": "james"
+},
+{
+"text": "James.",
+"start": 7.98,
+"end": 8.32,
+"label": "james"
+},
+{
+"text": "He",
+"start": 8.52,
+"end": 8.66,
+"label": "james"
+},
+{
+"text": "puts",
+"start": 8.66,
+"end": 8.82,
+"label": "james"
+},
+{
+"text": "all",
+"start": 8.82,
+"end": 9.08,
+"label": "james"
+},
+{
+"text": "of",
+"start": 9.08,
+"end": 9.2,
+"label": "james"
+},
+{
+"text": "it",
+"start": 9.2,
+"end": 9.32,
+"label": "james"
+},
+{
+"text": "into",
+"start": 9.32,
+"end": 9.54,
+"label": "james"
+},
+{
+"text": "the",
+"start": 9.54,
+"end": 9.68,
+"label": "james"
+},
+{
+"text": "S",
+"start": 9.68,
+"end": 9.78,
+"label": "james"
+},
+{
+"text": "&P",
+"start": 9.78,
+"end": 10.06,
+"label": "james"
+},
+{
+"text": "500",
+"start": 10.06,
+"end": 10.38,
+"label": "james"
+},
+{
+"text": "fund,",
+"start": 10.38,
+"end": 10.84,
+"label": "james"
+},
+{
+"text": "VOO,",
+"start": 11.04,
+"end": 11.22,
+"label": "james"
+},
+{
+"text": "and",
+"start": 11.42,
+"end": 11.56,
+"label": "james"
+},
+{
+"text": "takes",
+"start": 11.56,
+"end": 11.74,
+"label": "james"
+},
+{
+"text": "out",
+"start": 11.74,
+"end": 11.94,
+"label": "james"
+},
+{
+"text": "6",
+"start": 11.94,
+"end": 12.16,
+"label": "james"
+},
+{
+"text": "%",
+"start": 12.16,
+"end": 12.42,
+"label": "james"
+},
+{
+"text": "a",
+"start": 12.42,
+"end": 12.56,
+"label": "james"
+},
+{
+"text": "year.",
+"start": 12.56,
+"end": 12.76,
+"label": "james"
+},
+{
+"text": "James",
+"start": 12.86,
+"end": 12.92,
+"label": "crash"
+},
+{
+"text": "retires",
+"start": 12.92,
+"end": 13.42,
+"label": "crash"
+},
+{
+"text": "right",
+"start": 13.42,
+"end": 13.72,
+"label": "crash"
+},
+{
+"text": "into",
+"start": 13.72,
+"end": 14.02,
+"label": "crash"
+},
+{
+"text": "a",
+"start": 14.02,
+"end": 14.28,
+"label": "crash"
+},
+{
+"text": "rough",
+"start": 14.28,
+"end": 14.46,
+"label": "crash"
+},
+{
+"text": "market,",
+"start": 14.46,
+"end": 14.9,
+"label": "crash"
+},
+{
+"text": "down",
+"start": 15.1,
+"end": 15.12,
+"label": "crash"
+},
+{
+"text": "15%,",
+"start": 15.12,
+"end": 15.9,
+"label": "crash"
+},
+{
+"text": "then",
+"start": 15.9,
+"end": 16.38,
+"label": "crash"
+},
+{
+"text": "down",
+"start": 16.38,
+"end": 16.64,
+"label": "crash"
+},
+{
+"text": "10,",
+"start": 16.64,
+"end": 16.9,
+"label": "crash"
+},
+{
+"text": "then",
+"start": 17.1,
+"end": 17.34,
+"label": "crash"
+},
+{
+"text": "down",
+"start": 17.34,
+"end": 17.78,
+"label": "crash"
+},
+{
+"text": "5.",
+"start": 17.78,
+"end": 18.14,
+"label": "crash"
+},
+{
+"text": "But",
+"start": 18.24,
+"end": 18.44,
+"label": "selling"
+},
+{
+"text": "his",
+"start": 18.44,
+"end": 18.54,
+"label": "selling"
+},
+{
+"text": "bills",
+"start": 18.54,
+"end": 18.74,
+"label": "selling"
+},
+{
+"text": "don't",
+"start": 18.74,
+"end": 18.96,
+"label": "selling"
+},
+{
+"text": "stop,",
+"start": 18.96,
+"end": 19.26,
+"label": "selling"
+},
+{
+"text": "so",
+"start": 19.54,
+"end": 19.76,
+"label": "selling"
+},
+{
+"text": "he",
+"start": 19.76,
+"end": 19.9,
+"label": "selling"
+},
+{
+"text": "needs",
+"start": 19.9,
+"end": 20.1,
+"label": "selling"
+},
+{
+"text": "to",
+"start": 20.1,
+"end": 20.26,
+"label": "selling"
+},
+{
+"text": "keep",
+"start": 20.26,
+"end": 20.42,
+"label": "selling"
+},
+{
+"text": "selling",
+"start": 20.42,
+"end": 20.82,
+"label": "selling"
+},
+{
+"text": "even",
+"start": 20.82,
+"end": 21.18,
+"label": "selling"
+},
+{
+"text": "at",
+"start": 21.18,
+"end": 21.36,
+"label": "selling"
+},
+{
+"text": "the",
+"start": 21.36,
+"end": 21.52,
+"label": "selling"
+},
+{
+"text": "bottom.",
+"start": 21.52,
+"end": 21.74,
+"label": "selling"
+},
+{
+"text": "In",
+"start": 21.74,
+"end": 22.28,
+"label": "selling"
+},
+{
+"text": "three",
+"start": 22.28,
+"end": 22.5,
+"label": "selling"
+},
+{
+"text": "years,",
+"start": 22.5,
+"end": 22.8,
+"label": "selling"
+},
+{
+"text": "his",
+"start": 22.86,
+"end": 23.06,
+"label": "selling"
+},
+{
+"text": "million",
+"start": 23.06,
+"end": 23.34,
+"label": "selling"
+},
+{
+"text": "is",
+"start": 23.34,
+"end": 23.58,
+"label": "selling"
+},
+{
+"text": "down",
+"start": 23.58,
+"end": 23.8,
+"label": "selling"
+},
+{
+"text": "to",
+"start": 23.8,
+"end": 24.02,
+"label": "selling"
+},
+{
+"text": "$575",
+"start": 24.02,
+"end": 24.82,
+"label": "selling"
+},
+{
+"text": ",000.",
+"start": 24.82,
+"end": 25.64,
+"label": "selling"
+},
+{
+"text": "meet",
+"start": 25.68,
+"end": 25.92,
+"label": "carol"
+},
+{
+"text": "Carol,",
+"start": 25.92,
+"end": 26.18,
+"label": "carol"
+},
+{
+"text": "the",
+"start": 26.24,
+"end": 26.28,
+"label": "same"
+},
+{
+"text": "same",
+"start": 26.28,
+"end": 26.52,
+"label": "same"
+},
+{
+"text": "million,",
+"start": 26.52,
+"end": 26.82,
+"label": "same"
+},
+{
+"text": "the",
+"start": 27.02,
+"end": 27.12,
+"label": "same"
+},
+{
+"text": "same",
+"start": 27.12,
+"end": 27.32,
+"label": "same"
+},
+{
+"text": "$60",
+"start": 27.32,
+"end": 27.58,
+"label": "same"
+},
+{
+"text": ",000",
+"start": 27.58,
+"end": 27.98,
+"label": "same"
+},
+{
+"text": "a",
+"start": 27.98,
+"end": 28.28,
+"label": "same"
+},
+{
+"text": "year,",
+"start": 28.28,
+"end": 28.48,
+"label": "same"
+},
+{
+"text": "same",
+"start": 28.68,
+"end": 29.12,
+"label": "same"
+},
+{
+"text": "bad",
+"start": 29.12,
+"end": 29.56,
+"label": "same"
+},
+{
+"text": "start,",
+"start": 29.56,
+"end": 29.94,
+"label": "same"
+},
+{
+"text": "but",
+"start": 30.02,
+"end": 30.3,
+"label": "income"
+},
+{
+"text": "this",
+"start": 30.3,
+"end": 30.62,
+"label": "income"
+},
+{
+"text": "time",
+"start": 30.62,
+"end": 30.96,
+"label": "income"
+},
+{
+"text": "she",
+"start": 30.96,
+"end": 31.18,
+"label": "income"
+},
+{
+"text": "buys",
+"start": 31.18,
+"end": 31.46,
+"label": "income"
+},
+{
+"text": "income",
+"start": 31.46,
+"end": 31.88,
+"label": "income"
+},
+{
+"text": "first.",
+"start": 31.88,
+"end": 32.28,
+"label": "income"
+},
+{
+"text": "She",
+"start": 32.36,
+"end": 32.58,
+"label": "pension"
+},
+{
+"text": "puts",
+"start": 32.58,
+"end": 32.8,
+"label": "pension"
+},
+{
+"text": "$500",
+"start": 32.8,
+"end": 33.38,
+"label": "pension"
+},
+{
+"text": ",000",
+"start": 33.38,
+"end": 33.8,
+"label": "pension"
+},
+{
+"text": "into",
+"start": 33.8,
+"end": 34.52,
+"label": "pension"
+},
+{
+"text": "a",
+"start": 34.52,
+"end": 34.74,
+"label": "pension"
+},
+{
+"text": "private",
+"start": 34.74,
+"end": 35.02,
+"label": "pension"
+},
+{
+"text": "pension",
+"start": 35.02,
+"end": 35.34,
+"label": "pension"
+},
+{
+"text": "account",
+"start": 35.34,
+"end": 35.7,
+"label": "pension"
+},
+{
+"text": "paying",
+"start": 35.7,
+"end": 36.02,
+"label": "pension"
+},
+{
+"text": "6",
+"start": 36.02,
+"end": 36.42,
+"label": "pension"
+},
+{
+"text": ".5%.",
+"start": 36.42,
+"end": 36.82,
+"label": "pension"
+},
+{
+"text": "That's",
+"start": 36.92,
+"end": 37.52,
+"label": "life"
+},
+{
+"text": "$32",
+"start": 37.52,
+"end": 37.98,
+"label": "life"
+},
+{
+"text": ",500",
+"start": 37.98,
+"end": 39.3,
+"label": "life"
+},
+{
+"text": "every",
+"start": 39.3,
+"end": 40.24,
+"label": "life"
+},
+{
+"text": "year",
+"start": 40.24,
+"end": 40.5,
+"label": "life"
+},
+{
+"text": "for",
+"start": 40.5,
+"end": 40.74,
+"label": "life"
+},
+{
+"text": "the",
+"start": 40.74,
+"end": 40.82,
+"label": "life"
+},
+{
+"text": "rest",
+"start": 40.82,
+"end": 40.94,
+"label": "life"
+},
+{
+"text": "of",
+"start": 40.94,
+"end": 41.06,
+"label": "life"
+},
+{
+"text": "her",
+"start": 41.06,
+"end": 41.18,
+"label": "life"
+},
+{
+"text": "life,",
+"start": 41.18,
+"end": 41.42,
+"label": "life"
+},
+{
+"text": "no",
+"start": 41.6,
+"end": 41.86,
+"label": "life"
+},
+{
+"text": "matter",
+"start": 41.86,
+"end": 42.02,
+"label": "life"
+},
+{
+"text": "what",
+"start": 42.02,
+"end": 42.46,
+"label": "life"
+},
+{
+"text": "the",
+"start": 42.46,
+"end": 42.62,
+"label": "life"
+},
+{
+"text": "market",
+"start": 42.62,
+"end": 42.8,
+"label": "life"
+},
+{
+"text": "does.",
+"start": 42.8,
+"end": 43.18,
+"label": "life"
+},
+{
+"text": "But",
+"start": 43.28,
+"end": 43.4,
+"label": "less"
+},
+{
+"text": "if",
+"start": 43.4,
+"end": 43.48,
+"label": "less"
+},
+{
+"text": "the",
+"start": 43.48,
+"end": 43.62,
+"label": "less"
+},
+{
+"text": "markets",
+"start": 43.62,
+"end": 43.86,
+"label": "less"
+},
+{
+"text": "were",
+"start": 43.86,
+"end": 44.12,
+"label": "less"
+},
+{
+"text": "to",
+"start": 44.12,
+"end": 44.28,
+"label": "less"
+},
+{
+"text": "average",
+"start": 44.28,
+"end": 44.56,
+"label": "less"
+},
+{
+"text": "a",
+"start": 44.56,
+"end": 44.74,
+"label": "less"
+},
+{
+"text": "little",
+"start": 44.74,
+"end": 44.88,
+"label": "less"
+},
+{
+"text": "less,",
+"start": 44.88,
+"end": 45.24,
+"label": "less"
+},
+{
+"text": "about",
+"start": 45.44,
+"end": 45.6,
+"label": "less"
+},
+{
+"text": "6",
+"start": 45.6,
+"end": 45.84,
+"label": "less"
+},
+{
+"text": ".6%,",
+"start": 45.84,
+"end": 46.28,
+"label": "less"
+},
+{
+"text": "James",
+"start": 46.48,
+"end": 46.9,
+"label": "less"
+},
+{
+"text": "runs",
+"start": 46.9,
+"end": 47.2,
+"label": "less"
+},
+{
+"text": "out",
+"start": 47.2,
+"end": 47.42,
+"label": "less"
+},
+{
+"text": "of",
+"start": 47.42,
+"end": 47.5,
+"label": "less"
+},
+{
+"text": "money",
+"start": 47.5,
+"end": 47.66,
+"label": "less"
+},
+{
+"text": "completely.",
+"start": 47.66,
+"end": 48.16,
+"label": "less"
+},
+{
+"text": "In",
+"start": 48.26,
+"end": 48.3,
+"label": "year26"
+},
+{
+"text": "year",
+"start": 48.3,
+"end": 48.42,
+"label": "year26"
+},
+{
+"text": "26,",
+"start": 48.42,
+"end": 48.92,
+"label": "year26"
+},
+{
+"text": "Carol,",
+"start": 49.12,
+"end": 49.28,
+"label": "year26"
+},
+{
+"text": "she",
+"start": 49.5,
+"end": 49.6,
+"label": "year26"
+},
+{
+"text": "still",
+"start": 49.6,
+"end": 49.78,
+"label": "year26"
+},
+{
+"text": "has",
+"start": 49.78,
+"end": 49.96,
+"label": "year26"
+},
+{
+"text": "money",
+"start": 49.96,
+"end": 50.18,
+"label": "year26"
+},
+{
+"text": "invested,",
+"start": 50.18,
+"end": 50.66,
+"label": "year26"
+},
+{
+"text": "and",
+"start": 50.9,
+"end": 51.1,
+"label": "year26"
+},
+{
+"text": "her",
+"start": 51.1,
+"end": 51.2,
+"label": "year26"
+},
+{
+"text": "$32",
+"start": 51.2,
+"end": 51.62,
+"label": "year26"
+},
+{
+"text": ",500",
+"start": 51.62,
+"end": 52.52,
+"label": "year26"
+},
+{
+"text": "shows",
+"start": 52.52,
+"end": 52.9,
+"label": "year26"
+},
+{
+"text": "up",
+"start": 52.9,
+"end": 53.24,
+"label": "year26"
+},
+{
+"text": "every",
+"start": 53.24,
+"end": 53.62,
+"label": "year26"
+},
+{
+"text": "year",
+"start": 53.62,
+"end": 53.86,
+"label": "year26"
+},
+{
+"text": "for",
+"start": 53.86,
+"end": 54.1,
+"label": "year26"
+},
+{
+"text": "the",
+"start": 54.1,
+"end": 54.18,
+"label": "year26"
+},
+{
+"text": "rest",
+"start": 54.18,
+"end": 54.3,
+"label": "year26"
+},
+{
+"text": "of",
+"start": 54.3,
+"end": 54.44,
+"label": "year26"
+},
+{
+"text": "her",
+"start": 54.44,
+"end": 54.56,
+"label": "year26"
+},
+{
+"text": "life.",
+"start": 54.56,
+"end": 54.76,
+"label": "year26"
+},
+{
+"text": "That's",
+"start": 54.82,
+"end": 55.38,
+"label": "lesson"
+},
+{
+"text": "the",
+"start": 55.38,
+"end": 55.56,
+"label": "lesson"
+},
+{
+"text": "sequence",
+"start": 55.56,
+"end": 55.84,
+"label": "lesson"
+},
+{
+"text": "of",
+"start": 55.84,
+"end": 56.06,
+"label": "lesson"
+},
+{
+"text": "returns",
+"start": 56.06,
+"end": 56.4,
+"label": "lesson"
+},
+{
+"text": "risk.",
+"start": 56.4,
+"end": 56.78,
+"label": "lesson"
+},
+{
+"text": "When",
+"start": 56.98,
+"end": 57.06,
+"label": "lesson"
+},
+{
+"text": "you're",
+"start": 57.06,
+"end": 57.22,
+"label": "lesson"
+},
+{
+"text": "living",
+"start": 57.22,
+"end": 57.44,
+"label": "lesson"
+},
+{
+"text": "off",
+"start": 57.44,
+"end": 57.74,
+"label": "lesson"
+},
+{
+"text": "of",
+"start": 57.74,
+"end": 57.84,
+"label": "lesson"
+},
+{
+"text": "your",
+"start": 57.84,
+"end": 57.98,
+"label": "lesson"
+},
+{
+"text": "money,",
+"start": 57.98,
+"end": 58.26,
+"label": "lesson"
+},
+{
+"text": "a",
+"start": 58.52,
+"end": 58.62,
+"label": "lesson"
+},
+{
+"text": "bad",
+"start": 58.62,
+"end": 58.84,
+"label": "lesson"
+},
+{
+"text": "start",
+"start": 58.84,
+"end": 59.18,
+"label": "lesson"
+},
+{
+"text": "can",
+"start": 59.18,
+"end": 59.76,
+"label": "lesson"
+},
+{
+"text": "break",
+"start": 59.76,
+"end": 60.02,
+"label": "lesson"
+},
+{
+"text": "your",
+"start": 60.02,
+"end": 60.24,
+"label": "lesson"
+},
+{
+"text": "plan,",
+"start": 60.24,
+"end": 60.6,
+"label": "lesson"
+},
+{
+"text": "even",
+"start": 60.8,
+"end": 61.22,
+"label": "lesson"
+},
+{
+"text": "if",
+"start": 61.22,
+"end": 61.66,
+"label": "lesson"
+},
+{
+"text": "the",
+"start": 61.66,
+"end": 61.8,
+"label": "lesson"
+},
+{
+"text": "averages",
+"start": 61.8,
+"end": 62.14,
+"label": "lesson"
+},
+{
+"text": "look",
+"start": 62.14,
+"end": 62.38,
+"label": "lesson"
+},
+{
+"text": "fine.",
+"start": 62.38,
+"end": 62.78,
+"label": "lesson"
+},
+{
+"text": "James",
+"start": 62.82,
+"end": 63.04,
+"label": "closer"
+},
+{
+"text": "is",
+"start": 63.04,
+"end": 63.28,
+"label": "closer"
+},
+{
+"text": "hoping",
+"start": 63.28,
+"end": 63.5,
+"label": "closer"
+},
+{
+"text": "that",
+"start": 63.5,
+"end": 63.74,
+"label": "closer"
+},
+{
+"text": "the",
+"start": 63.74,
+"end": 63.9,
+"label": "closer"
+},
+{
+"text": "market",
+"start": 63.9,
+"end": 64.2,
+"label": "closer"
+},
+{
+"text": "cooperates.",
+"start": 64.2,
+"end": 65.1,
+"label": "closer"
+},
+{
+"text": "Carol",
+"start": 65.3,
+"end": 65.4,
+"label": "closer"
+},
+{
+"text": "has",
+"start": 65.4,
+"end": 65.7,
+"label": "closer"
+},
+{
+"text": "a",
+"start": 65.7,
+"end": 65.88,
+"label": "closer"
+},
+{
+"text": "paycheck.",
+"start": 65.88,
+"end": 66.2,
+"label": "closer"
+},
+{
+"text": "So",
+"start": 66.67,
+"end": 66.81,
+"label": "cta"
+},
+{
+"text": "if",
+"start": 66.81,
+"end": 66.95,
+"label": "cta"
+},
+{
+"text": "you're",
+"start": 66.95,
+"end": 67.15,
+"label": "cta"
+},
+{
+"text": "someone",
+"start": 67.15,
+"end": 67.41,
+"label": "cta"
+},
+{
+"text": "who",
+"start": 67.41,
+"end": 67.65,
+"label": "cta"
+},
+{
+"text": "never",
+"start": 67.65,
+"end": 67.87,
+"label": "cta"
+},
+{
+"text": "thought",
+"start": 67.87,
+"end": 68.09,
+"label": "cta"
+},
+{
+"text": "about",
+"start": 68.09,
+"end": 68.31,
+"label": "cta"
+},
+{
+"text": "how",
+"start": 68.31,
+"end": 68.57,
+"label": "cta"
+},
+{
+"text": "to",
+"start": 68.57,
+"end": 68.69,
+"label": "cta"
+},
+{
+"text": "get",
+"start": 68.69,
+"end": 68.85,
+"label": "cta"
+},
+{
+"text": "income",
+"start": 68.85,
+"end": 69.19,
+"label": "cta"
+},
+{
+"text": "after",
+"start": 69.19,
+"end": 69.57,
+"label": "cta"
+},
+{
+"text": "you",
+"start": 69.57,
+"end": 69.75,
+"label": "cta"
+},
+{
+"text": "stop",
+"start": 69.75,
+"end": 70.01,
+"label": "cta"
+},
+{
+"text": "working,",
+"start": 70.01,
+"end": 70.45,
+"label": "cta"
+},
+{
+"text": "comment,",
+"start": 70.79,
+"end": 71.11,
+"label": "cta"
+},
+{
+"text": "PLAN,",
+"start": 71.23,
+"end": 71.55,
+"label": "cta"
+},
+{
+"text": "and",
+"start": 71.87,
+"end": 71.97,
+"label": "cta"
+},
+{
+"text": "I'll",
+"start": 71.97,
+"end": 72.15,
+"label": "cta"
+},
+{
+"text": "reach",
+"start": 72.15,
+"end": 72.27,
+"label": "cta"
+},
+{
+"text": "out",
+"start": 72.27,
+"end": 72.47,
+"label": "cta"
+},
+{
+"text": "to",
+"start": 72.47,
+"end": 72.61,
+"label": "cta"
+},
+{
+"text": "you",
+"start": 72.61,
+"end": 72.79,
+"label": "cta"
+},
+{
+"text": "personally,",
+"start": 72.79,
+"end": 73.17,
+"label": "cta"
+}
+]
+}

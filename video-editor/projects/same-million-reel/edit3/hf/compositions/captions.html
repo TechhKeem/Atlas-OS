@@ -1,0 +1,194 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; color: #FFFFFF; }
+    .bg { position: absolute; inset: 0; background: radial-gradient(120% 70% at 50% 35%, #2B3A36 0%, #20252D 62%); }
+    .grid { position: absolute; inset: 0; opacity: 0.07; background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px);
+             background-size: 90px 90px; }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.9), rgba(32,37,45,0.94)); border: 2px solid rgba(255,255,255,0.36);
+              backdrop-filter: blur(20px); border-radius: 34px; box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+    .box { display: inline-block; background: #20252D; color: #FFFFFF; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .kick { font-weight: 600; font-size: 28px; letter-spacing: 0.16em; text-transform: uppercase; color: #8FD6AE; }
+    .hl { color: #8FD6AE; }
+
+    .cap { position: absolute; left: 140px; right: 140px; bottom: 700px; text-align: center; }
+    .cap span { display: inline-block; padding: 12px 26px; border-radius: 22px; background: #20252D; color: #FFFFFF; font-weight: 600; font-size: 52px; line-height: 1.12; }
+    .cap i { font-style: normal; color: #5CA581; }
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+    <div id="cw" style="position:absolute; inset:0">
+    <div class="cap clip" id="cap0" data-start="0.000" data-duration="0.940" data-track-index="0"><span>Two retirees,</span></div>
+    <div class="cap clip" id="cap1" data-start="0.940" data-duration="0.740" data-track-index="0"><span>same <i>$1</i> million,</span></div>
+    <div class="cap clip" id="cap2" data-start="1.680" data-duration="1.140" data-track-index="0"><span>the same <i>$60,000</i></span></div>
+    <div class="cap clip" id="cap3" data-start="2.820" data-duration="0.900" data-track-index="0"><span>a year to</span></div>
+    <div class="cap clip" id="cap4" data-start="3.720" data-duration="0.600" data-track-index="0"><span>live on.</span></div>
+    <div class="cap clip" id="cap5" data-start="4.320" data-duration="0.480" data-track-index="0"><span>One of them</span></div>
+    <div class="cap clip" id="cap6" data-start="4.800" data-duration="0.460" data-track-index="0"><span>can run out</span></div>
+    <div class="cap clip" id="cap7" data-start="5.260" data-duration="0.500" data-track-index="0"><span>of money,</span></div>
+    <div class="cap clip" id="cap8" data-start="5.760" data-duration="0.840" data-track-index="0"><span>the other <i>never</i></span></div>
+    <div class="cap clip" id="cap9" data-start="6.600" data-duration="0.660" data-track-index="0"><span>will.</span></div>
+    <div class="cap clip" id="cap10" data-start="7.260" data-duration="0.620" data-track-index="0"><span>Here's the difference.</span></div>
+    <div class="cap clip" id="cap11" data-start="7.880" data-duration="0.640" data-track-index="0"><span>Meet James.</span></div>
+    <div class="cap clip" id="cap12" data-start="8.520" data-duration="0.560" data-track-index="0"><span>He puts all</span></div>
+    <div class="cap clip" id="cap13" data-start="9.080" data-duration="0.460" data-track-index="0"><span>of it into</span></div>
+    <div class="cap clip" id="cap14" data-start="9.540" data-duration="0.840" data-track-index="0"><span>the S&P 500</span></div>
+    <div class="cap clip" id="cap15" data-start="10.380" data-duration="0.660" data-track-index="0"><span>fund,</span></div>
+    <div class="cap clip" id="cap16" data-start="11.040" data-duration="0.380" data-track-index="0"><span><i>VOO,</i></span></div>
+    <div class="cap clip" id="cap17" data-start="11.420" data-duration="0.520" data-track-index="0"><span>and takes out</span></div>
+    <div class="cap clip" id="cap18" data-start="11.940" data-duration="0.920" data-track-index="0"><span><i>6%</i> a year.</span></div>
+    <div class="cap clip" id="cap19" data-start="12.860" data-duration="0.860" data-track-index="0"><span>James retires right</span></div>
+    <div class="cap clip" id="cap20" data-start="13.720" data-duration="0.740" data-track-index="0"><span>into a rough</span></div>
+    <div class="cap clip" id="cap21" data-start="14.460" data-duration="0.640" data-track-index="0"><span>market,</span></div>
+    <div class="cap clip" id="cap22" data-start="15.100" data-duration="0.800" data-track-index="0"><span>down <i>15%,</i></span></div>
+    <div class="cap clip" id="cap23" data-start="15.900" data-duration="1.200" data-track-index="0"><span>then down 10,</span></div>
+    <div class="cap clip" id="cap24" data-start="17.100" data-duration="1.140" data-track-index="0"><span>then down 5.</span></div>
+    <div class="cap clip" id="cap25" data-start="18.240" data-duration="0.500" data-track-index="0"><span>But his <i>bills</i></span></div>
+    <div class="cap clip" id="cap26" data-start="18.740" data-duration="0.800" data-track-index="0"><span>don't stop,</span></div>
+    <div class="cap clip" id="cap27" data-start="19.540" data-duration="0.560" data-track-index="0"><span>so he needs</span></div>
+    <div class="cap clip" id="cap28" data-start="20.100" data-duration="0.720" data-track-index="0"><span>to keep <i>selling</i></span></div>
+    <div class="cap clip" id="cap29" data-start="20.820" data-duration="0.700" data-track-index="0"><span>even at the</span></div>
+    <div class="cap clip" id="cap30" data-start="21.520" data-duration="0.220" data-track-index="0"><span><i>bottom.</i></span></div>
+    <div class="cap clip" id="cap31" data-start="21.740" data-duration="1.120" data-track-index="0"><span>In three years,</span></div>
+    <div class="cap clip" id="cap32" data-start="22.860" data-duration="0.720" data-track-index="0"><span>his <i>million</i> is</span></div>
+    <div class="cap clip" id="cap33" data-start="23.580" data-duration="2.100" data-track-index="0"><span>down to <i>$575,000.</i></span></div>
+    <div class="cap clip" id="cap34" data-start="25.680" data-duration="0.560" data-track-index="0"><span>Meet Carol,</span></div>
+    <div class="cap clip" id="cap35" data-start="26.240" data-duration="0.780" data-track-index="0"><span>the same <i>million,</i></span></div>
+    <div class="cap clip" id="cap36" data-start="27.020" data-duration="0.960" data-track-index="0"><span>the same <i>$60,000</i></span></div>
+    <div class="cap clip" id="cap37" data-start="27.980" data-duration="0.700" data-track-index="0"><span>a year,</span></div>
+    <div class="cap clip" id="cap38" data-start="28.680" data-duration="1.340" data-track-index="0"><span>same bad start,</span></div>
+    <div class="cap clip" id="cap39" data-start="30.020" data-duration="0.940" data-track-index="0"><span>but this time</span></div>
+    <div class="cap clip" id="cap40" data-start="30.960" data-duration="0.920" data-track-index="0"><span>she buys <i>income</i></span></div>
+    <div class="cap clip" id="cap41" data-start="31.880" data-duration="0.480" data-track-index="0"><span>first.</span></div>
+    <div class="cap clip" id="cap42" data-start="32.360" data-duration="1.440" data-track-index="0"><span>She puts <i>$500,000</i></span></div>
+    <div class="cap clip" id="cap43" data-start="33.800" data-duration="1.220" data-track-index="0"><span>into a private</span></div>
+    <div class="cap clip" id="cap44" data-start="35.020" data-duration="1.000" data-track-index="0"><span><i>pension</i> account paying</span></div>
+    <div class="cap clip" id="cap45" data-start="36.020" data-duration="0.900" data-track-index="0"><span><i>6.5%.</i></span></div>
+    <div class="cap clip" id="cap46" data-start="36.920" data-duration="3.320" data-track-index="0"><span>That's <i>$32,500</i> every</span></div>
+    <div class="cap clip" id="cap47" data-start="40.240" data-duration="0.580" data-track-index="0"><span>year for the</span></div>
+    <div class="cap clip" id="cap48" data-start="40.820" data-duration="0.360" data-track-index="0"><span>rest of her</span></div>
+    <div class="cap clip" id="cap49" data-start="41.180" data-duration="0.420" data-track-index="0"><span><i>life,</i></span></div>
+    <div class="cap clip" id="cap50" data-start="41.600" data-duration="0.860" data-track-index="0"><span>no matter what</span></div>
+    <div class="cap clip" id="cap51" data-start="42.460" data-duration="0.820" data-track-index="0"><span>the market does.</span></div>
+    <div class="cap clip" id="cap52" data-start="43.280" data-duration="0.340" data-track-index="0"><span>But if the</span></div>
+    <div class="cap clip" id="cap53" data-start="43.620" data-duration="0.660" data-track-index="0"><span>markets were to</span></div>
+    <div class="cap clip" id="cap54" data-start="44.280" data-duration="0.600" data-track-index="0"><span>average a little</span></div>
+    <div class="cap clip" id="cap55" data-start="44.880" data-duration="0.560" data-track-index="0"><span>less,</span></div>
+    <div class="cap clip" id="cap56" data-start="45.440" data-duration="1.040" data-track-index="0"><span>about <i>6.6%,</i></span></div>
+    <div class="cap clip" id="cap57" data-start="46.480" data-duration="0.940" data-track-index="0"><span>James runs out</span></div>
+    <div class="cap clip" id="cap58" data-start="47.420" data-duration="0.840" data-track-index="0"><span>of money <i>completely.</i></span></div>
+    <div class="cap clip" id="cap59" data-start="48.260" data-duration="0.860" data-track-index="0"><span>In year <i>26,</i></span></div>
+    <div class="cap clip" id="cap60" data-start="49.120" data-duration="0.380" data-track-index="0"><span>Carol,</span></div>
+    <div class="cap clip" id="cap61" data-start="49.500" data-duration="0.460" data-track-index="0"><span>she still has</span></div>
+    <div class="cap clip" id="cap62" data-start="49.960" data-duration="0.940" data-track-index="0"><span>money invested,</span></div>
+    <div class="cap clip" id="cap63" data-start="50.900" data-duration="1.620" data-track-index="0"><span>and her <i>$32,500</i></span></div>
+    <div class="cap clip" id="cap64" data-start="52.520" data-duration="1.100" data-track-index="0"><span>shows up every</span></div>
+    <div class="cap clip" id="cap65" data-start="53.620" data-duration="0.560" data-track-index="0"><span>year for the</span></div>
+    <div class="cap clip" id="cap66" data-start="54.180" data-duration="0.380" data-track-index="0"><span>rest of her</span></div>
+    <div class="cap clip" id="cap67" data-start="54.560" data-duration="0.260" data-track-index="0"><span><i>life.</i></span></div>
+    <div class="cap clip" id="cap68" data-start="54.820" data-duration="1.020" data-track-index="0"><span>That's the sequence</span></div>
+    <div class="cap clip" id="cap69" data-start="55.840" data-duration="1.140" data-track-index="0"><span>of returns <i>risk.</i></span></div>
+    <div class="cap clip" id="cap70" data-start="56.980" data-duration="0.460" data-track-index="0"><span>When you're living</span></div>
+    <div class="cap clip" id="cap71" data-start="57.440" data-duration="0.540" data-track-index="0"><span>off of your</span></div>
+    <div class="cap clip" id="cap72" data-start="57.980" data-duration="0.540" data-track-index="0"><span>money,</span></div>
+    <div class="cap clip" id="cap73" data-start="58.520" data-duration="0.660" data-track-index="0"><span>a bad start</span></div>
+    <div class="cap clip" id="cap74" data-start="59.180" data-duration="1.060" data-track-index="0"><span>can break your</span></div>
+    <div class="cap clip" id="cap75" data-start="60.240" data-duration="0.560" data-track-index="0"><span><i>plan,</i></span></div>
+    <div class="cap clip" id="cap76" data-start="60.800" data-duration="1.000" data-track-index="0"><span>even if the</span></div>
+    <div class="cap clip" id="cap77" data-start="61.800" data-duration="1.020" data-track-index="0"><span>averages look fine.</span></div>
+    <div class="cap clip" id="cap78" data-start="62.820" data-duration="0.680" data-track-index="0"><span>James is hoping</span></div>
+    <div class="cap clip" id="cap79" data-start="63.500" data-duration="0.700" data-track-index="0"><span>that the market</span></div>
+    <div class="cap clip" id="cap80" data-start="64.200" data-duration="1.100" data-track-index="0"><span>cooperates.</span></div>
+    <div class="cap clip" id="cap81" data-start="65.300" data-duration="0.580" data-track-index="0"><span>Carol has a</span></div>
+    <div class="cap clip" id="cap82" data-start="65.880" data-duration="0.570" data-track-index="0"><span><i>paycheck.</i></span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#cw", { y: -240 }, 25.680);
+    tl.set("#cw", { y: 0 }, 30.020);
+    tl.fromTo("#cap0", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 0.000);
+    tl.fromTo("#cap1", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 0.940);
+    tl.fromTo("#cap2", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 1.680);
+    tl.fromTo("#cap3", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 2.820);
+    tl.fromTo("#cap4", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 3.720);
+    tl.fromTo("#cap5", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 4.320);
+    tl.fromTo("#cap6", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 4.800);
+    tl.fromTo("#cap7", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 5.260);
+    tl.fromTo("#cap8", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 5.760);
+    tl.fromTo("#cap9", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 6.600);
+    tl.fromTo("#cap10", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 7.260);
+    tl.fromTo("#cap11", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 7.880);
+    tl.fromTo("#cap12", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 8.520);
+    tl.fromTo("#cap13", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 9.080);
+    tl.fromTo("#cap14", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 9.540);
+    tl.fromTo("#cap15", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 10.380);
+    tl.fromTo("#cap16", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 11.040);
+    tl.fromTo("#cap17", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 11.420);
+    tl.fromTo("#cap18", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 11.940);
+    tl.fromTo("#cap19", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 12.860);
+    tl.fromTo("#cap20", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 13.720);
+    tl.fromTo("#cap21", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 14.460);
+    tl.fromTo("#cap22", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 15.100);
+    tl.fromTo("#cap23", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 15.900);
+    tl.fromTo("#cap24", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 17.100);
+    tl.fromTo("#cap25", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 18.240);
+    tl.fromTo("#cap26", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 18.740);
+    tl.fromTo("#cap27", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 19.540);
+    tl.fromTo("#cap28", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 20.100);
+    tl.fromTo("#cap29", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 20.820);
+    tl.fromTo("#cap30", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 21.520);
+    tl.fromTo("#cap31", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 21.740);
+    tl.fromTo("#cap32", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 22.860);
+    tl.fromTo("#cap33", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 23.580);
+    tl.fromTo("#cap34", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 25.680);
+    tl.fromTo("#cap35", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 26.240);
+    tl.fromTo("#cap36", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 27.020);
+    tl.fromTo("#cap37", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 27.980);
+    tl.fromTo("#cap38", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 28.680);
+    tl.fromTo("#cap39", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 30.020);
+    tl.fromTo("#cap40", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 30.960);
+    tl.fromTo("#cap41", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 31.880);
+    tl.fromTo("#cap42", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 32.360);
+    tl.fromTo("#cap43", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 33.800);
+    tl.fromTo("#cap44", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 35.020);
+    tl.fromTo("#cap45", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 36.020);
+    tl.fromTo("#cap46", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 36.920);
+    tl.fromTo("#cap47", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 40.240);
+    tl.fromTo("#cap48", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 40.820);
+    tl.fromTo("#cap49", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 41.180);
+    tl.fromTo("#cap50", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 41.600);
+    tl.fromTo("#cap51", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 42.460);
+    tl.fromTo("#cap52", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 43.280);
+    tl.fromTo("#cap53", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 43.620);
+    tl.fromTo("#cap54", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 44.280);
+    tl.fromTo("#cap55", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 44.880);
+    tl.fromTo("#cap56", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 45.440);
+    tl.fromTo("#cap57", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 46.480);
+    tl.fromTo("#cap58", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 47.420);
+    tl.fromTo("#cap59", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 48.260);
+    tl.fromTo("#cap60", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 49.120);
+    tl.fromTo("#cap61", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 49.500);
+    tl.fromTo("#cap62", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 49.960);
+    tl.fromTo("#cap63", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 50.900);
+    tl.fromTo("#cap64", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 52.520);
+    tl.fromTo("#cap65", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 53.620);
+    tl.fromTo("#cap66", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 54.180);
+    tl.fromTo("#cap67", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 54.560);
+    tl.fromTo("#cap68", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 54.820);
+    tl.fromTo("#cap69", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 55.840);
+    tl.fromTo("#cap70", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 56.980);
+    tl.fromTo("#cap71", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 57.440);
+    tl.fromTo("#cap72", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 57.980);
+    tl.fromTo("#cap73", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 58.520);
+    tl.fromTo("#cap74", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 59.180);
+    tl.fromTo("#cap75", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 60.240);
+    tl.fromTo("#cap76", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 60.800);
+    tl.fromTo("#cap77", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 61.800);
+    tl.fromTo("#cap78", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 62.820);
+    tl.fromTo("#cap79", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 63.500);
+    tl.fromTo("#cap80", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 64.200);
+    tl.fromTo("#cap81", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 65.300);
+    tl.fromTo("#cap82", { opacity: 0 }, { opacity: 1, duration: 0.06 }, 65.880);
+    window.__timelines["captions"] = tl;
+  </script>
+</template>
