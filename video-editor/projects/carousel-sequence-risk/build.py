@@ -8,7 +8,7 @@ Numbers: $1M portfolio, 4% ($40K) withdrawn at the start of each year.
 import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SAGE, SAGE_L, CHAR, SOFT, RED = "#5CA581", "#8FD6AE", "#20242D", "#F6F7F9", "#F08A7E"
+SAGE, SAGE_L, CHAR, SOFT, RED = "#5CA581", "#8FD6AE", "#20252D", "#F6F7F9", "#F08A7E"
 
 BASE = f"""
 @font-face {{ font-family: 'Outfit'; font-weight: 300; src: url('fonts/outfit-latin-300-normal.woff2') format('woff2'); }}

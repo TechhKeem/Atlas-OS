@@ -43,6 +43,20 @@ All existing transcripts (Funnel Intro, Coworker Retiring, Rewards Program,
 Retirement scenes, Retirement scenes 60s) are now in **Transcripts**. If the transcript was made from the raw footage rather than the final
 cut, that is fine; Connie only needs to know what he said.
 
+## Brand colours (Hakeem's brand kit — exact hex codes)
+
+| Name | Hex | Use |
+|---|---|---|
+| Sage | `#5CA581` | Highlights, keyword colour in captions, brand mark "FK", glass-card gradient start |
+| Charcoal | `#20252D` | Caption/title boxes, gradients over photos, dark backgrounds |
+| White | `#FFFFFF` | Text on charcoal, logo plates |
+
+(Platinum `#C1C4C8` and soft white `#F6F7F9` are secondary tints only.) Older projects used `#20242D`; the brand
+charcoal is `#20252D`.
+
+**Reel titles, step labels and captions:** Outfit (Deco) text in a `#20252D` rounded box so it reads on any footage;
+white text; the one keyword per caption highlighted in sage `#5CA581`. Glass widgets stay Hakeem's signature.
+
 ## Carousel style rules (Hakeem's standing preferences)
 
 Carousels live in `video-editor/projects/carousel-*/` (HTML slides rendered to
@@ -62,11 +76,11 @@ point: `build.py`, `render.js`, `fonts/`).
   - HyperFrames bundles Outfit, so in video compositions just use
     `font-family: 'Outfit'`.
 - **Charcoal gradient on every secondary photo** (slides 2 onward): a
-  `#20242D` gradient at **60% opacity** on the side holding the text, fading
+  `#20252D` gradient at **60% opacity** on the side holding the text, fading
   out toward the subject, so the text stands out. The cover photo has no
   gradient, only a thin top band so the brand mark reads.
 - Gradient glass cards (sage → charcoal, frosted blur, white hairline border),
-  FK brand colours: charcoal `#20242D`, sage `#5CA581`, platinum `#C1C4C8`,
+  FK brand colours: charcoal `#20252D`, sage `#5CA581`, platinum `#C1C4C8`,
   soft white `#F6F7F9`.
 - Keep faces clear of cards; last slide carries an engaging question + CTA.
 - Hypothetical numbers get "Hypothetical example for illustration only. Not
