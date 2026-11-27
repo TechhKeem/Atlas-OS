@@ -2,6 +2,10 @@
 
 The video editor lives in `video-editor/` (see `video-editor/README.md`).
 
+**Making a reel? Load the `fk-reel` skill first** (`.claude/skills/fk-reel/`): script formula, format choice, b-roll
+rules, captions, glass widgets, CTA ("Comment <WORD>" → free retirement quiz at hello.financekeem.com), approved proof
+lines. Default: **no music** unless Hakeem asks for it.
+
 ## When a video is finished: deliver it (Connie reads these folders)
 
 Connie (Hakeem's content teammate in Runway) writes his captions, LinkedIn
