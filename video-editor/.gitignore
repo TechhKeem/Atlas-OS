@@ -41,3 +41,5 @@ projects/**/edit3/snaps*/
 projects/**/edit3/*.wav
 projects/**/edit3/hf/assets/*.mp4
 projects/**/edit3/hf/assets/*.m4a
+projects/**/hf/assets/
+projects/**/work-*/
