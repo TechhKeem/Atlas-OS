@@ -32,3 +32,4 @@ projects/**/edit/hf/assets/*.png
 projects/**/edit/work-*/
 projects/**/.transcode-cache/
 projects/**/.render.hf-transaction-*/
+projects/reference-examples/
