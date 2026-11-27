@@ -33,3 +33,4 @@ projects/**/edit/work-*/
 projects/**/.transcode-cache/
 projects/**/.render.hf-transaction-*/
 projects/reference-examples/
+projects/**/edit/chk/
