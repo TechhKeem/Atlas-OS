@@ -36,3 +36,4 @@ projects/reference-examples/
 projects/**/edit/chk/
 projects/clip-library/
 projects/**/edit/place/
+__pycache__/
