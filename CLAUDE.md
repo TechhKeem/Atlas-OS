@@ -2,29 +2,32 @@
 
 The video editor lives in `video-editor/` (see `video-editor/README.md`).
 
-## When a video is finished: hand it to Connie
+## When a video is finished: deliver it (Connie reads these folders)
 
 Connie (Hakeem's content teammate in Runway) writes his captions, LinkedIn
-posts and weekly blog from what he says in each video. She reads two things
-from his Google Drive folder **Video Edits / Launch Video**:
+posts and weekly blog from what he says in each video. Hakeem's Drive folder
+**Video Edits / Launch Video** (`1SIV9qes_1DIQ-1S2dND7uG-koyP5ck-N`) has these
+subfolders for delivery:
 
-1. The finished video itself (`<Title>.mp4`).
-2. Its transcript, saved next to it as **`<Title>.transcript.json`**, using the
-   exact same title as the video file. Example:
-   `Coworker Retiring.mp4` and `Coworker Retiring.transcript.json`.
+| Folder | Drive folder ID | What goes in it |
+|---|---|---|
+| **Finished Reels** | `1GCmBF_vTQfM2XN3jklL1fgN7HNKoXIoQ` | Every finished video, as `<Title>.mp4` |
+| **Transcripts** | `18Yy4QwhEpjK4fpqKyfZ3Vrpy3MnRK2L3` | Every transcript, as `<Title>.transcript.json` (same title as the video) |
+| **Logos** | `1E_-GLiBbTI3HTWxmtnoknGegBbBCHYC_` | Brand logos to use on end cards, watermarks, carousels |
 
-So, as the last step of every finished edit:
+As the last step of every finished edit:
 
-- Upload `edit/final.mp4` to **Video Edits / Launch Video** under the video's
-  title, if it is not there already.
-- Upload the transcript JSON the edit used (`edit/transcripts/<name>.json`, the
-  Scribe-compatible file from `video-editor/tools/transcribe_local.py` or
-  ElevenLabs Scribe) to the same folder as `<Title>.transcript.json`, with
-  content type `application/json` and no conversion to a Google Doc.
-- Tell Hakeem in one line that both are in the folder.
+- Upload `edit/final.mp4` to **Finished Reels** as `<Title>.mp4`. The Drive
+  connector only uploads files up to ~3 MB per call, so for larger videos tell
+  Hakeem to drop the file there himself and say so in one line.
+- Upload the transcript JSON the edit used (`edit/transcripts/<name>.json`) to
+  **Transcripts** as `<Title>.transcript.json`, content type `application/json`,
+  no conversion to a Google Doc.
+- Tell Hakeem in one line what is in each folder.
 
-If the transcript was made from the raw footage rather than the final cut,
-that is fine; Connie only needs to know what he said.
+All existing transcripts (Funnel Intro, Coworker Retiring, Rewards Program,
+Retirement scenes, Retirement scenes 60s) are now in **Transcripts**. If the transcript was made from the raw footage rather than the final
+cut, that is fine; Connie only needs to know what he said.
 
 ## Carousel style rules (Hakeem's standing preferences)
 
