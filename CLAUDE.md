@@ -66,5 +66,5 @@ Both folders live inside **Video Edits / Launch Video**. Use them whenever an ed
 
 - List contents with the Drive search tool (`'<folder id>' in ancestors`). Pick clips by what the line needs; prefer Authority over B Roll whenever the script is about who Hakeem is or why to trust him.
 - Downloading: files are private by default. Download via `https://drive.usercontent.google.com/download?id=<id>&export=download&confirm=t` only works when the file (or its folder) is shared "Anyone with the link". If a download returns HTML, ask Hakeem to share the folder that way; never change sharing yourself.
-- Keep an index of what's in each folder at `video-editor/broll-index.md` (filename, type, length/size, a one-line description of the shot) once files have been reviewed, so later edits can pick clips without re-downloading.
+- The shot index lives in two places: the Google Sheet **B-Roll Index** in Launch Video (ID `1Y11wfNZjpcsWvLU9L5Y5SdPh96V_7r2rXbWJsr97E8c`) and `video-editor/broll-index.md`. Search it first when picking b-roll; update both when new files are reviewed. The Drive connector cannot rename or move Hakeem's files, so the index is the naming layer.
 - HEIC photos: convert to JPG with ffmpeg before use. iPhone .MOV is fine (HEVC); re-encode to H.264 with `-g 30` before putting it in a HyperFrames project.
