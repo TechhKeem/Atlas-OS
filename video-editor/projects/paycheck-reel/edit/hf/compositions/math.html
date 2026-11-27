@@ -1,0 +1,47 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; color: #fff; }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.9), rgba(32,36,45,0.92)); border: 2px solid rgba(255,255,255,0.38);
+              backdrop-filter: blur(20px); border-radius: 40px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+    .band { position: absolute; left: 100px; right: 180px; top: 600px; }
+    .kick { font-weight: 600; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: #8FD6AE; }
+    .hl { color: #8FD6AE; }
+
+
+    .eq { position: absolute; left: 100px; right: 180px; bottom: 830px; padding: 30px 40px 26px; }
+    .ln { display: flex; align-items: center; font-size: 46px; font-weight: 500; padding: 12px 0; height: 72px; overflow: hidden; box-sizing: border-box; }
+    .ln b { font-weight: 700; font-size: 50px; width: 56px; color: #fff; }
+    .eq .kick { color: #fff; opacity: 0.92; }
+    .rule { height: 3px; background: rgba(255,255,255,0.5); margin: 10px 0 6px; transform-origin: left center; }
+    .res { display: flex; align-items: center; gap: 18px; font-size: 44px; font-weight: 600; padding: 14px 20px; border-radius: 24px; margin-top: 10px; height: 86px; overflow: hidden; box-sizing: border-box; }
+    .res i { font-style: normal; display: inline-flex; width: 58px; height: 58px; border-radius: 29px; align-items: center; justify-content: center; font-weight: 700; font-size: 40px; }
+    .pos { background: rgba(143,214,174,0.22); } .pos i { background: #8FD6AE; color: #20242D; }
+    .neg { background: rgba(193,196,200,0.18); } .neg i { background: #C1C4C8; color: #20242D; }
+  </style>
+  <div id="root" data-composition-id="math" data-width="1080" data-height="1920">
+    <div class="eq glass" id="eq">
+      <div class="kick" id="ek">Can he retire? The math</div>
+      <div class="ln" id="l1"><b></b><span>Private pension income</span></div>
+      <div class="ln" id="l2"><b>+</b><span>Social Security</span></div>
+      <div class="ln" id="l3"><b>&minus;</b><span>Monthly expenses</span></div>
+      <div class="rule" id="ru"></div>
+      <div class="res pos" id="p1"><i>+</i><span>Positive? <span class="hl">Retire today.</span></span></div>
+      <div class="res neg" id="n1"><i>&minus;</i><span>Negative? We fix the gap.</span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#eq", { opacity: 0, y: 80, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "power4.out" }, 0.00);
+    tl.fromTo("#ek", { opacity: 0, y: 20, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power4.out" }, 0.20);
+    tl.fromTo("#l1", { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power4.out" }, 0.35);
+    tl.fromTo("#l2", { height: 0, paddingTop: 0, paddingBottom: 0, opacity: 0 }, { height: 72, paddingTop: 12, paddingBottom: 12, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.89);
+    tl.fromTo("#l3", { height: 0, paddingTop: 0, paddingBottom: 0, opacity: 0 }, { height: 72, paddingTop: 12, paddingBottom: 12, opacity: 1, duration: 0.45, ease: "power3.out" }, 4.15);
+    tl.fromTo("#ru", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.inOut" }, 5.29);
+    tl.fromTo("#p1", { height: 0, paddingTop: 0, paddingBottom: 0, opacity: 0 }, { height: 86, paddingTop: 14, paddingBottom: 14, opacity: 1, duration: 0.45, ease: "power3.out" }, 6.60);
+    tl.fromTo("#p1", { scale: 1 }, { scale: 1.05, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, 8.43);
+    tl.fromTo("#n1", { height: 0, paddingTop: 0, paddingBottom: 0, opacity: 0 }, { height: 86, paddingTop: 14, paddingBottom: 14, opacity: 1, duration: 0.45, ease: "power3.out" }, 9.42);
+    tl.to("#eq", { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.28, ease: "power2.in" }, 12.95);
+    window.__timelines["math"] = tl;
+  </script>
+</template>

@@ -6,7 +6,7 @@ P = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 A = os.path.join(P, "edit", "hf", "assets")
 STILLS = {  # name: focus x (0-1)
     "8720_sunset": 0.58, "8718_phone": 0.5, "6364_courtyard": 0.44, "8770_profile": 0.52,
-    "6425_handshake": 0.47, "7105_hillside": 0.6, "7358_hope_speaking": 0.6, "wsl22_headshot": 0.5,
+    "6425_handshake": 0.47, "7105_hillside": 0.6, "7358_hope_speaking": 0.6, "wsl22_headshot": 0.5, "wsl6_portrait": 0.5,
 }
 for n, fx in STILLS.items():
     im = ImageOps.exif_transpose(Image.open(os.path.join(P, "photos", n + ".jpg"))).convert("RGB")
