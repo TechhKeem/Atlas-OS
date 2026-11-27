@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #20252D; }
+      #root { position: relative; width: 100%; height: 100%; font-family: 'Outfit', sans-serif; background: #20252D; }
+      .shot { transform-origin: 50% 40%; }
+      /* FK rule: charcoal #20252D at 60% on the text side, fading toward the subject */
+      #grad { position: absolute; inset: 0; z-index: 3; pointer-events: none;
+               background: linear-gradient(to top, rgba(32,37,45,0.6) 0%, rgba(32,37,45,0.6) 46%, rgba(32,37,45,0.12) 68%, rgba(32,37,45,0) 78%),
+                           linear-gradient(to bottom, rgba(32,37,45,0.35) 0%, rgba(32,37,45,0) 18%); }
+      #gradEnd { position: absolute; inset: 0; z-index: 4; background: linear-gradient(to top, rgba(32,37,45,0.95) 0%, rgba(32,37,45,0.88) 40%, rgba(32,37,45,0.25) 64%, rgba(32,37,45,0.05) 80%); }
+      #flash { position: absolute; inset: 0; z-index: 9; background: #F6F7F9; opacity: 0; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="68.38" data-width="1080" data-height="1920">
+      <img id="s1" class="clip shot" src="assets/7358_hope_speaking.jpg" data-start="0.00" data-duration="2.4" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s2" class="clip shot" src="assets/6405_ws_stage.jpg" data-start="2.40" data-duration="2.8" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s3" class="clip shot" src="assets/8770_profile.jpg" data-start="5.20" data-duration="2.1" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s4" class="clip shot" src="assets/7020_procon.jpg" data-start="7.30" data-duration="2.39" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s5" class="clip shot" src="assets/8718_phone.jpg" data-start="9.69" data-duration="2.91" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s6" class="clip shot" src="assets/6364_courtyard.jpg" data-start="12.60" data-duration="3.02" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s7" class="clip shot" src="assets/7105_hillside.jpg" data-start="15.62" data-duration="2.98" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s8" class="clip shot" src="assets/6361_walking.jpg" data-start="18.60" data-duration="3.21" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s9" class="clip shot" src="assets/8720_sunset.jpg" data-start="21.81" data-duration="3.39" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s10" class="clip shot" src="assets/7356_seated_phone.jpg" data-start="25.20" data-duration="4.2" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s11" class="clip shot" src="assets/6425_handshake.jpg" data-start="29.40" data-duration="2.24" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <video id="s12" class="clip shot" src="assets/8752_camera_crew.mp4" data-start="31.64" data-duration="2.49" data-track-index="0" muted playsinline style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1"></video>
+      <img id="s13" class="clip shot" src="assets/6751_mug.jpg" data-start="34.13" data-duration="2.37" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s14" class="clip shot" src="assets/8793_rooftop.jpg" data-start="36.50" data-duration="2.34" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <video id="s15" class="clip shot" src="assets/5362_cornhole_child.mp4" data-start="38.84" data-duration="3.16" data-track-index="0" muted playsinline style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1"></video>
+      <img id="s16" class="clip shot" src="assets/8750_micup.jpg" data-start="42.00" data-duration="3.35" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <video id="s17" class="clip shot" src="assets/0985_stage.mp4" data-start="45.35" data-duration="3.25" data-track-index="0" muted playsinline style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1"></video>
+      <img id="s18" class="clip shot" src="assets/6414_ws_group.jpg" data-start="48.60" data-duration="2.22" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s19" class="clip shot" src="assets/8739_lounge.jpg" data-start="50.82" data-duration="3.38" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s20" class="clip shot" src="assets/6430_posed.jpg" data-start="54.20" data-duration="3.53" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <img id="s21" class="clip shot" src="assets/wsl22_headshot.jpg" data-start="57.73" data-duration="10.65" data-track-index="0" alt="" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; z-index:1">
+      <div id="grad"></div>
+      <div id="gradEnd" class="clip" data-start="61.58" data-duration="6.80" data-track-index="3"></div>
+      <div id="flash"></div>
+      <audio id="vo" class="clip" src="assets/vo.m4a" data-start="0" data-duration="68.38" data-track-index="4" data-volume="1"></audio>
+      <div id="title" data-composition-id="title" data-composition-src="compositions/title.html" data-start="0.00" data-duration="9.69" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="lab1" data-composition-id="lab1" data-composition-src="compositions/lab1.html" data-start="9.69" data-duration="19.71" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="lab2" data-composition-id="lab2" data-composition-src="compositions/lab2.html" data-start="29.40" data-duration="15.95" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="lab3" data-composition-id="lab3" data-composition-src="compositions/lab3.html" data-start="45.35" data-duration="12.38" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="james" data-composition-id="james" data-composition-src="compositions/james.html" data-start="9.69" data-duration="19.71" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="carol" data-composition-id="carol" data-composition-src="compositions/carol.html" data-start="29.40" data-duration="15.95" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="result" data-composition-id="result" data-composition-src="compositions/result.html" data-start="45.35" data-duration="12.38" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="endcard" data-composition-id="endcard" data-composition-src="compositions/endcard.html" data-start="61.58" data-duration="6.80" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:8"></div>
+      <div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-start="0.00" data-duration="61.58" data-track-index="2" data-track-kind="captions" data-width="1080" data-height="1920" style="z-index:7"></div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#s1", { scale: 1.14, y: 0 }, { scale: 1.04, y: 0, duration: 2.4, ease: "none" }, 0.00);
+      tl.fromTo("#s2", { scale: 1.0, y: 0 }, { scale: 1.08, y: 0, duration: 2.8, ease: "none" }, 2.40);
+      tl.fromTo("#s3", { scale: 1.12, y: 0 }, { scale: 1.02, y: 0, duration: 2.1, ease: "none" }, 5.20);
+      tl.fromTo("#s4", { scale: 1.12, y: 0 }, { scale: 1.04, y: 0, duration: 2.39, ease: "none" }, 7.30);
+      tl.fromTo("#s5", { scale: 1.0, y: 0 }, { scale: 1.08, y: 0, duration: 2.91, ease: "none" }, 9.69);
+      tl.fromTo("#s6", { scale: 1.1, y: 0 }, { scale: 1.02, y: 0, duration: 3.02, ease: "none" }, 12.60);
+      tl.fromTo("#s7", { scale: 1.0, y: 0 }, { scale: 1.08, y: 0, duration: 2.98, ease: "none" }, 15.62);
+      tl.fromTo("#s8", { scale: 1.1, y: 0 }, { scale: 1.02, y: 0, duration: 3.21, ease: "none" }, 18.60);
+      tl.fromTo("#s9", { scale: 1.0, y: 0 }, { scale: 1.08, y: 0, duration: 3.39, ease: "none" }, 21.81);
+      tl.fromTo("#s10", { scale: 1.1, y: 0 }, { scale: 1.03, y: 0, duration: 4.2, ease: "none" }, 25.20);
+      tl.fromTo("#s11", { scale: 1.12, y: 0 }, { scale: 1.04, y: 0, duration: 2.24, ease: "none" }, 29.40);
+      tl.fromTo("#s12", { scale: 1.06, y: 0 }, { scale: 1.0, y: 0, duration: 2.49, ease: "none" }, 31.64);
+      tl.fromTo("#s13", { scale: 1.0, y: 0 }, { scale: 1.08, y: 0, duration: 2.37, ease: "none" }, 34.13);
+      tl.fromTo("#s14", { scale: 1.1, y: 0 }, { scale: 1.02, y: 0, duration: 2.34, ease: "none" }, 36.50);
+      tl.fromTo("#s15", { scale: 1.0, y: 0 }, { scale: 1.05, y: 0, duration: 3.16, ease: "none" }, 38.84);
+      tl.fromTo("#s16", { scale: 1.1, y: 0 }, { scale: 1.02, y: 0, duration: 3.35, ease: "none" }, 42.00);
+      tl.fromTo("#s17", { scale: 1.0, y: 0 }, { scale: 1.06, y: 0, duration: 3.25, ease: "none" }, 45.35);
+      tl.fromTo("#s18", { scale: 1.1, y: 0 }, { scale: 1.02, y: 0, duration: 2.22, ease: "none" }, 48.60);
+      tl.fromTo("#s19", { scale: 1.0, y: 0 }, { scale: 1.08, y: 0, duration: 3.38, ease: "none" }, 50.82);
+      tl.fromTo("#s20", { scale: 1.1, y: 0 }, { scale: 1.02, y: 0, duration: 3.53, ease: "none" }, 54.20);
+      tl.fromTo("#s21", { scale: 1.04, y: 0 }, { scale: 1.12, y: -130, duration: 10.65, ease: "none" }, 57.73);
+      tl.fromTo("#gradEnd", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 61.58);
+      tl.fromTo("#flash", { opacity: 0.75 }, { opacity: 0, duration: 0.28, ease: "power2.out", immediateRender: false }, 29.40);
+      tl.fromTo("#flash", { opacity: 0.75 }, { opacity: 0, duration: 0.28, ease: "power2.out", immediateRender: false }, 45.35);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

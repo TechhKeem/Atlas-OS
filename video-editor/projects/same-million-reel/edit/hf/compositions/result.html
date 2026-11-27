@@ -1,0 +1,39 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: 'Outfit', sans-serif; color: #FFFFFF; }
+    .glass { background: linear-gradient(140deg, rgba(92,165,129,0.92), rgba(32,37,45,0.94)); border: 2px solid rgba(255,255,255,0.38);
+              backdrop-filter: blur(20px); border-radius: 38px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+    .box { display: inline-block; background: #20252D; color: #FFFFFF; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .hl { color: #8FD6AE; }
+    .kick { font-weight: 600; font-size: 28px; letter-spacing: 0.18em; text-transform: uppercase; color: #FFFFFF; opacity: 0.92; }
+
+
+    .card { position: absolute; left: 100px; right: 180px; bottom: 830px; padding: 26px 34px 22px; }
+    .row { display: flex; align-items: center; gap: 16px; font-size: 42px; font-weight: 500; height: 64px; overflow: hidden; }
+    .row b { font-weight: 700; }
+    .chips { display: flex; gap: 14px; height: 78px; overflow: hidden; align-items: center; }
+    .chips span { font-weight: 700; font-size: 44px; padding: 6px 20px; border-radius: 18px; background: rgba(32,37,45,0.75); color: #FFFFFF; }
+    .bal { display: flex; align-items: baseline; gap: 16px; height: 86px; overflow: hidden; font-size: 34px; font-weight: 400; }
+    .bal .v { position: relative; display: inline-block; width: 330px; height: 76px; }
+    .bal .v span { position: absolute; left: 0; top: 0; font-weight: 700; font-size: 64px; letter-spacing: -0.02em; }
+    .ok, .no { display: inline-flex; width: 50px; height: 50px; border-radius: 25px; align-items: center; justify-content: center; font-weight: 700; font-size: 32px; flex: none; }
+    .ok { background: #8FD6AE; color: #20252D; } .no { background: #C1C4C8; color: #20252D; }
+    .sm { font-size: 32px; font-weight: 400; color: rgba(255,255,255,0.9); }
+  </style>
+  <div id="root" data-composition-id="result" data-width="1080" data-height="1920">
+    <div class="card glass" id="rc">
+      <div class="kick" id="rk">If the market averages 6.6%</div>
+      <div class="row" id="r1"><span class="no">&times;</span>James: <b>$0 by year 26</b></div>
+      <div class="row" id="r2"><span class="ok">&#10003;</span><span>Carol: still invested + <b class="hl">$32,500/yr</b></span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#rc", { opacity: 0, y: 60, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power4.out" }, 0.00);
+    tl.fromTo("#r1", { height: 0, opacity: 0 }, { height: 64, opacity: 1, duration: 0.42, ease: "power3.out" }, 3.96);
+    tl.fromTo("#r2", { height: 0, opacity: 0 }, { height: 64, opacity: 1, duration: 0.42, ease: "power3.out" }, 6.49);
+    tl.to("#rc", { opacity: 0, y: -30, filter: "blur(8px)", duration: 0.25, ease: "power2.in" }, 12.13);
+    window.__timelines["result"] = tl;
+  </script>
+</template>

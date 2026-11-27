@@ -1,0 +1,1290 @@
+[
+{
+"text": "Two",
+"start": 0.0,
+"end": 0.28,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "retirees,",
+"start": 0.28,
+"end": 0.74,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "same",
+"start": 1.5,
+"end": 1.62,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "$1",
+"start": 1.62,
+"end": 1.8,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "million,",
+"start": 1.8,
+"end": 2.04,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "the",
+"start": 2.78,
+"end": 2.98,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "same",
+"start": 2.98,
+"end": 3.22,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "$60",
+"start": 3.22,
+"end": 3.58,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": ",000",
+"start": 3.58,
+"end": 3.92,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "a",
+"start": 3.92,
+"end": 4.3,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "year",
+"start": 4.3,
+"end": 4.48,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "to",
+"start": 4.48,
+"end": 4.82,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "live",
+"start": 4.82,
+"end": 4.98,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "on.",
+"start": 4.98,
+"end": 5.22,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "One",
+"start": 5.78,
+"end": 6.04,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "of",
+"start": 6.04,
+"end": 6.14,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "them",
+"start": 6.14,
+"end": 6.26,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "can",
+"start": 6.26,
+"end": 6.42,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "run",
+"start": 6.42,
+"end": 6.54,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "out",
+"start": 6.54,
+"end": 6.72,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "of",
+"start": 6.72,
+"end": 6.8,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "money,",
+"start": 6.8,
+"end": 7.02,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "the",
+"start": 7.42,
+"end": 7.62,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "other",
+"start": 7.62,
+"end": 7.84,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "never",
+"start": 7.84,
+"end": 8.26,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "will.",
+"start": 8.26,
+"end": 8.6,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "Here's",
+"start": 8.92,
+"end": 9.04,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "the",
+"start": 9.04,
+"end": 9.14,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "difference.",
+"start": 9.14,
+"end": 9.42,
+"seg": 0,
+"label": "hook"
+},
+{
+"text": "Meet",
+"start": 9.69,
+"end": 9.79,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "James.",
+"start": 9.79,
+"end": 10.13,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "He",
+"start": 10.65,
+"end": 10.79,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "puts",
+"start": 10.79,
+"end": 10.95,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "all",
+"start": 10.95,
+"end": 11.21,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "of",
+"start": 11.21,
+"end": 11.33,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "it",
+"start": 11.33,
+"end": 11.45,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "into",
+"start": 11.45,
+"end": 11.67,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "the",
+"start": 11.67,
+"end": 11.81,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "S",
+"start": 11.81,
+"end": 11.91,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "&P",
+"start": 11.91,
+"end": 12.19,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "500",
+"start": 12.19,
+"end": 12.51,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "fund,",
+"start": 12.51,
+"end": 12.97,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "VOO,",
+"start": 13.35,
+"end": 13.53,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "and",
+"start": 14.03,
+"end": 14.17,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "takes",
+"start": 14.17,
+"end": 14.35,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "out",
+"start": 14.35,
+"end": 14.55,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "6",
+"start": 14.55,
+"end": 14.77,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "%",
+"start": 14.77,
+"end": 15.03,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "a",
+"start": 15.03,
+"end": 15.17,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "year.",
+"start": 15.17,
+"end": 15.37,
+"seg": 1,
+"label": "james"
+},
+{
+"text": "James",
+"start": 15.62,
+"end": 15.68,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "retires",
+"start": 15.68,
+"end": 16.18,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "right",
+"start": 16.18,
+"end": 16.48,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "into",
+"start": 16.48,
+"end": 16.78,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "a",
+"start": 16.78,
+"end": 17.04,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "rough",
+"start": 17.04,
+"end": 17.22,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "market,",
+"start": 17.22,
+"end": 17.66,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "down",
+"start": 18.2,
+"end": 18.22,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "15%,",
+"start": 18.22,
+"end": 19.0,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "then",
+"start": 19.0,
+"end": 19.48,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "down",
+"start": 19.48,
+"end": 19.74,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "10,",
+"start": 19.74,
+"end": 20.0,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "then",
+"start": 20.52,
+"end": 20.76,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "down",
+"start": 20.76,
+"end": 21.2,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "5.",
+"start": 21.2,
+"end": 21.56,
+"seg": 2,
+"label": "crash"
+},
+{
+"text": "But",
+"start": 21.81,
+"end": 22.01,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "his",
+"start": 22.01,
+"end": 22.11,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "bills",
+"start": 22.11,
+"end": 22.31,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "don't",
+"start": 22.31,
+"end": 22.53,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "stop,",
+"start": 22.53,
+"end": 22.83,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "so",
+"start": 23.11,
+"end": 23.33,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "he",
+"start": 23.33,
+"end": 23.47,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "needs",
+"start": 23.47,
+"end": 23.67,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "to",
+"start": 23.67,
+"end": 23.83,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "keep",
+"start": 23.83,
+"end": 23.99,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "selling",
+"start": 23.99,
+"end": 24.39,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "even",
+"start": 24.39,
+"end": 24.75,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "at",
+"start": 24.75,
+"end": 24.93,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "the",
+"start": 24.93,
+"end": 25.09,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "bottom.",
+"start": 25.09,
+"end": 25.31,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "In",
+"start": 25.31,
+"end": 25.85,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "three",
+"start": 25.85,
+"end": 26.07,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "years,",
+"start": 26.07,
+"end": 26.37,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "his",
+"start": 26.43,
+"end": 26.63,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "million",
+"start": 26.63,
+"end": 26.91,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "is",
+"start": 26.91,
+"end": 27.15,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "down",
+"start": 27.15,
+"end": 27.37,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "to",
+"start": 27.37,
+"end": 27.59,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "$575",
+"start": 27.59,
+"end": 28.39,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": ",000.",
+"start": 28.39,
+"end": 29.21,
+"seg": 3,
+"label": "selling"
+},
+{
+"text": "meet",
+"start": 29.4,
+"end": 29.64,
+"seg": 4,
+"label": "carol"
+},
+{
+"text": "Carol,",
+"start": 29.64,
+"end": 29.9,
+"seg": 4,
+"label": "carol"
+},
+{
+"text": "same",
+"start": 30.15,
+"end": 30.59,
+"seg": 5,
+"label": "same"
+},
+{
+"text": "bad",
+"start": 30.59,
+"end": 31.03,
+"seg": 5,
+"label": "same"
+},
+{
+"text": "start,",
+"start": 31.03,
+"end": 31.41,
+"seg": 5,
+"label": "same"
+},
+{
+"text": "but",
+"start": 31.64,
+"end": 31.92,
+"seg": 6,
+"label": "income"
+},
+{
+"text": "this",
+"start": 31.92,
+"end": 32.24,
+"seg": 6,
+"label": "income"
+},
+{
+"text": "time",
+"start": 32.24,
+"end": 32.58,
+"seg": 6,
+"label": "income"
+},
+{
+"text": "she",
+"start": 32.58,
+"end": 32.8,
+"seg": 6,
+"label": "income"
+},
+{
+"text": "buys",
+"start": 32.8,
+"end": 33.08,
+"seg": 6,
+"label": "income"
+},
+{
+"text": "income",
+"start": 33.08,
+"end": 33.5,
+"seg": 6,
+"label": "income"
+},
+{
+"text": "first.",
+"start": 33.5,
+"end": 33.9,
+"seg": 6,
+"label": "income"
+},
+{
+"text": "She",
+"start": 34.13,
+"end": 34.35,
+"seg": 7,
+"label": "pension"
+},
+{
+"text": "puts",
+"start": 34.35,
+"end": 34.57,
+"seg": 7,
+"label": "pension"
+},
+{
+"text": "$500",
+"start": 34.57,
+"end": 35.15,
+"seg": 7,
+"label": "pension"
+},
+{
+"text": ",000",
+"start": 35.15,
+"end": 35.57,
+"seg": 7,
+"label": "pension"
+},
+{
+"text": "into",
+"start": 35.57,
+"end": 36.29,
+"seg": 7,
+"label": "pension"
+},
+{
+"text": "a",
+"start": 36.29,
+"end": 36.51,
+"seg": 7,
+"label": "pension"
+},
+{
+"text": "private",
+"start": 36.51,
+"end": 36.79,
+"seg": 7,
+"label": "pension"
+},
+{
+"text": "pension",
+"start": 36.79,
+"end": 37.11,
+"seg": 7,
+"label": "pension"
+},
+{
+"text": "account",
+"start": 37.11,
+"end": 37.47,
+"seg": 7,
+"label": "pension"
+},
+{
+"text": "paying",
+"start": 37.47,
+"end": 37.79,
+"seg": 7,
+"label": "pension"
+},
+{
+"text": "6",
+"start": 37.79,
+"end": 38.19,
+"seg": 7,
+"label": "pension"
+},
+{
+"text": ".5%.",
+"start": 38.19,
+"end": 38.59,
+"seg": 7,
+"label": "pension"
+},
+{
+"text": "That's",
+"start": 38.84,
+"end": 39.44,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "$32",
+"start": 39.44,
+"end": 39.9,
+"seg": 8,
+"label": "life"
+},
+{
+"text": ",500",
+"start": 39.9,
+"end": 41.22,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "every",
+"start": 41.22,
+"end": 42.16,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "year",
+"start": 42.16,
+"end": 42.42,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "for",
+"start": 42.42,
+"end": 42.66,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "the",
+"start": 42.66,
+"end": 42.74,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "rest",
+"start": 42.74,
+"end": 42.86,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "of",
+"start": 42.86,
+"end": 42.98,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "her",
+"start": 42.98,
+"end": 43.1,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "life,",
+"start": 43.1,
+"end": 43.34,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "no",
+"start": 43.52,
+"end": 43.78,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "matter",
+"start": 43.78,
+"end": 43.94,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "what",
+"start": 43.94,
+"end": 44.38,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "the",
+"start": 44.38,
+"end": 44.54,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "market",
+"start": 44.54,
+"end": 44.72,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "does.",
+"start": 44.72,
+"end": 45.1,
+"seg": 8,
+"label": "life"
+},
+{
+"text": "But",
+"start": 45.35,
+"end": 45.47,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "if",
+"start": 45.47,
+"end": 45.55,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "the",
+"start": 45.55,
+"end": 45.69,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "markets",
+"start": 45.69,
+"end": 45.93,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "were",
+"start": 45.93,
+"end": 46.19,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "to",
+"start": 46.19,
+"end": 46.35,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "average",
+"start": 46.35,
+"end": 46.63,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "a",
+"start": 46.63,
+"end": 46.81,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "little",
+"start": 46.81,
+"end": 46.95,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "less,",
+"start": 46.95,
+"end": 47.31,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "about",
+"start": 47.69,
+"end": 47.85,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "6",
+"start": 47.85,
+"end": 48.09,
+"seg": 9,
+"label": "less"
+},
+{
+"text": ".6%,",
+"start": 48.09,
+"end": 48.53,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "James",
+"start": 48.89,
+"end": 49.31,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "runs",
+"start": 49.31,
+"end": 49.61,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "out",
+"start": 49.61,
+"end": 49.83,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "of",
+"start": 49.83,
+"end": 49.91,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "money",
+"start": 49.91,
+"end": 50.07,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "completely.",
+"start": 50.07,
+"end": 50.57,
+"seg": 9,
+"label": "less"
+},
+{
+"text": "In",
+"start": 50.82,
+"end": 50.86,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "year",
+"start": 50.86,
+"end": 50.98,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "26,",
+"start": 50.98,
+"end": 51.48,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "Carol,",
+"start": 51.84,
+"end": 52.0,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "she",
+"start": 52.22,
+"end": 52.32,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "still",
+"start": 52.32,
+"end": 52.5,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "has",
+"start": 52.5,
+"end": 52.68,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "money",
+"start": 52.68,
+"end": 52.9,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "invested,",
+"start": 52.9,
+"end": 53.38,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "and",
+"start": 53.62,
+"end": 53.82,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "her",
+"start": 53.82,
+"end": 53.92,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "$32",
+"start": 53.92,
+"end": 54.34,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": ",500",
+"start": 54.34,
+"end": 55.24,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "shows",
+"start": 55.24,
+"end": 55.62,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "up",
+"start": 55.62,
+"end": 55.96,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "every",
+"start": 55.96,
+"end": 56.34,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "year",
+"start": 56.34,
+"end": 56.58,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "for",
+"start": 56.58,
+"end": 56.82,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "the",
+"start": 56.82,
+"end": 56.9,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "rest",
+"start": 56.9,
+"end": 57.02,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "of",
+"start": 57.02,
+"end": 57.16,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "her",
+"start": 57.16,
+"end": 57.28,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "life.",
+"start": 57.28,
+"end": 57.48,
+"seg": 10,
+"label": "year26"
+},
+{
+"text": "James",
+"start": 57.73,
+"end": 57.95,
+"seg": 11,
+"label": "closer"
+},
+{
+"text": "is",
+"start": 57.95,
+"end": 58.19,
+"seg": 11,
+"label": "closer"
+},
+{
+"text": "hoping",
+"start": 58.19,
+"end": 58.41,
+"seg": 11,
+"label": "closer"
+},
+{
+"text": "that",
+"start": 58.41,
+"end": 58.65,
+"seg": 11,
+"label": "closer"
+},
+{
+"text": "the",
+"start": 58.65,
+"end": 58.81,
+"seg": 11,
+"label": "closer"
+},
+{
+"text": "market",
+"start": 58.81,
+"end": 59.11,
+"seg": 11,
+"label": "closer"
+},
+{
+"text": "cooperates.",
+"start": 59.11,
+"end": 60.01,
+"seg": 11,
+"label": "closer"
+},
+{
+"text": "Carol",
+"start": 60.53,
+"end": 60.63,
+"seg": 11,
+"label": "closer"
+},
+{
+"text": "has",
+"start": 60.63,
+"end": 60.93,
+"seg": 11,
+"label": "closer"
+},
+{
+"text": "a",
+"start": 60.93,
+"end": 61.11,
+"seg": 11,
+"label": "closer"
+},
+{
+"text": "paycheck.",
+"start": 61.11,
+"end": 61.43,
+"seg": 11,
+"label": "closer"
+}
+]

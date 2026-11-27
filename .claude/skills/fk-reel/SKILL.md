@@ -20,7 +20,7 @@ Distilled from three reference reels Hakeem picked (Drive **Video Edits / Launch
 4. **Captions always on**, in a `#20252D` rounded box, white text, **one keyword per caption in sage `#5CA581`**.
    Titles / step labels use the same box style.
 5. **CTA is "Comment <WORD>"**, never "DM me" (comments boost reach). Freebie = the free retirement quiz at
-   **hello.financekeem.com**. Default keyword `RETIRE` unless Hakeem gives another; one word, all caps.
+   **hello.financekeem.com**. Keyword is **PLAN** (Hakeem’s choice) unless he names another for a specific reel.
 6. **Proof only from the approved list** (below). Never invent stats, clients, results or credentials.
 7. **Faces stay clear** of every card, caption and widget. Text lives in the safe band: nothing in the bottom
    700 px (Reels UI) or the right 180 px (Shorts UI) of a 1080×1920 frame.
@@ -61,7 +61,7 @@ Target **55–75 s**, ~150–190 words. Write it before touching footage (or map
 3. **Three named items** — each gets a 1–3-word label ("Track it", "Number two: insurance") + ONE concrete action
    or number ("download your last 3 statements", "$10,000 earns $1 vs $400").
 4. **One relatable/funny line** somewhere in the middle (the "Italy vs Illinois" moment).
-5. **CTA** — "Comment RETIRE and I'll send you my free retirement quiz" (link is hello.financekeem.com — the
+5. **CTA** — "Comment PLAN and I'll send you my free retirement quiz" (link is hello.financekeem.com — the
    automation or Hakeem sends it). Show the freebie on screen (quiz card / page) while he says it.
 6. **Quotable closer** — one line people screenshot ("It's not about what you have, it's what it pays you").
 
@@ -87,7 +87,7 @@ b-roll from a distinct setting so sections still feel different.
 
 1. **Title** (hook only, top third, ~y 300–520): `#20252D` box, white Outfit 600 ~56 px, 1–2 lines
    ("Retirement Paycheck · 3 Steps"). Stays up through the hook.
-2. **Step label** (same spot/style): "1. COVER THE BASICS" etc.; then "Comment RETIRE" through the CTA.
+2. **Step label** (same spot/style): "1. COVER THE BASICS" etc.; then "Comment PLAN" through the CTA.
 3. **Captions** (chest height, bottom of box at y ≈ 1220): 2–4 words, white Outfit 600 ~52 px in a `#20252D` box
    (~88–100 % opacity), keyword in `#5CA581`. Group at punctuation; never over the end card.
 
@@ -101,7 +101,7 @@ margin tweens); anchor them so faces stay clear (bottom-anchored above the capti
 ## 6. End card / CTA (last 6–9 s)
 
 Headshot (Authority WSL-22 or similar) shifted so the face is clear, charcoal gradient, transparent logo
-(Logos `3-Picsart-BackgroundRemover.png`) on a soft-white plate, glass CTA card: "Comment **RETIRE**" + "for my free
+(Logos `3-Picsart-BackgroundRemover.png`) on a soft-white plate, glass CTA card: "Comment **PLAN**" + "for my free
 retirement quiz" + `hello.financekeem.com`, disclaimer ≥ 28 px held ≥ 4 s.
 
 ## 7. Pipeline (reuse `video-editor/projects/paycheck-reel/edit/`)
